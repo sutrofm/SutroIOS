@@ -69,9 +69,10 @@ class FirstViewController: UIViewController, WebSocketDelegate, RdioDelegate, RD
         println("got some text: \(text)")
         
         var json = JSON(data: text.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+        var content = json["d"]["b"]["d"]
         
         // Play Track
-        if let trackKey = json["d"]["b"]["d"]["playingTrack"]["trackKey"].string {
+        if let trackKey = content["playingTrack"]["trackKey"].string {
 //            if (trackKey != currentSource) {
                 currentSource = trackKey
                 playTrack(trackKey);
@@ -79,25 +80,24 @@ class FirstViewController: UIViewController, WebSocketDelegate, RdioDelegate, RD
         }
         
         // Seek to position
-        if let trackPosition = json["d"]["b"]["d"].double {
+        if let trackPosition = content.double {
             positionTrack(trackPosition)
-        }        
+        }
     }
     
     func positionTrack(position: Double) {
-        if self.rdio.player.state.value == RDPlayerStatePlaying.value && self.rdio.player.position != position {
-            self.rdio.player.seekToPosition(position)
-        } else {
-            self.rdio.player.play()
+        if self.rdio.player.state.value == RDPlayerStatePlaying.value && position - self.rdio.player.position > 5 {
+            //self.rdio.player.seekToPosition(position)
         }
     }
     
     func playTrack(trackKey: String ) {
+        
         self.rdio.preparePlayerWithDelegate(self);
 
-        if self.rdio.player.state.value == RDPlayerStatePlaying.value {
+//        if (self.rdio.player.state == RDPlayerStatePlaying ) {
             self.rdio.player.stop()
-        }
+//        }
         self.rdio.player.playSource(trackKey)
     }
     
