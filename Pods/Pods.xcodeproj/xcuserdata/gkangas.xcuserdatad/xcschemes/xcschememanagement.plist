@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-RdioParty-SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RdioParty-Starscream.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioParty-SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,7 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RdioPartyTests-SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RdioPartyTests-Starscream.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioPartyTests-SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,7 +44,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Starscream.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01FA129EA5EFB28F6DD5B869</key>
+		<key>006FC3294022FAFD205DA0EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3AAB4C236EF9AD15A64BD207</key>
+		<key>1A5B6573E8EF56E82ED20498</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4FCE83EC46E7631DABD0B335</key>
+		<key>3AB5841DB6B7E737B65FCBD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>615EF45DD91A073661FE641E</key>
+		<key>3B3C9693A4C463CE81F64C34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED6291F446D4B5E611C0DC51</key>
+		<key>3C7791282246E10438829407</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8F82E34B4F9E61E5DA566FA</key>
+		<key>4FA3CF3F1044929CAB1B8AC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7171BC4378307E90C2F61EC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BED16D6C077EE068CE546DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4A606E7937FF55834E7CF45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7A5420253EE5E310C824820</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7126F9884FC3247573DDB59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E096367E25D3F747424A8343</key>
 		<dict>
 			<key>primary</key>
 			<true/>

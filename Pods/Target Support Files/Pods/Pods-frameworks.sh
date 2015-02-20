@@ -48,8 +48,12 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'SocketRocket.framework'
   install_framework 'Starscream.framework'
+  install_framework 'SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'SocketRocket.framework'
   install_framework 'Starscream.framework'
+  install_framework 'SwiftyJSON.framework'
 fi
