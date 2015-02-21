@@ -7,6 +7,7 @@
 #import "RDPlayer.h"
 #import "RDAPIRequest.h"
 #import "RDError.h"
+#import "RDPlayerQueue.h"
 
 @protocol RdioDelegate;
 @class RDSession;
@@ -35,13 +36,14 @@
  *    </ul>
  *  </li>
  *  <li><b>Add <a href="http://developer.apple.com/library/mac/#qa/qa1490/_index.html">-all_load</a> under Other Linker Flags in the project build info</b></li>
+ *  <li>Add <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> and <a href="https://github.com/AFNetworking/AFOAuth2Manager">AFOAuth2Manager</a> to your project.  We recommend doing this with <a href="http://cocoapods.org/">CocoaPods</a>, but you should also be able to add the source files directly to your Xcode project.</li>
  *  <li>Try the following code in your app delegate:</li>
  * </ul>
  * \code
  *   #import <Rdio/Rdio.h>
- *   Rdio *rdio = [[Rdio alloc] initWithConsumerKey:@"YOUR KEY" andSecret:@"YOUR SECRET" delegate:nil];
+ *   Rdio *rdio = [[Rdio alloc] initWithClientId:@"YOUR CLIENT_ID" andSecret:@"YOUR CLIENT_SECRET" delegate:nil];
  *   [rdio preparePlayerWithDelegate:nil];
- *   [rdio.player playSource:@"t1"];
+ *   [rdio.player play:@"t2742133"];
  * \endcode
  *
  * Please direct feature requests and bug reports to
@@ -60,13 +62,14 @@
   RDPlayer *player_;
   RDSession *session_;
   RDAuthViewController *authViewController_;
+  UINavigationController *authNavController_;
   UIViewController *currentController_;
-  id<RdioDelegate> delegate_;
+  __unsafe_unretained id<RdioDelegate> delegate_;
   BOOL authorizingFromToken_;
 }
 
 /**
- * Initializes the Rdio API with your consumer key and secret.
+ * Initializes the Rdio API with your OAuth 1.0 consumer key and secret.
  * Visit http://www.rdio.com/developers/ to register and apply for a key.
  * @param key Your consumer key
  * @param secret Your secret
@@ -75,18 +78,67 @@
 - (id)initWithConsumerKey:(NSString *)key andSecret:(NSString *)secret delegate:(id<RdioDelegate>)delegate;
 
 /**
+ * Initializes the Rdio API with your OAuth 2.0 client id and client secret.
+ * 
+ * Note that OAuth 2.0 is only available in the iOS SDK for select partners.
+ * @param clientId Your OAuth 2.0 client id
+ * @param secret Your OAuth 2.0 client secret
+ * @param delegate Delegate for receiving state changes, or nil
+ */
+- (id)initWithClientId:(NSString *)clientId andSecret:(NSString *)clientSecret delegate:(id<RdioDelegate>)delegate;
+
+
+/**
  * Fetches a playback token and initializes the Rdio player.
- * You'll need to call this method in order to play music.
+ * You'll need to call this method or prepareSharedPlaystatePlayerWithDelegate in order to play music.
  *
  * If initialized before authenticating a user, the player will play 30 second samples.
  * If initialized after, the player will play tracks according to the user's subscription.
  * Authenticating a user after the player has been initialized will automatically
- * reinitialize the player so that it plays tracks according to the user's subscription.
+ * reinitialize the player so that it plays all subsequent tracks according to the user's subscription.
+ *
+ * Note that the automatic re-initialization will not promote a currently-playing (or paused) 30 second
+ * sample to a full track, nor will it automatically trigger re-buffering of the track.
+ * If it's desirable for your application to automatically restart the currently-playing sample as a full
+ * track, you should call `stop` and replay the track manually to ensure that the full version is played.
+ * If you don't do this, full track playback will begin at the next track.
  *
  * The instance of RDPlayer returned by this method is also accessible via `rdio.player`.
  * @param delegate An object that implements the RDPlayerDelegate protocol, which will be set as the player's delegate.
  */
 - (RDPlayer *)preparePlayerWithDelegate:(id<RDPlayerDelegate>)delegate;
+
+/**
+ * Fetches a playback token and initializes the Rdio player.
+ * You'll need to call this method or preparePlayerWithDelegate in order to play music.
+ * Using this method, the resulting player will respond to Rdio Remote Control events
+ * and will share player state with other running instances of Rdio for the same authenticated user.
+ *
+ * If this method is called without an authenticated user, then the resulting player will be demoted to
+ * an isolated player.  Due to the issues around interacting with a user's queue, the isolated player
+ * will never automatically be promoted to share playstate upon login.
+ *
+ * To reiterate, in order to share playstate, you must explicitly call this method _after_ a user has
+ * authenticated.
+ *
+ * If your app allows sample playback prior to authentication and also supports shared-playstate, we
+ * recommend that you include the following calls in your `rdioDidAuthorizeUser:accessToken:` delegate
+ * implementation:
+ *
+ * \code{.m}
+ * Rdio *rdio = [YourRdioManager sharedRdioInstance];
+ * [rdio.player stop];
+ * [rdio.player.queue removeAll];
+ * [rdio prepareSharedPlaystatePlayerWithDelegate:yourRdioDelegate];
+ * \endcode
+ *
+ * As mentioned in the `removeAll` documentation, make sure that you call that method _before_ preparing
+ * the shared-playstate player in order to clean up the local queue without wiping out the shared queue.
+ *
+ * The instance of RDPlayer returned by this method is also accessible via `rdio.player`.
+ * @param delegate An object that implements the RDPlayerDelegate protocol, which will be set as the player's delegate.
+ */
+- (RDPlayer *)prepareSharedPlaystatePlayerWithDelegate:(id<RDPlayerDelegate>)delegate;
 
 /**
  * Presents a modal login dialog and attempts to get an authorized Rdio user.
@@ -96,11 +148,11 @@
 
 /**
  * Attempts to reauthorize using an access token from a previous session.
- * If this process fails, it calls the `rdioAuthorizationFailed:` method of the RdioDelegate passed to `initWithConsumerKey:`.
- * Calling this method is the same as calling `authorizeUsingAccessToken:fromController:` with the controller set to `nil`.
- * @param accessToken A token received from a previous <code>rdioDidAuthorizeUser:withAccessToken:</code> delegate call
+ * If this process fails, it calls the `rdioAuthorizationFailed:` method of the RdioDelegate passed to `initWithConsumerKey:`
+ * (or passed to `initWithClientId:`, if you're using OAuth 2.0).
+ * @param accessToken Either an NSString token received from a previous <code>rdioDidAuthorizeUser:withAccessToken:</code> delegate call, or an AFOAuthCredential including the relevant OAuth 2.0 access and refresh token information.
  */
-- (void)authorizeUsingAccessToken:(NSString *)accessToken;
+- (void)authorizeUsingAccessToken:(id)accessToken;
 
 /**
  * Logs out the current user.  Calls <code>rdioDidLogout</code> on delegate on completion.  Clients are responsible
@@ -115,16 +167,18 @@
  * For example, if you're
  * passing the `count` parameter to an API call, you would use `@"count": @"20"`
  * instead of `@"count": @20`.
- * @param delegate An object implementing the RDAPIRequestDelegate protocol or an instance of the RDAPIRequestDelegate class, to be notified on request complete.
+ * @param success A block object to be executed when the call completes successfully.  The callback block is passed the result of the API call as an NSDictionary, and doesn't return anything.
+ * @param failure A block object to be executed with the call fails for one reason or another.  The callback block is passed an NSError argument that is created by the network stack for OAuth 1.0, or bubbled up from AFNetworking for OAuth 2.0.
  */
-- (RDAPIRequest *)callAPIMethod:(NSString *)method 
-                 withParameters:(NSDictionary *)params 
-                       delegate:(id<RDAPIRequestDelegate>)delegate;
+- (RDAPIRequest *)callAPIMethod:(NSString *)method
+                 withParameters:(NSDictionary *)params
+                        success:(void (^)(NSDictionary *result))success
+                        failure:(void (^)(NSError *error))failure;
 
 /**
  * Delegate used to receive Rdio API state changes.
  */
-@property (nonatomic, assign) id<RdioDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<RdioDelegate> delegate;
 
 /**
  * A dictionary describing the current user, or nil if no user is logged in.
@@ -153,8 +207,16 @@
  * Called when an authorize request finishes successfully.
  * @param user A dictionary containing information about the user that was authorized. See http://www.rdio.com/developers/docs/web-service/types/
  * @param accessToken A token that can be used to automatically reauthorize the current user in subsequent sessions
+ * @deprecated This method is only called when authenticating with an OAuth 1.0a client.  Authenticating with an OAuth 2.0 client will result in `rdioDidAuthorizeUser:` getting called instead.
  */
 - (void)rdioDidAuthorizeUser:(NSDictionary *)user withAccessToken:(NSString *)accessToken;
+
+/**
+ * Called when an OAuth 2.0 authorization request finishes successfully.
+ * @param user A dictionary containing information about the user that was authorized. See http://www.rdio.com/developers/docs/web-service/types/
+ */
+- (void)rdioDidAuthorizeUser:(NSDictionary *)user;
+
 
 /**
  * Called if authorization cannot be completed due to network, server, or token problems.

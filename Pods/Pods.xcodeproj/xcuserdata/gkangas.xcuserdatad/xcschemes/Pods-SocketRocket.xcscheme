@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8BED16D6C077EE068CE546DF"
+               BlueprintIdentifier = "B9D057BC23A74D27CBA251D9"
                BuildableName = "SocketRocket.framework"
                BlueprintName = "Pods-SocketRocket"
                ReferencedContainer = "container:Pods.xcodeproj">

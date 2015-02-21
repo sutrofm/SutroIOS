@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AFOAuth2Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioParty-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioParty-AFOAuth2Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RdioParty-SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +40,16 @@
 			<false/>
 		</dict>
 		<key>Pods-RdioParty.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioPartyTests-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioPartyTests-AFOAuth2Manager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,62 +97,92 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>006FC3294022FAFD205DA0EB</key>
+		<key>0C53C668C9CB75A73A4CAF40</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A5B6573E8EF56E82ED20498</key>
+		<key>14CE6B41EBEEC28B7AE7D1BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3AB5841DB6B7E737B65FCBD9</key>
+		<key>165FF1DCFC62BBD4D6A7A387</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B3C9693A4C463CE81F64C34</key>
+		<key>1A0FC407E7738DA4B80730D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C7791282246E10438829407</key>
+		<key>2125FD88CCEE35A2393AE14F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4FA3CF3F1044929CAB1B8AC1</key>
+		<key>320BDA6204F66A40EDAF103C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7171BC4378307E90C2F61EC0</key>
+		<key>336CE2B8AF0F34682B833BC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BED16D6C077EE068CE546DF</key>
+		<key>4731827D50C4C405E79258F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4A606E7937FF55834E7CF45</key>
+		<key>5336A465F3D1FAE2311B6638</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7A5420253EE5E310C824820</key>
+		<key>5FA9B6405C92EA6D76797A98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7126F9884FC3247573DDB59</key>
+		<key>749DF810E6E211A4E17D1E66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E096367E25D3F747424A8343</key>
+		<key>81D8D71A134B386F959FE088</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9D057BC23A74D27CBA251D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4EFF2A0F4EB01F297379E67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6F7D9E02DD43E0AE768B55A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3B49CD8A6BC71D9A16120E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA99C7055E11063E2AEBBEA1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B0373DCC94C1D56E56921</key>
 		<dict>
 			<key>primary</key>
 			<true/>

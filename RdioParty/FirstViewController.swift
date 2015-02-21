@@ -35,6 +35,8 @@ class FirstViewController: UIViewController, WebSocketDelegate, RdioDelegate, RD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.rdio.preparePlayerWithDelegate(self);
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -86,19 +88,29 @@ class FirstViewController: UIViewController, WebSocketDelegate, RdioDelegate, RD
     }
     
     func positionTrack(position: Double) {
-        if self.rdio.player.state.value == RDPlayerStatePlaying.value && position - self.rdio.player.position > 5 {
-            //self.rdio.player.seekToPosition(position)
+        if self.rdio.player.state.value == RDPlayerStatePlaying.value && abs(position - self.rdio.player.position) > 2 {
+            self.rdio.player.seekToPosition(position)
         }
     }
     
     func playTrack(trackKey: String ) {
         
-        self.rdio.preparePlayerWithDelegate(self);
-
-//        if (self.rdio.player.state == RDPlayerStatePlaying ) {
-            self.rdio.player.stop()
-//        }
-        self.rdio.player.playSource(trackKey)
+        if (self.rdio.player.state.value == RDPlayerStatePlaying.value ) {
+            self.rdio.player.resetQueue()
+        }
+        
+        self.rdio.player.play(trackKey)
+        getTrack(trackKey)
+    }
+    
+    func getTrack(trackKey: String) {
+        let parameters:Dictionary<NSObject, AnyObject!> = ["keys": trackKey, "extras": "-*, name, album, albumArtist, duration, gridIcon"]
+        self.rdio.callAPIMethod("get", withParameters: parameters, success: { (result) -> Void in
+            // Success
+            println(result)
+        }) { (error) -> Void in
+            // Error
+        }
     }
     
     func websocketDidReceiveData(socket: WebSocket, data: NSData) {
@@ -111,6 +123,14 @@ class FirstViewController: UIViewController, WebSocketDelegate, RdioDelegate, RD
             self.socket.connect()
         })
 
+    }
+    
+    func rdioRequest(request: RDAPIRequest!, didLoadData data: AnyObject!) {
+        println(data)
+    }
+    
+    func rdioRequest(request: RDAPIRequest!, didFailWithError error: NSError!) {
+        println(error)
     }
 
     // MARK: - RdioDelegate

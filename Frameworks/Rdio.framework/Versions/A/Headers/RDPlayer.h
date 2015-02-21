@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreMedia/CoreMedia.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "RDPlayerQueue.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,8 +17,9 @@
 typedef enum {
   RDPlayerStateInitializing, /**< Player is not ready yet */
   RDPlayerStatePaused, /**< Playback is paused */
-  RDPlayerStatePlaying, /**< Currently playing (or buffering) */
-  RDPlayerStateStopped /**< Playback is stopped */
+  RDPlayerStatePlaying, /**< Currently playing */
+  RDPlayerStateStopped, /**< Playback is stopped */
+  RDPlayerStateBuffering /**< Playback is stalled due to buffering, and will resume when enough data is available */
 } RDPlayerState;
 
 
@@ -48,12 +50,11 @@ typedef enum {
 @optional
 
 /**
- * Notification that the play queue has been updated.
+ * Notification that the current source has been updated.
  *
- * For example, when new tracks are added using the queueSource and queueSources
- * methods.
+ * For example, when the currently playing album completes and the next item in the queue is played
  */
--(void)rdioPlayerQueueDidChange;
+-(void)rdioPlayerCurrentSourceDidChange;
 
 /**
  * Notification that the specified track did not successfully finish streaming.
@@ -127,6 +128,8 @@ typedef enum {
   
   RDUserEventLog *log_;
   
+  RDPlayerQueue *queue_;
+  
   BOOL sentPlayEvent_;
   BOOL sentTimedPlayEvent_;
   BOOL sendSkipEvent_;
@@ -137,9 +140,13 @@ typedef enum {
   NSTimer *pauseTimer_;
   NSString *playerName_;
   
+  UInt8 bufferThreshold_;
+  
   NSArray *trackKeys_;
   
   id<RDPlayerDelegate> delegate_;
+
+  BOOL sharingPlaystate_;
 }
 
 /**
@@ -152,17 +159,35 @@ typedef enum {
  *
  * @param sourceKey a source key such as "t1232"
  */
--(void)playSource:(NSString *)sourceKey;
+-(void)play:(NSString *)sourceKey;
 
 /**
- * Play through a list of track keys, pre-buffering and automatically advancing
- * between songs.
+ * Starts playing a source key, such as "a236074".
  *
  * Supported source keys include tracks, albums, playlists, and artist stations.
  *
- * @param sourceKeys list of source keys
+ * Track keys can be found by calling web service API methods.
+ * Objects such as Album contain a 'trackKeys' property.
+ *
+ * @param sourceKey a source key such as "a236074"
+ * @param index The index within the source to start playback
  */
--(void)playSources:(NSArray *)sourceKeys;
+-(void)play:(NSString *)sourceKey withIndex:(int)index;
+
+/**
+ * Starts playing a source from the current Queue.
+ *
+ * @param index The index of the source in the Queue to be played.
+ */
+- (void)playFromQueue:(int)index;
+
+/**
+ * Starts playing a source from the current Queue at a specified track index.
+ *
+ * @param queueIndex The index of the source in the Queue to be played.
+ * @param sourceIndex The index of the track in the source to be played.
+ */
+- (void)playFromQueue:(int)queueIndex startingAtIndex:(int)sourceIndex;
 
 /**
  * Play the next track in the \ref RDPlayer::trackKeys "trackKeys" array.
@@ -217,42 +242,8 @@ typedef enum {
 - (void)seekToPosition:(double)positionInSeconds;
 
 /**
- * Add a source key to the end of the existing play queue
- *
- * Supported source keys include tracks, albums, playlists, and artist stations.
- *
- * @param sourceKey A source key, such as "t1232"
- */
-- (void)queueSource:(NSString*)sourceKey;
-
-/**
- * Add the list of source keys to the end of the existing play queue
- *
- * Supported source keys include tracks, albums, playlists, and artist stations.
- *
- * @param sourceKeys List of source keys, such as "t1232"
- */
-- (void)queueSources:(NSArray*)sourceKeys;
-
-/**
- * Replace the play queue with a different list of track keys.
- *
- * This method replaces the entire play queue much like RDPlayer::playSources:.
- * Unlike RDPlayer::playSources:, this method does not stop playback of the
- * current track.
- *
- * If the index does not point at the currently playing track, the method will
- * not update the queue and will return NO.
- *
- * @param sourceKeys List of track keys, such as "t1232"
- * @param index Index of the currently playing track
- * @return NO if the queue was not updated
- */
-- (BOOL)updateQueue:(NSArray*)sourceKeys withCurrentTrackIndex:(int)index;
-
-/**
- * Stops playback, releases resources and resets the queue.
- */
+  * Stops playback, releases resources and resets the current track queue.
+  */
 - (void)resetQueue;
 
 /**
@@ -301,6 +292,22 @@ typedef enum {
 - (void)removeLevelObserver:(id)observer;
 
 /**
+ * Become master player.  Only supported for Shared State Player.
+ *
+ */
+- (void)becomeMasterPlayer;
+
+/**
+ * Current playback queue.
+ */
+@property (nonatomic, readonly) RDPlayerQueue *queue;
+
+/**
+ * Current playing source
+ */
+@property (nonatomic, readonly) NSDictionary *currentSource;
+
+/**
  * Current playback state.
  */
 @property (nonatomic, readonly) RDPlayerState state;
@@ -333,7 +340,24 @@ typedef enum {
 /**
  * Delegate used to receive player state changes.
  */
-@property (nonatomic, assign) id<RDPlayerDelegate> delegate;
+@property (nonatomic, strong) id<RDPlayerDelegate> delegate;
+
+/**
+ * The number of buffers that need to be filled in order to resume playback once
+ * the player pauses to buffer in low-connectivity situations.
+ *
+ * Defaults to 128.  Set lower to buffer less (audio resumes quicker), or higher
+ * to buffer more (audio resumes slower, but is less likely to stop again), or to
+ * 0 to resume playback on the next completed packet.
+ *
+ * Setting this value propagates changes to the audio streaming engine immediately.
+ */
+@property (nonatomic, assign) UInt8 bufferThreshold;
+
+/**
+ * Player Name.
+ */
+@property (nonatomic, assign) NSString *playerName;
 
 @end
 

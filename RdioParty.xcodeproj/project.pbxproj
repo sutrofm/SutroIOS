@@ -20,8 +20,8 @@
 		25B8F0551A97C633003094C0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0541A97C633003094C0 /* CoreMedia.framework */; };
 		25B8F0571A97C637003094C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0561A97C637003094C0 /* Security.framework */; };
 		25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */; };
-		25B8F05F1A97C960003094C0 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F05E1A97C960003094C0 /* Rdio.framework */; };
-		25B8F0601A97C983003094C0 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F05E1A97C960003094C0 /* Rdio.framework */; };
+		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
+		25F785E41A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
 		9F4DC2468DB439ADF7919293 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574011301BCAD5829D2DFD3 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,7 @@
 		25B8F0561A97C637003094C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25B8F05B1A97C710003094C0 /* Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridge-Header.h"; path = "../Bridge-Header.h"; sourceTree = "<group>"; };
-		25B8F05E1A97C960003094C0 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
+		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		9574011301BCAD5829D2DFD3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D34639FC618A3ED3270E20 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E9894EF30424D4A5ACC7CE16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B8F05F1A97C960003094C0 /* Rdio.framework in Frameworks */,
+				25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */,
 				25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */,
 				25B8F0571A97C637003094C0 /* Security.framework in Frameworks */,
 				25B8F0551A97C633003094C0 /* CoreMedia.framework in Frameworks */,
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B8F0601A97C983003094C0 /* Rdio.framework in Frameworks */,
+				25F785E41A98197500CC0B89 /* Rdio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,7 @@
 		73171983C05ECBF97D50C041 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				25B8F05E1A97C960003094C0 /* Rdio.framework */,
+				25F785E21A98197500CC0B89 /* Rdio.framework */,
 				25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */,
 				25B8F0561A97C637003094C0 /* Security.framework */,
 				25B8F0541A97C633003094C0 /* CoreMedia.framework */,
@@ -457,6 +457,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RdioParty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -472,6 +473,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RdioParty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -487,6 +489,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -507,6 +510,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RdioPartyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
