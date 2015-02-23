@@ -1,0 +1,1 @@
+../../../SOMessaging/SOMessaging/NSString+Calculation.h

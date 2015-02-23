@@ -1,0 +1,6 @@
+framework module SOMessaging {
+  umbrella header "Pods-SOMessaging-umbrella.h"
+
+  export *
+  module * { export * }
+}

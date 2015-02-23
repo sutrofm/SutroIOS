@@ -10,6 +10,6 @@
 #define RdioParty_Bridging_Header_h
 
 #import <Rdio/Rdio.h>
-//#import <SocketRocket/SRWebSocket.h>
-
+#import <Firebase/Firebase.h>
+#import <SOMessaging/SOMessagingViewController.h>
 #endif

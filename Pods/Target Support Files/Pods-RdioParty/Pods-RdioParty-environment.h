@@ -54,11 +54,11 @@
 #define COCOAPODS_VERSION_MINOR_AFOAuth2Manager 0
 #define COCOAPODS_VERSION_PATCH_AFOAuth2Manager 0
 
-// SocketRocket
-#define COCOAPODS_POD_AVAILABLE_SocketRocket
-#define COCOAPODS_VERSION_MAJOR_SocketRocket 0
-#define COCOAPODS_VERSION_MINOR_SocketRocket 2
-#define COCOAPODS_VERSION_PATCH_SocketRocket 0
+// SOMessaging
+#define COCOAPODS_POD_AVAILABLE_SOMessaging
+#define COCOAPODS_VERSION_MAJOR_SOMessaging 1
+#define COCOAPODS_VERSION_MINOR_SOMessaging 0
+#define COCOAPODS_VERSION_PATCH_SOMessaging 0
 
 // Starscream
 #define COCOAPODS_POD_AVAILABLE_Starscream

@@ -1,0 +1,6 @@
+framework module SOMessaging {
+  umbrella header "Pods-RdioParty-SOMessaging-umbrella.h"
+
+  export *
+  module * { export * }
+}
