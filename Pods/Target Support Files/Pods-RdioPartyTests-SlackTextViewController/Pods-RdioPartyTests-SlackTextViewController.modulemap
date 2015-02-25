@@ -1,0 +1,6 @@
+framework module SlackTextViewController {
+  umbrella header "Pods-RdioPartyTests-SlackTextViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
