@@ -60,6 +60,18 @@
 #define COCOAPODS_VERSION_MINOR_Firebase 2
 #define COCOAPODS_VERSION_PATCH_Firebase 0
 
+// SDWebImage
+#define COCOAPODS_POD_AVAILABLE_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage 1
+
+// SDWebImage/Core
+#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
+#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
+
 // SlackTextViewController
 #define COCOAPODS_POD_AVAILABLE_SlackTextViewController
 #define COCOAPODS_VERSION_MAJOR_SlackTextViewController 1

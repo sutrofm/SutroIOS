@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "26B3F73FFCCAE82365D7612A"
+               BlueprintIdentifier = "F5EF618144CBB7425042C403"
                BuildableName = "Pods_RdioPartyTests.framework"
                BlueprintName = "Pods-RdioPartyTests"
                ReferencedContainer = "container:Pods.xcodeproj">

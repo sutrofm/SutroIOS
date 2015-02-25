@@ -8,6 +8,7 @@ pod 'AFNetworking'
 pod 'AFOAuth2Manager'
 pod 'Firebase'
 pod 'SlackTextViewController'
+pod "SDWebImage"
 
 target 'RdioParty' do
 

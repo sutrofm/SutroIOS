@@ -71,15 +71,19 @@ class ConnectionManager : NSObject, WebSocketDelegate {
             self.room.messages.append(message)
             NSNotificationCenter.defaultCenter().postNotificationName(key, object: message)
         })
-
-//        var jsonString = "{\"t\":\"d\",\"d\":{\"r\":8,\"a\":\"l\",\"b\":{\"p\":\"/\(room.name)/messages\",\"h\":\"\"}}}"
-//        self.socket.writeString(jsonString)
     }
     
     func getRoomListing() {
-        var jsonString = "{\"t\":\"d\",\"d\":{\"r\":2,\"a\":\"l\",\"b\":{\"p\":\"/rooms\",\"h\":\"\"}}}"
-        println(jsonString)
-        self.socket.writeString(jsonString)
+        let key = "rdioparty.peopleListChanged"
+        
+        var myRootRef = Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/people")
+        myRootRef.observeEventType(.ChildAdded, withBlock: {
+            snapshot in
+            var message = Message(fromSnapshot: snapshot.value as! NSObject)
+            self.room.messages.append(message)
+            NSNotificationCenter.defaultCenter().postNotificationName(key, object: message)
+        })
+
     }
     
     func joinRoom(room: Room) {

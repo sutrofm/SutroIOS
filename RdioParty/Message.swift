@@ -17,7 +17,7 @@ class Message: NSObject {
     var text :String!
 //    var messageId :String
 //    var timestamp :NSDate
-//    var person :Person!
+    var person :Person!
 
 //    class func createArray(jsonMessages: JSON) -> Array<Message> {
 //        var messages = Array<Message>()
@@ -31,7 +31,6 @@ class Message: NSObject {
 //    }
     
     init(fromSnapshot snapshot :NSObject) {
-        super.init()
 
         if let text: AnyObject = snapshot.valueForKey("message") {
             self.text = text as! String
@@ -44,10 +43,11 @@ class Message: NSObject {
 //        let dateFormatter = NSDateFormatter()
 //        self.timestamp = dateFormatter.dateFromString(json["timestamp"].stringValue)!
         
-//        if let singlePerson = ConnectionManager.sharedInstance.room.getUser(json["userKey"].stringValue) {
-//            self.person = singlePerson
-//        }
+        if let singlePerson = ConnectionManager.sharedInstance.room.getUser(snapshot.valueForKey("userKey") as! String) {
+            self.person = singlePerson
+        }
         
+        super.init()
     }
     
 }

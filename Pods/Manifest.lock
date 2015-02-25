@@ -23,6 +23,9 @@ PODS:
   - AFOAuth2Manager (2.0.0):
     - AFNetworking (~> 2.2)
   - Firebase (2.2.0)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
   - SlackTextViewController (1.4.1):
     - SlackTextViewController/Additions (= 1.4.1)
   - SlackTextViewController/Additions (1.4.1)
@@ -33,6 +36,7 @@ DEPENDENCIES:
   - AFNetworking
   - AFOAuth2Manager
   - Firebase
+  - SDWebImage
   - SlackTextViewController
   - Starscream (from `https://github.com/daltoniam/starscream.git`, branch `swift-1.2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `xcode6.3`)
@@ -57,6 +61,7 @@ SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   AFOAuth2Manager: a7726957cbc14c229b5d5d648c934453b6bb55b0
   Firebase: e7a2ea2ffeff99f9c37028b354194dcc9718d36b
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SlackTextViewController: 2dcf79adbfc49447e90256ce863c1de412199942
   Starscream: 7b58834eff655baf6ec456c5dd056ec62fd147c9
   SwiftyJSON: a561c2a840121085bec8a2dfeac97a360fc66901
