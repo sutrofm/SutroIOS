@@ -14,34 +14,40 @@ enum MessageType {
 }
 
 class Message: NSObject {
-    var message :String
-    var messageId :String
+    var text :String!
+//    var messageId :String
 //    var timestamp :NSDate
-    var person :Person!
+//    var person :Person!
 
-    class func createArray(jsonMessages: JSON) -> Array<Message> {
-        var messages = Array<Message>()
-        
-        for (key: String, subJson: JSON) in jsonMessages {
-            var message = Message(fromJson: subJson)
-            messages.append(message)
-        }
-        
-        return messages
-    }
+//    class func createArray(jsonMessages: JSON) -> Array<Message> {
+//        var messages = Array<Message>()
+//        
+//        for (key: String, subJson: JSON) in jsonMessages {
+//            var message = Message(fromJson: subJson)
+//            messages.append(message)
+//        }
+//        
+//        return messages
+//    }
     
-    init(fromJson json :JSON) {
-        self.message = json["message"].stringValue
-        self.messageId = json["id"].stringValue
+    init(fromSnapshot snapshot :NSObject) {
+        super.init()
+
+        if let text: AnyObject = snapshot.valueForKey("message") {
+            self.text = text as! String
+        }
+//        self.messageId = snapshot.valueForKey("id") as! String
         
-        let dateFormatter = NSDateFormatter()
+//        self.text = json["message"].stringValue
+//        self.messageId = json["id"].stringValue
+//        
+//        let dateFormatter = NSDateFormatter()
 //        self.timestamp = dateFormatter.dateFromString(json["timestamp"].stringValue)!
         
-        if let singlePerson = ConnectionManager.sharedInstance.room.getUser(json["userKey"].stringValue) {
-            self.person = singlePerson
-        }
+//        if let singlePerson = ConnectionManager.sharedInstance.room.getUser(json["userKey"].stringValue) {
+//            self.person = singlePerson
+//        }
         
-        super.init()
     }
     
 }

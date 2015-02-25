@@ -25,8 +25,8 @@
 		9F4DC2468DB439ADF7919293 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574011301BCAD5829D2DFD3 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
 		A03B31F71A9985A600C7424F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* ConnectionManager.swift */; };
+		A03BDEE81A9D8200007C3C54 /* Libs in Resources */ = {isa = PBXBuildFile; fileRef = A03BDEE71A9D8200007C3C54 /* Libs */; };
 		A0582E951A9A565400C37188 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomsViewController.swift */; };
-		A0582E961A9A565400C37188 /* RoomsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0582E941A9A565400C37188 /* RoomsViewController.xib */; };
 		A06931311A9A8A8500188118 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931301A9A8A8500188118 /* Firebase.framework */; };
 		A06931331A9A8AE200188118 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931321A9A8AE200188118 /* libicucore.dylib */; };
 		A06931351A9A8AE900188118 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931341A9A8AE900188118 /* libc++.dylib */; };
@@ -68,13 +68,12 @@
 		25B8F0541A97C633003094C0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		25B8F0561A97C637003094C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		25B8F05B1A97C710003094C0 /* Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridge-Header.h"; path = "../Bridge-Header.h"; sourceTree = "<group>"; };
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		9574011301BCAD5829D2DFD3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		A03BDEE71A9D8200007C3C54 /* Libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Libs; sourceTree = "<group>"; };
 		A0582E931A9A565400C37188 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
-		A0582E941A9A565400C37188 /* RoomsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomsViewController.xib; sourceTree = "<group>"; };
 		A06931301A9A8A8500188118 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Frameworks/Firebase.framework; sourceTree = "<group>"; };
 		A06931321A9A8AE200188118 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A06931341A9A8AE900188118 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -146,10 +145,11 @@
 		2591240E1A96C629003B30C5 /* RdioParty */ = {
 			isa = PBXGroup;
 			children = (
+				A03BDEE71A9D8200007C3C54 /* Libs */,
+				A04431C01A9D758D003A5E69 /* Views */,
 				A06D672B1A9AB388005722D8 /* RdioParty-Bridging-Header.h */,
 				A0582E921A9A55A600C37188 /* ViewControllers */,
 				A0BE2ED41A997E1D0050FCE5 /* Classes */,
-				25B8F05B1A97C710003094C0 /* Bridge-Header.h */,
 				259124111A96C629003B30C5 /* AppDelegate.swift */,
 				259124171A96C629003B30C5 /* Main.storyboard */,
 				2591241A1A96C629003B30C5 /* Images.xcassets */,
@@ -213,13 +213,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A04431C01A9D758D003A5E69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A0582E921A9A55A600C37188 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				259124151A96C629003B30C5 /* SecondViewController.swift */,
 				259124131A96C629003B30C5 /* FirstViewController.swift */,
 				A0582E931A9A565400C37188 /* RoomsViewController.swift */,
-				A0582E941A9A565400C37188 /* RoomsViewController.xib */,
 				A032A2181A9A993400EF5924 /* PeopleListViewController.swift */,
 			);
 			name = ViewControllers;
@@ -322,8 +328,8 @@
 			files = (
 				259124191A96C629003B30C5 /* Main.storyboard in Resources */,
 				2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */,
+				A03BDEE81A9D8200007C3C54 /* Libs in Resources */,
 				2591241B1A96C629003B30C5 /* Images.xcassets in Resources */,
-				A0582E961A9A565400C37188 /* RoomsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

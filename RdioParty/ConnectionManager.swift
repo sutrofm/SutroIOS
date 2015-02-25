@@ -62,8 +62,18 @@ class ConnectionManager : NSObject, WebSocketDelegate {
     }
     
     func getMessagesInRoom(room: Room) {
-        var jsonString = "{\"t\":\"d\",\"d\":{\"r\":8,\"a\":\"l\",\"b\":{\"p\":\"/\(room.name)/messages\",\"h\":\"\"}}}"
-        self.socket.writeString(jsonString)
+        let key = "rdioparty.messagesListChanged"
+
+        var myRootRef = Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/messages")
+        myRootRef.observeEventType(.ChildAdded, withBlock: {
+            snapshot in
+            var message = Message(fromSnapshot: snapshot.value as! NSObject)
+            self.room.messages.append(message)
+            NSNotificationCenter.defaultCenter().postNotificationName(key, object: message)
+        })
+
+//        var jsonString = "{\"t\":\"d\",\"d\":{\"r\":8,\"a\":\"l\",\"b\":{\"p\":\"/\(room.name)/messages\",\"h\":\"\"}}}"
+//        self.socket.writeString(jsonString)
     }
     
     func getRoomListing() {
@@ -76,7 +86,6 @@ class ConnectionManager : NSObject, WebSocketDelegate {
         self.room = room;
         getPlayerInRoom(room)
         getPeopleInRoom(room)
-        getMessagesInRoom(room)
     }
     
     // MARK: - Websocket callbacks
@@ -123,7 +132,7 @@ class ConnectionManager : NSObject, WebSocketDelegate {
                 
                 case "\(room.name)/messages":
                     println("*** Update messages message")
-                    self.room.updateMessages(content)
+                    messagesInRoomUpdated(content)
 //                    println(content)
                 default:
                     println("**** Unknown type: \(type)")
@@ -139,17 +148,21 @@ class ConnectionManager : NSObject, WebSocketDelegate {
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
         println("Websocket disconnected \(error)")
-        self.socket.disconnect()
-        self.socket.connect()
+        //self.socket.disconnect()
+        //self.socket.connect()
     }
         
 
     
     //MARK - Notification center
     
-    func postRoomListChangedNotification(rooms: Array<Room>) {
-        let key = "rdioparty.roomListChanged"
-        NSNotificationCenter.defaultCenter().postNotificationName(key, object: rooms)
+    func messagesInRoomUpdated(messagesJson :JSON) {
+//        var messages = Message.createArray(messagesJson)
+//        
+//        for message in messages {
+//            let key = "rdioparty.messagesListChanged"
+//            NSNotificationCenter.defaultCenter().postNotificationName(key, object: message)
+//        }
     }
-        
+    
 }

@@ -50,14 +50,14 @@ code_sign() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'AFNetworking.framework'
   install_framework 'AFOAuth2Manager.framework'
-  install_framework 'SOMessaging.framework'
+  install_framework 'SlackTextViewController.framework'
   install_framework 'Starscream.framework'
   install_framework 'SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AFNetworking.framework'
   install_framework 'AFOAuth2Manager.framework'
-  install_framework 'SOMessaging.framework'
+  install_framework 'SlackTextViewController.framework'
   install_framework 'Starscream.framework'
   install_framework 'SwiftyJSON.framework'
 fi

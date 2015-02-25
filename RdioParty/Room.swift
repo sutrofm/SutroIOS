@@ -13,10 +13,12 @@ class Room: NSObject {
     var name: String!
     var theme: String!
     
-    var messages: Array<Message>!
+    var messages: Array<Message>
     var people: Array<Person>!
 
     init(fromName name :String) {
+        self.messages = Array<Message>()
+        
         super.init()
         self.name = name
     }
@@ -26,7 +28,7 @@ class Room: NSObject {
     }
     
     func updateMessages(jsonMessages :JSON) {
-        self.messages = Message.createArray(jsonMessages)
+        //self.messages = Message.createArray(jsonMessages)
     }
     
     func getUser(rdioId :String) -> Person? {

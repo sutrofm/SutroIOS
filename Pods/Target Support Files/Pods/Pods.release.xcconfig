@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH"
+FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH" "$(PODS_ROOT)/Firebase"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFNetworking.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFOAuth2Manager.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SOMessaging.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Starscream.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SwiftyJSON.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "AFNetworking" -framework "AFOAuth2Manager" -framework "SOMessaging" -framework "Starscream" -framework "SwiftyJSON"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFNetworking.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFOAuth2Manager.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Firebase.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SlackTextViewController.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Starscream.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SwiftyJSON.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"icucore" -framework "AFNetworking" -framework "AFOAuth2Manager" -framework "CFNetwork" -framework "Firebase" -framework "Security" -framework "SlackTextViewController" -framework "Starscream" -framework "SwiftyJSON" -framework "SystemConfiguration"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 OTHER_SWIFT_FLAGS = "-D COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods

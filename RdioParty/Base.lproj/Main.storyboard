@@ -104,17 +104,49 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="49e-Tb-3d3" kind="relationship" relationship="rootViewController" id="wwq-XP-w6L"/>
+                        <segue destination="zg8-4K-77R" kind="relationship" relationship="rootViewController" id="IZ2-gX-2qQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLt-Xa-Tgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="0.0"/>
+            <point key="canvasLocation" x="-1381" y="0.0"/>
+        </scene>
+        <!--Rooms View Controller-->
+        <scene sceneID="TyM-1e-PV4">
+            <objects>
+                <viewController id="zg8-4K-77R" customClass="RoomsViewController" customModule="RdioParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Omn-Tb-pIh"/>
+                        <viewControllerLayoutGuide type="bottom" id="0x1-J9-0iW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m6M-G2-zr8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hKz-lV-Ek5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zg8-4K-77R" id="q2P-Gq-dCS"/>
+                                    <outlet property="delegate" destination="zg8-4K-77R" id="Iav-h0-VKc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="d1a-PX-9Be"/>
+                    <connections>
+                        <outlet property="roomsTableView" destination="hKz-lV-Ek5" id="uiQ-X4-myW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K8c-gB-rtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabAppController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ybK-Lw-1hD"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">

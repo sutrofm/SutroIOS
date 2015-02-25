@@ -1,1 +1,0 @@
-../../../SOMessaging/SOMessaging/SOMessagingViewController.h

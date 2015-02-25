@@ -1,1 +1,0 @@
-../../../SOMessaging/SOMessaging/SOMessageCell.h

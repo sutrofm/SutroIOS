@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C10EAE1F01F24159A4D2B733"
+               BlueprintIdentifier = "877AE2D91BC07EFA0C91E68E"
                BuildableName = "AFOAuth2Manager.framework"
                BlueprintName = "Pods-RdioPartyTests-AFOAuth2Manager"
                ReferencedContainer = "container:Pods.xcodeproj">

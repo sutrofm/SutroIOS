@@ -10,9 +10,9 @@ import UIKit
 import Starscream
 import Foundation
 import SwiftyJSON
-import SOMessaging
+import SlackTextViewController
 
-class FirstViewController: SOMessagingViewController, SOMessagingDataSource, SOMessagingDelegate {
+class FirstViewController: SLKTextViewController {
 
 //    var socket: WebSocket
 //    var rdio: Rdio
@@ -23,21 +23,26 @@ class FirstViewController: SOMessagingViewController, SOMessagingDataSource, SOM
     
      required init(coder aDecoder: NSCoder) {
         
-//        var hostName = "s-dal5-nss-18.firebaseio.com"
-//        var url = NSURL(scheme: "wss", host: hostName, path: "/.ws?v=5&ns=rdioparty")
-//        
-//        self.socket = WebSocket(url:url!)
+//
 //        self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
-        super.init(coder: aDecoder)
+        super.init(tableViewStyle: UITableViewStyle.Plain)
+        self.inverted = true
+        //super.init(coder: aDecoder)
 //        self.rdio.delegate = self
-//        self.socket.delegate = self
-        
+
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = ConnectionManager.sharedInstance.room.name
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messagesUpdated:", name: "rdioparty.messagesListChanged", object: nil)
+                
         // Do any additional setup after loading the view, typically from a nib.
+        ConnectionManager.sharedInstance.getMessagesInRoom(ConnectionManager.sharedInstance.room)
     
     }
     
@@ -46,10 +51,6 @@ class FirstViewController: SOMessagingViewController, SOMessagingDataSource, SOM
             let roomvc = RoomsViewController(nibName: "RoomsViewController", bundle: nil)
             self.presentViewController(roomvc, animated: false, completion: nil)
         }
-
-//        if (!authenticated) {
-////            authenticate()
-//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,32 +58,38 @@ class FirstViewController: SOMessagingViewController, SOMessagingDataSource, SOM
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Messaging
-    override func messages() -> NSMutableArray! {
-        // Return messages
+    func messagesUpdated(notification: NSNotification) {
+        self.tableView.reloadData()
+//        var messageObject: AnyObject? = notification.object as! Message
+//        if let messageObject = messageObject as? Message {
+//        }
+
+
+//        self.refreshMessages()
+    }
+    
+    override func didCommitTextEditing(sender: AnyObject!) {
+        if let textInput = sender as? UITextView {
+            
+        }
+        super.didCommitTextEditing(sender)
+    }
+    
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var message = ConnectionManager.sharedInstance.room.messages[indexPath.row]
         
-        return nil
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        cell.textLabel?.text = message.text
+        cell.transform = self.tableView.transform
+
+        return cell
     }
     
-    override func configureMessageCell(cell: SOMessageCell!, forMessageAtIndex index: Int) {
-        //
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ConnectionManager.sharedInstance.room.messages.count
     }
     
-    override func didSelectMedia(media: NSData!, inMessageCell cell: SOMessageCell!) {
-        //
-    }
-    
-    override func messageInputView(inputView: SOMessageInputView!, didSendMessage message: String!) {
-        //
-    }
-    
-    override func messageInputViewDidSelectMediaButton(inputView: SOMessageInputView!) {
-        //
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        return false;
-    }
     
 
 //    func authenticate() {

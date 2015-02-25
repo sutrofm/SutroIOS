@@ -54,11 +54,23 @@
 #define COCOAPODS_VERSION_MINOR_AFOAuth2Manager 0
 #define COCOAPODS_VERSION_PATCH_AFOAuth2Manager 0
 
-// SOMessaging
-#define COCOAPODS_POD_AVAILABLE_SOMessaging
-#define COCOAPODS_VERSION_MAJOR_SOMessaging 1
-#define COCOAPODS_VERSION_MINOR_SOMessaging 0
-#define COCOAPODS_VERSION_PATCH_SOMessaging 0
+// Firebase
+#define COCOAPODS_POD_AVAILABLE_Firebase
+#define COCOAPODS_VERSION_MAJOR_Firebase 2
+#define COCOAPODS_VERSION_MINOR_Firebase 2
+#define COCOAPODS_VERSION_PATCH_Firebase 0
+
+// SlackTextViewController
+#define COCOAPODS_POD_AVAILABLE_SlackTextViewController
+#define COCOAPODS_VERSION_MAJOR_SlackTextViewController 1
+#define COCOAPODS_VERSION_MINOR_SlackTextViewController 4
+#define COCOAPODS_VERSION_PATCH_SlackTextViewController 1
+
+// SlackTextViewController/Additions
+#define COCOAPODS_POD_AVAILABLE_SlackTextViewController_Additions
+#define COCOAPODS_VERSION_MAJOR_SlackTextViewController_Additions 1
+#define COCOAPODS_VERSION_MINOR_SlackTextViewController_Additions 4
+#define COCOAPODS_VERSION_PATCH_SlackTextViewController_Additions 1
 
 // Starscream
 #define COCOAPODS_POD_AVAILABLE_Starscream

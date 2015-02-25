@@ -24,7 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RdioParty-SOMessaging.xcscheme</key>
+		<key>Pods-RdioParty-SlackTextViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -54,7 +54,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RdioPartyTests-SOMessaging.xcscheme</key>
+		<key>Pods-RdioPartyTests-SlackTextViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -74,7 +74,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SOMessaging.xcscheme</key>
+		<key>Pods-SlackTextViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -97,92 +97,92 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F8AC1871F0E19ED581B09D6</key>
+		<key>09C47B7CB8165EB8F280D767</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B78592FF8535D64F3DD01AF</key>
+		<key>26B3F73FFCCAE82365D7612A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F7FE42079EAD60AB5A7A840</key>
+		<key>34649DF8D667F12D2EDE3BAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>22541EA6EF68D99312CD59F8</key>
+		<key>366DEF585ECF1155F90EAA1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AC91C0E7613CAC30422BAD3</key>
+		<key>503BCDC208F080B9A7764091</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32DFCF1CD62F81D77BB9DF96</key>
+		<key>640176F0040EF681CE6064AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3F5EDBBFD9D7997E4A3B0284</key>
+		<key>69059E30D1CAE0ADC10B5362</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>445F721C46463074A9FE1BE4</key>
+		<key>7B687A72CBBCDE5D8BCB65D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>47FADD1CB2BBA3A4AA3DE08E</key>
+		<key>877AE2D91BC07EFA0C91E68E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D990FE16928A7D9AF107C7F</key>
+		<key>8F4ADF6CB9C05A87B9A6A596</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>696BB487E19951414951178B</key>
+		<key>963948C9DC3AA4CB4C1DAC09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DC54996BFB1D88A5C7630FF</key>
+		<key>974516AD7F8CFECC2CF13279</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8237F5BB27378843FE0DA0FF</key>
+		<key>9C2679EE334FD2A15D796F07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BBC18C18520B55FD2D67F9D</key>
+		<key>A239CDFB0CE7DA2A510FDFDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5B5D701B3D24D7FE9FBEE18</key>
+		<key>A993C09DAC83A2A95907CF5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C10EAE1F01F24159A4D2B733</key>
+		<key>CB283D52A3487B553445A5C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D22418F328A88D451D7D9F2D</key>
+		<key>D44DDCB47636C1A40242D574</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F13DF4E39403C6604E6F6F67</key>
+		<key>EDB52119B7291B34872FCAC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

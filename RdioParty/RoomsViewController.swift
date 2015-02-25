@@ -14,6 +14,8 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Rooms"
+        
         ConnectionManager.sharedInstance.getRoomListing()
         
         self.roomsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -34,7 +36,11 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let room = Room(fromName: "ohai")
         ConnectionManager.sharedInstance.joinRoom(room)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! UIViewController
+        if let navController = self.navigationController {
+            navController.pushViewController(vc, animated: true)
+        }
     }
     
     // MARK: - Table datasource

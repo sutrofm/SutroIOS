@@ -6,7 +6,8 @@ pod 'Starscream', :git => "https://github.com/daltoniam/starscream.git", :branch
 pod 'SwiftyJSON', :git => "https://github.com/SwiftyJSON/SwiftyJSON.git", :branch => "xcode6.3"
 pod 'AFNetworking'
 pod 'AFOAuth2Manager'
-pod 'SOMessaging'
+pod 'Firebase'
+pod 'SlackTextViewController'
 
 target 'RdioParty' do
 

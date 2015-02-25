@@ -1,1 +1,0 @@
-../../../SOMessaging/SOMessaging/SOImageBrowserView.h

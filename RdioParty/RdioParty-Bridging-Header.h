@@ -5,7 +5,4 @@
 
 #import <Rdio/Rdio.h>
 #import <Firebase/Firebase.h>
-#import <SOMessaging/SOMessage.h>
-#import <SOMessaging/SOMessagingDataSource.h>
-#import <SOMessaging/SOMessagingDelegate.h>
-#import <SOMessaging/SOMessagingViewController.h>
+#import <SlackTextViewController/SLKTextViewController.h>

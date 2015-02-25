@@ -2,7 +2,7 @@
 CONFIGURATION_BUILD_DIR = $PODS_FRAMEWORK_BUILD_PATH
 FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Starscream" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AFOAuth2Manager" "${PODS_ROOT}/Headers/Public/SOMessaging" "${PODS_ROOT}/Headers/Public/Starscream" "${PODS_ROOT}/Headers/Public/SwiftyJSON"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Starscream" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AFOAuth2Manager" "${PODS_ROOT}/Headers/Public/Firebase" "${PODS_ROOT}/Headers/Public/SlackTextViewController" "${PODS_ROOT}/Headers/Public/SlackTextViewController/Additions" "${PODS_ROOT}/Headers/Public/SlackTextViewController/Classes" "${PODS_ROOT}/Headers/Public/Starscream" "${PODS_ROOT}/Headers/Public/SwiftyJSON"
 OTHER_LDFLAGS = -ObjC
 OTHER_SWIFT_FLAGS = "-D COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-RdioPartyTests

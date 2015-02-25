@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D22418F328A88D451D7D9F2D"
+               BlueprintIdentifier = "974516AD7F8CFECC2CF13279"
                BuildableName = "AFNetworking.framework"
                BlueprintName = "Pods-RdioPartyTests-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">
