@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RdioParty/FirstViewController.swift"
-            timestampString = "446532890.67298"
+            filePath = "RdioParty/RdioPartyViewController.swift"
+            timestampString = "446616725.669713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "didCommitTextEditing(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RdioParty/FirstViewController.swift"
-            timestampString = "446532913.973208"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "didCommitTextEditing(_:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "updateData(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

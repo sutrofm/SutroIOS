@@ -12,7 +12,8 @@ import Foundation
 import SwiftyJSON
 import SlackTextViewController
 
-class FirstViewController: SLKTextViewController {
+class ChatViewController: SLKTextViewController {
+    var messages = Array<Message>()
 
 //    var socket: WebSocket
 //    var rdio: Rdio
@@ -37,20 +38,13 @@ class FirstViewController: SLKTextViewController {
         super.viewDidLoad()
         self.title = ConnectionManager.sharedInstance.room.name
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messagesUpdated:", name: "rdioparty.messagesListChanged", object: nil)
-                
-        // Do any additional setup after loading the view, typically from a nib.
-        ConnectionManager.sharedInstance.getMessagesInRoom(ConnectionManager.sharedInstance.room)
-    
+        load()
     }
     
     override func viewDidAppear(animated: Bool) {
-        if (ConnectionManager.sharedInstance.room == nil) {
-            let roomvc = RoomsViewController(nibName: "RoomsViewController", bundle: nil)
-            self.presentViewController(roomvc, animated: false, completion: nil)
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,14 +52,28 @@ class FirstViewController: SLKTextViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func messagesUpdated(notification: NSNotification) {
+    func load() {
+        
+        var ref = Firebase(url:"https://rdioparty.firebaseio.com/\(ConnectionManager.sharedInstance.room.name)/messages")
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+//            println("\(snapshot.key) -> \(snapshot.value)")
+            
+            if (snapshot.key != nil) {
+                var type = snapshot.value.valueForKey("type") as! String
+                if (type == "User") {
+                    var message = Message(fromSnapshot: snapshot)
+                    self.updateData(message)
+                } else if (type == "User") {
+                    
+                }
+            }
+        })
+        
+    }
+    
+    func updateData(message: Message) {
+        self.messages.append(message)
         self.tableView.reloadData()
-//        var messageObject: AnyObject? = notification.object as! Message
-//        if let messageObject = messageObject as? Message {
-//        }
-
-
-//        self.refreshMessages()
     }
     
     override func didCommitTextEditing(sender: AnyObject!) {
@@ -77,17 +85,24 @@ class FirstViewController: SLKTextViewController {
     
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var message = ConnectionManager.sharedInstance.room.messages[indexPath.row]
+        var message = self.messages[self.messages.count - 1 - indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = message.text
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
+        
+        cell.messageText?.text = message.text
+        cell.userName?.text = "User name goes here"
+        cell.userImage?.sd_setImageWithURL(NSURL(string: "http://rdiodynimages2-a.akamaihd.net/?l=s19961995-1"), placeholderImage: nil)
         cell.transform = self.tableView.transform
 
         return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ConnectionManager.sharedInstance.room.messages.count
+        return self.messages.count
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension;
     }
     
     

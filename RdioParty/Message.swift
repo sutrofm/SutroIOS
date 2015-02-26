@@ -15,10 +15,11 @@ enum MessageType {
 
 class Message: NSObject {
     var text :String!
-//    var messageId :String
+    var messageId :String
 //    var timestamp :NSDate
-    var person :Person!
-
+    var userKey :String!
+    var type :String!
+    
 //    class func createArray(jsonMessages: JSON) -> Array<Message> {
 //        var messages = Array<Message>()
 //        
@@ -30,22 +31,22 @@ class Message: NSObject {
 //        return messages
 //    }
     
-    init(fromSnapshot snapshot :NSObject) {
+    init(fromSnapshot snapshot :FDataSnapshot) {
+        self.type = snapshot.value.valueForKey("type") as! String
+        
+        if (self.type == "User") {
+            if let text = snapshot.value.valueForKey("message") as? String {
+                self.text = text
+            }
+            self.userKey = snapshot.value.valueForKey("userKey") as! String            
+        }
+        
+        self.messageId = snapshot.value.valueForKey("id") as! String
 
-        if let text: AnyObject = snapshot.valueForKey("message") {
-            self.text = text as! String
-        }
-//        self.messageId = snapshot.valueForKey("id") as! String
         
-//        self.text = json["message"].stringValue
-//        self.messageId = json["id"].stringValue
-//        
-//        let dateFormatter = NSDateFormatter()
-//        self.timestamp = dateFormatter.dateFromString(json["timestamp"].stringValue)!
-        
-        if let singlePerson = ConnectionManager.sharedInstance.room.getUser(snapshot.valueForKey("userKey") as! String) {
-            self.person = singlePerson
-        }
+        let dateFormatter = NSDateFormatter()
+//        self.timestamp = dateFormatter.dateFromString(snapshot.value.timestamp)!
+
         
         super.init()
     }

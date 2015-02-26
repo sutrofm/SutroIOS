@@ -8,19 +8,29 @@
 
 import UIKit
 
-class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var presenter :Presenter!
     @IBOutlet weak var roomsTableView: UITableView!
+    var rooms = Array<Room>()
+    
+    required override init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.presenter = RoomListPresenter(viewController: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rooms"
+//        self.roomsTableView.registerClass(RoomListTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        ConnectionManager.sharedInstance.getRoomListing()
-        
-        self.roomsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func updateData(data :NSObject) {
+        let newRoom = data as! Room
+        self.rooms.append(newRoom)
+        self.roomsTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +44,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: - Table delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let room = Room(fromName: "ohai")
+        var room = self.rooms[indexPath.row]
         ConnectionManager.sharedInstance.joinRoom(room)
         
         let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! UIViewController
@@ -46,14 +56,19 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: - Table datasource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.rooms.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel!.text = "ohai"
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! RoomListTableViewCell
+        var room = self.rooms[indexPath.row]
+//        cell.previewImage.sd_setImageWithURL(room.previewImage)
+        cell.nameLabel.text = room.name
+        cell.themeLabel.text = room.theme
+        
         return cell
     }
+
     
     /*
     // MARK: - Navigation

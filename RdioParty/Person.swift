@@ -13,27 +13,14 @@ class Person: NSObject {
     
     var name :String
     var rdioId :String
-    var icon :NSURL
+    var icon :String
     var isOnline :Bool
     
-    class func createArray(jsonPeople: JSON) -> Array<Person> {
-        var people = Array<Person>()
-        
-        for (key: String, subJson: JSON) in jsonPeople {
-            var person = Person(fromJson: subJson)
-            //if (person.isOnline) {
-                people.append(person)
-            //}
-        }
-        
-        return people
-    }
-    
-    init(fromJson json :JSON) {
-        self.name = json["fullName"].stringValue
-        self.rdioId = json["id"].stringValue
-        self.icon = json["icon"].URL!
-        self.isOnline = json["isOnline"].boolValue
+    init(fromSnapshot snaphsot :NSObject) {
+        self.name = snaphsot.valueForKey("fullName") as! String
+        self.rdioId = snaphsot.valueForKey("id") as! String
+        self.icon = snaphsot.valueForKey("icon") as! String
+        self.isOnline = snaphsot.valueForKey("isOnline") as! Bool
         
         super.init()
     }
