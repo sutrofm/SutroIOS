@@ -16,6 +16,7 @@ class Room: NSObject {
     var messages: Array<Message>
     var people: Array<Person>!
     var previewImage: NSURL = NSURL(string: "http://www.philcollins-fr.com/Genesis/albums/17dance.jpg")!
+    var previewPeopleCount = 0
     
     init(fromName name :String) {
         self.messages = Array<Message>()
