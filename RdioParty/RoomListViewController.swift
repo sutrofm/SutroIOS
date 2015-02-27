@@ -22,15 +22,15 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rooms"
-//        self.roomsTableView.registerClass(RoomListTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        // Do any additional setup after loading the view.
+        showWaiting();
     }
     
     override func updateData(data :NSObject) {
         let newRoom = data as! Room
         self.rooms.append(newRoom)
         self.roomsTableView.reloadData()
+        hideWaiting()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +67,14 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
         cell.themeLabel.text = room.theme
         
         return cell
+    }
+    
+    func showWaiting() {
+        
+    }
+    
+    func hideWaiting() {
+        
     }
 
     
