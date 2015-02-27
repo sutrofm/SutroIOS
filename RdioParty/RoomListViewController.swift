@@ -67,6 +67,7 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
 //        cell.previewImage.sd_setImageWithURL(room.previewImage)
         cell.nameLabel.text = room.name
         cell.themeLabel.text = room.theme
+        cell.userCountLabel.text = String(room.previewPeopleCount)
         
         // Alternate colors between rows
         var color :UIColor!

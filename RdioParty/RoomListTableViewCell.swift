@@ -18,16 +18,32 @@ class RoomListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.contentView.clipsToBounds = true
+        
+        self.userCountLabel.clipsToBounds = true
         self.userCountLabel.layer.cornerRadius = self.userCountLabel.frame.size.width / 2
+        
+        self.nameLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        self.nameLabel.layer.shadowOffset = CGSizeMake(1, 1)
+        self.nameLabel.layer.shadowRadius = 3.0
+        self.nameLabel.layer.shadowOpacity = 0.5
+        
+        self.themeLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        self.themeLabel.layer.shadowOffset = CGSizeMake(1, 1)
+        self.themeLabel.layer.shadowRadius = 3.0
+        self.themeLabel.layer.shadowOpacity = 0.5
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         if (selected) {
-            self.colorShield.alpha = 1.0
-        } else {
             self.colorShield.alpha = 0.8
+            self.nameLabel.layer.shadowOpacity = 0.1
+        } else {
+            self.colorShield.alpha = 0.2
+            self.nameLabel.layer.shadowOpacity = 0.5
         }
         
         // Configure the view for the selected state
