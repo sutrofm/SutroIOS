@@ -13,6 +13,8 @@ import SwiftyJSON
 import SlackTextViewController
 
 class ChatViewController: SLKTextViewController {
+    var room :Room = Session.sharedInstance.room
+
     var messages = Array<Message>()
 
 //    var socket: WebSocket
@@ -36,7 +38,7 @@ class ChatViewController: SLKTextViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = ConnectionManager.sharedInstance.room.name
+        self.title = self.room.name
         
         self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
 
@@ -54,7 +56,7 @@ class ChatViewController: SLKTextViewController {
     
     func load() {
         
-        var ref = Firebase(url:"https://rdioparty.firebaseio.com/\(ConnectionManager.sharedInstance.room.name)/messages")
+        var ref = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
 //            println("\(snapshot.key) -> \(snapshot.value)")
             

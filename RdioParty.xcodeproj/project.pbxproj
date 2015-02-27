@@ -22,7 +22,7 @@
 		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
 		9F4DC2468DB439ADF7919293 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574011301BCAD5829D2DFD3 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
-		A03B31F71A9985A600C7424F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* ConnectionManager.swift */; };
+		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A03BDEE81A9D8200007C3C54 /* Libs in Resources */ = {isa = PBXBuildFile; fileRef = A03BDEE71A9D8200007C3C54 /* Libs */; };
 		A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomListViewController.swift */; };
 		A06931311A9A8A8500188118 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931301A9A8A8500188118 /* Firebase.framework */; };
@@ -63,7 +63,7 @@
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		9574011301BCAD5829D2DFD3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
-		A03B31F61A9985A600C7424F /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A03BDEE71A9D8200007C3C54 /* Libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Libs; sourceTree = "<group>"; };
 		A0582E931A9A565400C37188 /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		A06931301A9A8A8500188118 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Frameworks/Firebase.framework; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			children = (
 				A0BE2ED51A997E620050FCE5 /* Room.swift */,
 				A0BE2ED81A997E750050FCE5 /* Person.swift */,
-				A03B31F61A9985A600C7424F /* ConnectionManager.swift */,
+				A03B31F61A9985A600C7424F /* Session.swift */,
 				A0D93D401A9990A700F138DC /* RdioPlayerManager.swift */,
 				A0D93D421A99952600F138DC /* Message.swift */,
 			);
@@ -372,7 +372,7 @@
 				A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */,
 				A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */,
 				A0828F701A9ECFAC00BFF409 /* RdioPartyViewController.swift in Sources */,
-				A03B31F71A9985A600C7424F /* ConnectionManager.swift in Sources */,
+				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
 				A0EFB7CB1A9EF5530098542F /* ChatPresenter.swift in Sources */,
 				259124161A96C629003B30C5 /* SecondViewController.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,

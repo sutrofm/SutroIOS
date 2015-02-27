@@ -45,7 +45,7 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var room = self.rooms[indexPath.row]
-        ConnectionManager.sharedInstance.joinRoom(room)
+        Session.sharedInstance.room = room
         
         let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! UIViewController
         if let navController = self.navigationController {

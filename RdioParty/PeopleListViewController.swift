@@ -10,6 +10,8 @@ import UIKit
 
 class PeopleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var room :Room = Session.sharedInstance.room
+    
     @IBOutlet weak var peopleTableview: UITableView!
     
     override func viewDidLoad() {
@@ -46,11 +48,11 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Table datasource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ConnectionManager.sharedInstance.room.people.count
+        return self.room.people.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let person = ConnectionManager.sharedInstance.room.people[indexPath.row]
+        let person = self.room.people[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel!.text = person.name
