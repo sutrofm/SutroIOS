@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -70,14 +70,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
+                                <rect key="frame" x="195" y="279" width="210" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="215.5" height="17"/>
+                                <rect key="frame" x="192" y="329" width="216" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -163,6 +163,16 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfo-2J-4at" userLabel="User count">
+                                                    <rect key="frame" x="564" y="-7" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="Nzz-pF-bsM"/>
+                                                        <constraint firstAttribute="width" constant="42" id="f2u-LJ-ja7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="xl2-ua-rn1" secondAttribute="trailing" constant="8" id="0TI-X3-3fY">
@@ -178,6 +188,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="57"/>
                                                 </constraint>
                                                 <constraint firstAttribute="bottom" secondItem="Rbr-aU-K62" secondAttribute="bottom" id="ToU-YI-Jm8"/>
+                                                <constraint firstAttribute="trailing" secondItem="rfo-2J-4at" secondAttribute="trailing" constant="-6" id="VwE-FF-ONa"/>
                                                 <constraint firstItem="xl2-ua-rn1" firstAttribute="centerX" secondItem="POs-G6-vBC" secondAttribute="centerX" id="d09-mV-eQ7"/>
                                                 <constraint firstItem="tJW-3e-2sp" firstAttribute="top" secondItem="xl2-ua-rn1" secondAttribute="bottom" constant="20" id="d49-AP-9jP">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="16"/>
@@ -185,6 +196,7 @@
                                                 <constraint firstAttribute="centerX" secondItem="QhX-nP-kBu" secondAttribute="centerX" id="ew9-SX-OBu"/>
                                                 <constraint firstItem="QhX-nP-kBu" firstAttribute="top" secondItem="POs-G6-vBC" secondAttribute="top" id="kTc-qt-S5u"/>
                                                 <constraint firstAttribute="centerY" secondItem="QhX-nP-kBu" secondAttribute="centerY" id="neO-wN-eff"/>
+                                                <constraint firstItem="rfo-2J-4at" firstAttribute="top" secondItem="POs-G6-vBC" secondAttribute="top" constant="-7" id="oEz-Lz-JRD"/>
                                                 <constraint firstItem="xl2-ua-rn1" firstAttribute="leading" secondItem="POs-G6-vBC" secondAttribute="leading" constant="165" id="sJ8-Et-Ndh">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="61"/>
                                                 </constraint>
@@ -198,20 +210,20 @@
                                                     <exclude reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="0TI-X3-3fY"/>
-                                                    <exclude reference="d09-mV-eQ7"/>
-                                                    <exclude reference="sQk-kc-UXS"/>
                                                     <exclude reference="4Q8-zL-qaK"/>
                                                     <exclude reference="90L-RS-BtM"/>
                                                     <exclude reference="BHb-s6-kes"/>
                                                     <exclude reference="IB4-Sz-gJG"/>
                                                     <exclude reference="ToU-YI-Jm8"/>
-                                                    <exclude reference="Btf-UR-rau"/>
-                                                    <exclude reference="Nc0-6j-Ulm"/>
                                                     <exclude reference="ew9-SX-OBu"/>
                                                     <exclude reference="kTc-qt-S5u"/>
                                                     <exclude reference="neO-wN-eff"/>
                                                     <exclude reference="yfb-pp-rJO"/>
+                                                    <exclude reference="0TI-X3-3fY"/>
+                                                    <exclude reference="d09-mV-eQ7"/>
+                                                    <exclude reference="sQk-kc-UXS"/>
+                                                    <exclude reference="Btf-UR-rau"/>
+                                                    <exclude reference="Nc0-6j-Ulm"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -220,26 +232,28 @@
                                                     <include reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="0TI-X3-3fY"/>
-                                                    <include reference="sQk-kc-UXS"/>
                                                     <include reference="4Q8-zL-qaK"/>
                                                     <include reference="90L-RS-BtM"/>
                                                     <include reference="BHb-s6-kes"/>
                                                     <include reference="IB4-Sz-gJG"/>
                                                     <include reference="ToU-YI-Jm8"/>
-                                                    <include reference="Btf-UR-rau"/>
-                                                    <include reference="Nc0-6j-Ulm"/>
                                                     <include reference="ew9-SX-OBu"/>
                                                     <include reference="kTc-qt-S5u"/>
                                                     <include reference="neO-wN-eff"/>
                                                     <include reference="yfb-pp-rJO"/>
+                                                    <include reference="0TI-X3-3fY"/>
+                                                    <include reference="sQk-kc-UXS"/>
+                                                    <include reference="Btf-UR-rau"/>
+                                                    <include reference="Nc0-6j-Ulm"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="colorShield" destination="QhX-nP-kBu" id="4tb-7Y-PO6"/>
                                             <outlet property="nameLabel" destination="xl2-ua-rn1" id="3Dv-Ff-cEt"/>
                                             <outlet property="previewImage" destination="Rbr-aU-K62" id="4lM-24-Khg"/>
                                             <outlet property="themeLabel" destination="tJW-3e-2sp" id="sfy-T3-955"/>
+                                            <outlet property="userCountLabel" destination="rfo-2J-4at" id="zYc-LG-brJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

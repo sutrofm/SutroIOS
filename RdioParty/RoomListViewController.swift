@@ -68,6 +68,16 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
         cell.nameLabel.text = room.name
         cell.themeLabel.text = room.theme
         
+        // Alternate colors between rows
+        var color :UIColor!
+        if (indexPath.row % 2 == 0) {
+            color = UIColor.blueColor()
+        } else {
+            color = UIColor.yellowColor()
+        }
+        cell.colorShield.backgroundColor = color
+        cell.userCountLabel.backgroundColor = color
+        
         return cell
     }
     
