@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -107,17 +107,98 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="zg8-4K-77R" kind="relationship" relationship="rootViewController" id="IZ2-gX-2qQ"/>
+                        <segue destination="bOP-TQ-g7H" kind="relationship" relationship="rootViewController" id="xNj-pF-fwL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLt-Xa-Tgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1381" y="0.0"/>
+            <point key="canvasLocation" x="-2092.5" y="0.0"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="upD-Uf-rAM">
+            <objects>
+                <viewController id="bOP-TQ-g7H" customClass="LoginViewController" customModule="RdioParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dG1-zk-u58"/>
+                        <viewControllerLayoutGuide type="bottom" id="e55-50-pSD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TGv-Cl-j5m">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rdioPartyLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-NE-tg2">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTA-q0-hCq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9im-A3-O6s"/>
+                                </constraints>
+                                <state key="normal" title="Login with Rdio">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9im-A3-O6s"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9im-A3-O6s"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="loginButtPressed:" destination="bOP-TQ-g7H" eventType="touchUpInside" id="xK1-2W-qq7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e55-50-pSD" firstAttribute="top" secondItem="OTA-q0-hCq" secondAttribute="bottom" constant="298" id="1bX-bM-eKH"/>
+                            <constraint firstItem="uhg-NE-tg2" firstAttribute="leading" secondItem="TGv-Cl-j5m" secondAttribute="leadingMargin" constant="-6" id="A0x-mH-GmS"/>
+                            <constraint firstItem="OTA-q0-hCq" firstAttribute="top" secondItem="uhg-NE-tg2" secondAttribute="bottom" constant="14" id="GcP-XD-3pI"/>
+                            <constraint firstItem="uhg-NE-tg2" firstAttribute="centerX" secondItem="TGv-Cl-j5m" secondAttribute="centerX" id="Xyg-Ol-4ss"/>
+                            <constraint firstItem="OTA-q0-hCq" firstAttribute="centerX" secondItem="uhg-NE-tg2" secondAttribute="centerX" id="Ydx-mP-TUx"/>
+                            <constraint firstItem="uhg-NE-tg2" firstAttribute="top" secondItem="dG1-zk-u58" secondAttribute="bottom" constant="8" symbolic="YES" id="iVz-xd-GSd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uhg-NE-tg2"/>
+                                <exclude reference="OTA-q0-hCq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="A0x-mH-GmS"/>
+                                <exclude reference="Xyg-Ol-4ss"/>
+                                <exclude reference="iVz-xd-GSd"/>
+                                <exclude reference="GcP-XD-3pI"/>
+                                <exclude reference="Ydx-mP-TUx"/>
+                                <exclude reference="1bX-bM-eKH"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uhg-NE-tg2"/>
+                                <include reference="OTA-q0-hCq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="A0x-mH-GmS"/>
+                                <include reference="Xyg-Ol-4ss"/>
+                                <include reference="iVz-xd-GSd"/>
+                                <include reference="GcP-XD-3pI"/>
+                                <include reference="Ydx-mP-TUx"/>
+                                <include reference="1bX-bM-eKH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="gu2-hX-rqK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZn-mU-J67" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1374" y="0.0"/>
         </scene>
         <!--Room List View Controller-->
         <scene sceneID="TyM-1e-PV4">
             <objects>
-                <viewController id="zg8-4K-77R" customClass="RoomListViewController" customModule="RdioParty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomListViewController" id="zg8-4K-77R" customClass="RoomListViewController" customModule="RdioParty" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Omn-Tb-pIh"/>
                         <viewControllerLayoutGuide type="bottom" id="0x1-J9-0iW"/>
@@ -209,23 +290,23 @@
                                                     <exclude reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="4Q8-zL-qaK"/>
-                                                    <exclude reference="90L-RS-BtM"/>
-                                                    <exclude reference="BHb-s6-kes"/>
-                                                    <exclude reference="IB4-Sz-gJG"/>
-                                                    <exclude reference="ToU-YI-Jm8"/>
-                                                    <exclude reference="ew9-SX-OBu"/>
-                                                    <exclude reference="kTc-qt-S5u"/>
-                                                    <exclude reference="neO-wN-eff"/>
-                                                    <exclude reference="yfb-pp-rJO"/>
                                                     <exclude reference="0TI-X3-3fY"/>
                                                     <exclude reference="d09-mV-eQ7"/>
                                                     <exclude reference="l4b-kP-Xyn"/>
                                                     <exclude reference="sQk-kc-UXS"/>
                                                     <exclude reference="Btf-UR-rau"/>
                                                     <exclude reference="Nc0-6j-Ulm"/>
+                                                    <exclude reference="4Q8-zL-qaK"/>
+                                                    <exclude reference="90L-RS-BtM"/>
+                                                    <exclude reference="BHb-s6-kes"/>
+                                                    <exclude reference="IB4-Sz-gJG"/>
+                                                    <exclude reference="ToU-YI-Jm8"/>
                                                     <exclude reference="doI-2Y-rxV"/>
                                                     <exclude reference="e0K-bn-H48"/>
+                                                    <exclude reference="ew9-SX-OBu"/>
+                                                    <exclude reference="kTc-qt-S5u"/>
+                                                    <exclude reference="neO-wN-eff"/>
+                                                    <exclude reference="yfb-pp-rJO"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -234,6 +315,10 @@
                                                     <include reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="0TI-X3-3fY"/>
+                                                    <include reference="sQk-kc-UXS"/>
+                                                    <include reference="Btf-UR-rau"/>
+                                                    <include reference="Nc0-6j-Ulm"/>
                                                     <include reference="4Q8-zL-qaK"/>
                                                     <include reference="90L-RS-BtM"/>
                                                     <include reference="BHb-s6-kes"/>
@@ -243,10 +328,6 @@
                                                     <include reference="kTc-qt-S5u"/>
                                                     <include reference="neO-wN-eff"/>
                                                     <include reference="yfb-pp-rJO"/>
-                                                    <include reference="0TI-X3-3fY"/>
-                                                    <include reference="sQk-kc-UXS"/>
-                                                    <include reference="Btf-UR-rau"/>
-                                                    <include reference="Nc0-6j-Ulm"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -331,6 +412,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="rdioPartyLogo.png" width="421" height="293"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

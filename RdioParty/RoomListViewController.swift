@@ -17,6 +17,7 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
     required override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.presenter = RoomListPresenter(viewController: self)
+        self.navigationItem.hidesBackButton = true
     }
     
     override func viewDidLoad() {

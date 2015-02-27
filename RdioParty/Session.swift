@@ -10,6 +10,8 @@ import UIKit
 class Session : NSObject {
     
     var room: Room!
+    var user: [NSObject : AnyObject]!
+    var accessToken: String!
     
     // Singleton
     class var sharedInstance: Session {

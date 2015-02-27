@@ -14,8 +14,6 @@ class ChatViewController: SLKTextViewController {
 
     var messages = Array<Message>()
 
-//    var socket: WebSocket
-//    var rdio: Rdio
 //    var authenticated = false
 //    var currentSource :String!
 //    
@@ -24,11 +22,9 @@ class ChatViewController: SLKTextViewController {
      required init(coder aDecoder: NSCoder) {
         
 //
-//        self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
         super.init(tableViewStyle: UITableViewStyle.Plain)
         self.inverted = true
         //super.init(coder: aDecoder)
-//        self.rdio.delegate = self
 
     }
 
