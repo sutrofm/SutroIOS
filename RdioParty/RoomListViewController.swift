@@ -51,6 +51,8 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
         if let navController = self.navigationController {
             navController.pushViewController(vc, animated: true)
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: - Table datasource
