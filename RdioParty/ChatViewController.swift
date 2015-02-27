@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import Starscream
 import Foundation
-import SwiftyJSON
-import SlackTextViewController
 
 class ChatViewController: SLKTextViewController {
     var room :Room = Session.sharedInstance.room
@@ -90,10 +87,11 @@ class ChatViewController: SLKTextViewController {
         var message = self.messages[self.messages.count - 1 - indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
+        let user :Person = self.room.getUser(message.userKey)!
         
         cell.messageText?.text = message.text
-        cell.userName?.text = "User name goes here"
-        cell.userImage?.sd_setImageWithURL(NSURL(string: "http://rdiodynimages2-a.akamaihd.net/?l=s19961995-1"), placeholderImage: nil)
+        cell.userName?.text = user.name
+        cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
         cell.transform = self.tableView.transform
 
         return cell

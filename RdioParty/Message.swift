@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 enum MessageType {
     case User, NewTrack
@@ -19,17 +18,6 @@ class Message: NSObject {
 //    var timestamp :NSDate
     var userKey :String!
     var type :String!
-    
-//    class func createArray(jsonMessages: JSON) -> Array<Message> {
-//        var messages = Array<Message>()
-//        
-//        for (key: String, subJson: JSON) in jsonMessages {
-//            var message = Message(fromJson: subJson)
-//            messages.append(message)
-//        }
-//        
-//        return messages
-//    }
     
     init(fromSnapshot snapshot :FDataSnapshot) {
         self.type = snapshot.value.valueForKey("type") as! String

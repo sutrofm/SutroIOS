@@ -1,6 +1,0 @@
-framework module SlackTextViewController {
-  umbrella header "Pods-SlackTextViewController-umbrella.h"
-
-  export *
-  module * { export * }
-}

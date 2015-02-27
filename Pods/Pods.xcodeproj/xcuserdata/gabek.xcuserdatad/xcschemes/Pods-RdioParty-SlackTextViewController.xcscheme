@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0630"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A64C1C94EC94492E312633F5"
-               BuildableName = "SlackTextViewController.framework"
+               BlueprintIdentifier = "0064C3EFC6280319A1B86BC8"
+               BuildableName = "libPods-RdioParty-SlackTextViewController.a"
                BlueprintName = "Pods-RdioParty-SlackTextViewController"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0064C3EFC6280319A1B86BC8"
+            BuildableName = "libPods-RdioParty-SlackTextViewController.a"
+            BlueprintName = "Pods-RdioParty-SlackTextViewController"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

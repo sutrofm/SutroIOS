@@ -21,6 +21,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         self.peopleTableview.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
         self.peopleTableview.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
+        load()
         // Do any additional setup after loading the view.
     }
 
@@ -57,6 +58,26 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel!.text = person.name
         return cell
+    }
+    
+    
+    func load() {
+        
+        var ref = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/people")
+        
+        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if (snapshot.key != nil) {
+                var person = Person(fromSnapshot: snapshot)
+                if (person.isOnline && !self.room.hasUser(person.rdioId)) {
+                    self.room.people.append(person)
+                    self.peopleTableview.reloadData()
+                }
+            }
+        })
+        
+        ref.observeEventType(.ChildRemoved, withBlock: { snapshot in
+            self.room.removeUser(snapshot)
+        })
     }
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0630"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6703E563F86B1088F30A796D"
-               BuildableName = "AFOAuth2Manager.framework"
+               BlueprintIdentifier = "1D1FE670B9F62B46C86892C1"
+               BuildableName = "libPods-RdioParty-AFOAuth2Manager.a"
                BlueprintName = "Pods-RdioParty-AFOAuth2Manager"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1D1FE670B9F62B46C86892C1"
+            BuildableName = "libPods-RdioParty-AFOAuth2Manager.a"
+            BlueprintName = "Pods-RdioParty-AFOAuth2Manager"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

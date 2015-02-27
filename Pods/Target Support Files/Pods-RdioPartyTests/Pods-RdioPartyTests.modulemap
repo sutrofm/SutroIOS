@@ -1,6 +1,0 @@
-framework module Pods_RdioPartyTests {
-  umbrella header "Pods-RdioPartyTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,21 +7,19 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 class Room: NSObject {
     var name: String!
     var theme: String!
     
-    var messages: Array<Message>
-    var people: Array<Person>!
+    var messages = Array<Message>()
+    var people = Array<Person>()
     var previewImage: NSURL!
     var previewPeopleCount = 0
     var active = false
     
     init(fromSnapshot snapshot :FDataSnapshot) {
 
-        self.messages = Array<Message>()
         self.name = snapshot.key
 
         if (snapshot.value.objectForKey("meta") != nil) {
@@ -42,6 +40,10 @@ class Room: NSObject {
                 if (person?.valueForKey("isOnline") as! Bool) {
                     peopleOnline++
                 }
+                
+                // Even add offline people since old messages get displayed
+                var personObject = Person(fromDictionary: person!)
+                self.people.append(personObject)
             }
             self.previewPeopleCount = peopleOnline
         }
@@ -69,8 +71,6 @@ class Room: NSObject {
                     }
                 }
             }
-
-            
             
         }
         
@@ -81,16 +81,23 @@ class Room: NSObject {
 
     }
     
-    func populatePeople(roomPeople :Array<Person>) {
-        self.people = roomPeople
-    }
-    
-    func updateMessages(jsonMessages :JSON) {
-        //self.messages = Message.createArray(jsonMessages)
-    }
-    
     func getUser(rdioId :String) -> Person? {
         let singlePerson = people.filter{ $0.rdioId == rdioId }.first
         return singlePerson
+    }
+    
+    func hasUser(rdioId :String) -> Bool {
+        let singlePerson = people.filter{ $0.rdioId == rdioId }.first
+        return (singlePerson != nil)
+    }
+    
+    func removeUser(snapshot :FDataSnapshot) {
+        var rdioId = snapshot.value.valueForKey("id") as! String
+        
+        var person = getUser(rdioId)
+        if (person != nil) {
+            var index = find(self.people, person!)
+            self.people.removeAtIndex(index!)
+        }
     }
 }

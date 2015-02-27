@@ -1,6 +1,0 @@
-framework module SDWebImage {
-  umbrella header "Pods-RdioPartyTests-SDWebImage-umbrella.h"
-
-  export *
-  module * { export * }
-}

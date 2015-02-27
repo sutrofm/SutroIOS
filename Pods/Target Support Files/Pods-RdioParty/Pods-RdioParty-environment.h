@@ -84,15 +84,3 @@
 #define COCOAPODS_VERSION_MINOR_SlackTextViewController_Additions 4
 #define COCOAPODS_VERSION_PATCH_SlackTextViewController_Additions 1
 
-// Starscream
-#define COCOAPODS_POD_AVAILABLE_Starscream
-#define COCOAPODS_VERSION_MAJOR_Starscream 0
-#define COCOAPODS_VERSION_MINOR_Starscream 9
-#define COCOAPODS_VERSION_PATCH_Starscream 2
-
-// SwiftyJSON
-#define COCOAPODS_POD_AVAILABLE_SwiftyJSON
-#define COCOAPODS_VERSION_MAJOR_SwiftyJSON 2
-#define COCOAPODS_VERSION_MINOR_SwiftyJSON 1
-#define COCOAPODS_VERSION_PATCH_SwiftyJSON 3
-
