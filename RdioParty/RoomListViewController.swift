@@ -64,8 +64,9 @@ class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! RoomListTableViewCell
         var room = self.rooms[indexPath.row]
-//        cell.previewImage.sd_setImageWithURL(room.previewImage)
-        cell.nameLabel.text = room.name
+        var name = room.name.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
+        cell.previewImage.sd_setImageWithURL(room.previewImage)
+        cell.nameLabel.text = name
         cell.themeLabel.text = room.theme
         cell.userCountLabel.text = String(room.previewPeopleCount)
         

@@ -18,8 +18,10 @@ class RoomListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.contentView.backgroundColor = UIColor.blackColor()
         
         self.contentView.clipsToBounds = true
+        self.clipsToBounds = true
         
         self.userCountLabel.clipsToBounds = true
         self.userCountLabel.layer.cornerRadius = self.userCountLabel.frame.size.width / 2
