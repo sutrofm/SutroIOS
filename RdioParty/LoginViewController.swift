@@ -38,8 +38,8 @@ class LoginViewController: UIViewController, RdioDelegate {
     
     func checkLogin() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        if let accesstoken = defaults.stringForKey("rdioAccesstoken") {
-            rdio.authorizeUsingAccessToken(accesstoken);
+        if let accesstoken = defaults.stringForKey("rdioAccessToken") {
+            rdio.authorizeUsingAccessToken(accesstoken)
         }
     }
     
