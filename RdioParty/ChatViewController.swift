@@ -34,8 +34,10 @@ class ChatViewController: SLKTextViewController {
         self.title = self.room.name
         
         self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
+        self.tableView.estimatedRowHeight = 75.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.allowsSelection = false
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messagesUpdated:", name: "rdioparty.messagesListChanged", object: nil)
         load()
     }
     
@@ -82,7 +84,7 @@ class ChatViewController: SLKTextViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var message = self.messages[self.messages.count - 1 - indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell        
         let user :Person = self.room.getUser(message.userKey)!
         
         cell.messageText?.text = message.text
@@ -95,10 +97,6 @@ class ChatViewController: SLKTextViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
-    }
-    
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension;
     }
     
     

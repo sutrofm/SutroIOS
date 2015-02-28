@@ -12,7 +12,7 @@ class ChatMessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var messageText: UILabel!
+    @IBOutlet weak var messageText: ChatMessageContentTextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +20,13 @@ class ChatMessageTableViewCell: UITableViewCell {
         self.userImage.clipsToBounds = true
         self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         
+        let exclusionFrame = CGRectMake(0, 0, 65, 28)
+        let exclusionPath = UIBezierPath(rect: exclusionFrame)
+        self.messageText.textContainer.exclusionPaths = [exclusionPath]
+    }
+    
+    override func prepareForReuse() {
+        self.layoutSubviews()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

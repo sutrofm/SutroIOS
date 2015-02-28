@@ -43,6 +43,7 @@
 		A0EFB7CF1A9F02580098542F /* ChatMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */; };
 		A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */; };
 		A0F3462E1AA04E35000D9EEA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F3462C1AA04E35000D9EEA /* LoginViewController.xib */; };
+		A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatMessageTableViewCell.xib; sourceTree = "<group>"; };
 		A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0F3462C1AA04E35000D9EEA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageContentTextView.swift; sourceTree = "<group>"; };
 		E8D34639FC618A3ED3270E20 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E9894EF30424D4A5ACC7CE16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +222,7 @@
 				A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */,
 				A0EFB7CC1A9F02580098542F /* ChatMessageTableViewCell.swift */,
 				A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */,
+				A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				259124161A96C629003B30C5 /* SecondViewController.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
+				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
 				A0828F6C1A9EC7AE00BFF409 /* RoomListPresenter.swift in Sources */,
 				A0828F6E1A9EC8BD00BFF409 /* Presenter.swift in Sources */,
