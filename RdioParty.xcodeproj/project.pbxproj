@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		259124121A96C629003B30C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124111A96C629003B30C5 /* AppDelegate.swift */; };
 		259124141A96C629003B30C5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124131A96C629003B30C5 /* ChatViewController.swift */; };
-		259124161A96C629003B30C5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124151A96C629003B30C5 /* SecondViewController.swift */; };
+		259124161A96C629003B30C5 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124151A96C629003B30C5 /* QueueViewController.swift */; };
 		259124191A96C629003B30C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259124171A96C629003B30C5 /* Main.storyboard */; };
 		2591241B1A96C629003B30C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2591241A1A96C629003B30C5 /* Images.xcassets */; };
 		2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2591241C1A96C629003B30C5 /* LaunchScreen.xib */; };
@@ -25,6 +25,8 @@
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomListViewController.swift */; };
+		A062BF001AA275BF00945407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BEFF1AA275BF00945407 /* Queue.swift */; };
+		A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */; };
 		A06931311A9A8A8500188118 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931301A9A8A8500188118 /* Firebase.framework */; };
 		A06931331A9A8AE200188118 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931321A9A8AE200188118 /* libicucore.dylib */; };
 		A06931351A9A8AE900188118 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931341A9A8AE900188118 /* libc++.dylib */; };
@@ -44,6 +46,9 @@
 		A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */; };
 		A0F3462E1AA04E35000D9EEA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F3462C1AA04E35000D9EEA /* LoginViewController.xib */; };
 		A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */; };
+		A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346311AA26CEA000D9EEA /* vote-down.png */; };
+		A0F346341AA26CEA000D9EEA /* vote-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346321AA26CEA000D9EEA /* vote-up.png */; };
+		A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6A3691AA271A700FEAE77 /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +57,7 @@
 		259124101A96C629003B30C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259124111A96C629003B30C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		259124131A96C629003B30C5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		259124151A96C629003B30C5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		259124151A96C629003B30C5 /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		259124181A96C629003B30C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2591241A1A96C629003B30C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2591241D1A96C629003B30C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -69,6 +74,8 @@
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A0582E931A9A565400C37188 /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
+		A062BEFF1AA275BF00945407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueItemCellTableViewCell.swift; sourceTree = "<group>"; };
 		A06931301A9A8A8500188118 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Frameworks/Firebase.framework; sourceTree = "<group>"; };
 		A06931321A9A8AE200188118 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A06931341A9A8AE900188118 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -89,6 +96,9 @@
 		A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0F3462C1AA04E35000D9EEA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageContentTextView.swift; sourceTree = "<group>"; };
+		A0F346311AA26CEA000D9EEA /* vote-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-down.png"; sourceTree = "<group>"; };
+		A0F346321AA26CEA000D9EEA /* vote-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-up.png"; sourceTree = "<group>"; };
+		A0F6A3691AA271A700FEAE77 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		E8D34639FC618A3ED3270E20 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E9894EF30424D4A5ACC7CE16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +221,8 @@
 		A002338E1AA03A5D0028CED2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0F346311AA26CEA000D9EEA /* vote-down.png */,
+				A0F346321AA26CEA000D9EEA /* vote-up.png */,
 				A002338F1AA03A5D0028CED2 /* rdioPartyLogo.png */,
 			);
 			path = Resources;
@@ -223,6 +235,7 @@
 				A0EFB7CC1A9F02580098542F /* ChatMessageTableViewCell.swift */,
 				A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */,
 				A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */,
+				A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -230,7 +243,7 @@
 		A0582E921A9A55A600C37188 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				259124151A96C629003B30C5 /* SecondViewController.swift */,
+				259124151A96C629003B30C5 /* QueueViewController.swift */,
 				259124131A96C629003B30C5 /* ChatViewController.swift */,
 				A0582E931A9A565400C37188 /* RoomListViewController.swift */,
 				A032A2181A9A993400EF5924 /* PeopleListViewController.swift */,
@@ -259,6 +272,8 @@
 				A03B31F61A9985A600C7424F /* Session.swift */,
 				A0D93D401A9990A700F138DC /* RdioPlayerManager.swift */,
 				A0D93D421A99952600F138DC /* Message.swift */,
+				A0F6A3691AA271A700FEAE77 /* Song.swift */,
+				A062BEFF1AA275BF00945407 /* Queue.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -324,9 +339,11 @@
 			files = (
 				259124191A96C629003B30C5 /* Main.storyboard in Resources */,
 				A0EFB7CF1A9F02580098542F /* ChatMessageTableViewCell.xib in Resources */,
+				A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */,
 				A0F3462E1AA04E35000D9EEA /* LoginViewController.xib in Resources */,
 				2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */,
 				2591241B1A96C629003B30C5 /* Images.xcassets in Resources */,
+				A0F346341AA26CEA000D9EEA /* vote-up.png in Resources */,
 				A00233901AA03A5D0028CED2 /* rdioPartyLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +393,7 @@
 				A0828F701A9ECFAC00BFF409 /* RdioPartyViewController.swift in Sources */,
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
 				A0EFB7CB1A9EF5530098542F /* ChatPresenter.swift in Sources */,
-				259124161A96C629003B30C5 /* SecondViewController.swift in Sources */,
+				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
 				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
@@ -385,6 +402,9 @@
 				A0828F6E1A9EC8BD00BFF409 /* Presenter.swift in Sources */,
 				A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */,
 				A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */,
+				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,
+				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
+				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
 				A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */,
 				A0D93D431A99952600F138DC /* Message.swift in Sources */,
 				259124141A96C629003B30C5 /* ChatViewController.swift in Sources */,
