@@ -50,6 +50,8 @@
 		A0F346341AA26CEA000D9EEA /* vote-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346321AA26CEA000D9EEA /* vote-up.png */; };
 		A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6A3691AA271A700FEAE77 /* Song.swift */; };
 		A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */; };
+		A0FCE8A51AA390ED00FB1310 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FCE8A41AA390ED00FB1310 /* PlayerView.xib */; };
+		A0FCE8A71AA3916D00FB1310 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FCE8A61AA3916D00FB1310 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		A0F346321AA26CEA000D9EEA /* vote-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-up.png"; sourceTree = "<group>"; };
 		A0F6A3691AA271A700FEAE77 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutOutView.swift; sourceTree = "<group>"; };
+		A0FCE8A41AA390ED00FB1310 /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		A0FCE8A61AA3916D00FB1310 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		E8D34639FC618A3ED3270E20 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E9894EF30424D4A5ACC7CE16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +243,8 @@
 				A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */,
 				A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */,
 				A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */,
+				A0FCE8A41AA390ED00FB1310 /* PlayerView.xib */,
+				A0FCE8A61AA3916D00FB1310 /* PlayerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			files = (
 				259124191A96C629003B30C5 /* Main.storyboard in Resources */,
 				A0EFB7CF1A9F02580098542F /* ChatMessageTableViewCell.xib in Resources */,
+				A0FCE8A51AA390ED00FB1310 /* PlayerView.xib in Resources */,
 				A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */,
 				A0F3462E1AA04E35000D9EEA /* LoginViewController.xib in Resources */,
 				2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */,
@@ -410,6 +417,7 @@
 				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
 				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
 				A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */,
+				A0FCE8A71AA3916D00FB1310 /* PlayerView.swift in Sources */,
 				A0D93D431A99952600F138DC /* Message.swift in Sources */,
 				259124141A96C629003B30C5 /* ChatViewController.swift in Sources */,
 				A0D93D411A9990A700F138DC /* RdioPlayerManager.swift in Sources */,

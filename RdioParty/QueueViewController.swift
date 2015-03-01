@@ -3,15 +3,15 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 2/19/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RdioDelegate {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, RdioDelegate {
 
     var room :Room = Session.sharedInstance.room
     var queue = Session.sharedInstance.room.queue
+    var playerView = PlayerView.instanceFromNib()
     
     var backgroundImage = UIImageView()
     
@@ -22,13 +22,16 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rdio.delegate = self
-        
-        self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 50, 0)
-        self.tableView.backgroundColor = UIColor.clearColor()
-        self.tableView.allowsSelection = false
-        
+
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
+
+        self.playerView.frame = CGRectMake(0, 60, self.view.frame.size.width, 250)
+        self.view.insertSubview(self.playerView, belowSubview: self.tableView)
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(260, 0, 50, 0)
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.allowsSelection = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
 
@@ -108,6 +111,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = song.color.colorWithAlphaComponent(0.3)
         return cell
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
     }
 
 
