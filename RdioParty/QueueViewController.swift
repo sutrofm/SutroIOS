@@ -11,7 +11,8 @@ import UIKit
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RdioDelegate {
 
     var room :Room = Session.sharedInstance.room
-    var queue = Queue()
+    var queue = Session.sharedInstance.room.queue
+    
     var backgroundImage = UIImageView()
     
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)

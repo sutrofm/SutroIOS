@@ -16,10 +16,11 @@ class Song: NSObject {
     var partyId :String!
     var icon :String!
     var bigIcon :String!
-    var backgroundImage :String!
+    var backgroundImage :NSURL!
     var artistName :String!
     var trackName :String!
     var color :UIColor!
+    var queued = true
     
     init(fromSnapshot snapshot :FDataSnapshot) {
         self.trackKey = snapshot.value.valueForKey("trackKey") as! String
@@ -45,7 +46,7 @@ class Song: NSObject {
         self.bigIcon = apiData["bigIcon"] as! String!
         self.artistName = apiData["artist"] as! String!
         self.trackName = apiData["name"] as! String!
-        self.backgroundImage = apiData["playerBackgroundUrl"] as! String
+        self.backgroundImage = NSURL(string: apiData["playerBackgroundUrl"] as! String)
         
         let colorData = apiData["dominantColor"] as! Dictionary<String, CGFloat>
         let red = colorData["r"]! / 255.0

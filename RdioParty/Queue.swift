@@ -11,10 +11,13 @@ import UIKit
 
 class Queue: NSObject {
 
-    var songs = Array<Song>()
-
+    var allSongs = Array<Song>()
+    var songs :Array<Song> {
+        return self.allSongs.filter{ $0.queued == true }
+    }
+    
     func add(song: Song) {
-        songs.append(song)
+        self.allSongs.append(song)
         sort()
     }
     
@@ -28,13 +31,14 @@ class Queue: NSObject {
     
     func removeSongById(id: String) {
         if let song = self.getSongById(id) {
-            let index = self.getIndexForSong(song)
-            self.songs.removeAtIndex(index!)
+            song.queued = false
+//            let index = self.getIndexForSong(song)
+//            self.songs.removeAtIndex(index!)
         }
     }
     
     func sort() {
-        self.songs.sort({ $0.upVoteKeys.count > $1.upVoteKeys.count })
+        self.allSongs.sort({ $0.upVoteKeys.count > $1.upVoteKeys.count })
     }
     
     func count() -> Int {

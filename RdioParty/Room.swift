@@ -9,6 +9,8 @@
 import UIKit
 
 class Room: NSObject {
+    let queue = Queue()
+    
     var name: String!
     var theme: String!
     var currentSong: Song!

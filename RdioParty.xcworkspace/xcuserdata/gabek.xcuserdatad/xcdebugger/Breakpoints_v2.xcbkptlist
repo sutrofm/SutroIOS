@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RdioParty/Room.swift"
-            timestampString = "446711429.875558"
+            timestampString = "446865500.716996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "removeUser(_:)"
             landmarkType = "5">
          </BreakpointContent>

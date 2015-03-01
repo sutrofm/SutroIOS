@@ -9,7 +9,8 @@
 import UIKit
 
 class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
-    
+    var fireBaseRef :Firebase!
+
     // Singleton
     class var sharedInstance: RdioPlayerManager {
         struct Static {
@@ -24,6 +25,35 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
         return Static.instance!
     }
 
+    func updateForRoom(room :Room) {
+        self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/player")
+        
+        // Current song
+        fireBaseRef!.observeEventType(.ChildAdded, withBlock: { snapshot in
+            println(snapshot.value)
+            if let track = snapshot.value as? NSDictionary {
+                let trackKey = snapshot.value.valueForKey("trackKey") as! String
+                self.rdio.player.play(trackKey)
+                
+                var song = Session.sharedInstance.room.queue.getSongById(trackKey)
+                Session.sharedInstance.themeColor = song!.color!
+                Session.sharedInstance.backgroundUrl = song!.backgroundImage
+            }
+            
+        })
+        
+        // Track position
+        fireBaseRef!.observeEventType(.ChildChanged, withBlock: { snapshot in
+            println(snapshot.value)
+            if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
+                if let position = snapshot.value as? Double {
+                    self.rdio.player.seekToPosition(position)
+                }
+            }
+            
+        })
+        
+    }
     
     var rdio: Rdio
 

@@ -9,18 +9,29 @@ import UIKit
 
 class Session : NSObject {
 
-    var fireBaseRef :Firebase!
-
     var room: Room! {
         didSet {
-            self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/player")
-            monitorPlayer()
+            updatePlayer()
+        }
+    }
+
+    let playerManager = RdioPlayerManager()
+    var user: [NSObject : AnyObject]!
+    var accessToken: String!
+    
+    var themeColor :UIColor! {
+        didSet {
+            // Send out notification to let others know to refresh this
+            NSNotificationCenter.defaultCenter().postNotificationName("themeColorChanged", object: nil)
         }
     }
     
-    var user: [NSObject : AnyObject]!
-    var accessToken: String!
-    var themeColor :UIColor!
+    var backgroundUrl :NSURL! {
+        didSet {
+            // Send out notification to let others know to refresh this
+            NSNotificationCenter.defaultCenter().postNotificationName("themeBackgroundChanged", object: nil)
+        }
+    }
     
     // Singleton
     class var sharedInstance: Session {
@@ -41,8 +52,8 @@ class Session : NSObject {
         super.init()
     }
     
-    func monitorPlayer() {
-        
+    func updatePlayer() {
+        playerManager.updateForRoom(self.room)
     }
     
   }
