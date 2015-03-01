@@ -49,6 +49,7 @@
 		A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346311AA26CEA000D9EEA /* vote-down.png */; };
 		A0F346341AA26CEA000D9EEA /* vote-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346321AA26CEA000D9EEA /* vote-up.png */; };
 		A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6A3691AA271A700FEAE77 /* Song.swift */; };
+		A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		A0F346311AA26CEA000D9EEA /* vote-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-down.png"; sourceTree = "<group>"; };
 		A0F346321AA26CEA000D9EEA /* vote-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-up.png"; sourceTree = "<group>"; };
 		A0F6A3691AA271A700FEAE77 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutOutView.swift; sourceTree = "<group>"; };
 		E8D34639FC618A3ED3270E20 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E9894EF30424D4A5ACC7CE16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +238,7 @@
 				A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */,
 				A0F3462F1AA256AE000D9EEA /* ChatMessageContentTextView.swift */,
 				A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */,
+				A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
+				A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */,
 				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
 				A0828F6C1A9EC7AE00BFF409 /* RoomListPresenter.swift in Sources */,

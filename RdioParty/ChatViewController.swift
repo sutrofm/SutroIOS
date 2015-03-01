@@ -30,8 +30,10 @@ class ChatViewController: SLKTextViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
-
+        self.tableView.separatorColor = UIColor.clearColor()
+        
         self.backgroundImage.frame = self.view.frame
+        self.backgroundImage.backgroundColor = UIColor.darkGrayColor() // Fallback color when an image isn't loaded for some reason
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
@@ -88,9 +90,6 @@ class ChatViewController: SLKTextViewController {
         cell.userName?.text = user.name
         cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
         cell.transform = self.tableView.transform
-
-        cell.backgroundColor = UIColor.clearColor()
-        cell.contentView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.4)
 
         return cell
     }

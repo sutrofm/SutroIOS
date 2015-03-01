@@ -14,18 +14,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ip-21-RSm" userLabel="Backing View" customClass="CutOutView" customModule="RdioParty" customModuleProvider="target">
+                        <rect key="frame" x="16" y="8" width="296" height="72"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Message goes here" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onl-ro-Rim" customClass="ChatMessageContentTextView" customModule="RdioParty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="27" width="296" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="4QV-NZ-JPZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="onl-ro-Rim" firstAttribute="top" secondItem="7ip-21-RSm" secondAttribute="top" constant="27" id="20B-YP-4ws"/>
+                            <constraint firstItem="onl-ro-Rim" firstAttribute="centerY" secondItem="7ip-21-RSm" secondAttribute="centerY" constant="6" id="MGW-yO-fT7"/>
+                            <constraint firstAttribute="trailing" secondItem="onl-ro-Rim" secondAttribute="trailing" id="OvL-wN-b5N"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="fyt-dk-4Pn"/>
+                            <constraint firstItem="onl-ro-Rim" firstAttribute="leading" secondItem="7ip-21-RSm" secondAttribute="leading" id="zc6-gF-jfo"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4L9-Zf-yry">
-                        <rect key="frame" x="84" y="10" width="228" height="17"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <rect key="frame" x="84" y="17" width="228" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Message goes here" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onl-ro-Rim" customClass="ChatMessageContentTextView" customModule="RdioParty" customModuleProvider="target">
-                        <rect key="frame" x="16" y="30" width="296" height="31"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g5u-Ir-aAV">
                         <rect key="frame" x="16" y="6" width="60" height="60"/>
                         <constraints>
@@ -35,24 +51,33 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="g5u-Ir-aAV" firstAttribute="leading" secondItem="onl-ro-Rim" secondAttribute="leading" id="GOF-61-h3h"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7ip-21-RSm" secondAttribute="bottom" constant="-16" id="6Us-6x-nKy"/>
+                    <constraint firstItem="7ip-21-RSm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="75h-qz-HRp"/>
+                    <constraint firstItem="g5u-Ir-aAV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MVf-Pu-Lxz"/>
+                    <constraint firstAttribute="bottom" secondItem="7ip-21-RSm" secondAttribute="bottom" constant="6" id="PeE-js-KPB"/>
                     <constraint firstItem="4L9-Zf-yry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="84" id="Pp4-OP-5pI"/>
-                    <constraint firstAttribute="trailing" secondItem="onl-ro-Rim" secondAttribute="trailing" constant="8" id="RfP-LV-8t3"/>
-                    <constraint firstItem="4L9-Zf-yry" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Sbh-66-tsi"/>
-                    <constraint firstItem="onl-ro-Rim" firstAttribute="top" secondItem="4L9-Zf-yry" secondAttribute="bottom" constant="3" id="USA-Bi-DYg"/>
-                    <constraint firstItem="onl-ro-Rim" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="VLP-9A-Jsa"/>
-                    <constraint firstItem="onl-ro-Rim" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="-3" id="awX-7i-hhg"/>
+                    <constraint firstItem="4L9-Zf-yry" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="Sbh-66-tsi"/>
+                    <constraint firstItem="7ip-21-RSm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZLX-0f-14Q"/>
+                    <constraint firstAttribute="trailing" secondItem="7ip-21-RSm" secondAttribute="trailing" constant="8" id="aeT-hE-Fjn"/>
                     <constraint firstAttribute="trailing" secondItem="4L9-Zf-yry" secondAttribute="trailing" constant="8" id="cGI-ma-2os"/>
                     <constraint firstItem="4L9-Zf-yry" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cui-gj-jJp"/>
+                    <constraint firstItem="7ip-21-RSm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hle-zx-tJ8"/>
+                    <constraint firstItem="7ip-21-RSm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="jrB-pN-Hvi"/>
                     <constraint firstItem="g5u-Ir-aAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="sA2-Zp-5iQ"/>
+                    <constraint firstItem="7ip-21-RSm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="vT4-qg-XlM"/>
+                    <constraint firstItem="g5u-Ir-aAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="wF4-g2-Wgt"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="PeE-js-KPB"/>
+                        <exclude reference="jrB-pN-Hvi"/>
+                        <exclude reference="vT4-qg-XlM"/>
                         <exclude reference="cui-gj-jJp"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backingView" destination="7ip-21-RSm" id="Y2p-WN-bgX"/>
                 <outlet property="messageText" destination="onl-ro-Rim" id="S4b-0B-iyT"/>
                 <outlet property="userImage" destination="g5u-Ir-aAV" id="Dfn-kX-H2O"/>
                 <outlet property="userName" destination="4L9-Zf-yry" id="2xl-8H-Y1B"/>
