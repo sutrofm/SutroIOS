@@ -16,7 +16,7 @@ class ChatMessageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.messageText.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         self.userImage.clipsToBounds = true
         self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         

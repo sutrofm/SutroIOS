@@ -35,9 +35,17 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                 let trackKey = snapshot.value.valueForKey("trackKey") as! String
                 self.rdio.player.play(trackKey)
                 
+                // So we don't have to make an additional API call let's see if we can find this track in the queue
                 var song = Session.sharedInstance.room.queue.getSongById(trackKey)
-                Session.sharedInstance.themeColor = song!.color!
-                Session.sharedInstance.backgroundUrl = song!.backgroundImage
+                if (song != nil) {
+                    Session.sharedInstance.currentSong = song!
+                    Session.sharedInstance.themeColor = song!.color!
+                    Session.sharedInstance.backgroundUrl = song!.backgroundImage
+                } else {
+                    // Couldn't find the track.  Let's rebuild it.
+                    var song = Song(fromSnapshot: snapshot)
+                    self.updateSongWithDetails(song)
+                }
             }
             
         })
@@ -53,6 +61,25 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
             
         })
         
+    }
+    
+    // MARK: - Track Details
+    func updateSongWithDetails(song: Song) {
+        var parameters:Dictionary<NSObject, AnyObject!> = ["keys": song.trackKey, "extras": "-*,name,artist,dominantColor,duration,bigIcon,icon,playerBackgroundUrl"]
+        
+        self.rdio.callAPIMethod("get",
+            withParameters: parameters,
+            success: { (result) -> Void in
+                
+                let track: AnyObject? = result[song.trackKey]
+                song.updateWithApiData(track! as! NSDictionary)
+                Session.sharedInstance.currentSong = song
+                Session.sharedInstance.themeColor = song.color!
+                Session.sharedInstance.backgroundUrl = song.backgroundImage
+                
+            }) { (error) -> Void in
+                // Error
+        }
     }
     
     var rdio: Rdio

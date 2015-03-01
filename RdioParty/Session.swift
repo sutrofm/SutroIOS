@@ -15,6 +15,8 @@ class Session : NSObject {
         }
     }
 
+    var currentSong :Song!
+    
     let playerManager = RdioPlayerManager()
     var user: [NSObject : AnyObject]!
     var accessToken: String!

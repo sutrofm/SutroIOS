@@ -29,6 +29,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
+
         updateBackground()
         
         load()
@@ -66,9 +69,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func updateBackground() {
-        var backgroundUrl = "http://rdiodynimages0-a.akamaihd.net/?l=a185706-0%3Bprimary%280.5%29%3B%240%3Azoom%2830%25%29%3Bboxblur%285%25%2C%205%25%29%3Bcolorize%28rgba%280%2C%200%2C%200%2C%200.2%29%29%3Boverlay%28%241%29"
-        UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: .TransitionCrossDissolve, animations: { () -> Void in
-            self.backgroundImage.sd_setImageWithURL(NSURL(string: backgroundUrl))
+        UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            self.backgroundImage.sd_setImageWithURL(Session.sharedInstance.backgroundUrl)
         }, completion: nil)
     }
     
@@ -87,7 +89,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 
             }) { (error) -> Void in
                 // Error
-                
         }
     }
     

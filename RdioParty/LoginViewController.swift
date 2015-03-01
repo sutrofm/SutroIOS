@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, RdioDelegate {
         checkLogin()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateThemeColor", name: "themeColorChanged", object: nil)
+
         // Do any additional setup after loading the view.
     }
 
@@ -41,6 +43,10 @@ class LoginViewController: UIViewController, RdioDelegate {
         if let accesstoken = defaults.stringForKey("rdioAccessToken") {
             rdio.authorizeUsingAccessToken(accesstoken)
         }
+    }
+    
+    func updateThemeColor() {
+        self.navigationController?.navigationBar.tintColor = Session.sharedInstance.themeColor
     }
     
     // MARK: - RdioDelegate
