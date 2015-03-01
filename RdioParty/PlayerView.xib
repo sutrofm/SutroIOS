@@ -10,31 +10,120 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rdioPartyLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-ND-Xgp">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-ND-Xgp">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="bLl-K8-TWf">
+                            <variation key="widthClass=compact" constant="220"/>
+                        </constraint>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="bLl-K8-TWf"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="bLl-K8-TWf"/>
+                        </mask>
                     </variation>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cP-87-ezj">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="178" id="PO2-RH-CH2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.7030411748927039" green="0.7030411748927039" blue="0.7030411748927039" alpha="1" colorSpace="calibratedRGB"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="PO2-RH-CH2"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="PO2-RH-CH2"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-7h-qMk">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.70304117489999995" green="0.70304117489999995" blue="0.70304117489999995" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="uaG-7h-qMk" firstAttribute="leading" secondItem="6cP-87-ezj" secondAttribute="leading" id="1g5-UW-Yj4"/>
+                <constraint firstItem="6cP-87-ezj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="169" id="7wj-Op-Hl6">
+                    <variation key="widthClass=compact" constant="174"/>
+                </constraint>
+                <constraint firstItem="yzd-ND-Xgp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GcM-Dv-g1J"/>
+                <constraint firstItem="uaG-7h-qMk" firstAttribute="centerX" secondItem="6cP-87-ezj" secondAttribute="centerX" id="Qxn-su-uUB"/>
+                <constraint firstItem="uaG-7h-qMk" firstAttribute="centerX" secondItem="yzd-ND-Xgp" secondAttribute="centerX" id="Yyw-Kn-tlq"/>
+                <constraint firstItem="uaG-7h-qMk" firstAttribute="bottom" secondItem="yzd-ND-Xgp" secondAttribute="bottom" id="alf-Dx-Sbs">
+                    <variation key="widthClass=compact" constant="-3"/>
+                </constraint>
+                <constraint firstItem="yzd-ND-Xgp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oC4-Qv-ZNM"/>
+                <constraint firstItem="uaG-7h-qMk" firstAttribute="top" secondItem="6cP-87-ezj" secondAttribute="bottom" constant="8" symbolic="YES" id="pFc-L8-ssE">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="yzd-ND-Xgp" secondAttribute="trailing" id="r6e-Fe-Osz"/>
+                <constraint firstItem="uaG-7h-qMk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="198" id="wkg-C1-RMN">
+                    <variation key="widthClass=compact" constant="195"/>
+                </constraint>
+            </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="yzd-ND-Xgp"/>
+                    <exclude reference="6cP-87-ezj"/>
+                    <exclude reference="uaG-7h-qMk"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="7wj-Op-Hl6"/>
+                    <exclude reference="1g5-UW-Yj4"/>
+                    <exclude reference="Qxn-su-uUB"/>
+                    <exclude reference="Yyw-Kn-tlq"/>
+                    <exclude reference="alf-Dx-Sbs"/>
+                    <exclude reference="pFc-L8-ssE"/>
+                    <exclude reference="wkg-C1-RMN"/>
+                    <exclude reference="GcM-Dv-g1J"/>
+                    <exclude reference="oC4-Qv-ZNM"/>
+                    <exclude reference="r6e-Fe-Osz"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="yzd-ND-Xgp"/>
+                    <include reference="6cP-87-ezj"/>
+                    <include reference="uaG-7h-qMk"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="7wj-Op-Hl6"/>
+                    <include reference="1g5-UW-Yj4"/>
+                    <include reference="Qxn-su-uUB"/>
+                    <include reference="Yyw-Kn-tlq"/>
+                    <include reference="alf-Dx-Sbs"/>
+                    <include reference="pFc-L8-ssE"/>
+                    <include reference="wkg-C1-RMN"/>
+                    <include reference="GcM-Dv-g1J"/>
+                    <include reference="oC4-Qv-ZNM"/>
+                    <include reference="r6e-Fe-Osz"/>
                 </mask>
             </variation>
             <connections>
+                <outlet property="artistName" destination="6cP-87-ezj" id="VfD-Jl-eeX"/>
                 <outlet property="image" destination="yzd-ND-Xgp" id="mrk-qN-j3q"/>
+                <outlet property="trackName" destination="uaG-7h-qMk" id="KWH-6o-Xxs"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="rdioPartyLogo.png" width="421" height="293"/>
+        <image name="first" width="30" height="30"/>
     </resources>
 </document>

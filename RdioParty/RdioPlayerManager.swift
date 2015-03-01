@@ -30,7 +30,6 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
         
         // Current song
         fireBaseRef!.observeEventType(.ChildAdded, withBlock: { snapshot in
-            println(snapshot.value)
             if let track = snapshot.value as? NSDictionary {
                 let trackKey = snapshot.value.valueForKey("trackKey") as! String
                 self.rdio.player.play(trackKey)
@@ -52,7 +51,6 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
         
         // Track position
         fireBaseRef!.observeEventType(.ChildChanged, withBlock: { snapshot in
-            println(snapshot.value)
             if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
                 if let position = snapshot.value as? Double {
                     self.rdio.player.seekToPosition(position)

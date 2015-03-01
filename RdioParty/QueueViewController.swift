@@ -11,12 +11,11 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
 
     var room :Room = Session.sharedInstance.room
     var queue = Session.sharedInstance.room.queue
-    var playerView = PlayerView.instanceFromNib()
-    
+    var playerView :PlayerView = PlayerView.instanceFromNib()
     var backgroundImage = UIImageView()
-    
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
 
+    var initialOffset = 0
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -26,16 +25,19 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
-        self.playerView.frame = CGRectMake(0, 60, self.view.frame.size.width, 250)
+        self.playerView.frame = CGRectMake(0, 95, self.view.frame.size.width, 250)
         self.view.insertSubview(self.playerView, belowSubview: self.tableView)
-        
-        self.tableView.contentInset = UIEdgeInsetsMake(260, 0, 50, 0)
+
+        self.tableView.contentInset = UIEdgeInsetsMake(270, 0, 50, 0)
         self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
+        
 
-        updateBackground()
+        currentSongChanged()
+        updateQueueCount()
         
         load()
     }
@@ -55,6 +57,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 var song = Song(fromSnapshot: snapshot)
                 self.updateSongWithDetails(song)
                 self.tableView.reloadData()
+                self.updateQueueCount()
             }
         })
         
@@ -62,19 +65,39 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         ref.observeEventType(.ChildRemoved, withBlock: { snapshot in
             let trackKey = snapshot.value.valueForKey("trackKey") as! String
             self.queue.removeSongById(trackKey)
+            self.updateQueueCount()
         })
         
         // Queue changed
         ref.observeEventType(.ChildRemoved, withBlock: { snapshot in
             self.queue.sort()
             self.tableView.reloadData()
+            self.updateQueueCount()
         })
+    }
+    
+    func currentSongChanged() {
+        updateBackground()
+        
+        if let song = Session.sharedInstance.currentSong {
+            self.playerView.image.sd_setImageWithURL(NSURL(string: song.bigIcon))
+            self.playerView.artistName.text = song.artistName
+            self.playerView.trackName.text = song.trackName
+            
+            UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                self.backgroundImage.sd_setImageWithURL(song.backgroundImage)
+                }, completion: nil)
+        }
     }
     
     func updateBackground() {
         UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
             self.backgroundImage.sd_setImageWithURL(Session.sharedInstance.backgroundUrl)
         }, completion: nil)
+    }
+    
+    func updateQueueCount() {
+        self.tabBarItem.badgeValue = String(self.queue.count())
     }
     
     // MARK: - Track Details
@@ -103,8 +126,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let song = self.queue.songAtIndex(indexPath.row)
         var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCell") as! QueueItemCellTableViewCell
-        cell.upVoteLabel.text = String(song.upVoteKeys.count)
-        cell.downVoteLabel.text = String(song.downVoteKeys.count)
+        
+        cell.voteUpButton.titleLabel!.text = String(song.upVoteKeys.count)
+        cell.voteDownButton.titleLabel!.text = String(song.downVoteKeys.count)
+        
         cell.trackArtist.text = song.artistName
         cell.trackName.text = song.trackName
         cell.trackImage.sd_setImageWithURL(NSURL(string: song.icon))
@@ -114,6 +139,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        var offset = abs(scrollView.contentOffset.y)
+        var alpha :CGFloat = 1.0
+        
+        if (offset < 265) {
+            var pct = offset / 270
+            alpha = CGFloat(pct - 0.3) // Speed up the fade out
+        }
+        self.playerView.alpha = alpha
     }
 
 

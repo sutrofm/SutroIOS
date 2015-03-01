@@ -16,8 +16,8 @@ class QueueItemCellTableViewCell: UITableViewCell {
     @IBOutlet weak var userAddedLabel: UILabel!
     @IBOutlet weak var trackLength: UILabel!
     
-    @IBOutlet weak var upVoteLabel: UILabel!
-    @IBOutlet weak var downVoteLabel: UILabel!
+    @IBOutlet weak var voteUpButton: UIButton!
+    @IBOutlet weak var voteDownButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

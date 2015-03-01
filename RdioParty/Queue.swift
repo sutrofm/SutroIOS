@@ -32,8 +32,6 @@ class Queue: NSObject {
     func removeSongById(id: String) {
         if let song = self.getSongById(id) {
             song.queued = false
-//            let index = self.getIndexForSong(song)
-//            self.songs.removeAtIndex(index!)
         }
     }
     

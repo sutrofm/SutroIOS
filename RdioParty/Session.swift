@@ -14,8 +14,6 @@ class Session : NSObject {
             updatePlayer()
         }
     }
-
-    var currentSong :Song!
     
     let playerManager = RdioPlayerManager()
     var user: [NSObject : AnyObject]!
@@ -32,6 +30,13 @@ class Session : NSObject {
         didSet {
             // Send out notification to let others know to refresh this
             NSNotificationCenter.defaultCenter().postNotificationName("themeBackgroundChanged", object: nil)
+        }
+    }
+    
+    var currentSong :Song! {
+        didSet {
+            // Send out notification to let others know to refresh current song data
+            NSNotificationCenter.defaultCenter().postNotificationName("currentSongChanged", object: nil)
         }
     }
     
