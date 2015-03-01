@@ -22,8 +22,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         self.rdio.delegate = self
         
-        self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
+        self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 50, 0)
         self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.allowsSelection = false
         
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
@@ -77,15 +78,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.rdio.callAPIMethod("get",
             withParameters: parameters,
             success: { (result) -> Void in
-                // Result
+
                 let track: AnyObject? = result[song.trackKey]
-
-                song.icon = track!["icon"] as! String!
-                song.bigIcon = track!["bigIcon"] as! String!
-                song.artistName = track!["artist"] as! String!
-                song.trackName = track!["name"] as! String!
-                song.backgroundImage = track!["playerBackgroundUrl"] as! String
-
+                song.updateWithApiData(track! as! NSDictionary)
                 self.queue.add(song)
                 self.tableView.reloadData()
                 
@@ -109,7 +104,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         cell.trackName.text = song.trackName
         cell.trackImage.sd_setImageWithURL(NSURL(string: song.icon))
         cell.backgroundColor = UIColor.clearColor()
-        cell.contentView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.5)
+        cell.contentView.backgroundColor = song.color.colorWithAlphaComponent(0.3)
         return cell
     }
 

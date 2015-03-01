@@ -8,10 +8,19 @@
 import UIKit
 
 class Session : NSObject {
+
+    var fireBaseRef :Firebase!
+
+    var room: Room! {
+        didSet {
+            self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/player")
+            monitorPlayer()
+        }
+    }
     
-    var room: Room!
     var user: [NSObject : AnyObject]!
     var accessToken: String!
+    var themeColor :UIColor!
     
     // Singleton
     class var sharedInstance: Session {
@@ -32,5 +41,8 @@ class Session : NSObject {
         super.init()
     }
     
+    func monitorPlayer() {
+        
+    }
     
   }

@@ -11,6 +11,7 @@ import UIKit
 class Room: NSObject {
     var name: String!
     var theme: String!
+    var currentSong: Song!
     
     var messages = Array<Message>()
     var people = Array<Person>()

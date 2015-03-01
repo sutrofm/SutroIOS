@@ -19,6 +19,7 @@ class Song: NSObject {
     var backgroundImage :String!
     var artistName :String!
     var trackName :String!
+    var color :UIColor!
     
     init(fromSnapshot snapshot :FDataSnapshot) {
         self.trackKey = snapshot.value.valueForKey("trackKey") as! String
@@ -37,5 +38,22 @@ class Song: NSObject {
         }
         
         super.init()
+    }
+    
+    func updateWithApiData(apiData :NSDictionary) {
+        self.icon = apiData["icon"] as! String!
+        self.bigIcon = apiData["bigIcon"] as! String!
+        self.artistName = apiData["artist"] as! String!
+        self.trackName = apiData["name"] as! String!
+        self.backgroundImage = apiData["playerBackgroundUrl"] as! String
+        
+        let colorData = apiData["dominantColor"] as! Dictionary<String, CGFloat>
+        let red = colorData["r"]! / 255.0
+        let green = colorData["g"]! / 255.0
+        let blue = colorData["b"]! / 255.0
+        let alpha = colorData["a"]! / 255.0
+        
+        let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        self.color = color
     }
 }
