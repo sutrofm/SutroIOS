@@ -1,5 +1,5 @@
 //
-//  SongAddedChatTableViewCell.swift
+//  ChatUserSongActionCell.swift
 //  RdioParty
 //
 //  Created by Gabe Kangas on 3/1/15.
@@ -8,13 +8,18 @@
 
 import UIKit
 
-class SongAddedChatTableViewCell: UITableViewCell {
+class ChatUserSongActionCell: UITableViewCell {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var messageText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backgroundColor = UIColor.clearColor()
+        self.contentView.layer.cornerRadius = 3.0
+        
+        self.userImage.clipsToBounds = true
+        self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

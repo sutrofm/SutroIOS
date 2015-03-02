@@ -22,8 +22,8 @@
 		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
 		597877C7C6D35F77B6B50A69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E03EAD0ECC1EE54FDE1DF69 /* libPods.a */; };
 		A00233901AA03A5D0028CED2 /* rdioPartyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A002338F1AA03A5D0028CED2 /* rdioPartyLogo.png */; };
-		A00A292A1AA3E12400F18495 /* SongAddedChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A29281AA3E12400F18495 /* SongAddedChatTableViewCell.swift */; };
-		A00A292B1AA3E12400F18495 /* SongAddedChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00A29291AA3E12400F18495 /* SongAddedChatTableViewCell.xib */; };
+		A00A292A1AA3E12400F18495 /* ChatUserSongActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A29281AA3E12400F18495 /* ChatUserSongActionCell.swift */; };
+		A00A292B1AA3E12400F18495 /* ChatUserSongActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00A29291AA3E12400F18495 /* ChatUserSongActionCell.xib */; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomListViewController.swift */; };
@@ -77,8 +77,8 @@
 		25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		A002338F1AA03A5D0028CED2 /* rdioPartyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rdioPartyLogo.png; sourceTree = "<group>"; };
-		A00A29281AA3E12400F18495 /* SongAddedChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongAddedChatTableViewCell.swift; sourceTree = "<group>"; };
-		A00A29291AA3E12400F18495 /* SongAddedChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongAddedChatTableViewCell.xib; sourceTree = "<group>"; };
+		A00A29281AA3E12400F18495 /* ChatUserSongActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSongActionCell.swift; sourceTree = "<group>"; };
+		A00A29291AA3E12400F18495 /* ChatUserSongActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatUserSongActionCell.xib; sourceTree = "<group>"; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A0582E931A9A565400C37188 /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 				A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */,
 				A0FCE8A41AA390ED00FB1310 /* PlayerView.xib */,
 				A0FCE8A61AA3916D00FB1310 /* PlayerView.swift */,
-				A00A29281AA3E12400F18495 /* SongAddedChatTableViewCell.swift */,
-				A00A29291AA3E12400F18495 /* SongAddedChatTableViewCell.xib */,
+				A00A29281AA3E12400F18495 /* ChatUserSongActionCell.swift */,
+				A00A29291AA3E12400F18495 /* ChatUserSongActionCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				259124191A96C629003B30C5 /* Main.storyboard in Resources */,
-				A00A292B1AA3E12400F18495 /* SongAddedChatTableViewCell.xib in Resources */,
+				A00A292B1AA3E12400F18495 /* ChatUserSongActionCell.xib in Resources */,
 				A0EFB7CF1A9F02580098542F /* ChatMessageTableViewCell.xib in Resources */,
 				A0FCE8A51AA390ED00FB1310 /* PlayerView.xib in Resources */,
 				A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */,
@@ -421,7 +421,7 @@
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
 				A0828F6C1A9EC7AE00BFF409 /* RoomListPresenter.swift in Sources */,
 				A0828F6E1A9EC8BD00BFF409 /* Presenter.swift in Sources */,
-				A00A292A1AA3E12400F18495 /* SongAddedChatTableViewCell.swift in Sources */,
+				A00A292A1AA3E12400F18495 /* ChatUserSongActionCell.swift in Sources */,
 				A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */,
 				A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */,
 				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,

@@ -26,6 +26,8 @@ class ChatViewController: SLKTextViewController {
         self.title = self.room.name
         
         self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
+        self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
+        
         self.tableView.estimatedRowHeight = 75.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -56,12 +58,8 @@ class ChatViewController: SLKTextViewController {
         ref.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
                 var type = snapshot.value.valueForKey("type") as! String
-                if (type == "User") {
-                    var message = Message(fromSnapshot: snapshot)
-                    self.updateData(message)
-                } else if (type == "User") {
-                    
-                }
+                var message = Message(fromSnapshot: snapshot)
+                self.updateData(message) 
             }
         })
         
@@ -83,15 +81,24 @@ class ChatViewController: SLKTextViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var message = self.messages[self.messages.count - 1 - indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell        
-        let user :Person = self.room.getUser(message.userKey)!
-        
-        cell.messageText?.text = message.text
-        cell.userName?.text = user.name
-        cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
-        cell.transform = self.tableView.transform
-
-        return cell
+        if (message.type == MessageType.User) {
+            let cell :ChatMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
+            let user :Person = self.room.getUser(message.userKey)!
+            
+            cell.messageText?.text = message.text
+            cell.userName?.text = user.name
+            cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
+            cell.transform = self.tableView.transform
+            return cell
+        } else if message.type == MessageType.UserAction {
+            let user :Person = self.room.getUser(message.userKey)!
+            let cell :ChatUserSongActionCell = tableView.dequeueReusableCellWithIdentifier("ChatUserSongActionCell", forIndexPath: indexPath) as! ChatUserSongActionCell
+            cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
+            cell.messageText?.text = String(stringInterpolation: user.name, " ", message.text)
+            cell.transform = self.tableView.transform
+            return cell
+        }
+        return UITableViewCell()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

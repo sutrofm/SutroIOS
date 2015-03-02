@@ -9,34 +9,72 @@
 import UIKit
 
 enum MessageType {
-    case User, NewTrack
+    case User, NewTrack, UserAction
 }
 
 class Message: NSObject {
     var text :String!
-    var messageId :String
-//    var timestamp :NSDate
+    var messageId :String!
+    var timestamp :NSDate!
     var userKey :String!
-    var type :String!
+    var type :MessageType!
     
+    // New track message specifics
+    var trackTitle :String!
+    var trackImage :String!
+    var trackArtist :String!
+    var trackKey :String!
+
     init(fromSnapshot snapshot :FDataSnapshot) {
-        self.type = snapshot.value.valueForKey("type") as! String
+        super.init()
+
+        var typeString = snapshot.value.valueForKey("type") as! String
         
-        if (self.type == "User") {
-            if let text = snapshot.value.valueForKey("message") as? String {
-                self.text = text
-            }
-            self.userKey = snapshot.value.valueForKey("userKey") as! String            
+        // Type
+        var trackTypeMessageStrings = ["favorited this track", "voted to skip", "unfavorited this track"]
+        if (typeString == "User") {
+            self.type = .User
+        } else if (typeString == "NewTrack") {
+            self.type = .NewTrack
         }
         
-        self.messageId = snapshot.value.valueForKey("id") as! String
-
+        // Message text
+        if let text = snapshot.value.valueForKey("message") as? String {
+            self.text = text
+        }
         
-        let dateFormatter = NSDateFormatter()
-//        self.timestamp = dateFormatter.dateFromString(snapshot.value.timestamp)!
-
+        if (self.type == MessageType.User && contains(trackTypeMessageStrings, self.text.lowercaseString)) {
+            self.type = .UserAction
+        }
         
-        super.init()
+        // User
+        if let userKey = snapshot.value.valueForKey("userKey") as? String {
+            self.userKey = userKey
+        }
+        
+        
+        // ID
+        if let messageId = snapshot.value.valueForKey("id") as? String {
+            self.messageId = messageId
+        }
+        
+        // Track message specifics
+        if (self.type == .NewTrack) {
+            self.trackTitle = snapshot.value.valueForKey("title") as? String
+            self.trackArtist = snapshot.value.valueForKey("artist") as? String
+            self.trackImage = snapshot.value.valueForKey("iconUrl") as? String
+            self.trackKey = snapshot.value.valueForKey("trackKey") as? String
+        }
+        
+        // Timestamp
+        if let timeStampString = snapshot.value.valueForKey("timestamp") as? String {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+            if let date = dateFormatter.dateFromString(timeStampString) {
+                self.timestamp = date
+            }
+        }
+        
     }
     
 }
