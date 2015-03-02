@@ -15,13 +15,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     var backgroundImage = UIImageView()
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
 
-    var initialOffset = 0
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    //{"t":"d","d":{"r":11,"a":"p","b":{"p":"/test1234/queue/-JjMaeHxr9UJiXxW0xQq","d":{"id":"-JjMaeHxr9UJiXxW0xQq","trackKey":"t1199205","userKey":"s4075","votes":{"s4075":"like"}}}}}
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rdio.delegate = self
-
+        
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
@@ -32,6 +33,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
+
+        //let searchDelegate = RdioSearchDelegate(viewController: self)
+        //self.searchBar.delegate = searchDelegate
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
@@ -148,7 +152,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.playerView.alpha = alpha
     }
-
 
 }
 
