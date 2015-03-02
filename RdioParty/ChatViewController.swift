@@ -27,6 +27,7 @@ class ChatViewController: SLKTextViewController {
         
         self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
         self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
+        self.tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         
         self.tableView.estimatedRowHeight = 75.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -84,7 +85,6 @@ class ChatViewController: SLKTextViewController {
         if (message.type == MessageType.User) {
             let cell :ChatMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
             let user :Person = self.room.getUser(message.userKey)!
-            
             cell.messageText?.text = message.text
             cell.userName?.text = user.name
             cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
@@ -95,6 +95,22 @@ class ChatViewController: SLKTextViewController {
             let cell :ChatUserSongActionCell = tableView.dequeueReusableCellWithIdentifier("ChatUserSongActionCell", forIndexPath: indexPath) as! ChatUserSongActionCell
             cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
             cell.messageText?.text = String(stringInterpolation: user.name, " ", message.text)
+            cell.transform = self.tableView.transform
+            return cell
+        } else if message.type == MessageType.NewTrack {
+            let cell :ChatTrackChangedTableViewCell = tableView.dequeueReusableCellWithIdentifier("ChatTrackChangedTableViewCell", forIndexPath: indexPath) as! ChatTrackChangedTableViewCell
+            cell.artistName.text = message.trackArtist
+            cell.trackName.text = message.trackTitle
+            cell.trackImage.sd_setImageWithURL(NSURL(string: message.trackImage))
+            
+            if let song = Session.sharedInstance.room.queue.getSongById(message.trackKey) {
+                cell.contentView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
+                var userKey = song.userKey
+                if let user = self.room.getUser(userKey) {
+                    cell.userImage.sd_setImageWithURL(NSURL(string: user.icon))
+                }
+            }
+            
             cell.transform = self.tableView.transform
             return cell
         }

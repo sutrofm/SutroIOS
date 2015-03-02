@@ -13,6 +13,7 @@ class Song: NSObject {
     var downVoteKeys = Array<String>()
     
     var trackKey :String!
+    var userKey :String!
     var partyId :String!
     var icon :String!
     var bigIcon :String!
@@ -21,11 +22,10 @@ class Song: NSObject {
     var trackName :String!
     var color :UIColor!
     var queued = true
-    
     init(fromSnapshot snapshot :FDataSnapshot) {
         self.trackKey = snapshot.value.valueForKey("trackKey") as! String
         self.partyId = snapshot.key
-        
+        self.userKey = snapshot.value.valueForKey("userKey") as! String
         let votes = snapshot.value.objectForKey("votes") as! NSDictionary
         for vote in votes {
             let type = vote.value as! String
