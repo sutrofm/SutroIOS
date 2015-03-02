@@ -15,7 +15,7 @@ class ChatUserSongActionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clearColor()
-        self.contentView.layer.cornerRadius = 3.0
+        self.contentView.layer.cornerRadius = 5.0
         
         self.userImage.clipsToBounds = true
         self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
