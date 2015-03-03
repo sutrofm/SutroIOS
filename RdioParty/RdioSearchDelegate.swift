@@ -25,6 +25,8 @@ class RdioSearchDelegate: NSObject, MLPAutoCompleteTextFieldDataSource, RdioDele
                             var trackName = track["name"] as! String
                             var artistName = track["artist"] as! String
                             autocomplete.string = String(stringInterpolation: artistName, " - ", trackName)
+                            autocomplete.trackKey = track["key"] as! String
+                            autocomplete.image = track["icon"] as! String
                             autoCompleteResults.append(autocomplete)
                         }
                     }
@@ -43,6 +45,8 @@ class RdioSearchDelegate: NSObject, MLPAutoCompleteTextFieldDataSource, RdioDele
 
 class AutoCompleteObject : NSObject, MLPAutoCompletionObject {
     var string = ""
+    var trackKey :String!
+    var image :String!
     
     @objc func autocompleteString() -> String! {
         return self.string

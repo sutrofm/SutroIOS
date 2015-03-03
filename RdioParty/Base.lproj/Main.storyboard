@@ -123,18 +123,27 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="101" y="14" width="63" height="22"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temples" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQy-i2-bWV">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="101" y="39" width="63" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added by Gabe Kangas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ty1-0O-SkW">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="101" y="56" width="63" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:53" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnv-jx-Xkf">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -174,7 +183,8 @@
                                                             <exclude reference="Y7E-p3-oVG"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="172" y="5" width="67" height="40"/>
                                                         <mask key="constraints">
                                                             <include reference="Y7E-p3-oVG"/>
                                                         </mask>
@@ -199,7 +209,8 @@
                                                             <exclude reference="VK9-JS-ASY"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="172" y="51" width="67" height="40"/>
                                                         <mask key="constraints">
                                                             <include reference="VK9-JS-ASY"/>
                                                         </mask>
@@ -382,13 +393,13 @@
                                 <exclude reference="EeW-y9-kwd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="7BJ-rY-Ybi"/>
+                                <exclude reference="8Xa-Eu-hq6"/>
+                                <exclude reference="tsC-xK-H8V"/>
                                 <exclude reference="4oE-um-iPG"/>
                                 <exclude reference="Idm-BV-oOP"/>
                                 <exclude reference="QLO-5o-zbG"/>
                                 <exclude reference="zHA-y9-jod"/>
-                                <exclude reference="7BJ-rY-Ybi"/>
-                                <exclude reference="8Xa-Eu-hq6"/>
-                                <exclude reference="tsC-xK-H8V"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -397,13 +408,13 @@
                                 <include reference="EeW-y9-kwd"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="7BJ-rY-Ybi"/>
+                                <include reference="8Xa-Eu-hq6"/>
+                                <include reference="tsC-xK-H8V"/>
                                 <include reference="4oE-um-iPG"/>
                                 <include reference="Idm-BV-oOP"/>
                                 <include reference="QLO-5o-zbG"/>
                                 <include reference="zHA-y9-jod"/>
-                                <include reference="7BJ-rY-Ybi"/>
-                                <include reference="8Xa-Eu-hq6"/>
-                                <include reference="tsC-xK-H8V"/>
                             </mask>
                         </variation>
                     </view>

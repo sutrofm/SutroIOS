@@ -21,6 +21,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         self.searchBar.autoCompleteDataSource = self.searchDelegate
+        self.searchBar.autoCompleteDelegate = self
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
@@ -146,6 +147,18 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             alpha = CGFloat(pct - 0.3) // Speed up the fade out
         }
         self.playerView.alpha = alpha
+    }
+    
+    // MARK: - Auto complete sarch
+    func autoCompleteTextField(textField: MLPAutoCompleteTextField!, didSelectAutoCompleteString selectedString: String!, withAutoCompleteObject selectedObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        println(selectedObject)
+    }
+    
+    func autoCompleteTextField(textField: MLPAutoCompleteTextField!, shouldConfigureCell cell: UITableViewCell!, withAutoCompleteString autocompleteString: String!, withAttributedString boldedString: NSAttributedString!, forAutoCompleteObject autocompleteObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        var rpAutoCompleteObject = autocompleteObject as! AutoCompleteObject
+        cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
+        cell.imageView?.sd_setImageWithURL(NSURL(string: rpAutoCompleteObject.image), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
+        return true
     }
 
 }
