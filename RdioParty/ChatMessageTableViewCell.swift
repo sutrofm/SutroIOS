@@ -25,7 +25,7 @@ class ChatMessageTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor.clearColor()
         self.messageText.backgroundColor = UIColor.clearColor()
         
-        let exclusionFrame = CGRectMake(0, 0, 65, 28)
+        let exclusionFrame = CGRectMake(0, 0, 57, 28)
         let exclusionPath = UIBezierPath(rect: exclusionFrame)
         
         self.messageText.textContainer.exclusionPaths = [exclusionPath]

@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5336A465F3D1FAE2311B6638"
-               BuildableName = "Pods_RdioParty.framework"
+               BlueprintIdentifier = "6CDAFD4F5F2CC861CECE8168"
+               BuildableName = "libPods-RdioParty.a"
                BlueprintName = "Pods-RdioParty"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6CDAFD4F5F2CC861CECE8168"
+            BuildableName = "libPods-RdioParty.a"
+            BlueprintName = "Pods-RdioParty"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

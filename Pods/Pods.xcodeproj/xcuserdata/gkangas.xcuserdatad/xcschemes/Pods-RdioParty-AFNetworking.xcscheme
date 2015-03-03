@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "336CE2B8AF0F34682B833BC3"
-               BuildableName = "AFNetworking.framework"
+               BlueprintIdentifier = "B0C86B7287868305F3C4CA6E"
+               BuildableName = "libPods-RdioParty-AFNetworking.a"
                BlueprintName = "Pods-RdioParty-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B0C86B7287868305F3C4CA6E"
+            BuildableName = "libPods-RdioParty-AFNetworking.a"
+            BlueprintName = "Pods-RdioParty-AFNetworking"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

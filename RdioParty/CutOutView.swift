@@ -17,7 +17,7 @@ class CutOutView: UIView {
         self.insertSubview(backingView, atIndex: 0)
         
         let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: .TopLeft, cornerRadii: CGSize(width: 15.0, height: 10.0)).CGPath
+        maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: .TopLeft, cornerRadii: CGSize(width: 15.0, height: 20.0)).CGPath
         
         self.backingView.layer.mask = maskLayer;
     }

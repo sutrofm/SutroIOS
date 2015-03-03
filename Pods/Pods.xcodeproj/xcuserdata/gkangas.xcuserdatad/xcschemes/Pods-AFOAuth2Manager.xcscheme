@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "749DF810E6E211A4E17D1E66"
-               BuildableName = "AFOAuth2Manager.framework"
+               BlueprintIdentifier = "8434BB886685A2E6571D0155"
+               BuildableName = "libPods-AFOAuth2Manager.a"
                BlueprintName = "Pods-AFOAuth2Manager"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8434BB886685A2E6571D0155"
+            BuildableName = "libPods-AFOAuth2Manager.a"
+            BlueprintName = "Pods-AFOAuth2Manager"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

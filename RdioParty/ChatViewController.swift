@@ -29,8 +29,9 @@ class ChatViewController: SLKTextViewController {
         self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
         self.tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         
-        self.tableView.estimatedRowHeight = 75.0
+        self.tableView.estimatedRowHeight = 73.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
         self.tableView.separatorColor = UIColor.clearColor()
@@ -67,8 +68,12 @@ class ChatViewController: SLKTextViewController {
     }
     
     func updateData(message: Message) {
+        let indexPath = NSIndexPath(forRow: self.messages.count, inSection: 0)
+        self.tableView.beginUpdates()
         self.messages.append(message)
-        self.tableView.reloadData()
+        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+        self.tableView.endUpdates()
+        
     }
     
     override func didCommitTextEditing(sender: AnyObject!) {
@@ -104,7 +109,7 @@ class ChatViewController: SLKTextViewController {
             cell.trackImage.sd_setImageWithURL(NSURL(string: message.trackImage))
             
             if let song = Session.sharedInstance.room.queue.getSongById(message.trackKey) {
-                cell.contentView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
+                cell.backingView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
                 var userKey = song.userKey
                 if let user = self.room.getUser(userKey) {
                     cell.userImage.sd_setImageWithURL(NSURL(string: user.icon))
