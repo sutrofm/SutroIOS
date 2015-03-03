@@ -7,22 +7,20 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, RdioDelegate {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, MLPAutoCompleteTextFieldDelegate {
 
     var room :Room = Session.sharedInstance.room
     var queue = Session.sharedInstance.room.queue
     var playerView :PlayerView = PlayerView.instanceFromNib()
     var backgroundImage = UIImageView()
-    var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
-
+    let searchDelegate = RdioSearchDelegate()
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
 
-    //{"t":"d","d":{"r":11,"a":"p","b":{"p":"/test1234/queue/-JjMaeHxr9UJiXxW0xQq","d":{"id":"-JjMaeHxr9UJiXxW0xQq","trackKey":"t1199205","userKey":"s4075","votes":{"s4075":"like"}}}}}
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.rdio.delegate = self
         
+        self.searchBar.autoCompleteDataSource = self.searchDelegate
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
@@ -33,9 +31,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
-
-        //let searchDelegate = RdioSearchDelegate(viewController: self)
-        //self.searchBar.delegate = searchDelegate
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
@@ -108,7 +103,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func updateSongWithDetails(song: Song) {
         var parameters:Dictionary<NSObject, AnyObject!> = ["keys": song.trackKey, "extras": "-*,name,artist,dominantColor,duration,bigIcon,icon,playerBackgroundUrl"]
 
-        self.rdio.callAPIMethod("get",
+        Session.sharedInstance.rdio.callAPIMethod("get",
             withParameters: parameters,
             success: { (result) -> Void in
 

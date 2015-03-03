@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_Firebase 2
 #define COCOAPODS_VERSION_PATCH_Firebase 0
 
+// MLPAutoCompleteTextField
+#define COCOAPODS_POD_AVAILABLE_MLPAutoCompleteTextField
+#define COCOAPODS_VERSION_MAJOR_MLPAutoCompleteTextField 1
+#define COCOAPODS_VERSION_MINOR_MLPAutoCompleteTextField 5
+#define COCOAPODS_VERSION_PATCH_MLPAutoCompleteTextField 0
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3

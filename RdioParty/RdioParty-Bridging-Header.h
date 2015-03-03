@@ -7,3 +7,4 @@
 #import <Firebase/Firebase.h>
 #import <SLKTextViewController.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MLPAutoCompleteTextField/MLPAutoCompleteTextField.h>

@@ -14,12 +14,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MLPAutoCompleteTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RdioParty-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-RdioParty-AFOAuth2Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RdioParty-MLPAutoCompleteTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,52 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0064C3EFC6280319A1B86BC8</key>
+		<key>06ECF1D86E1CFC52F309A23F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D1FE670B9F62B46C86892C1</key>
+		<key>14241A8D01C4A85E0DE815D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2633089ECBB792F58B3ADBBF</key>
+		<key>3D690FED36FFC067E7171D6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6714AC5118601E7B43E85AD4</key>
+		<key>8254D6F3ADD8CAE8F1C537DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6CDAFD4F5F2CC861CECE8168</key>
+		<key>861F173611C736F9C05320F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8051FA1C895D08942E5F24C6</key>
+		<key>9B11FEE13E8DF1C292C527DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8434BB886685A2E6571D0155</key>
+		<key>A218E53CCCFB312E1FDAA750</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0C86B7287868305F3C4CA6E</key>
+		<key>A31A90C48C9EA01F091E321F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDA7E0FD5C617BF7C4DFB016</key>
+		<key>AA6341A5D67938B623BDB3D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3EA881878447A949913C742</key>
+		<key>CF7FBBCC497ABFBB01529BBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB7A5DF25547B991AD220B0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBC854B63BC704490FACD259</key>
 		<dict>
 			<key>primary</key>
 			<true/>

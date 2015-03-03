@@ -7,8 +7,14 @@
 
 import UIKit
 
-class Session : NSObject {
+class Session : NSObject, RdioDelegate {
+    var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
 
+    override init() {
+        super.init()
+        self.rdio.delegate = self
+    }
+    
     var room: Room! {
         didSet {
             updatePlayer()
@@ -17,7 +23,11 @@ class Session : NSObject {
     
     let playerManager = RdioPlayerManager()
     var user: [NSObject : AnyObject]!
-    var accessToken: String!
+    var accessToken: String! {
+        didSet {
+            self.rdio.authorizeUsingAccessToken(accessToken)
+        }
+    }
     
     var themeColor :UIColor! {
         didSet {
@@ -52,11 +62,6 @@ class Session : NSObject {
         }
         
         return Static.instance!
-    }
-    
-    
-    override init() {
-        super.init()
     }
     
     func updatePlayer() {
