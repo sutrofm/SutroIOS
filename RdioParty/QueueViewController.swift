@@ -14,6 +14,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     var playerView :PlayerView = PlayerView.instanceFromNib()
     var backgroundImage = UIImageView()
     let searchDelegate = RdioSearchDelegate()
+    var firebaseRef :Firebase!
+    var partyPlayerManager = PartyPlayerManager()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
 
@@ -40,6 +43,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         currentSongChanged()
         updateQueueCount()
         
+        firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
+        
+        self.partyPlayerManager.firebaseRef = self.firebaseRef
+        
         load()
     }
 
@@ -49,11 +56,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func load() {
-        
-        var ref = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
 
         // Track added
-        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+        firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
                 var song = Song(fromSnapshot: snapshot)
                 self.updateSongWithDetails(song)
@@ -63,14 +68,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         })
         
         // Track removed
-        ref.observeEventType(.ChildRemoved, withBlock: { snapshot in
+        firebaseRef.observeEventType(.ChildRemoved, withBlock: { snapshot in
             let trackKey = snapshot.value.valueForKey("trackKey") as! String
             self.queue.removeSongById(trackKey)
             self.updateQueueCount()
         })
         
         // Queue changed
-        ref.observeEventType(.ChildRemoved, withBlock: { snapshot in
+        firebaseRef.observeEventType(.ChildRemoved, withBlock: { snapshot in
             self.queue.sort()
             self.tableView.reloadData()
             self.updateQueueCount()

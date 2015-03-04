@@ -45,7 +45,7 @@
 		A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */; };
 		A0D93D411A9990A700F138DC /* RdioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D93D401A9990A700F138DC /* RdioPlayerManager.swift */; };
 		A0D93D431A99952600F138DC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D93D421A99952600F138DC /* Message.swift */; };
-		A0EFB7CB1A9EF5530098542F /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFB7CA1A9EF5530098542F /* ChatPresenter.swift */; };
+		A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */; };
 		A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFB7CC1A9F02580098542F /* ChatMessageTableViewCell.swift */; };
 		A0EFB7CF1A9F02580098542F /* ChatMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */; };
 		A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */; };
@@ -103,7 +103,7 @@
 		A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioSearchDelegate.swift; sourceTree = "<group>"; };
 		A0D93D401A9990A700F138DC /* RdioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioPlayerManager.swift; sourceTree = "<group>"; };
 		A0D93D421A99952600F138DC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		A0EFB7CA1A9EF5530098542F /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyPlayerManager.swift; sourceTree = "<group>"; };
 		A0EFB7CC1A9F02580098542F /* ChatMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageTableViewCell.swift; sourceTree = "<group>"; };
 		A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatMessageTableViewCell.xib; sourceTree = "<group>"; };
 		A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -282,7 +282,6 @@
 			children = (
 				A0828F6B1A9EC7AE00BFF409 /* RoomListPresenter.swift */,
 				A0828F6D1A9EC8BD00BFF409 /* Presenter.swift */,
-				A0EFB7CA1A9EF5530098542F /* ChatPresenter.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -298,6 +297,7 @@
 				A0F6A3691AA271A700FEAE77 /* Song.swift */,
 				A062BEFF1AA275BF00945407 /* Queue.swift */,
 				A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */,
+				A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -419,11 +419,11 @@
 				A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */,
 				A0828F701A9ECFAC00BFF409 /* RdioPartyViewController.swift in Sources */,
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
-				A0EFB7CB1A9EF5530098542F /* ChatPresenter.swift in Sources */,
 				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
+				A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */,
 				A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */,
 				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,

@@ -11,7 +11,8 @@ import UIKit
 class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     var fireBaseRef :Firebase!
     var rdio: Rdio!
-
+    var playerQueueManager = PartyPlayerManager()
+    
     override init() {
         self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
         
