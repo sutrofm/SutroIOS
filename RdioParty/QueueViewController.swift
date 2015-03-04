@@ -35,6 +35,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
+        self.playerView.playPauseButton.addTarget(self, action: "playPauseButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
 
         currentSongChanged()
         updateQueueCount()
@@ -98,6 +99,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     func updateQueueCount() {
         self.tabBarItem.badgeValue = String(self.queue.count())
+    }
+    
+    func playPauseButtonPressed(sender :UIButton!) {
+        if (Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value) {
+            Session.sharedInstance.playerManager.rdio.player.stop()
+        } else {
+            Session.sharedInstance.playerManager.rdio.player.play()
+        }
     }
     
     // MARK: - Track Details

@@ -13,6 +13,7 @@ class PlayerView: UIView {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var trackName: UILabel!
+    @IBOutlet weak var playPauseButton: UIButton!
     
     class func instanceFromNib() -> PlayerView {
         return UINib(nibName: "PlayerView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PlayerView

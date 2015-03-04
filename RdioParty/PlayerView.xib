@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-ND-Xgp">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-ND-Xgp">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -56,6 +56,15 @@
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" red="0.70304117489999995" green="0.70304117489999995" blue="0.70304117489999995" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
+                <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwK-hX-zpK">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="|&gt;">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="177" y="136" width="30" height="30"/>
+                    </variation>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
             <constraints>
@@ -83,6 +92,7 @@
                     <exclude reference="yzd-ND-Xgp"/>
                     <exclude reference="6cP-87-ezj"/>
                     <exclude reference="uaG-7h-qMk"/>
+                    <exclude reference="MwK-hX-zpK"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="7wj-Op-Hl6"/>
@@ -102,6 +112,7 @@
                     <include reference="yzd-ND-Xgp"/>
                     <include reference="6cP-87-ezj"/>
                     <include reference="uaG-7h-qMk"/>
+                    <include reference="MwK-hX-zpK"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="7wj-Op-Hl6"/>
@@ -119,11 +130,9 @@
             <connections>
                 <outlet property="artistName" destination="6cP-87-ezj" id="VfD-Jl-eeX"/>
                 <outlet property="image" destination="yzd-ND-Xgp" id="mrk-qN-j3q"/>
+                <outlet property="playPauseButton" destination="MwK-hX-zpK" id="4LQ-dm-R9V"/>
                 <outlet property="trackName" destination="uaG-7h-qMk" id="KWH-6o-Xxs"/>
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="first" width="30" height="30"/>
-    </resources>
 </document>
