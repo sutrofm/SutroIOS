@@ -26,6 +26,7 @@ class Session : NSObject, RdioDelegate {
     var accessToken: String! {
         didSet {
             self.rdio.authorizeUsingAccessToken(accessToken)
+            self.playerManager.rdio.authorizeUsingAccessToken(accessToken)
         }
     }
     
