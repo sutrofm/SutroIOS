@@ -14,6 +14,7 @@ class ChatViewController: SLKTextViewController {
 
     var messages = Array<Message>()
     var backgroundImage = UIImageView()
+    var firebaseRef :Firebase!
     
      required init(coder aDecoder: NSCoder) {
         super.init(tableViewStyle: UITableViewStyle.Plain)
@@ -24,7 +25,8 @@ class ChatViewController: SLKTextViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = self.room.name
-        
+        firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
+
         self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
         self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
         self.tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
@@ -43,6 +45,11 @@ class ChatViewController: SLKTextViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateThemeColor", name: "themeColorChanged", object: nil)
 
+        self.firebaseRef.authAnonymouslyWithCompletionBlock { (error, authData) -> Void in
+            println(authData)
+            println(error)
+        }
+
         load()
     }
     
@@ -56,8 +63,7 @@ class ChatViewController: SLKTextViewController {
     
     func load() {
         
-        var ref = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
-        ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+        self.firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
                 var type = snapshot.value.valueForKey("type") as! String
                 var message = Message(fromSnapshot: snapshot)
@@ -68,23 +74,22 @@ class ChatViewController: SLKTextViewController {
     }
     
     func updateData(message: Message) {
-//        let indexPath = NSIndexPath(forRow: self.messages.count, inSection: 0)
-//        self.tableView.beginUpdates()
         self.messages.append(message)
         self.tableView.reloadData()
-//        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Bottom)
-//        self.tableView.endUpdates()
-        
     }
     
-    override func didCommitTextEditing(sender: AnyObject!) {
-        if let textInput = sender as? UITextView {
-            
-        }
-        super.didCommitTextEditing(sender)
-    }
-    
+    //{"fullName":"Gabe Kangas","id":"-JjXhv9T4zYhYa-FUkg0","message":"test","timestamp":"2015-03-04T02:57:44.753Z","type":"User","userKey":"s4075"}
+    override func didPressRightButton(textInput: AnyObject!) {
+        println(self.firebaseRef.authData)
 
+        let text = textInputbar.textView.text
+        var message = ["fullName": "Test Testerson", "id": "test1234", "message" : text, "type" : "User", "userKey": "s4075"]
+        var post1Ref = self.firebaseRef.childByAutoId()
+        post1Ref.setValue(message)
+        super.didPressRightButton(textInput)
+    }
+    
+    // TODO: Split this out somewhere else.  It makes our VC look ugly with so many cell types.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var message = self.messages[self.messages.count - 1 - indexPath.row]
         
