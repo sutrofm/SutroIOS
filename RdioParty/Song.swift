@@ -22,6 +22,12 @@ class Song: NSObject {
     var trackName :String!
     var color :UIColor!
     var queued = true
+    
+    
+    override init () {
+        super.init()
+    }
+    
     init(fromSnapshot snapshot :FDataSnapshot) {
         self.trackKey = snapshot.value.valueForKey("trackKey") as! String
         self.partyId = snapshot.key

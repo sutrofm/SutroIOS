@@ -10,53 +10,53 @@ import UIKit
 
 class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     var fireBaseRef :Firebase!
+    var rdio: Rdio!
 
-    // Singleton
-    class var sharedInstance: RdioPlayerManager {
-        struct Static {
-            static var instance: RdioPlayerManager?
-            static var token: dispatch_once_t = 0
-        }
+    override init() {
+        self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
         
-        dispatch_once(&Static.token) {
-            Static.instance = RdioPlayerManager()
-        }
-        
-        return Static.instance!
+        super.init()
+        self.rdio.delegate = self
+        self.rdio.preparePlayerWithDelegate(self);
     }
-
+    
     func updateForRoom(room :Room) {
         self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/player")
         
         // Current song
-        fireBaseRef!.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let track = snapshot.value as? NSDictionary {
-                let trackKey = snapshot.value.valueForKey("trackKey") as! String
-                self.rdio.player.play(trackKey)
+        self.fireBaseRef.observeEventType(.Value, withBlock: { snapshot in
+            //println(snapshot.value)
+            
+            if snapshot.value.valueForKey("playingTrack") != nil {
                 
-                // So we don't have to make an additional API call let's see if we can find this track in the queue
-                var song = Session.sharedInstance.room.queue.getSongById(trackKey)
-                if (song != nil) {
-                    Session.sharedInstance.currentSong = song!
-                    Session.sharedInstance.themeColor = song!.color!
-                    Session.sharedInstance.backgroundUrl = song!.backgroundImage
-                } else {
-                    // Couldn't find the track.  Let's rebuild it.
-                    var song = Song(fromSnapshot: snapshot)
-                    self.updateSongWithDetails(song)
+                if let track = snapshot.value as? NSDictionary {
+                    let trackKey = snapshot.value.valueForKeyPath("playingTrack.trackKey") as! String
+                    self.rdio.player.play(trackKey)
+                    
+                    // So we don't have to make an additional API call let's see if we can find this track in the queue
+                    var song = Session.sharedInstance.room.queue.getSongById(trackKey)
+                    if (song != nil) {
+                        Session.sharedInstance.currentSong = song!
+                        Session.sharedInstance.themeColor = song!.color!
+                        Session.sharedInstance.backgroundUrl = song!.backgroundImage
+                    } else {
+                        // Couldn't find the track.  Let's rebuild it.
+                        var song = Song()
+                        song.trackKey = trackKey
+                        self.updateSongWithDetails(song)
+                    }
+                    
+                    // Track position
+                    if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
+                        if let position: Double = track.valueForKey("position") as? Double {
+                            if (abs(self.rdio.player.position - position) > 2) {
+                                self.rdio.player.seekToPosition(position)
+                            }
+                        }
+                    }
+
                 }
             }
-            
-        })
-        
-        // Track position
-        fireBaseRef!.observeEventType(.ChildChanged, withBlock: { snapshot in
-            if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
-                if let position = snapshot.value as? Double {
-                    self.rdio.player.seekToPosition(position)
-                }
-            }
-            
         })
         
     }
@@ -78,16 +78,6 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
             }) { (error) -> Void in
                 // Error
         }
-    }
-    
-    var rdio: Rdio
-
-    override init() {
-        self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
-
-        super.init()
-        self.rdio.delegate = self
-        self.rdio.preparePlayerWithDelegate(self);
     }
     
     func rdioRequest(request: RDAPIRequest!, didLoadData data: AnyObject!) {
@@ -117,6 +107,9 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     }
         
     // MARK: - RDPlayerDelegate
+    
+    func rdioPlayerCurrentSourceDidChange() {
+    }
     
     func rdioIsPlayingElsewhere() -> Bool {
         // Let the Rdio framework tell the user
