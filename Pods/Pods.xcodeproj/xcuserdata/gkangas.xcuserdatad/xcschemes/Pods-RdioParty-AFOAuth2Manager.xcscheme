@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D1FE670B9F62B46C86892C1"
+               BlueprintIdentifier = "52B638544867C946B69FE221"
                BuildableName = "libPods-RdioParty-AFOAuth2Manager.a"
                BlueprintName = "Pods-RdioParty-AFOAuth2Manager"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D1FE670B9F62B46C86892C1"
-            BuildableName = "libPods-RdioParty-AFOAuth2Manager.a"
-            BlueprintName = "Pods-RdioParty-AFOAuth2Manager"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

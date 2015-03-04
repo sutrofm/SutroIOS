@@ -29,7 +29,7 @@ class ChatViewController: SLKTextViewController {
         self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
         self.tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         
-        self.tableView.estimatedRowHeight = 73.0
+        self.tableView.estimatedRowHeight = 60.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -68,11 +68,12 @@ class ChatViewController: SLKTextViewController {
     }
     
     func updateData(message: Message) {
-        let indexPath = NSIndexPath(forRow: self.messages.count, inSection: 0)
-        self.tableView.beginUpdates()
+//        let indexPath = NSIndexPath(forRow: self.messages.count, inSection: 0)
+//        self.tableView.beginUpdates()
         self.messages.append(message)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
-        self.tableView.endUpdates()
+        self.tableView.reloadData()
+//        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Bottom)
+//        self.tableView.endUpdates()
         
     }
     

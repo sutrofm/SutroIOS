@@ -24,15 +24,13 @@ class ChatMessageTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clearColor()
         self.contentView.backgroundColor = UIColor.clearColor()
         self.messageText.backgroundColor = UIColor.clearColor()
-        
-        let exclusionFrame = CGRectMake(0, 0, 57, 28)
+
+        // This is the area that the user icon takes up on top of the cell, so we make
+        // the text "wrap" around it.
+        let exclusionFrame = CGRectMake(0, 0, 42, 20)
         let exclusionPath = UIBezierPath(rect: exclusionFrame)
-        
         self.messageText.textContainer.exclusionPaths = [exclusionPath]
-    }
-    
-    override func prepareForReuse() {
-        self.layoutSubviews()
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
