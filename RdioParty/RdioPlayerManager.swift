@@ -27,30 +27,31 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
         // Current song
         self.fireBaseRef.observeEventType(.Value, withBlock: { snapshot in
             //println(snapshot.value)
-            
             if snapshot.value.valueForKey("playingTrack") != nil {
                 
                 if let track = snapshot.value as? NSDictionary {
                     let trackKey = snapshot.value.valueForKeyPath("playingTrack.trackKey") as! String
-                    self.rdio.player.play(trackKey)
-                    
-                    // So we don't have to make an additional API call let's see if we can find this track in the queue
-                    var song = Session.sharedInstance.room.queue.getSongById(trackKey)
-                    if (song != nil) {
-                        Session.sharedInstance.currentSong = song!
-                        Session.sharedInstance.themeColor = song!.color!
-                        Session.sharedInstance.backgroundUrl = song!.backgroundImage
-                    } else {
-                        // Couldn't find the track.  Let's rebuild it.
-                        var song = Song()
-                        song.trackKey = trackKey
-                        self.updateSongWithDetails(song)
+                    if (trackKey != self.rdio.player.currentTrack) {
+                        self.rdio.player.play(trackKey)
+                        
+                        // So we don't have to make an additional API call let's see if we can find this track in the queue
+                        var song = Session.sharedInstance.room.queue.getSongById(trackKey)
+                        if (song != nil) {
+                            Session.sharedInstance.currentSong = song!
+                            Session.sharedInstance.themeColor = song!.color!
+                            Session.sharedInstance.backgroundUrl = song!.backgroundImage
+                        } else {
+                            // Couldn't find the track.  Let's rebuild it.
+                            var song = Song()
+                            song.trackKey = trackKey
+                            self.updateSongWithDetails(song)
+                        }
                     }
                     
                     // Track position
                     if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
                         if let position: Double = track.valueForKey("position") as? Double {
-                            if (abs(self.rdio.player.position - position) > 2) {
+                            if (abs(self.rdio.player.position - position) > 3) {
                                 self.rdio.player.seekToPosition(position)
                             }
                         }
