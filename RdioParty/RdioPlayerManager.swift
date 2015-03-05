@@ -44,7 +44,11 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                             // Couldn't find the track.  Let's rebuild it.
                             var song = Song()
                             song.trackKey = trackKey
-                            self.updateSongWithDetails(song)
+                            self.updateSongWithDetails(song, completionClosure: { () in
+                                Session.sharedInstance.currentSong = song
+                                Session.sharedInstance.themeColor = song.color!
+                                Session.sharedInstance.backgroundUrl = song.backgroundImage
+                            });
                         }
                     }
                     
@@ -64,19 +68,15 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     }
     
     // MARK: - Track Details
-    func updateSongWithDetails(song: Song) {
+    func updateSongWithDetails(song: Song, completionClosure: () ->()) {
         var parameters:Dictionary<NSObject, AnyObject!> = ["keys": song.trackKey, "extras": "-*,name,artist,dominantColor,duration,bigIcon,icon,playerBackgroundUrl"]
         
         self.rdio.callAPIMethod("get",
             withParameters: parameters,
             success: { (result) -> Void in
-                
                 let track: AnyObject? = result[song.trackKey]
                 song.updateWithApiData(track! as! NSDictionary)
-                Session.sharedInstance.currentSong = song
-                Session.sharedInstance.themeColor = song.color!
-                Session.sharedInstance.backgroundUrl = song.backgroundImage
-                
+                completionClosure()
             }) { (error) -> Void in
                 // Error
         }

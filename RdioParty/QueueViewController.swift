@@ -44,7 +44,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         updateQueueCount()
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
-        
         self.partyPlayerManager.firebaseRef = self.firebaseRef
         
         load()
@@ -61,7 +60,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
                 var song = Song(fromSnapshot: snapshot)
-                self.updateSongWithDetails(song)
+                Session.sharedInstance.playerManager.updateSongWithDetails(song, completionClosure: { () in
+                    self.queue.add(song)
+                    self.tableView.reloadData()
+                });
                 self.tableView.reloadData()
                 self.updateQueueCount()
             }
@@ -111,24 +113,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             Session.sharedInstance.playerManager.rdio.player.stop()
         } else {
             Session.sharedInstance.playerManager.rdio.player.play()
-        }
-    }
-    
-    // MARK: - Track Details
-    func updateSongWithDetails(song: Song) {
-        var parameters:Dictionary<NSObject, AnyObject!> = ["keys": song.trackKey, "extras": "-*,name,artist,dominantColor,duration,bigIcon,icon,playerBackgroundUrl"]
-
-        Session.sharedInstance.rdio.callAPIMethod("get",
-            withParameters: parameters,
-            success: { (result) -> Void in
-
-                let track: AnyObject? = result[song.trackKey]
-                song.updateWithApiData(track! as! NSDictionary)
-                self.queue.add(song)
-                self.tableView.reloadData()
-                
-            }) { (error) -> Void in
-                // Error
         }
     }
     
