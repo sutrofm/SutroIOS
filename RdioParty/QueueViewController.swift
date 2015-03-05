@@ -85,23 +85,19 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func currentSongChanged() {
-        updateBackground()
-        
         if let song = Session.sharedInstance.currentSong {
-            self.playerView.image.sd_setImageWithURL(NSURL(string: song.bigIcon))
             self.playerView.artistName.text = song.artistName
             self.playerView.trackName.text = song.trackName
             
-            UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            var fadeDuration = 2.0
+            if (self.backgroundImage.image == nil || self.playerView.image.image == nil) {
+                fadeDuration = 0
+            }
+            UIView.transitionWithView(self.backgroundImage, duration: fadeDuration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                 self.backgroundImage.sd_setImageWithURL(song.backgroundImage)
+                self.playerView.image.sd_setImageWithURL(NSURL(string: song.bigIcon))
                 }, completion: nil)
         }
-    }
-    
-    func updateBackground() {
-        UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-            self.backgroundImage.sd_setImageWithURL(Session.sharedInstance.backgroundUrl)
-        }, completion: nil)
     }
     
     func updateQueueCount() {
