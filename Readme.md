@@ -30,6 +30,13 @@ powered by [Firebase](https://www.firebase.com/docs/ios/api/) and the
     the sdk is released publicly we can use Cocoapods to track this
     dependency as well.
     -   Currently AFNetworking and AFOAuth2Manager are dependancies of
-        the Rdio SDK.
+        the Rdio SDK to support OAuth2.
 -   [SDWebImage](https://github.com/rs/SDWebImage) is used for async
     image loading and local caching.
+-   [SlackTextViewController](https://github.com/slackhq/SlackTextViewController)
+    is a nice drop-in UIViewController subclass that gives a nice input
+    box and the translation required for *bottom-up* UITableView usage.
+-   [MLPAutoCompleteTextField](https://github.com/EddyBorja/MLPAutoCompleteTextField)
+    is a simple UITextField subclass that displays a dropdown list of
+    items that are provided by the RdioSearchDelegate. This is more of a
+    shortcut, and building something from scratch would be nice.
