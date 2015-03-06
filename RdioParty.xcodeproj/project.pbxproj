@@ -34,9 +34,6 @@
 		A06931351A9A8AE900188118 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931341A9A8AE900188118 /* libc++.dylib */; };
 		A06D67231A9AB276005722D8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06D67221A9AB276005722D8 /* MediaPlayer.framework */; };
 		A06D67251A9AB27D005722D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06D67241A9AB27D005722D8 /* QuartzCore.framework */; };
-		A0828F6C1A9EC7AE00BFF409 /* RoomListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0828F6B1A9EC7AE00BFF409 /* RoomListPresenter.swift */; };
-		A0828F6E1A9EC8BD00BFF409 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0828F6D1A9EC8BD00BFF409 /* Presenter.swift */; };
-		A0828F701A9ECFAC00BFF409 /* RdioPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0828F6F1A9ECFAC00BFF409 /* RdioPartyViewController.swift */; };
 		A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */; };
 		A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08FD74F1AA4054100863929 /* ChatTrackChangedTableViewCell.swift */; };
 		A08FD7521AA4054100863929 /* ChatTrackChangedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */; };
@@ -92,9 +89,6 @@
 		A06D67221A9AB276005722D8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		A06D67241A9AB27D005722D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A06D672B1A9AB388005722D8 /* RdioParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RdioParty-Bridging-Header.h"; sourceTree = "<group>"; };
-		A0828F6B1A9EC7AE00BFF409 /* RoomListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListPresenter.swift; sourceTree = "<group>"; };
-		A0828F6D1A9EC8BD00BFF409 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		A0828F6F1A9ECFAC00BFF409 /* RdioPartyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioPartyViewController.swift; sourceTree = "<group>"; };
 		A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListTableViewCell.swift; sourceTree = "<group>"; };
 		A08FD74F1AA4054100863929 /* ChatTrackChangedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTrackChangedTableViewCell.swift; sourceTree = "<group>"; };
 		A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTrackChangedTableViewCell.xib; sourceTree = "<group>"; };
@@ -166,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				A002338E1AA03A5D0028CED2 /* Resources */,
-				A0828F6A1A9EC79700BFF409 /* Presenters */,
 				A04431C01A9D758D003A5E69 /* Views */,
 				A06D672B1A9AB388005722D8 /* RdioParty-Bridging-Header.h */,
 				A0582E921A9A55A600C37188 /* ViewControllers */,
@@ -270,20 +263,10 @@
 				259124131A96C629003B30C5 /* ChatViewController.swift */,
 				A0582E931A9A565400C37188 /* RoomListViewController.swift */,
 				A032A2181A9A993400EF5924 /* PeopleListViewController.swift */,
-				A0828F6F1A9ECFAC00BFF409 /* RdioPartyViewController.swift */,
 				A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */,
 				A0F3462C1AA04E35000D9EEA /* LoginViewController.xib */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		A0828F6A1A9EC79700BFF409 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				A0828F6B1A9EC7AE00BFF409 /* RoomListPresenter.swift */,
-				A0828F6D1A9EC8BD00BFF409 /* Presenter.swift */,
-			);
-			name = Presenters;
 			sourceTree = "<group>";
 		};
 		A0BE2ED41A997E1D0050FCE5 /* Classes */ = {
@@ -417,7 +400,6 @@
 			files = (
 				A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */,
 				A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */,
-				A0828F701A9ECFAC00BFF409 /* RdioPartyViewController.swift in Sources */,
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
 				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */,
@@ -427,8 +409,6 @@
 				A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */,
 				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
-				A0828F6C1A9EC7AE00BFF409 /* RoomListPresenter.swift in Sources */,
-				A0828F6E1A9EC8BD00BFF409 /* Presenter.swift in Sources */,
 				A00A292A1AA3E12400F18495 /* ChatUserSongActionCell.swift in Sources */,
 				A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */,
 				A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */,
