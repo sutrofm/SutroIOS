@@ -40,13 +40,15 @@ class Room: NSObject {
             
             for key in peopleKeys {
                 let person: NSDictionary? = peopleObject.objectForKey(key) as? NSDictionary
-                if (person?.valueForKey("isOnline") as! Bool) {
-                    peopleOnline++
-                }
+                if (person?.valueForKey("id") != nil) {
+                    if (person?.valueForKey("isOnline") as! Bool) {
+                        peopleOnline++
+                    }
                 
-                // Even add offline people since old messages get displayed
-                var personObject = Person(fromDictionary: person!)
-                self.allPeople.append(personObject)
+                    // Even add offline people since old messages get displayed
+                    var personObject = Person(fromDictionary: person!)
+                    self.allPeople.append(personObject)
+                }
             }
             self.previewPeopleCount = peopleOnline
         }
