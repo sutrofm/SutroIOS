@@ -45,10 +45,10 @@ class ChatViewController: SLKTextViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateThemeColor", name: "themeColorChanged", object: nil)
 
-        self.firebaseRef.authAnonymouslyWithCompletionBlock { (error, authData) -> Void in
+        self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
             println(authData)
             println(error)
-        }
+        })
 
         load()
     }
@@ -78,12 +78,13 @@ class ChatViewController: SLKTextViewController {
         self.tableView.reloadData()
     }
     
-    //{"fullName":"Gabe Kangas","id":"-JjXhv9T4zYhYa-FUkg0","message":"test","timestamp":"2015-03-04T02:57:44.753Z","type":"User","userKey":"s4075"}
     override func didPressRightButton(textInput: AnyObject!) {
-        println(self.firebaseRef.authData)
-
+        let formatter = NSDateFormatter()
+        let date = NSDate()
         let text = textInputbar.textView.text
-        var message = ["fullName": "Test Testerson", "id": "test1234", "message" : text, "type" : "User", "userKey": "s4075"]
+        
+        let timestamp = formatter.stringFromDate(date)
+        var message = ["fullName": Session.sharedInstance.user.name, "message" : text, "type" : "User", "userKey" : Session.sharedInstance.user.rdioId, "timestamp": timestamp]
         var post1Ref = self.firebaseRef.childByAutoId()
         post1Ref.setValue(message)
         super.didPressRightButton(textInput)

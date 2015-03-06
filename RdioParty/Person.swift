@@ -37,4 +37,12 @@ class Person: NSObject {
         
         super.init()
     }
+    
+    init(fromRdioUser rdioUserObject:NSDictionary) {
+        self.name = String(stringInterpolation: rdioUserObject["firstName"] as! String, rdioUserObject["lastName"] as! String)
+        self.rdioId = rdioUserObject["key"] as! String
+        self.icon = rdioUserObject["icon250"] as! String
+        self.isOnline = true
+        super.init()
+    }
 }

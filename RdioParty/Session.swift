@@ -26,13 +26,15 @@ class Session : NSObject, RdioDelegate {
     }
     
     let playerManager = RdioPlayerManager()
-    var user: [NSObject : AnyObject]!
+    var user: Person!
     var accessToken: String! {
         didSet {
             self.rdio.authorizeUsingAccessToken(accessToken)
             self.playerManager.rdio.authorizeUsingAccessToken(accessToken)
         }
     }
+    
+    var firebaseAuthToken: String!
     
     var themeColor :UIColor! {
         didSet {

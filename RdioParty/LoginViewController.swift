@@ -53,7 +53,9 @@ class LoginViewController: UIViewController, RdioDelegate {
     // MARK: - RdioDelegate
     
     func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
-        Session.sharedInstance.user = user
+        let userKey: String? = user["key"] as? String
+        
+        Session.sharedInstance.user = Person(fromRdioUser: user)
         Session.sharedInstance.accessToken = accessToken
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -62,6 +64,7 @@ class LoginViewController: UIViewController, RdioDelegate {
         
         var roomList = self.storyboard!.instantiateViewControllerWithIdentifier("RoomListViewController") as! RoomListViewController
         self.navigationController?.pushViewController(roomList, animated: false)
+        //getFirebaseAuthToken(userKey!)
     }
     
     func rdioAuthorizationFailed(error: NSError!) {
@@ -70,6 +73,20 @@ class LoginViewController: UIViewController, RdioDelegate {
     
     func rdioAuthorizationCancelled() {
         println("rdioAuthorizationCancelled")
+    }
+    
+    func getFirebaseAuthToken(rdioUserKey :String) {
+        let manager = AFHTTPRequestOperationManager()
+        let parameters = NSDictionary(object: rdioUserKey, forKey: "userKey")
+        manager.GET("http://rdioparty.com/create-auth/",
+            parameters: parameters,
+            success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                let token: String? = responseObject.valueForKey("token") as? String
+                Session.sharedInstance.firebaseAuthToken = token
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
+            }
+        )
     }
 
     /*
