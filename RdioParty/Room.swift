@@ -16,7 +16,7 @@ class Room: NSObject {
     var currentSong: Song!
     
     var messages = Array<Message>()
-    var people = Array<Person>()
+    var allPeople = Array<Person>()
     var previewImage: NSURL!
     var previewPeopleCount = 0
     var active = false
@@ -46,7 +46,7 @@ class Room: NSObject {
                 
                 // Even add offline people since old messages get displayed
                 var personObject = Person(fromDictionary: person!)
-                self.people.append(personObject)
+                self.allPeople.append(personObject)
             }
             self.previewPeopleCount = peopleOnline
         }
@@ -84,13 +84,17 @@ class Room: NSObject {
 
     }
     
+    var people :Array<Person> {
+        return self.allPeople.filter{ $0.isOnline == true }
+    }
+    
     func getUser(rdioId :String) -> Person? {
-        let singlePerson = people.filter{ $0.rdioId == rdioId }.first
+        let singlePerson = self.allPeople.filter{ $0.rdioId == rdioId }.first
         return singlePerson
     }
     
     func hasUser(rdioId :String) -> Bool {
-        let singlePerson = people.filter{ $0.rdioId == rdioId }.first
+        let singlePerson = allPeople.filter{ $0.rdioId == rdioId }.first
         return (singlePerson != nil)
     }
     
@@ -99,8 +103,9 @@ class Room: NSObject {
         
         var person = getUser(rdioId)
         if (person != nil) {
-            var index = find(self.people, person!)
-            self.people.removeAtIndex(index!)
+            person!.isOnline = false
+//            var index = find(self.allPeople, person!)
+//            self.people.removeAtIndex(index!)
         }
     }
 }

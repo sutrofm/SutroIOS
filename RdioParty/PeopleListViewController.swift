@@ -69,7 +69,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
             if (snapshot.key != nil) {
                 var person = Person(fromSnapshot: snapshot)
                 if (person.isOnline && !self.room.hasUser(person.rdioId)) {
-                    self.room.people.append(person)
+                    self.room.allPeople.append(person)
                     self.peopleTableview.reloadData()
                 }
             }
