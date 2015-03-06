@@ -15,21 +15,19 @@ class PlayerView: UIView {
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
     
+    var gradient = CAGradientLayer()
+    
     class func instanceFromNib() -> PlayerView {
         return UINib(nibName: "PlayerView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PlayerView
     }
     
-    override func awakeFromNib() {
-
-//        self.image.layer.mask = gradient
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        var gradient = CAGradientLayer()
         gradient.frame = self.image.bounds
         gradient.colors = [ UIColor.clearColor().CGColor, UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor]
-        self.image.layer.addSublayer(gradient)
+        if (self.gradient.superlayer == nil) {
+            self.image.layer.addSublayer(gradient)
+        }
     }
     /*
     // Only override drawRect: if you perform custom drawing.
