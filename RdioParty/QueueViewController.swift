@@ -46,6 +46,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
         self.partyPlayerManager.firebaseRef = self.firebaseRef
         
+        // Auth
+        self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
+            println(authData)
+            println(error)
+        })
+        
         load()
     }
 
@@ -102,6 +108,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func addTrackToQueue(trackKey :String) {
+        var track = ["trackKey": trackKey, "userKey" : Session.sharedInstance.user.rdioId, "votes" : [Session.sharedInstance.user.rdioId : "like"]]
+        var postRef = self.firebaseRef.childByAutoId()
+        postRef.setValue(track)
+    }
+    
     func updateQueueCount() {
         self.tabBarItem.badgeValue = String(self.queue.count())
     }
@@ -147,7 +159,11 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Auto complete sarch
     func autoCompleteTextField(textField: MLPAutoCompleteTextField!, didSelectAutoCompleteString selectedString: String!, withAutoCompleteObject selectedObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) {
-        println(selectedObject)
+        if let selectedObject = selectedObject as? AutoCompleteObject {
+            addTrackToQueue(selectedObject.trackKey)
+        }
+
+        textField.text = ""
     }
     
     func autoCompleteTextField(textField: MLPAutoCompleteTextField!, shouldConfigureCell cell: UITableViewCell!, withAutoCompleteString autocompleteString: String!, withAttributedString boldedString: NSAttributedString!, forAutoCompleteObject autocompleteObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) -> Bool {

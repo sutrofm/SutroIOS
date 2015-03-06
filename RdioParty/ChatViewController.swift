@@ -85,8 +85,8 @@ class ChatViewController: SLKTextViewController {
         
         let timestamp = formatter.stringFromDate(date)
         var message = ["fullName": Session.sharedInstance.user.name, "message" : text, "type" : "User", "userKey" : Session.sharedInstance.user.rdioId, "timestamp": timestamp]
-        var post1Ref = self.firebaseRef.childByAutoId()
-        post1Ref.setValue(message)
+        var postRef = self.firebaseRef.childByAutoId()
+        postRef.setValue(message)
         super.didPressRightButton(textInput)
     }
     
