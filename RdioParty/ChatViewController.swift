@@ -38,6 +38,10 @@ class ChatViewController: SLKTextViewController {
         self.tableView.allowsSelection = false
         self.tableView.separatorColor = UIColor.clearColor()
         
+        self.textInputbar.textView.autocorrectionType = UITextAutocorrectionType.Yes
+        self.textInputbar.textView.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        self.textInputbar.textView.spellCheckingType = UITextSpellCheckingType.Yes
+
         self.backgroundImage.frame = self.view.frame
         self.backgroundImage.backgroundColor = UIColor.darkGrayColor() // Fallback color when an image isn't loaded for some reason
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
