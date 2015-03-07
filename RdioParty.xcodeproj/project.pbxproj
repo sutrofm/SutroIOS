@@ -30,7 +30,6 @@
 		A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomListViewController.swift */; };
 		A062BF001AA275BF00945407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BEFF1AA275BF00945407 /* Queue.swift */; };
 		A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */; };
-		A06931311A9A8A8500188118 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931301A9A8A8500188118 /* Firebase.framework */; };
 		A06931331A9A8AE200188118 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931321A9A8AE200188118 /* libicucore.dylib */; };
 		A06931351A9A8AE900188118 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A06931341A9A8AE900188118 /* libc++.dylib */; };
 		A06D67231A9AB276005722D8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06D67221A9AB276005722D8 /* MediaPlayer.framework */; };
@@ -83,7 +82,6 @@
 		A0582E931A9A565400C37188 /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		A062BEFF1AA275BF00945407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueItemCellTableViewCell.swift; sourceTree = "<group>"; };
-		A06931301A9A8A8500188118 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Frameworks/Firebase.framework; sourceTree = "<group>"; };
 		A06931321A9A8AE200188118 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A06931341A9A8AE900188118 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		A06D67221A9AB276005722D8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -121,7 +119,6 @@
 				A06931351A9A8AE900188118 /* libc++.dylib in Frameworks */,
 				A06931331A9A8AE200188118 /* libicucore.dylib in Frameworks */,
 				25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */,
-				A06931311A9A8A8500188118 /* Firebase.framework in Frameworks */,
 				25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */,
 				25B8F0571A97C637003094C0 /* Security.framework in Frameworks */,
 				25B8F0551A97C633003094C0 /* CoreMedia.framework in Frameworks */,
@@ -203,7 +200,6 @@
 				A06D67221A9AB276005722D8 /* MediaPlayer.framework */,
 				A06931341A9A8AE900188118 /* libc++.dylib */,
 				A06931321A9A8AE200188118 /* libicucore.dylib */,
-				A06931301A9A8A8500188118 /* Firebase.framework */,
 				25F785E21A98197500CC0B89 /* Rdio.framework */,
 				25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */,
 				25B8F0561A97C637003094C0 /* Security.framework */,
