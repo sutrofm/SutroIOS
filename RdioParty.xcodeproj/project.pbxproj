@@ -27,6 +27,7 @@
 		A00A292B1AA3E12400F18495 /* ChatUserSongActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00A29291AA3E12400F18495 /* ChatUserSongActionCell.xib */; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
+		A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */; };
 		A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomListViewController.swift */; };
 		A062BF001AA275BF00945407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BEFF1AA275BF00945407 /* Queue.swift */; };
 		A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */; };
@@ -79,6 +80,7 @@
 		A00A29291AA3E12400F18495 /* ChatUserSongActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatUserSongActionCell.xib; sourceTree = "<group>"; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPParallaxImageView.swift; sourceTree = "<group>"; };
 		A0582E931A9A565400C37188 /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		A062BEFF1AA275BF00945407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueItemCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				A08FD74F1AA4054100863929 /* ChatTrackChangedTableViewCell.swift */,
 				A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */,
 				250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */,
+				A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
 				A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */,
 				A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */,
+				A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */,
 				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
 				A00A292A1AA3E12400F18495 /* ChatUserSongActionCell.swift in Sources */,
@@ -527,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -546,6 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",

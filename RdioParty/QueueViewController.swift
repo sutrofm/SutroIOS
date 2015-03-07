@@ -12,7 +12,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var room :Room = Session.sharedInstance.room
     var queue = Session.sharedInstance.room.queue
     var playerBackingView = UIImageView()
-    var backgroundImage = UIImageView()
+    var backgroundImage = RPParallaxImageView()
     let searchDelegate = RdioSearchDelegate()
     var firebaseRef :Firebase!
     var partyPlayerManager = PartyPlayerManager()

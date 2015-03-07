@@ -3,7 +3,6 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 2/19/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +12,7 @@ class ChatViewController: SLKTextViewController {
     var room :Room = Session.sharedInstance.room
 
     var messages = Array<Message>()
-    var backgroundImage = UIImageView()
+    var backgroundImage = RPParallaxImageView()
     var firebaseRef :Firebase!
     
      required init(coder aDecoder: NSCoder) {
