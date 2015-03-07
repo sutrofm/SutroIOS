@@ -2,7 +2,6 @@
 # platform :ios, '8.0'
 link_with 'RdioParty', 'RdioPartyTests'
 
-#pod 'SwiftyJSON', :git => "https://github.com/SwiftyJSON/SwiftyJSON.git", :branch => "xcode6.3"
 pod 'AFNetworking'
 pod 'AFOAuth2Manager'
 pod 'Firebase'

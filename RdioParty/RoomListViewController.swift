@@ -8,26 +8,38 @@
 
 import UIKit
 
-class RoomListViewController: RdioPartyViewController, UITableViewDelegate, UITableViewDataSource {
+class RoomListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var presenter :Presenter!
     @IBOutlet weak var roomsTableView: UITableView!
     var rooms = Array<Room>()
-    
-    required override init(coder aDecoder: NSCoder) {
+    let firebaseref = Firebase(url:"https://rdioparty.firebaseio.com/")
+
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.presenter = RoomListPresenter(viewController: self)
         self.navigationItem.hidesBackButton = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rooms"
-        
-        showWaiting();
+        load()
+        showWaiting()
     }
     
-    override func updateData(data :NSObject) {
+    func load() {
+        firebaseref.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if (snapshot.key != nil) {
+                var room = Room(fromSnapshot: snapshot)
+                
+                if (room.previewPeopleCount > 0) {
+                    self.updateData(room)
+                }
+            }
+        })
+
+    }
+    
+    func updateData(data :NSObject) {
         let newRoom = data as! Room
         self.rooms.append(newRoom)
         self.roomsTableView.reloadData()

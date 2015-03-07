@@ -23,10 +23,20 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     
     func updateForRoom(room :Room) {
         self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/player")
+
+        // Track position
+        self.fireBaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if let position: Double = snapshot.value as? Double {
+                if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
+                    if (abs(self.rdio.player.position - position) > 3) { // If we're more than 3 seconds out of sync from the party then resync.
+                        self.rdio.player.seekToPosition(position)
+                    }
+                }
+            }
+        });
         
         // Current song
         self.fireBaseRef.observeEventType(.Value, withBlock: { snapshot in
-            //println(snapshot.value)
             if snapshot.value.valueForKey("playingTrack") != nil {
                 
                 if let track = snapshot.value as? NSDictionary {
@@ -52,15 +62,6 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                         }
                     }
                     
-                    // Track position
-                    if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
-                        if let position: Double = track.valueForKey("position") as? Double {
-                            if (abs(self.rdio.player.position - position) > 3) {
-                                self.rdio.player.seekToPosition(position)
-                            }
-                        }
-                    }
-
                 }
             }
         })
