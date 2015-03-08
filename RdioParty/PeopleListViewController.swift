@@ -12,6 +12,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     var room :Room = Session.sharedInstance.room
     var firebaseRef :Firebase!
+    var backgroundImage = RPParallaxImageView()
 
     @IBOutlet weak var peopleTableview: UITableView!
     
@@ -20,8 +21,17 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.tabBarItem.title = "People"
         self.peopleTableview.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
-        self.peopleTableview.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.peopleTableview.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell") //TODO: Create a custom cell class
         self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/people")
+
+        self.peopleTableview.backgroundColor = UIColor.clearColor()
+        self.peopleTableview.separatorColor = UIColor.clearColor()
+        
+        self.backgroundImage.frame = self.view.frame
+        self.view.insertSubview(self.backgroundImage, belowSubview: self.peopleTableview)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
+        currentSongChanged()
 
         load()
         setOnline()
@@ -33,6 +43,19 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    func currentSongChanged() {
+        if let song = Session.sharedInstance.currentSong {
+            
+            var fadeDuration = 2.0
+            if (self.backgroundImage.image == nil) {
+                fadeDuration = 0
+            }
+            UIView.transitionWithView(self.backgroundImage, duration: fadeDuration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                self.backgroundImage.sd_setImageWithURL(song.backgroundImage)
+            }, completion: nil)
+
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -60,6 +83,8 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel!.text = person.name
+        cell.backgroundColor = UIColor.clearColor()
+        cell.contentView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         return cell
     }
     
