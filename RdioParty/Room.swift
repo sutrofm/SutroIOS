@@ -21,6 +21,10 @@ class Room: NSObject {
     var previewPeopleCount = 0
     var active = false
     
+    var humanName :String {
+        return self.name.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
+    }
+    
     init(fromSnapshot snapshot :FDataSnapshot) {
 
         self.name = snapshot.key
@@ -106,8 +110,6 @@ class Room: NSObject {
         var person = getUser(rdioId)
         if (person != nil) {
             person!.isOnline = false
-//            var index = find(self.allPeople, person!)
-//            self.people.removeAtIndex(index!)
         }
     }
 }

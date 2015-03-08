@@ -23,7 +23,12 @@ class ChatViewController: SLKTextViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.room.name
+        self.tabBarItem.title = "Chat"
+        if let nav = self.tabBarController?.navigationController {
+            nav.title = "TEST"
+        }
+        
+        
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
         self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")

@@ -21,7 +21,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Rooms"
+        self.title = "Parties"
         load()
         showWaiting()
     }
@@ -60,10 +60,9 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         var room = self.rooms[indexPath.row]
         Session.sharedInstance.room = room
         
-        let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! UIViewController
-        if let navController = self.navigationController {
-            navController.pushViewController(vc, animated: true)
-        }
+        let vc: UITabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! UITabBarController
+        vc.title = room.humanName
+        self.navigationController!.pushViewController(vc, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -77,7 +76,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! RoomListTableViewCell
         var room = self.rooms[indexPath.row]
-        var name = room.name.stringByReplacingOccurrencesOfString("_", withString: " ").capitalizedString
+        var name = room.humanName
         cell.previewImage.sd_setImageWithURL(room.previewImage)
         cell.nameLabel.text = name
         cell.themeLabel.text = room.theme
