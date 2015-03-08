@@ -54,7 +54,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="People" id="2eT-TV-aZx"/>
+                    <tabBarItem key="tabBarItem" title="People" image="users_three.png" id="2eT-TV-aZx"/>
                     <connections>
                         <outlet property="peopleTableview" destination="5iU-p8-y7J" id="Kbv-AK-suF"/>
                     </connections>
@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="chats.png" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -676,7 +676,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Queue" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Queue" image="vol_loud.png" id="cPa-gy-q4n"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="searchBar" destination="EeW-y9-kwd" id="NKy-2f-zdd"/>
@@ -1038,9 +1038,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="chats.png" width="32" height="32"/>
         <image name="rdioPartyLogo.png" width="421" height="293"/>
-        <image name="second" width="30" height="30"/>
+        <image name="users_three.png" width="32" height="32"/>
+        <image name="vol_loud.png" width="32" height="32"/>
         <image name="vote-down.png" width="20" height="19"/>
         <image name="vote-up.png" width="20" height="19"/>
     </resources>
