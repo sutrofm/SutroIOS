@@ -181,8 +181,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCell") as! QueueItemCellTableViewCell
         
-//        cell.voteUpButton.titleLabel!.text = String(song.upVotes())
-//        cell.voteDownButton.titleLabel!.text = String(song.downVotes())
+        cell.voteUpButton.titleLabel!.text = String(song.upVotes())
+        cell.voteDownButton.titleLabel!.text = String(song.downVotes())
         
         cell.trackArtist.text = song.artistName
         cell.trackName.text = song.trackName
