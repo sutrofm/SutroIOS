@@ -9,7 +9,6 @@ import UIKit
 
 class RPNavigationBar: UINavigationBar {
 
-    let songLabel = UILabel()
     var secondaryLabel :UILabel!
     
     required override init() {
@@ -19,8 +18,8 @@ class RPNavigationBar: UINavigationBar {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
-        customizeNavbar()
         createSecondaryLabel()
+        customizeNavbar()
     }
     
     func currentSongChanged() {
@@ -35,9 +34,9 @@ class RPNavigationBar: UINavigationBar {
         var veriticalOffset = CGFloat(0)
         if Session.sharedInstance.currentSong != nil {
             veriticalOffset = -6
-            self.songLabel.hidden = false
+            self.secondaryLabel.hidden = false
         } else {
-            self.songLabel.hidden = true
+            self.secondaryLabel.hidden = true
         }
         self.setTitleVerticalPositionAdjustment(veriticalOffset, forBarMetrics: UIBarMetrics.Default)
     }
