@@ -86,8 +86,10 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         var color :UIColor!
         if (indexPath.row % 2 == 0) {
             color = UIColor.blueColor()
+            cell.userCountLabel.textColor = UIColor.whiteColor()
         } else {
             color = UIColor.yellowColor()
+            cell.userCountLabel.textColor = UIColor.blackColor()
         }
         cell.colorShield.backgroundColor = color
         cell.userCountLabel.backgroundColor = color

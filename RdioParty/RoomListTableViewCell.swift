@@ -41,10 +41,10 @@ class RoomListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         if (selected) {
-            self.colorShield.alpha = 0.4
+            self.colorShield.backgroundColor = self.colorShield.backgroundColor?.colorWithAlphaComponent(0.4)
             self.nameLabel.layer.shadowOpacity = 0.1
         } else {
-            self.colorShield.alpha = 0.2
+            self.colorShield.backgroundColor = self.colorShield.backgroundColor?.colorWithAlphaComponent(0.2)
             self.nameLabel.layer.shadowOpacity = 0.5
         }
         
