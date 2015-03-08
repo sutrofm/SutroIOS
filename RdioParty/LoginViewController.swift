@@ -64,7 +64,7 @@ class LoginViewController: UIViewController, RdioDelegate {
         
         var roomList = self.storyboard!.instantiateViewControllerWithIdentifier("RoomListViewController") as! RoomListViewController
         self.navigationController?.pushViewController(roomList, animated: false)
-        //getFirebaseAuthToken(userKey!)
+        getFirebaseAuthToken(userKey!)
     }
     
     func rdioAuthorizationFailed(error: NSError!) {

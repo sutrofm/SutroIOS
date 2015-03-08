@@ -54,11 +54,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.updateTrackProgress(Session.sharedInstance.playerManager.rdio.player.position)
            })
         
-        // Auth currently not required?
-//        self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
-//            println(authData)
-//            println(error)
-//        })
+        // Auth is required to add to the queue
+        self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
+            println(authData)
+            println(error)
+        })
         
         load()
     }
