@@ -16,6 +16,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     let searchDelegate = RdioSearchDelegate()
     var firebaseRef :Firebase!
     var partyPlayerManager = PartyPlayerManager()
+    var playerHeaderCell :PlayerHeaderTableViewCell!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
@@ -32,11 +33,14 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.playerBackingView.contentMode = UIViewContentMode.ScaleAspectFill
         self.view.insertSubview(self.playerBackingView, belowSubview: self.tableView)
         
-        self.tableView.contentInset = UIEdgeInsetsMake(self.playerBackingView.frame.size.height + 75, 0, 50, 0) //TODO: Don't hard code the table inset
+        self.tableView.contentInset = UIEdgeInsetsMake(self.playerBackingView.frame.size.height + 90, 0, 50, 0) //TODO: Don't hard code the table inset
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
         
+        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
         currentSongChanged()
@@ -44,6 +48,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
         self.partyPlayerManager.firebaseRef = self.firebaseRef
+        Session.sharedInstance.playerManager.rdio.player.addPeriodicTimeObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
+            usingBlock: { (time: CMTime) -> Void in
+                let seconds:Float64 = CMTimeGetSeconds(time)
+                self.updateTrackProgress(Session.sharedInstance.playerManager.rdio.player.position)
+           })
         
         // Auth currently not required?
 //        self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
@@ -92,6 +101,12 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     func currentSongChanged() {
         if let song = Session.sharedInstance.currentSong {
         
+            if self.playerHeaderCell != nil {
+                self.playerHeaderCell.setDuration(song.duration)
+                self.playerHeaderCell.setProgress(0)
+                self.playerHeaderCell.progressMeter.tintColor = song.color
+            }
+            
             var fadeDuration = 2.0
             if (self.backgroundImage.image == nil || self.playerBackingView.image == nil) {
                 fadeDuration = 0
@@ -105,6 +120,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
             self.tableView.reloadData()
         }
+    }
+    
+    func updateTrackProgress(seconds :Float64) {
+        self.playerHeaderCell.setDuration(Session.sharedInstance.currentSong.duration)
+        self.playerHeaderCell.setProgress(Float(seconds))
     }
     
     func addTrackToQueue(trackKey :String) {
@@ -131,24 +151,51 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var currentSong = Session.sharedInstance.currentSong
         
         // Player controls
         if indexPath.row == 0 {
-            var headerCell = tableView.dequeueReusableCellWithIdentifier("PlayerHeaderTableViewCell") as! PlayerHeaderTableViewCell
-            headerCell.trackNameLabel.text = Session.sharedInstance.currentSong.trackName
-            headerCell.artistNameLabel.text = Session.sharedInstance.currentSong.artistName
-            return headerCell
+            self.playerHeaderCell = tableView.dequeueReusableCellWithIdentifier("PlayerHeaderTableViewCell") as! PlayerHeaderTableViewCell
+            
+            if currentSong != nil {
+                self.playerHeaderCell.trackNameLabel.text = currentSong.trackName
+                self.playerHeaderCell.artistNameLabel.text = currentSong.artistName
+                self.playerHeaderCell.progressMeter.tintColor = currentSong.color
+                self.playerHeaderCell.progressMeter.progress = 0
+                updateTrackProgress(0)
+                
+                // Person who added the song
+                if currentSong.userKey != nil { // I thought with Swift 1.2 you could combine conditionals and unwrapping?
+                    if let userAdded = self.room.getUser(currentSong.userKey) {
+                        self.playerHeaderCell.addedByLabel.text = "Added by " + userAdded.name
+                    }
+                } else {
+                    self.playerHeaderCell.addedByLabel.text = ""
+                }
+            }
+            return self.playerHeaderCell
         }
         
         // Queue item
         let song = self.queue.songAtIndex(indexPath.row-1)
+
         var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCell") as! QueueItemCellTableViewCell
         
-        cell.voteUpButton.titleLabel!.text = String(song.upVoteKeys.count)
-        cell.voteDownButton.titleLabel!.text = String(song.downVoteKeys.count)
+//        cell.voteUpButton.titleLabel!.text = String(song.upVotes())
+//        cell.voteDownButton.titleLabel!.text = String(song.downVotes())
         
         cell.trackArtist.text = song.artistName
         cell.trackName.text = song.trackName
+
+        cell.trackLength.text = Utils.secondsToHoursMinutesSecondsString(song.duration)
+        
+        // Person who added the song
+        if let userAddedName = self.room.getUser(song.userKey)?.name {
+            cell.userAddedLabel.text = "Added by " + userAddedName
+        } else {
+            cell.userAddedLabel.text = ""
+        }
+        
         cell.trackImage.sd_setImageWithURL(NSURL(string: song.icon))
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = song.color.colorWithAlphaComponent(0.3)
@@ -158,17 +205,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     func scrollViewDidScroll(scrollView: UIScrollView) {
         var offset = abs(scrollView.contentOffset.y)
         var alpha :CGFloat = 1.0
-        var target = self.playerBackingView.frame.size.height + 75 //TODO: Magic number alert.  This is the height of the first header row.
+        var target = self.playerBackingView.frame.size.height + 85 //TODO: Magic number alert.  This is the height of the first header row.
         if (offset < target) {
             var pct = offset / target
             alpha = CGFloat(pct - 0.5) // Speed up the fade out
         }
         
         // Slightly animate it
-        UIView.transitionWithView(self.playerBackingView, duration: 0.05, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+        UIView.transitionWithView(self.playerBackingView, duration: 0.1, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
             self.playerBackingView.alpha = alpha
-        }, completion: nil)
-
+            }, completion: nil)
     }
     
     // MARK: - Auto complete sarch

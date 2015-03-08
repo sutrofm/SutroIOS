@@ -28,6 +28,7 @@
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */; };
+		A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D31AABB8A900CA8D65 /* Utils.swift */; };
 		A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0582E931A9A565400C37188 /* RoomListViewController.swift */; };
 		A062BF001AA275BF00945407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BEFF1AA275BF00945407 /* Queue.swift */; };
 		A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */; };
@@ -81,6 +82,7 @@
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPParallaxImageView.swift; sourceTree = "<group>"; };
+		A05249D31AABB8A900CA8D65 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A0582E931A9A565400C37188 /* RoomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		A062BEFF1AA275BF00945407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		A062BF011AA27A6000945407 /* QueueItemCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueItemCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				A062BEFF1AA275BF00945407 /* Queue.swift */,
 				A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */,
 				A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */,
+				A05249D31AABB8A900CA8D65 /* Utils.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
 				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */,
+				A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
 				A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */,

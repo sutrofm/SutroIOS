@@ -17,14 +17,17 @@ class RPParallaxImageView: UIImageView {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        addParallax()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addParallax()
     }
     
     override init(image: UIImage!) {
         super.init(image: image)
+        addParallax()
     }
     
     override func layoutSubviews() {

@@ -21,6 +21,7 @@ class Song: NSObject {
     var trackName :String!
     var color :UIColor!
     var timestampAdded :NSDate!
+    var duration :Int!
     var queued = true
     
     
@@ -54,7 +55,7 @@ class Song: NSObject {
         self.artistName = apiData["artist"] as! String!
         self.trackName = apiData["name"] as! String!
         self.backgroundImage = NSURL(string: apiData["playerBackgroundUrl"] as! String)
-        
+        self.duration = apiData["duration"] as! Int!
         let colorData = apiData["dominantColor"] as! Dictionary<String, CGFloat>
         let red = colorData["r"]! / 255.0
         let green = colorData["g"]! / 255.0
@@ -63,5 +64,13 @@ class Song: NSObject {
         
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         self.color = color
+    }
+    
+    func upVotes() -> Int {
+        return self.upVoteKeys.count
+    }
+    
+    func downVotes() -> Int {
+        return self.downVoteKeys.count
     }
 }
