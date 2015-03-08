@@ -39,6 +39,7 @@
 		A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835801AABF28100E596B4 /* vol_loud@2x.png */; };
 		A01835901AABF28100E596B4 /* vol_loud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835811AABF28100E596B4 /* vol_loud@3x.png */; };
 		A01835941AABF41700E596B4 /* RPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01835931AABF41700E596B4 /* RPTabBar.swift */; };
+		A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */; };
@@ -107,6 +108,7 @@
 		A01835801AABF28100E596B4 /* vol_loud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vol_loud@2x.png"; sourceTree = "<group>"; };
 		A01835811AABF28100E596B4 /* vol_loud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vol_loud@3x.png"; sourceTree = "<group>"; };
 		A01835931AABF41700E596B4 /* RPTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPTabBar.swift; sourceTree = "<group>"; };
+		A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNavigationBar.swift; sourceTree = "<group>"; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPParallaxImageView.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */,
 				A05249D31AABB8A900CA8D65 /* Utils.swift */,
 				A01835931AABF41700E596B4 /* RPTabBar.swift */,
+				A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */,
 				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,
 				250971531AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift in Sources */,
+				A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */,
 				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
 				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
 				A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */,

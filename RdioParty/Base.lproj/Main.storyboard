@@ -691,7 +691,7 @@
         <scene sceneID="NcS-eL-RBH">
             <objects>
                 <navigationController id="kku-tf-b6W" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZyT-Eg-cpg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZyT-Eg-cpg" customClass="RPNavigationBar" customModule="RdioParty" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
