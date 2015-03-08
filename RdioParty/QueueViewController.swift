@@ -15,25 +15,28 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var backgroundImage = RPParallaxImageView()
     let searchDelegate = RdioSearchDelegate()
     var firebaseRef :Firebase!
-    var partyPlayerManager = PartyPlayerManager()
+    var partyPlayerManager : PartyPlayerManager!
     var playerHeaderCell :PlayerHeaderTableViewCell!
+    let player = Session.sharedInstance.playerManager.rdio.player
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
+        self.partyPlayerManager = PartyPlayerManager(firebaseRef: self.firebaseRef)
         
         self.searchBar.autoCompleteDataSource = self.searchDelegate
         self.searchBar.autoCompleteDelegate = self
         self.backgroundImage.frame = self.view.frame
         self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
-        self.playerBackingView.frame = CGRectMake(0, 95, self.view.frame.size.width, 250)
+        self.playerBackingView.frame = CGRectMake(0, 100, self.view.frame.size.width, 250)
         self.playerBackingView.contentMode = UIViewContentMode.ScaleAspectFill
         self.view.insertSubview(self.playerBackingView, belowSubview: self.tableView)
         
-        self.tableView.contentInset = UIEdgeInsetsMake(self.playerBackingView.frame.size.height + 90, 0, 50, 0) //TODO: Don't hard code the table inset
+        self.tableView.contentInset = UIEdgeInsetsMake(self.playerBackingView.frame.size.height, 0, 50, 0) //TODO: Don't hard code the table inset
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.separatorColor = UIColor.clearColor()
         self.tableView.allowsSelection = false
@@ -46,7 +49,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         currentSongChanged()
         updateQueueCount()
         
-        firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
         self.partyPlayerManager.firebaseRef = self.firebaseRef
         Session.sharedInstance.playerManager.rdio.player.addPeriodicTimeObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
             usingBlock: { (time: CMTime) -> Void in
@@ -104,7 +106,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             if self.playerHeaderCell != nil {
                 self.playerHeaderCell.setDuration(song.duration)
                 self.playerHeaderCell.setProgress(0)
-                self.playerHeaderCell.progressMeter.tintColor = song.color
+                self.playerHeaderCell.currentSongColor = song.color
             }
             
             var fadeDuration = 2.0
@@ -134,15 +136,17 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func updateQueueCount() {
-        self.tabBarItem.badgeValue = String(self.queue.count())
+//        self.tabBarItem.badgeValue = String(self.queue.count())
     }
     
     func playPauseButtonPressed(sender :UIButton!) {
-        if (Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value) {
+        let isPlaying = Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
+        if (isPlaying) {
             Session.sharedInstance.playerManager.rdio.player.stop()
         } else {
             Session.sharedInstance.playerManager.rdio.player.play()
         }
+        self.playerHeaderCell.playing = isPlaying
     }
     
     // MARK: - Table View
@@ -160,9 +164,14 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             if currentSong != nil {
                 self.playerHeaderCell.trackNameLabel.text = currentSong.trackName
                 self.playerHeaderCell.artistNameLabel.text = currentSong.artistName
-                self.playerHeaderCell.progressMeter.tintColor = currentSong.color
+                self.playerHeaderCell.currentSongColor = currentSong.color
                 self.playerHeaderCell.progressMeter.progress = 0
+                self.playerHeaderCell.playing = Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
                 updateTrackProgress(0)
+                
+                self.playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
+                self.playerHeaderCell.upVoteButton.addTarget(self, action: "upVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
+                self.playerHeaderCell.playPauseButton.addTarget(self, action: "playPausePressed", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 // Person who added the song
                 if currentSong.userKey != nil { // I thought with Swift 1.2 you could combine conditionals and unwrapping?
@@ -205,7 +214,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     func scrollViewDidScroll(scrollView: UIScrollView) {
         var offset = abs(scrollView.contentOffset.y)
         var alpha :CGFloat = 1.0
-        var target = self.playerBackingView.frame.size.height + 85 //TODO: Magic number alert.  This is the height of the first header row.
+        var target = self.playerBackingView.frame.size.height //TODO: Magic number alert.  This is the height of the first header row.
         if (offset < target) {
             var pct = offset / target
             alpha = CGFloat(pct - 0.5) // Speed up the fade out
@@ -214,6 +223,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Slightly animate it
         UIView.transitionWithView(self.playerBackingView, duration: 0.1, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
             self.playerBackingView.alpha = alpha
+            if (self.playerHeaderCell != nil) {
+                self.playerHeaderCell.playPauseButton.alpha = alpha
+                self.playerHeaderCell.upVoteButton.alpha = alpha
+                self.playerHeaderCell.downVoteButton.alpha = alpha
+            }
             }, completion: nil)
     }
     
@@ -231,6 +245,19 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         cell.imageView?.sd_setImageWithURL(NSURL(string: rpAutoCompleteObject.image), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
         return true
+    }
+    
+    func playPausePressed() {
+        self.player.togglePause()
+        self.playerHeaderCell.playing = Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
+    }
+    
+    func downVotePressed() {
+        self.partyPlayerManager.voteDownSong(Session.sharedInstance.currentSong)
+    }
+    
+    func upVotePressed() {
+        self.partyPlayerManager.voteUpSong(Session.sharedInstance.currentSong)
     }
 
 }

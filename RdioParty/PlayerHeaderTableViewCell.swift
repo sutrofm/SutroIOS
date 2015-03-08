@@ -11,8 +11,21 @@ class PlayerHeaderTableViewCell: UITableViewCell {
 
     var gradient = CAGradientLayer()
     var currentSongDuration :Float = 0.0
+    var currentSongColor = UIColor.whiteColor() {
+        didSet {
+            updateControlColors()
+        }
+    }
+    
+    var playing = false {
+        didSet {
+            updatePlayPauseButton()
+        }
+    }
     
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var upVoteButton: UIButton!
+    @IBOutlet weak var downVoteButton: UIButton!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var addedByLabel: UILabel!
@@ -24,7 +37,15 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
-
+        
+        let downVoteImage = UIImage(named:"thumbs-down.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.downVoteButton.setImage(downVoteImage, forState: UIControlState.Normal)
+        
+        let upVoteImage = UIImage(named:"thumbs-up.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.upVoteButton.setImage(upVoteImage, forState: UIControlState.Normal)
+        
+        updateControlColors()
+        
         gradient.colors = [ UIColor.clearColor().CGColor, UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor]
         if (self.gradient.superlayer == nil) {
             self.layer.insertSublayer(self.gradient, atIndex: 0)
@@ -53,6 +74,27 @@ class PlayerHeaderTableViewCell: UITableViewCell {
     func setDuration(duration: Int) {
         self.currentSongDuration = Float(duration)
         self.durationLabel.text = Utils.secondsToHoursMinutesSecondsString(duration)
+    }
+    
+    func updateControlColors() {
+        self.progressMeter.tintColor = self.currentSongColor
+
+        // Using the song color looks stupid on these buttons.  Get back to this.
+        let buttonColor = UIColor.whiteColor()
+        self.upVoteButton.tintColor = buttonColor
+        self.downVoteButton.tintColor = buttonColor
+        self.playPauseButton.tintColor = buttonColor
+    }
+    
+    func updatePlayPauseButton() {
+        var playPauseImage :UIImage
+        if (self.playing) {
+            playPauseImage = UIImage(named:"controls_pause.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        } else {
+            playPauseImage = UIImage(named:"controls_play.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        }
+        self.playPauseButton.setImage(playPauseImage, forState: UIControlState.Normal)
+
     }
 
 }

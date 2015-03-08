@@ -11,6 +11,11 @@ class PartyPlayerManager: NSObject {
    
     var firebaseRef :Firebase!
 
+    convenience init(firebaseRef ref :Firebase) {
+        self.init()
+        self.firebaseRef = ref
+    }
+    
     func addTrackToQueue(song: Song) {
         
     }
