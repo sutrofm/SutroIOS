@@ -54,7 +54,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             usingBlock: { (time: CMTime) -> Void in
                 let seconds:Float64 = CMTimeGetSeconds(time)
                 self.updateTrackProgress(Session.sharedInstance.playerManager.rdio.player.position)
-           })
+       })
+        
+        Session.sharedInstance.playerManager.rdio.player.addPeriodicLevelObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
+            usingBlock: { (left: Float32, right: Float32 ) -> Void in
+        })
         
         // Auth is required to add to the queue
         self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
