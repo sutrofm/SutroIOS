@@ -24,10 +24,6 @@ class ChatViewController: SLKTextViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarItem.title = "Chat"
-        if let nav = self.tabBarController?.navigationController {
-            nav.title = "TEST"
-        }
-        
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
@@ -118,12 +114,16 @@ class ChatViewController: SLKTextViewController {
             cell.trackName.text = message.trackTitle
             cell.trackImage.sd_setImageWithURL(NSURL(string: message.trackImage))
             
+            // If possible, add the user of the person who queued this song
             if let song = Session.sharedInstance.room.queue.getSongById(message.trackKey) {
                 cell.backingView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
                 var userKey = song.userKey
                 if let user = self.room.getUser(userKey) {
                     cell.userImage.sd_setImageWithURL(NSURL(string: user.icon))
+                    cell.userImage.hidden = false
                 }
+            } else {
+                cell.userImage.hidden = true
             }
             
             cell.transform = self.tableView.transform

@@ -3,7 +3,6 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 3/1/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
@@ -25,8 +24,11 @@ class ChatTrackChangedTableViewCell: UITableViewCell {
         
         self.clipsToBounds = true
         self.backingView.layer.cornerRadius = 10.0
+        self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+        self.userImage.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
+        self.userImage.layer.borderWidth = CGFloat(0.5)
         
-        // Live hack: I set the color here instead of in IB so I can see the labels in IB
+        // Life hack: I set the color here instead of in IB so I can see the labels in IB
         self.artistName.textColor = UIColor.whiteColor()
         self.trackName.textColor = UIColor.whiteColor()
     }
