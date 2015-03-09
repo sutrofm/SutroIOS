@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, RdioDelegate {
     }
     
     func updateThemeColor() {
-        self.navigationController?.navigationBar.tintColor = Session.sharedInstance.themeColor
+        self.navigationController?.navigationBar.tintColor = UIApplication.rdioPartyApp.session.themeColor
     }
     
     // MARK: - RdioDelegate
@@ -58,8 +58,8 @@ class LoginViewController: UIViewController, RdioDelegate {
     func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
         let userKey: String? = user["key"] as? String
         
-        Session.sharedInstance.user = Person(fromRdioUser: user)
-        Session.sharedInstance.accessToken = accessToken
+        UIApplication.rdioPartyApp.session.user = Person(fromRdioUser: user)
+        UIApplication.rdioPartyApp.session.accessToken = accessToken
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(accessToken, forKey: "rdioAccessToken")
@@ -92,7 +92,7 @@ class LoginViewController: UIViewController, RdioDelegate {
             parameters: parameters,
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 let token: String? = responseObject.valueForKey("token") as? String
-                Session.sharedInstance.firebaseAuthToken = token
+                UIApplication.rdioPartyApp.session.firebaseAuthToken = token
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
             }

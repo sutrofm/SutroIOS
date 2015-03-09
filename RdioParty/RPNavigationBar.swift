@@ -9,6 +9,12 @@ import UIKit
 
 class RPNavigationBar: UINavigationBar {
 
+    var secondaryLabelText :String! {
+        didSet {
+            updateSecondaryLabel()
+        }
+    }
+    
     var secondaryLabel :UILabel!
     
     required override init() {
@@ -17,22 +23,20 @@ class RPNavigationBar: UINavigationBar {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         createSecondaryLabel()
         customizeNavbar()
     }
     
-    func currentSongChanged() {
-        if let song = Session.sharedInstance.currentSong {
-            self.tintColor = song.color
-            customizeNavbar()
-            self.secondaryLabel.text = String(stringInterpolation: song.artistName, " - ", song.trackName)
+    func updateSecondaryLabel() {
+        if let text = self.secondaryLabelText {
+            self.secondaryLabel.text = self.secondaryLabelText
         }
+        customizeNavbar()
     }
     
     func customizeNavbar() {
         var veriticalOffset = CGFloat(0)
-        if Session.sharedInstance.currentSong != nil {
+        if self.secondaryLabelText != nil {
             veriticalOffset = -6
             self.secondaryLabel.hidden = false
         } else {

@@ -9,15 +9,15 @@ import UIKit
 
 class QueueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, MLPAutoCompleteTextFieldDelegate {
 
-    var room :Room = Session.sharedInstance.room
-    var queue = Session.sharedInstance.room.queue
+    var room :Room = UIApplication.rdioPartyApp.session.room
+    var queue = UIApplication.rdioPartyApp.session.room.queue
     var playerBackingView = UIImageView()
     var backgroundImage = RPParallaxImageView()
     let searchDelegate = RdioSearchDelegate()
     var firebaseRef :Firebase!
     var partyPlayerManager : PartyPlayerManager!
     var playerHeaderCell :PlayerHeaderTableViewCell!
-    let player = Session.sharedInstance.playerManager.rdio.player
+    let player = UIApplication.rdioPartyApp.playerManager.rdio.player
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
@@ -50,18 +50,18 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         updateQueueCount()
         
         self.partyPlayerManager.firebaseRef = self.firebaseRef
-        Session.sharedInstance.playerManager.rdio.player.addPeriodicTimeObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
+        UIApplication.rdioPartyApp.playerManager.rdio.player.addPeriodicTimeObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
             usingBlock: { (time: CMTime) -> Void in
                 let seconds:Float64 = CMTimeGetSeconds(time)
-                self.updateTrackProgress(Session.sharedInstance.playerManager.rdio.player.position)
+                self.updateTrackProgress(self.player.position)
        })
         
-        Session.sharedInstance.playerManager.rdio.player.addPeriodicLevelObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
+        UIApplication.rdioPartyApp.playerManager.rdio.player.addPeriodicLevelObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
             usingBlock: { (left: Float32, right: Float32 ) -> Void in
         })
         
         // Auth is required to add to the queue
-        self.firebaseRef.authWithCustomToken(Session.sharedInstance.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
+        self.firebaseRef.authWithCustomToken(UIApplication.rdioPartyApp.session.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
             println(authData)
             println(error)
         })
@@ -80,7 +80,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
                 var song = Song(fromSnapshot: snapshot)
-                Session.sharedInstance.playerManager.updateSongWithDetails(song, completionClosure: { () in
+                UIApplication.rdioPartyApp.playerManager.updateSongWithDetails(song, completionClosure: { () in
                     self.queue.add(song)
                     self.tableView.reloadData()
                 });
@@ -105,7 +105,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func currentSongChanged() {
-        if let song = Session.sharedInstance.currentSong {
+        if let song = UIApplication.rdioPartyApp.session.currentSong {
         
             if self.playerHeaderCell != nil {
                 self.playerHeaderCell.setDuration(song.duration)
@@ -129,12 +129,12 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func updateTrackProgress(seconds :Float64) {
-        self.playerHeaderCell.setDuration(Session.sharedInstance.currentSong.duration)
+        self.playerHeaderCell.setDuration(UIApplication.rdioPartyApp.session.currentSong.duration)
         self.playerHeaderCell.setProgress(Float(seconds))
     }
     
     func addTrackToQueue(trackKey :String) {
-        var track = ["trackKey": trackKey, "userKey" : Session.sharedInstance.user.rdioId, "votes" : [Session.sharedInstance.user.rdioId : "like"]]
+        var track = ["trackKey": trackKey, "userKey" : UIApplication.rdioPartyApp.session.user.rdioId, "votes" : [UIApplication.rdioPartyApp.session.user.rdioId : "like"]]
         var postRef = self.firebaseRef.childByAutoId()
         postRef.setValue(track)
     }
@@ -144,11 +144,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func playPauseButtonPressed(sender :UIButton!) {
-        let isPlaying = Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
+        let isPlaying = UIApplication.rdioPartyApp.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
         if (isPlaying) {
-            Session.sharedInstance.playerManager.rdio.player.stop()
+            player.stop()
         } else {
-            Session.sharedInstance.playerManager.rdio.player.play()
+            player.play()
         }
         self.playerHeaderCell.playing = isPlaying
     }
@@ -159,7 +159,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var currentSong = Session.sharedInstance.currentSong
+        var currentSong = UIApplication.rdioPartyApp.session.currentSong
         
         // Player controls
         if indexPath.row == 0 {
@@ -170,7 +170,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.playerHeaderCell.artistNameLabel.text = currentSong.artistName
                 self.playerHeaderCell.currentSongColor = currentSong.color
                 self.playerHeaderCell.progressMeter.progress = 0
-                self.playerHeaderCell.playing = Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
+                self.playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
                 updateTrackProgress(0)
                 
                 self.playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
@@ -253,15 +253,15 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func playPausePressed() {
         self.player.togglePause()
-        self.playerHeaderCell.playing = Session.sharedInstance.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
+        self.playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
     }
     
     func downVotePressed() {
-        self.partyPlayerManager.voteDownSong(Session.sharedInstance.currentSong)
+        self.partyPlayerManager.voteDownSong(UIApplication.rdioPartyApp.session.currentSong)
     }
     
     func upVotePressed() {
-        self.partyPlayerManager.voteUpSong(Session.sharedInstance.currentSong)
+        self.partyPlayerManager.voteUpSong(UIApplication.rdioPartyApp.session.currentSong)
     }
 
 }

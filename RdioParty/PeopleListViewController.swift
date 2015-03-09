@@ -10,7 +10,7 @@ import UIKit
 
 class PeopleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var room :Room = Session.sharedInstance.room
+    var room :Room = UIApplication.rdioPartyApp.session.room
     var firebaseRef :Firebase!
     var backgroundImage = RPParallaxImageView()
 
@@ -44,7 +44,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func currentSongChanged() {
-        if let song = Session.sharedInstance.currentSong {
+        if let song = UIApplication.rdioPartyApp.session.currentSong {
             
             var fadeDuration = 2.0
             if (self.backgroundImage.image == nil) {
@@ -109,7 +109,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func setOnline() {
-        let postRef = self.firebaseRef.childByAppendingPath("/people/" + Session.sharedInstance.user.rdioId + "/isOnline")
+        let postRef = self.firebaseRef.childByAppendingPath("/people/" + UIApplication.rdioPartyApp.session.user.rdioId + "/isOnline")
         let isOnline = true
         postRef.setValue(isOnline)
     }

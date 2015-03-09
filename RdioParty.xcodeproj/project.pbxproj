@@ -20,6 +20,8 @@
 		25B8F0551A97C633003094C0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0541A97C633003094C0 /* CoreMedia.framework */; };
 		25B8F0571A97C637003094C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0561A97C637003094C0 /* Security.framework */; };
 		25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */; };
+		25D437DD1AAE56E5001CFD6C /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */; };
+		25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */; };
 		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
 		597877C7C6D35F77B6B50A69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E03EAD0ECC1EE54FDE1DF69 /* libPods.a */; };
 		A00233901AA03A5D0028CED2 /* rdioPartyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A002338F1AA03A5D0028CED2 /* rdioPartyLogo.png */; };
@@ -111,6 +113,8 @@
 		25B8F0541A97C633003094C0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		25B8F0561A97C637003094C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
+		25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		A002338F1AA03A5D0028CED2 /* rdioPartyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rdioPartyLogo.png; sourceTree = "<group>"; };
 		A00A29281AA3E12400F18495 /* ChatUserSongActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSongActionCell.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 		A01835A71AACF56300E596B4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				A032A2181A9A993400EF5924 /* PeopleListViewController.swift */,
 				A0F3462B1AA04E35000D9EEA /* LoginViewController.swift */,
 				A0F3462C1AA04E35000D9EEA /* LoginViewController.xib */,
+				25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -565,10 +571,12 @@
 				A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */,
 				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,
 				250971531AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift in Sources */,
+				25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */,
 				A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */,
 				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
 				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
 				A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */,
+				25D437DD1AAE56E5001CFD6C /* ApplicationTabBarController.swift in Sources */,
 				A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */,
 				A0D93D431A99952600F138DC /* Message.swift in Sources */,
 				259124141A96C629003B30C5 /* ChatViewController.swift in Sources */,

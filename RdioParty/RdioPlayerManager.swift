@@ -11,7 +11,6 @@ import UIKit
 class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     var fireBaseRef :Firebase!
     var rdio: Rdio!
-    var playerQueueManager = PartyPlayerManager()
     
     override init() {
         self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
@@ -45,19 +44,19 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                         self.rdio.player.play(trackKey)
                         
                         // So we don't have to make an additional API call let's see if we can find this track in the queue
-                        var song = Session.sharedInstance.room.queue.getSongById(trackKey)
+                        var song = UIApplication.rdioPartyApp.session.room.queue.getSongById(trackKey)
                         if (song != nil) {
-                            Session.sharedInstance.currentSong = song!
-                            Session.sharedInstance.themeColor = song!.color!
-                            Session.sharedInstance.backgroundUrl = song!.backgroundImage
+                            UIApplication.rdioPartyApp.session.currentSong = song!
+                            UIApplication.rdioPartyApp.session.themeColor = song!.color!
+                            UIApplication.rdioPartyApp.session.backgroundUrl = song!.backgroundImage
                         } else {
                             // Couldn't find the track.  Let's rebuild it.
                             var song = Song()
                             song.trackKey = trackKey
                             self.updateSongWithDetails(song, completionClosure: { () in
-                                Session.sharedInstance.currentSong = song
-                                Session.sharedInstance.themeColor = song.color!
-                                Session.sharedInstance.backgroundUrl = song.backgroundImage
+                                UIApplication.rdioPartyApp.session.currentSong = song
+                                UIApplication.rdioPartyApp.session.themeColor = song.color!
+                                UIApplication.rdioPartyApp.session.backgroundUrl = song.backgroundImage
                             });
                         }
                     }

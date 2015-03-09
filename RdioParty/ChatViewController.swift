@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 class ChatViewController: SLKTextViewController {
-    var room :Room = Session.sharedInstance.room
+    var room :Room = UIApplication.rdioPartyApp.session.room
 
     var messages = Array<Message>()
     var backgroundImage = RPParallaxImageView()
@@ -83,7 +83,7 @@ class ChatViewController: SLKTextViewController {
         let text = textInputbar.textView.text
         
         let timestamp = formatter.stringFromDate(date)
-        let message = ["fullName": Session.sharedInstance.user.name, "message" : text, "type" : "User", "userKey" : Session.sharedInstance.user.rdioId, "timestamp": timestamp]
+        let message = ["fullName": UIApplication.rdioPartyApp.session.user.name, "message" : text, "type" : "User", "userKey" : UIApplication.rdioPartyApp.session.user.rdioId, "timestamp": timestamp]
         let postRef = self.firebaseRef.childByAutoId()
         postRef.setValue(message)
         super.didPressRightButton(textInput)
@@ -115,7 +115,7 @@ class ChatViewController: SLKTextViewController {
             cell.trackImage.sd_setImageWithURL(NSURL(string: message.trackImage))
             
             // If possible, add the user of the person who queued this song
-            if let song = Session.sharedInstance.room.queue.getSongById(message.trackKey) {
+            if let song = room.queue.getSongById(message.trackKey) {
                 cell.backingView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
                 var userKey = song.userKey
                 if let user = self.room.getUser(message.userKey) {
@@ -141,16 +141,16 @@ class ChatViewController: SLKTextViewController {
     func updateBackground() {
         if (self.backgroundImage.image != nil) {
             UIView.transitionWithView(self.backgroundImage, duration: 2.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-                self.backgroundImage.sd_setImageWithURL(Session.sharedInstance.backgroundUrl)
+                self.backgroundImage.sd_setImageWithURL(UIApplication.rdioPartyApp.session.backgroundUrl)
                 }, completion: nil)
         } else {
-            self.backgroundImage.sd_setImageWithURL(Session.sharedInstance.backgroundUrl)
+            self.backgroundImage.sd_setImageWithURL(UIApplication.rdioPartyApp.session.backgroundUrl)
         }
     }
     
     func updateThemeColor() {
-        self.tabBarController?.tabBar.tintColor = Session.sharedInstance.themeColor
-        self.navigationController?.navigationBar.tintColor = Session.sharedInstance.themeColor
+        self.tabBarController?.tabBar.tintColor = UIApplication.rdioPartyApp.session.themeColor
+        self.navigationController?.navigationBar.tintColor = UIApplication.rdioPartyApp.session.themeColor
     }
 
 

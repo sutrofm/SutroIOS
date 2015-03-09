@@ -59,9 +59,10 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var room = self.rooms[indexPath.row]
-        Session.sharedInstance.room = room
+        UIApplication.rdioPartyApp.session.room = room
         
-        let vc: UITabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! UITabBarController
+        let vc: ApplicationTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! ApplicationTabBarController
+        UIApplication.rdioPartyApp.tabBarController = vc // Keep a reference handy in our app delegate so we can tweak it
         vc.title = room.humanName
         self.navigationController!.pushViewController(vc, animated: true)
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -374,7 +374,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                         <rect key="frame" x="8" y="47" width="304" height="23"/>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -386,7 +386,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                         <rect key="frame" x="8" y="73" width="304" height="20"/>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -443,7 +443,7 @@
                                                             <exclude reference="UdD-bd-PUK"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                         <rect key="frame" x="168" y="0.0" width="30" height="45"/>
                                                     </variation>
                                                     <variation key="heightClass=compact-widthClass=compact">
@@ -479,9 +479,6 @@
                                                             <exclude reference="xhz-7l-eXV"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="168" y="0.0" width="30" height="45"/>
-                                                    </variation>
                                                     <variation key="heightClass=compact-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="xhz-7l-eXV"/>
@@ -514,9 +511,6 @@
                                                             <exclude reference="NkW-Pv-tcj"/>
                                                             <exclude reference="PTb-Od-1GL"/>
                                                         </mask>
-                                                    </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="168" y="0.0" width="30" height="45"/>
                                                     </variation>
                                                     <variation key="heightClass=compact-widthClass=compact">
                                                         <mask key="constraints">
@@ -1106,10 +1100,10 @@
             </objects>
             <point key="canvasLocation" x="-669" y="0.0"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Application Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="TabAppController" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabAppController" id="49e-Tb-3d3" customClass="ApplicationTabBarController" customModule="RdioParty" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ybK-Lw-1hD"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA" customClass="RPTabBar" customModule="RdioParty" customModuleProvider="target">

@@ -15,36 +15,35 @@ class Session : NSObject, RdioDelegate {
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
 
     // Singleton
-    class var sharedInstance: Session {
-        struct Static {
-            static var instance: Session?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = Session()
-        }
-        
-        return Static.instance!
-    }
     
     override init() {
         super.init()
         self.rdio.delegate = self
     }
-    
+    //    class var sharedInstance: Session {
+//        struct Static {
+//            static var instance: Session?
+//            static var token: dispatch_once_t = 0
+//        }
+//        
+//        dispatch_once(&Static.token) {
+//            Static.instance = Session()
+//        }
+//        
+//        return Static.instance!
+//    }
+
     var room: Room! {
         didSet {
             updatePlayer()
         }
     }
     
-    let playerManager = RdioPlayerManager()
     var user: Person!
     var accessToken: String! {
         didSet {
             self.rdio.authorizeUsingAccessToken(accessToken)
-            self.playerManager.rdio.authorizeUsingAccessToken(accessToken)
+            UIApplication.rdioPartyApp.playerManager.rdio.authorizeUsingAccessToken(accessToken)
         }
     }
     
@@ -73,7 +72,7 @@ class Session : NSObject, RdioDelegate {
     
     
     func updatePlayer() {
-        playerManager.updateForRoom(self.room)
+        UIApplication.rdioPartyApp.playerManager.updateForRoom(self.room)
     }
     
   }

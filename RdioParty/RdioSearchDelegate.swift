@@ -13,7 +13,7 @@ class RdioSearchDelegate: NSObject, MLPAutoCompleteTextFieldDataSource, RdioDele
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             var parameters:Dictionary<String, AnyObject!> = ["query": string, "types": "Track", "countryCode": "US"]
             
-            Session.sharedInstance.rdio.callAPIMethod("search",
+            UIApplication.rdioPartyApp.session.rdio.callAPIMethod("search",
                 withParameters: parameters,
                 success: { (result) -> Void in
                     println(result)
