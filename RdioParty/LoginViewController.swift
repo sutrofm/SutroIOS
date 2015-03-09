@@ -74,6 +74,10 @@ class LoginViewController: UIViewController, RdioDelegate {
     func rdioAuthorizationFailed(error: NSError!) {
         hideWaitingIndicator()
         println("Rdio authorization failed with error: \(error.localizedDescription)")
+        hud = RPHud(style: JGProgressHUDStyle.Dark)
+        hud.textLabel.text = "Login has failed. " + error.localizedDescription
+        hud.showInView(self.view, animated: false)
+        hud.dismissAfterDelay(3, animated: true)
     }
     
     func rdioAuthorizationCancelled() {
@@ -103,7 +107,7 @@ class LoginViewController: UIViewController, RdioDelegate {
     
     func hideWaitingIndicator() {
         if (hud != nil) {
-            hud.dismiss()
+            hud.dismissAnimated(true)
         }
     }
 }
