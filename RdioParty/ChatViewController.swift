@@ -118,9 +118,11 @@ class ChatViewController: SLKTextViewController {
             if let song = Session.sharedInstance.room.queue.getSongById(message.trackKey) {
                 cell.backingView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
                 var userKey = song.userKey
-                if let user = self.room.getUser(userKey) {
+                if let user = self.room.getUser(message.userKey) {
                     cell.userImage.sd_setImageWithURL(NSURL(string: user.icon))
                     cell.userImage.hidden = false
+                } else {
+                    cell.userImage.hidden = true
                 }
             } else {
                 cell.userImage.hidden = true
