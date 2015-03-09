@@ -65,6 +65,7 @@
 		A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE2ED51A997E620050FCE5 /* Room.swift */; };
 		A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE2ED81A997E750050FCE5 /* Person.swift */; };
 		A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */; };
+		A0D649DF1AAD23F400AFC951 /* RPHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D649DE1AAD23F400AFC951 /* RPHud.swift */; };
 		A0D93D411A9990A700F138DC /* RdioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D93D401A9990A700F138DC /* RdioPlayerManager.swift */; };
 		A0D93D431A99952600F138DC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D93D421A99952600F138DC /* Message.swift */; };
 		A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */; };
@@ -143,6 +144,7 @@
 		A0BE2ED51A997E620050FCE5 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		A0BE2ED81A997E750050FCE5 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioSearchDelegate.swift; sourceTree = "<group>"; };
+		A0D649DE1AAD23F400AFC951 /* RPHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPHud.swift; sourceTree = "<group>"; };
 		A0D93D401A9990A700F138DC /* RdioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioPlayerManager.swift; sourceTree = "<group>"; };
 		A0D93D421A99952600F138DC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyPlayerManager.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */,
 				250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */,
 				A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */,
+				A0D649DE1AAD23F400AFC951 /* RPHud.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
+				A0D649DF1AAD23F400AFC951 /* RPHud.swift in Sources */,
 				A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */,
 				A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */,
 				A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */,

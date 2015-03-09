@@ -12,7 +12,8 @@ class LoginViewController: UIViewController, RdioDelegate {
 
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
     var firebaseRef :Firebase = Firebase(url:"https://rdioparty.firebaseio.com/")
-
+    var hud :RPHud!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rdio.delegate = self
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController, RdioDelegate {
     
 
     @IBAction func loginButtPressed(sender: AnyObject) {
+        showWaitingIndicator()
         rdio.authorizeFromController(self)
     }
     
@@ -43,6 +45,7 @@ class LoginViewController: UIViewController, RdioDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let accesstoken = defaults.stringForKey("rdioAccessToken") {
             rdio.authorizeUsingAccessToken(accesstoken)
+            showWaitingIndicator()
         }
     }
     
@@ -65,13 +68,16 @@ class LoginViewController: UIViewController, RdioDelegate {
         var roomList = self.storyboard!.instantiateViewControllerWithIdentifier("RoomListViewController") as! RoomListViewController
         self.navigationController?.pushViewController(roomList, animated: false)
         getFirebaseAuthToken(userKey!)
+        hideWaitingIndicator()
     }
     
     func rdioAuthorizationFailed(error: NSError!) {
+        hideWaitingIndicator()
         println("Rdio authorization failed with error: \(error.localizedDescription)")
     }
     
     func rdioAuthorizationCancelled() {
+        hideWaitingIndicator()
         println("rdioAuthorizationCancelled")
     }
     
@@ -89,4 +95,15 @@ class LoginViewController: UIViewController, RdioDelegate {
         )
     }
 
+    func showWaitingIndicator() {
+        hud = RPHud(style: JGProgressHUDStyle.Dark)
+        hud.textLabel.text = "Logging in..."
+        hud.showInView(self.view, animated: true)
+    }
+    
+    func hideWaitingIndicator() {
+        if (hud != nil) {
+            hud.dismiss()
+        }
+    }
 }

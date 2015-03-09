@@ -11,6 +11,7 @@ import UIKit
 class RoomListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var roomsTableView: UITableView!
+    var hud :RPHud!
     var rooms = Array<Room>()
     let firebaseref = Firebase(url:"https://rdioparty.firebaseio.com/")
 
@@ -98,22 +99,14 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func showWaiting() {
-        
+        hud = RPHud(style: JGProgressHUDStyle.Dark)
+        hud.textLabel.text = "Finding parties..."
+        hud.showInView(self.view, animated: true)
     }
     
     func hideWaiting() {
-        
+        if (hud != nil) {
+            hud.dismiss()
+        }
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

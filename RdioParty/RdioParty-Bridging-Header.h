@@ -9,3 +9,4 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MLPAutoCompleteTextField/MLPAutoCompleteTextField.h>
 #import <AFNetworking/AFNetworking.h>
+#import <JGProgressHUD/JGProgressHUD.h>

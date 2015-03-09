@@ -8,6 +8,7 @@ pod 'Firebase'
 pod 'SlackTextViewController'
 pod "SDWebImage"
 pod 'MLPAutoCompleteTextField', '~> 1.5'
+pod 'JGProgressHUD'
 
 target 'RdioParty' do
 
