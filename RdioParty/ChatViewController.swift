@@ -95,11 +95,12 @@ class ChatViewController: SLKTextViewController {
         
         if (message.type == MessageType.User) {
             let cell :ChatMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
-            let user :Person = self.room.getUser(message.userKey)!
+            if let user :Person = self.room.getUser(message.userKey) {
+                cell.userName?.text = user.name
+                cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
+                cell.transform = self.tableView.transform
+            }
             cell.messageText?.text = message.text
-            cell.userName?.text = user.name
-            cell.userImage?.sd_setImageWithURL(NSURL(string: user.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
-            cell.transform = self.tableView.transform
             return cell
         } else if message.type == MessageType.UserAction {
             let user :Person = self.room.getUser(message.userKey)!
