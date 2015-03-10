@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, RdioDelegate {
 
-    var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
+    var rdio = Rdio(consumerKey: Credentials.RdioConsumerKey, andSecret: Credentials.RdioConsumerSecret, delegate: nil)
     var firebaseRef :Firebase = Firebase(url:"https://rdioparty.firebaseio.com/")
     var hud :RPHud!
     

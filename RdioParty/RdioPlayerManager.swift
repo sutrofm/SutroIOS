@@ -3,7 +3,6 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 2/21/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +12,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     var rdio: Rdio!
     
     override init() {
-        self.rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
+        self.rdio = Rdio(consumerKey: Credentials.RdioConsumerKey, andSecret: Credentials.RdioConsumerSecret, delegate: nil)
         
         super.init()
         self.rdio.delegate = self
