@@ -20,6 +20,7 @@
 		25B8F0551A97C633003094C0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0541A97C633003094C0 /* CoreMedia.framework */; };
 		25B8F0571A97C637003094C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0561A97C637003094C0 /* Security.framework */; };
 		25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */; };
+		25BD291E1AAFAAA100E6E36F /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD291D1AAFAAA100E6E36F /* Credentials.swift */; };
 		25D437DD1AAE56E5001CFD6C /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */; };
 		25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */; };
 		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
@@ -113,6 +114,7 @@
 		25B8F0541A97C633003094C0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		25B8F0561A97C637003094C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		25BD291D1AAFAAA100E6E36F /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		2591240E1A96C629003B30C5 /* RdioParty */ = {
 			isa = PBXGroup;
 			children = (
+				25BD291D1AAFAAA100E6E36F /* Credentials.swift */,
 				A01835A71AACF56300E596B4 /* Extensions */,
 				A002338E1AA03A5D0028CED2 /* Resources */,
 				A04431C01A9D758D003A5E69 /* Views */,
@@ -575,6 +578,7 @@
 				A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */,
 				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
 				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
+				25BD291E1AAFAAA100E6E36F /* Credentials.swift in Sources */,
 				A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */,
 				25D437DD1AAE56E5001CFD6C /* ApplicationTabBarController.swift in Sources */,
 				A0F3462D1AA04E35000D9EEA /* LoginViewController.swift in Sources */,
