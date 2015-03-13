@@ -12,7 +12,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     var room :Room = UIApplication.rdioPartyApp.session.room
     var firebaseRef :Firebase!
-    var backgroundImage = RPParallaxImageView()
+    var backgroundImage = RPParallaxImageView(image: nil)
 
     @IBOutlet weak var peopleTableview: UITableView!
     

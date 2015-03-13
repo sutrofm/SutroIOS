@@ -12,7 +12,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var room :Room = UIApplication.rdioPartyApp.session.room
     var queue = UIApplication.rdioPartyApp.session.room.queue
     var playerBackingView = UIImageView()
-    var backgroundImage = RPParallaxImageView()
+    var backgroundImage = RPParallaxImageView(image: nil)
     let searchDelegate = RdioSearchDelegate()
     var firebaseRef :Firebase!
     var partyPlayerManager : PartyPlayerManager!
