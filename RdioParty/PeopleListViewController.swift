@@ -21,7 +21,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.tabBarItem.title = "People"
         self.peopleTableview.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
-        self.peopleTableview.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell") //TODO: Create a custom cell class
+        self.peopleTableview.registerNib(UINib(nibName: "PersonListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/people")
 
         self.peopleTableview.backgroundColor = UIColor.clearColor()
@@ -81,8 +81,9 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let person = self.room.people[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PersonListTableViewCell
         cell.textLabel!.text = person.name
+        cell.imageView?.sd_setImageWithURL(NSURL(string:person.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         return cell
