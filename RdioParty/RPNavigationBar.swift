@@ -19,6 +19,9 @@ class RPNavigationBar: UINavigationBar {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func layoutSubviews() {
         createSecondaryLabel()
         customizeNavbar()
     }
@@ -29,6 +32,7 @@ class RPNavigationBar: UINavigationBar {
         }
         customizeNavbar()
     }
+    
     
     func customizeNavbar() {
         var veriticalOffset = CGFloat(0)
@@ -43,7 +47,9 @@ class RPNavigationBar: UINavigationBar {
     
     func createSecondaryLabel() {
         let labelHight = CGFloat(15)
-        self.secondaryLabel = UILabel()
+        if (self.secondaryLabel == nil) {
+            self.secondaryLabel = UILabel()
+        }
         self.secondaryLabel.textAlignment = NSTextAlignment.Center
         self.secondaryLabel.font = UIFont(name: self.secondaryLabel.font.familyName, size: 10)
         self.secondaryLabel.frame = CGRectMake(5, self.frame.size.height - labelHight - 2, self.frame.size.width - 10, labelHight)
