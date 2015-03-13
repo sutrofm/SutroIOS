@@ -221,7 +221,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         var target = self.playerBackingView.frame.size.height //TODO: Magic number alert.  This is the height of the first header row.
         if (offset < target) {
             var pct = offset / target
-            alpha = min(0.0, CGFloat(pct - 0.5)) // Speed up the fade out
+            alpha = max(0.0, CGFloat(pct - 0.5)) // Speed up the fade out
         }
         
         // Slightly animate it
