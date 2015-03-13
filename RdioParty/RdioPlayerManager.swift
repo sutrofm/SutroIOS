@@ -23,15 +23,15 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
         self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/player")
 
         // Track position
-        self.fireBaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let position: Double = snapshot.value as? Double {
-                if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
-                    if (abs(self.rdio.player.position - position) > 3) { // If we're more than 3 seconds out of sync from the party then resync.
-                        self.rdio.player.seekToPosition(position)
-                    }
-                }
-            }
-        });
+//        self.fireBaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+//            if let position: Double = snapshot.value as? Double {
+//                if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
+//                    if (abs(self.rdio.player.position - position) > 3) { // If we're more than 3 seconds out of sync from the party then resync.
+//                        self.rdio.player.seekToPosition(position)
+//                    }
+//                }
+//            }
+//        });
         
         // Current song
         self.fireBaseRef.observeEventType(.Value, withBlock: { snapshot in
@@ -60,7 +60,17 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                         }
                     }
                     
+                    if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
+                        let position = snapshot.value.valueForKey("position") as! Double
+                        if (abs(self.rdio.player.position - position) > 3) { // If we're more than 3 seconds out of sync from the party then resync.
+                            self.rdio.player.seekToPosition(position)
+                        }
+                    }
+
+                    
                 }
+                
+
             }
         })
         
