@@ -119,7 +119,7 @@ class ChatViewController: SLKTextViewController {
             if let song = room.queue.getSongById(message.trackKey) {
                 cell.backingView.backgroundColor = song.color.colorWithAlphaComponent(0.5)
                 var userKey = song.userKey
-                if let user = self.room.getUser(message.userKey) {
+                if let user = self.room.getUser(userKey) {
                     cell.userImage.sd_setImageWithURL(NSURL(string: user.icon))
                     cell.userImage.hidden = false
                 } else {
