@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		250971531AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */; };
+		259015761AB267C30027E95A /* PersonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259015741AB267C30027E95A /* PersonListTableViewCell.swift */; };
+		259015771AB267C30027E95A /* PersonListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259015751AB267C30027E95A /* PersonListTableViewCell.xib */; };
 		259124121A96C629003B30C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124111A96C629003B30C5 /* AppDelegate.swift */; };
 		259124141A96C629003B30C5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124131A96C629003B30C5 /* ChatViewController.swift */; };
 		259124161A96C629003B30C5 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124151A96C629003B30C5 /* QueueViewController.swift */; };
@@ -98,6 +100,8 @@
 /* Begin PBXFileReference section */
 		1E03EAD0ECC1EE54FDE1DF69 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		259015741AB267C30027E95A /* PersonListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewCell.swift; sourceTree = "<group>"; };
+		259015751AB267C30027E95A /* PersonListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonListTableViewCell.xib; sourceTree = "<group>"; };
 		2591240C1A96C629003B30C5 /* RdioParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RdioParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259124101A96C629003B30C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259124111A96C629003B30C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +376,8 @@
 				250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */,
 				A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */,
 				A0D649DE1AAD23F400AFC951 /* RPHud.swift */,
+				259015741AB267C30027E95A /* PersonListTableViewCell.swift */,
+				259015751AB267C30027E95A /* PersonListTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				A08FD7521AA4054100863929 /* ChatTrackChangedTableViewCell.xib in Resources */,
 				A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */,
 				A018359F1AACE8F200E596B4 /* controls_pause@3x.png in Resources */,
+				259015771AB267C30027E95A /* PersonListTableViewCell.xib in Resources */,
 				2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */,
 				A01835891AABF28100E596B4 /* users_three.png in Resources */,
 				2591241B1A96C629003B30C5 /* Images.xcassets in Resources */,
@@ -568,6 +575,7 @@
 				A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */,
 				A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */,
 				A0F346301AA256AE000D9EEA /* ChatMessageContentTextView.swift in Sources */,
+				259015761AB267C30027E95A /* PersonListTableViewCell.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
 				A00A292A1AA3E12400F18495 /* ChatUserSongActionCell.swift in Sources */,
 				A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */,
