@@ -12,7 +12,7 @@ class ChatViewController: SLKTextViewController {
     var room :Room = UIApplication.rdioPartyApp.session.room
 
     var messages = Array<Message>()
-    var backgroundImage = RPParallaxImageView()
+    var backgroundImage = RPParallaxImageView(image: nil)
     var firebaseRef :Firebase!
     
      required init(coder aDecoder: NSCoder) {

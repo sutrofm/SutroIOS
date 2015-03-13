@@ -10,10 +10,6 @@ import UIKit
 
 class RPTabBar: UITabBar {
 
-    required override init() {
-        super.init()
-    }
-
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

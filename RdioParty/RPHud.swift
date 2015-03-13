@@ -9,11 +9,6 @@ import UIKit
 
 class RPHud: JGProgressHUD {
 
-    override init() {
-        super.init()
-        customize()
-    }
-
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customize()

@@ -17,10 +17,6 @@ class RPNavigationBar: UINavigationBar {
     
     var secondaryLabel :UILabel!
     
-    required override init() {
-        super.init()
-    }
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createSecondaryLabel()

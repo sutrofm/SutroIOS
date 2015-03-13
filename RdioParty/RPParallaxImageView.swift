@@ -10,11 +10,6 @@ import UIKit
 class RPParallaxImageView: UIImageView {
     let movementAmount = CGFloat(50.0)
     
-    override init() {
-        super.init()
-        addParallax()
-    }
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         addParallax()
