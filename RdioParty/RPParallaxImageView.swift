@@ -37,5 +37,7 @@ class RPParallaxImageView: UIImageView {
         parallaxEffect.minimumRelativeValue = -movementAmount / 2.0
         parallaxEffect.maximumRelativeValue = movementAmount / 2.0
         self.addMotionEffect(parallaxEffect)
+        
+        self.backgroundColor = UIColor.darkGrayColor()
     }
 }
