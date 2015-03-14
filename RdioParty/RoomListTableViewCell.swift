@@ -13,7 +13,7 @@ class RoomListTableViewCell: UITableViewCell {
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userCountLabel: UILabel!
-    @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var previewImage: RPParallaxImageView!
     @IBOutlet weak var colorShield: UIView!
     
     override func awakeFromNib() {
