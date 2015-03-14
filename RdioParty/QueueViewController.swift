@@ -49,7 +49,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         currentSongChanged()
         updateQueueCount()
         
-        self.partyPlayerManager.firebaseRef = self.firebaseRef
+        partyPlayerManager.firebase = self.firebaseRef
         UIApplication.rdioPartyApp.playerManager.rdio.player.addPeriodicTimeObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
             usingBlock: { (time: CMTime) -> Void in
                 let seconds:Float64 = CMTimeGetSeconds(time)
@@ -78,7 +78,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         // Track added
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if (snapshot.key != nil) {
+            if (snapshot.key != nil && snapshot.value.valueForKey("trackKey") != nil) {
                 var song = Song(fromSnapshot: snapshot)
                 UIApplication.rdioPartyApp.playerManager.updateSongWithDetails(song, completionClosure: { () in
                     self.queue.add(song)
@@ -91,9 +91,10 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // Track removed
         firebaseRef.observeEventType(.ChildRemoved, withBlock: { snapshot in
-            let trackKey = snapshot.value.valueForKey("trackKey") as! String
-            self.queue.removeSongById(trackKey)
-            self.updateQueueCount()
+            if let trackKey = snapshot.value.valueForKey("trackKey") as? String {
+                self.queue.removeSongById(trackKey)
+                self.updateQueueCount()
+            }
         })
         
         // Queue changed
@@ -195,7 +196,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCell") as! QueueItemCellTableViewCell
         
         cell.voteUpButton.titleLabel!.text = String(song.upVotes())
+        cell.voteUpButton.tag = indexPath.row - 1
+        cell.voteUpButton.addTarget(self, action: "upVotePressed:", forControlEvents: UIControlEvents.TouchUpInside)
         cell.voteDownButton.titleLabel!.text = String(song.downVotes())
+        cell.voteDownButton.tag = indexPath.row - 1
+        cell.voteDownButton.addTarget(self, action: "downVotePressed:", forControlEvents: UIControlEvents.TouchUpInside)
         
         cell.trackArtist.text = song.artistName
         cell.trackName.text = song.trackName
@@ -256,12 +261,14 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
     }
     
-    func downVotePressed() {
-        partyPlayerManager.voteDownSong(UIApplication.rdioPartyApp.session.currentSong)
+    func downVotePressed(sender: UIButton!) {
+        let song = queue.songAtIndex(sender.tag)
+        partyPlayerManager.voteDownSong(song)
     }
     
-    func upVotePressed() {
-        partyPlayerManager.voteUpSong(UIApplication.rdioPartyApp.session.currentSong)
+    func upVotePressed(sender: UIButton!) {
+        let song = queue.songAtIndex(sender.tag)
+        partyPlayerManager.voteUpSong(song)
     }
 
 }
