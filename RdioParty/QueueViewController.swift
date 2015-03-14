@@ -133,12 +133,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.playerHeaderCell.setProgress(Float(seconds))
     }
     
-    func addTrackToQueue(trackKey :String) {
-        var track = ["trackKey": trackKey, "userKey" : UIApplication.rdioPartyApp.session.user.rdioId, "votes" : [UIApplication.rdioPartyApp.session.user.rdioId : "like"]]
-        var postRef = self.firebaseRef.childByAutoId()
-        postRef.setValue(track)
-    }
-    
     func updateQueueCount() {
 //        self.tabBarItem.badgeValue = String(self.queue.count())
     }
@@ -238,7 +232,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - Auto complete sarch
     func autoCompleteTextField(textField: MLPAutoCompleteTextField!, didSelectAutoCompleteString selectedString: String!, withAutoCompleteObject selectedObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) {
         if let selectedObject = selectedObject as? AutoCompleteObject {
-            addTrackToQueue(selectedObject.trackKey)
+            partyPlayerManager.addTrackToQueue(selectedObject.trackKey)
         }
 
         textField.text = ""
