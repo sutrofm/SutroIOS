@@ -149,6 +149,12 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - Table View
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // If there's no queue and no current song then the table shouldn't display a player
+        if (queue.count() == 0 && UIApplication.rdioPartyApp.session.currentSong == nil) {
+            return 0
+        }
+        
         return self.queue.count() + 1 // At least one cell: Player controls
     }
     
@@ -246,16 +252,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func playPausePressed() {
-        self.player.togglePause()
-        self.playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
+        player.togglePause()
+        playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
     }
     
     func downVotePressed() {
-        self.partyPlayerManager.voteDownSong(UIApplication.rdioPartyApp.session.currentSong)
+        partyPlayerManager.voteDownSong(UIApplication.rdioPartyApp.session.currentSong)
     }
     
     func upVotePressed() {
-        self.partyPlayerManager.voteUpSong(UIApplication.rdioPartyApp.session.currentSong)
+        partyPlayerManager.voteUpSong(UIApplication.rdioPartyApp.session.currentSong)
     }
 
 }
