@@ -896,6 +896,7 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <color key="shadowColor" red="0.46734927398989901" green="0.46734927398989901" blue="0.46734927398989901" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
                                                                     <exclude reference="8Us-7H-ZyV"/>
@@ -978,11 +979,9 @@
                                                 <constraint firstItem="QhX-nP-kBu" firstAttribute="top" secondItem="Rbr-aU-K62" secondAttribute="top" id="6Ux-pM-LnW"/>
                                                 <constraint firstItem="Rbr-aU-K62" firstAttribute="top" secondItem="POs-G6-vBC" secondAttribute="top" id="H0k-zd-8yf"/>
                                                 <constraint firstItem="QhX-nP-kBu" firstAttribute="bottom" secondItem="Rbr-aU-K62" secondAttribute="bottom" id="Mdt-gO-MIT"/>
-                                                <constraint firstItem="QhX-nP-kBu" firstAttribute="leading" secondItem="POs-G6-vBC" secondAttribute="leadingMargin" constant="-14" id="MnM-7y-F2l">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
-                                                </constraint>
                                                 <constraint firstAttribute="bottom" secondItem="Rbr-aU-K62" secondAttribute="bottom" id="R9G-cq-MWR"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rbr-aU-K62" secondAttribute="trailing" id="RFt-RB-Xwu"/>
+                                                <constraint firstItem="QhX-nP-kBu" firstAttribute="leading" secondItem="POs-G6-vBC" secondAttribute="leading" id="xHH-G9-bd3"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -990,14 +989,14 @@
                                                     <exclude reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="63i-GB-hhX"/>
+                                                    <exclude reference="6Ux-pM-LnW"/>
+                                                    <exclude reference="Mdt-gO-MIT"/>
+                                                    <exclude reference="xHH-G9-bd3"/>
                                                     <exclude reference="3Ii-DM-4F6"/>
                                                     <exclude reference="H0k-zd-8yf"/>
                                                     <exclude reference="R9G-cq-MWR"/>
                                                     <exclude reference="RFt-RB-Xwu"/>
-                                                    <exclude reference="63i-GB-hhX"/>
-                                                    <exclude reference="6Ux-pM-LnW"/>
-                                                    <exclude reference="Mdt-gO-MIT"/>
-                                                    <exclude reference="MnM-7y-F2l"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1006,14 +1005,14 @@
                                                     <include reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="63i-GB-hhX"/>
+                                                    <include reference="6Ux-pM-LnW"/>
+                                                    <include reference="Mdt-gO-MIT"/>
+                                                    <include reference="xHH-G9-bd3"/>
                                                     <include reference="3Ii-DM-4F6"/>
                                                     <include reference="H0k-zd-8yf"/>
                                                     <include reference="R9G-cq-MWR"/>
                                                     <include reference="RFt-RB-Xwu"/>
-                                                    <include reference="63i-GB-hhX"/>
-                                                    <include reference="6Ux-pM-LnW"/>
-                                                    <include reference="Mdt-gO-MIT"/>
-                                                    <include reference="MnM-7y-F2l"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
