@@ -8,8 +8,8 @@
 import UIKit
 
 struct Credentials {
-    static let RdioConsumerKey = "ADDKEY"
-    static let RdioConsumerSecret = "ADDSECRET"
+    static let RdioConsumerKey = "mqbnqec7reb8x6zv5sbs5bq4"
+    static let RdioConsumerSecret = "NTu8GRBzr5"
     
     static let RdioPartyFirebaseToken = "ADDTOKEN"
     

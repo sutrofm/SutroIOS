@@ -22,7 +22,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Parties"
+        self.title = ""
         load()
         showWaiting()
     }
