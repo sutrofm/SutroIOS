@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, RdioDelegate {
         
         var roomList = self.storyboard!.instantiateViewControllerWithIdentifier("RoomListViewController") as! RoomListViewController
         self.navigationController?.pushViewController(roomList, animated: false)
-        getFirebaseAuthToken(userKey!)
+        //getFirebaseAuthToken(userKey!)
         hideWaitingIndicator()
     }
     
@@ -92,7 +92,7 @@ class LoginViewController: UIViewController, RdioDelegate {
             parameters: parameters,
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 let token: String? = responseObject.valueForKey("token") as? String
-                UIApplication.rdioPartyApp.session.firebaseAuthToken = token
+                UIApplication.rdioPartyApp.session.firebaseAuthToken = token!
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
             }
