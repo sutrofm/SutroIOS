@@ -34,8 +34,6 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         currentSongChanged()
 
         load()
-        setOnline()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,12 +105,6 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
             self.room.removeUser(snapshot)
         })
         
-    }
-    
-    func setOnline() {
-        let postRef = self.firebaseRef.childByAppendingPath("/people/" + UIApplication.rdioPartyApp.session.user.rdioId + "/isOnline")
-        let isOnline = true
-        postRef.setValue(isOnline)
     }
 
 }
