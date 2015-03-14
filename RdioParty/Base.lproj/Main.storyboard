@@ -445,8 +445,9 @@
                                                         <constraint firstAttribute="height" constant="45" id="QgL-Sp-iGJ"/>
                                                         <constraint firstAttribute="height" constant="51" id="xhz-7l-eXV"/>
                                                     </constraints>
+                                                    <size key="titleShadowOffset" width="1" height="-1"/>
                                                     <state key="normal" image="vote-up.png">
-                                                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="0.73125670600000003" green="0.73125670600000003" blue="0.73125670600000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -477,8 +478,9 @@
                                                         <constraint firstAttribute="width" constant="65" id="PTb-Od-1GL"/>
                                                         <constraint firstAttribute="height" constant="45" id="n2w-6m-3g7"/>
                                                     </constraints>
+                                                    <size key="titleShadowOffset" width="1" height="-1"/>
                                                     <state key="normal" image="vote-down.png">
-                                                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="0.73125670600858372" green="0.73125670600858372" blue="0.73125670600858372" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -644,11 +646,13 @@
                                         <connections>
                                             <outlet property="addedByLabel" destination="Dxj-nP-FkK" id="vX2-3s-HcJ"/>
                                             <outlet property="artistNameLabel" destination="kBB-0X-yeG" id="2pq-nl-BJH"/>
+                                            <outlet property="downVoteButton" destination="PyV-R8-ggE" id="zyA-Pc-kOI"/>
                                             <outlet property="durationLabel" destination="ncf-La-kzz" id="ZXj-of-3CJ"/>
                                             <outlet property="playPauseButton" destination="5ma-bT-Cuc" id="QGG-hF-64n"/>
                                             <outlet property="progressLabel" destination="sTV-1x-1HZ" id="gsO-3B-0qE"/>
                                             <outlet property="progressMeter" destination="rXd-MR-a2S" id="Yvr-F3-oAM"/>
                                             <outlet property="trackNameLabel" destination="w5W-hv-sm8" id="hKC-Ne-9AT"/>
+                                            <outlet property="upVoteButton" destination="sqd-pJ-GBY" id="5Jm-pr-FNn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -987,14 +991,14 @@
                                                     <exclude reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="63i-GB-hhX"/>
-                                                    <exclude reference="6Ux-pM-LnW"/>
-                                                    <exclude reference="Mdt-gO-MIT"/>
-                                                    <exclude reference="xHH-G9-bd3"/>
                                                     <exclude reference="3Ii-DM-4F6"/>
                                                     <exclude reference="H0k-zd-8yf"/>
                                                     <exclude reference="R9G-cq-MWR"/>
                                                     <exclude reference="RFt-RB-Xwu"/>
+                                                    <exclude reference="63i-GB-hhX"/>
+                                                    <exclude reference="6Ux-pM-LnW"/>
+                                                    <exclude reference="Mdt-gO-MIT"/>
+                                                    <exclude reference="xHH-G9-bd3"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1003,14 +1007,14 @@
                                                     <include reference="QhX-nP-kBu"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="63i-GB-hhX"/>
-                                                    <include reference="6Ux-pM-LnW"/>
-                                                    <include reference="Mdt-gO-MIT"/>
-                                                    <include reference="xHH-G9-bd3"/>
                                                     <include reference="3Ii-DM-4F6"/>
                                                     <include reference="H0k-zd-8yf"/>
                                                     <include reference="R9G-cq-MWR"/>
                                                     <include reference="RFt-RB-Xwu"/>
+                                                    <include reference="63i-GB-hhX"/>
+                                                    <include reference="6Ux-pM-LnW"/>
+                                                    <include reference="Mdt-gO-MIT"/>
+                                                    <include reference="xHH-G9-bd3"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

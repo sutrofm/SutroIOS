@@ -12,6 +12,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var room :Room = UIApplication.rdioPartyApp.session.room
     var queue = UIApplication.rdioPartyApp.session.room.queue
     var playerBackingView = UIImageView()
+    var playerBackingUserImage = UIImageView()
     var backgroundImage = RPParallaxImageView(image: nil)
     let searchDelegate = RdioSearchDelegate()
     var firebaseRef :Firebase!
@@ -35,6 +36,10 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.playerBackingView.frame = CGRectMake(0, 100, self.view.frame.size.width, 250)
         self.playerBackingView.contentMode = UIViewContentMode.ScaleAspectFill
         self.view.insertSubview(self.playerBackingView, belowSubview: self.tableView)
+        
+        playerBackingUserImage.frame = CGRectMake(10, 80, 100, 100)
+        playerBackingUserImage.layer.cornerRadius = playerBackingUserImage.frame.size.width / 2
+        playerBackingView.addSubview(playerBackingUserImage)
         
         self.tableView.contentInset = UIEdgeInsetsMake(self.playerBackingView.frame.size.height, 0, 50, 0) //TODO: Don't hard code the table inset
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -182,9 +187,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if currentSong.userKey != nil { // I thought with Swift 1.2 you could combine conditionals and unwrapping?
                     if let userAdded = self.room.getUser(currentSong.userKey) {
                         self.playerHeaderCell.addedByLabel.text = "Added by " + userAdded.name
+                        playerBackingUserImage.sd_setImageWithURL(NSURL(string: userAdded.icon))
                     }
                 } else {
-                    self.playerHeaderCell.addedByLabel.text = ""
+                    self.playerHeaderCell.addedByLabel.text = "Added by unknown"
+                    playerBackingUserImage.image = nil
                 }
             }
             return self.playerHeaderCell
