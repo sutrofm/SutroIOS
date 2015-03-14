@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QueueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, MLPAutoCompleteTextFieldDelegate {
+class QueueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, MLPAutoCompleteTextFieldDelegate, UIPopoverPresentationControllerDelegate {
 
     var room :Room = UIApplication.rdioPartyApp.session.room
     var queue = UIApplication.rdioPartyApp.session.room.queue
@@ -18,6 +18,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var partyPlayerManager : PartyPlayerManager!
     var playerHeaderCell :PlayerHeaderTableViewCell!
     let player = UIApplication.rdioPartyApp.playerManager.rdio.player
+    let playlistviewController = PlaylistViewController()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
@@ -43,7 +44,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
         currentSongChanged()
@@ -94,6 +95,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             let trackKey = snapshot.value.valueForKey("trackKey") as! String
             self.queue.removeSongById(trackKey)
             self.updateQueueCount()
+            self.handleAutoQueue()
         })
         
         // Queue changed
@@ -102,6 +104,43 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.tableView.reloadData()
             self.updateQueueCount()
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        addAutoQueueControls()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        removeAutoQueueControls()
+    }
+    
+    func addAutoQueueControls() {
+        let barButton = UIBarButtonItem(title: "AutoQueue", style: UIBarButtonItemStyle.Plain, target: self, action: "showAutoQueuePlaylists:")
+        self.tabBarController?.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    func handleAutoQueue() {
+        var autoQueueTracks = UIApplication.rdioPartyApp.session.autoQueueTracks
+        if (queue.count() > 0 && autoQueueTracks.count > 0) {
+            let randomIndex = Int(arc4random_uniform(UInt32(autoQueueTracks.count)))
+            autoQueueTracks.removeAtIndex(randomIndex)
+            let trackKey = autoQueueTracks[randomIndex]
+            addTrackToQueue(trackKey)
+            
+            var hud = RPHud(style: JGProgressHUDStyle.Dark)
+            hud.textLabel.text = "AutoQueue has added a track to the party."
+            hud.showInView(self.view, animated: false)
+            hud.dismissAfterDelay(3, animated: true)
+        }
+    }
+    
+    func removeAutoQueueControls() {
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+    }
+    
+    func showAutoQueuePlaylists(sender: UIBarButtonItem) {
+        let vc = PlaylistViewController(nibName: "PlaylistViewController", bundle: nil)
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func currentSongChanged() {

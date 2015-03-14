@@ -13,25 +13,12 @@ class Session : NSObject, RdioDelegate {
     // own for audio playback.  I don't like this but the player manager needs
     // all the delegate callbacks.  Could probably abstract this instance elsewhere.
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
-
-    // Singleton
+    var autoQueueTracks :[String] = ["t36507856", "t19425252", "t1328012", "t1123066", "t28021873", "t8950690"] //Temporary
     
     override init() {
         super.init()
         self.rdio.delegate = self
     }
-    //    class var sharedInstance: Session {
-//        struct Static {
-//            static var instance: Session?
-//            static var token: dispatch_once_t = 0
-//        }
-//        
-//        dispatch_once(&Static.token) {
-//            Static.instance = Session()
-//        }
-//        
-//        return Static.instance!
-//    }
 
     var room: Room! {
         didSet {
