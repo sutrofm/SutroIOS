@@ -45,6 +45,7 @@ class PartyPlayerManager: NSObject {
     // TODO: This crashes.  I don't know why.  I think it's in the SDK.
     // Will have to look into it.
     func favoriteSong(song :Song, completionClosure: (success :Bool) ->()) {
+        completionClosure(success: false)
 //        var parameters:Dictionary<NSObject, AnyObject!> = ["keys": song.trackKey]
 //
 //        self.rdio.callAPIMethod("addToFavorites",

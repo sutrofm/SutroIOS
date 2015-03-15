@@ -293,21 +293,19 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if !song.favorite {
             partyPlayerManager.favoriteSong(song) { (success) -> () in
+                var favoriteConfirmation :String!
                 if (success) {
-                    var favoriteConfirmation :String!
-                    if (success) {
-                        favoriteConfirmation = "Favorited."
-                        song.favorite = true
-                        self.playerHeaderCell.favoriteButton.tintColor = UIColor.redColor()
-                    } else {
-                        favoriteConfirmation = "There was a problem favoriting this song."
-                    }
-                    
-                    let hud = RPHud(style: JGProgressHUDStyle.Dark)
-                    hud.textLabel.text = favoriteConfirmation
-                    hud.showInView(self.view, animated: false)
-                    hud.dismissAfterDelay(3, animated: true)
+                    favoriteConfirmation = "Favorited."
+                    song.favorite = true
+                    self.playerHeaderCell.favoriteButton.tintColor = UIColor.redColor()
+                } else {
+                    favoriteConfirmation = "There was a problem favoriting this song."
                 }
+                
+                let hud = RPHud(style: JGProgressHUDStyle.Dark)
+                hud.textLabel.text = favoriteConfirmation
+                hud.showInView(self.view, animated: false)
+                hud.dismissAfterDelay(2, animated: true)
             }
         }
     }
