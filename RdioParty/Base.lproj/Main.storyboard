@@ -436,7 +436,7 @@
                                                         </mask>
                                                     </variation>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-pJ-GBY" userLabel="Play button">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-pJ-GBY" userLabel="Play button">
                                                     <rect key="frame" x="128" y="49" width="65" height="45"/>
                                                     <color key="backgroundColor" red="0.96233325489999999" green="1" blue="0.39450655289999997" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -469,7 +469,7 @@
                                                         </mask>
                                                     </variation>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-R8-ggE" userLabel="Play button">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-R8-ggE" userLabel="Play button">
                                                     <rect key="frame" x="128" y="49" width="65" height="45"/>
                                                     <color key="backgroundColor" red="0.96233325489999999" green="1" blue="0.39450655289999997" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <constraints>
