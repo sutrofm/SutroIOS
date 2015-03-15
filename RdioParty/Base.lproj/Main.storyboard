@@ -436,7 +436,7 @@
                                                         </mask>
                                                     </variation>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-pJ-GBY" userLabel="Play button">
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-pJ-GBY" userLabel="Play button">
                                                     <rect key="frame" x="128" y="49" width="65" height="45"/>
                                                     <color key="backgroundColor" red="0.96233325489999999" green="1" blue="0.39450655289999997" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -445,8 +445,9 @@
                                                         <constraint firstAttribute="height" constant="45" id="QgL-Sp-iGJ"/>
                                                         <constraint firstAttribute="height" constant="51" id="xhz-7l-eXV"/>
                                                     </constraints>
+                                                    <inset key="imageEdgeInsets" minX="10" minY="8" maxX="10" maxY="0.0"/>
                                                     <size key="titleShadowOffset" width="1" height="-1"/>
-                                                    <state key="normal" image="vote-up.png">
+                                                    <state key="normal" image="favorite.png">
                                                         <color key="titleShadowColor" red="0.73125670600000003" green="0.73125670600000003" blue="0.73125670600000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <variation key="default">
@@ -1106,6 +1107,7 @@
     <resources>
         <image name="chats.png" width="32" height="32"/>
         <image name="controls_play.png" width="32" height="32"/>
+        <image name="favorite.png" width="60" height="60"/>
         <image name="rdioPartyLogo.png" width="421" height="293"/>
         <image name="users_three.png" width="32" height="32"/>
         <image name="vol_medium.png" width="32" height="32"/>
