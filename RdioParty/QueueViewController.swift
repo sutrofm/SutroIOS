@@ -19,6 +19,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var partyPlayerManager : PartyPlayerManager!
     var playerHeaderCell :PlayerHeaderTableViewCell!
     let player = UIApplication.rdioPartyApp.playerManager.rdio.player
+    let rdio = UIApplication.rdioPartyApp.playerManager
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
@@ -37,7 +38,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.playerBackingView.contentMode = UIViewContentMode.ScaleAspectFill
         self.view.insertSubview(self.playerBackingView, belowSubview: self.tableView)
         
-        playerBackingUserImage.frame = CGRectMake(10, 80, 100, 100)
+        playerBackingUserImage.frame = CGRectMake(10, 20, 40, 40)
+        playerBackingUserImage.clipsToBounds = true
         playerBackingUserImage.layer.cornerRadius = playerBackingUserImage.frame.size.width / 2
         playerBackingView.addSubview(playerBackingUserImage)
         
@@ -72,7 +74,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         load()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -84,8 +86,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil && snapshot.value.valueForKey("trackKey") != nil) {
                 var song = Song(fromSnapshot: snapshot)
-                UIApplication.rdioPartyApp.playerManager.updateSongWithDetails(song, completionClosure: { () in
-                    self.queue.add(song)
+                UIApplication.rdioPartyApp.playerManager.getSongWithDetails(song.trackKey, completionClosure: { (newSong) in
+                    self.queue.add(newSong)
                     self.tableView.reloadData()
                 });
                 self.tableView.reloadData()
@@ -192,15 +194,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.playerHeaderCell.playPauseButton.addTarget(self, action: "playPausePressed", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 // Person who added the song
-                if currentSong.userKey != nil { // I thought with Swift 1.2 you could combine conditionals and unwrapping?
-                    if let userAdded = self.room.getUser(currentSong.userKey) {
-                        self.playerHeaderCell.addedByLabel.text = "Added by " + userAdded.name
-                        playerBackingUserImage.sd_setImageWithURL(NSURL(string: userAdded.icon))
-                    }
-                } else {
-                    self.playerHeaderCell.addedByLabel.text = "Added by unknown"
-                    playerBackingUserImage.image = nil
-                }
+                rdio.getPersonWithDetails(currentSong.userKey, completionClosure: { (userAdded) -> () in
+                    self.playerHeaderCell.addedByLabel.text = "Added by " + userAdded.name
+                    self.playerBackingUserImage.sd_setImageWithURL(NSURL(string: userAdded.icon))
+                })
+
             }
             // Hide the player if we're in a weird case where we have a queue
             // but nothing is playing.  This would be a bug on the server.
@@ -230,10 +228,12 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.trackLength.text = Utils.secondsToHoursMinutesSecondsString(song.duration)
         
         // Person who added the song
-        if let userAddedName = self.room.getUser(song.userKey)?.name {
-            cell.userAddedLabel.text = "Added by " + userAddedName
-        } else {
-            cell.userAddedLabel.text = ""
+        if let userKey = song.userKey {
+            if let userAddedName = self.room.getUser(userKey)?.name {
+                cell.userAddedLabel.text = "Added by " + userAddedName
+            } else {
+                cell.userAddedLabel.text = ""
+            }
         }
         
         cell.trackImage.sd_setImageWithURL(NSURL(string: song.icon))
@@ -245,7 +245,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     func scrollViewDidScroll(scrollView: UIScrollView) {
         var offset = abs(scrollView.contentOffset.y)
         var alpha :CGFloat = 1.0
-        var target = self.playerBackingView.frame.size.height //TODO: Magic number alert.  This is the height of the first header row.
+        var target = self.playerBackingView.frame.size.height
         if (offset < target) {
             var pct = offset / target
             alpha = max(0.0, CGFloat(pct - 0.5)) // Speed up the fade out

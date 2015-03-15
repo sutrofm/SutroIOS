@@ -3,7 +3,6 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 2/28/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
@@ -22,7 +21,7 @@ class Queue: NSObject {
     }
     
     func getSongById(id: String) -> Song? {
-        return self.songs.filter{ $0.trackKey == id }.first
+        return self.allSongs.filter{ $0.trackKey == id }.first
     }
     
     func getIndexForSong(song: Song) -> Int? {

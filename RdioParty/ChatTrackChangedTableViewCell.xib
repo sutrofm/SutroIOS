@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7525" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -31,10 +31,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YU6-bc-7bO" userLabel="User image">
-                                <rect key="frame" x="40" y="15" width="22" height="22"/>
+                                <rect key="frame" x="44" y="22" width="18" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="Dw2-5n-gGq"/>
-                                    <constraint firstAttribute="height" constant="22" id="xVy-1I-kjY"/>
+                                    <constraint firstAttribute="width" constant="18" id="Dw2-5n-gGq"/>
+                                    <constraint firstAttribute="height" constant="18" id="xVy-1I-kjY"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDC-DR-0tG" userLabel="Track label">
@@ -46,10 +46,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="YU6-bc-7bO" secondAttribute="bottom" constant="4" id="JXQ-a8-hFQ"/>
+                            <constraint firstAttribute="bottom" secondItem="YU6-bc-7bO" secondAttribute="bottom" constant="1" id="JXQ-a8-hFQ"/>
                             <constraint firstItem="z5G-mS-bkN" firstAttribute="leading" secondItem="Lch-3F-SGW" secondAttribute="leading" constant="21" id="T3H-uk-7Sk"/>
                             <constraint firstItem="z5G-mS-bkN" firstAttribute="top" secondItem="Lch-3F-SGW" secondAttribute="top" constant="3" id="g1c-rY-QRt"/>
-                            <constraint firstItem="YU6-bc-7bO" firstAttribute="leading" secondItem="Lch-3F-SGW" secondAttribute="leading" constant="40" id="gmn-TS-3kY"/>
+                            <constraint firstItem="YU6-bc-7bO" firstAttribute="leading" secondItem="Lch-3F-SGW" secondAttribute="leading" constant="44" id="gmn-TS-3kY"/>
                             <constraint firstAttribute="trailing" secondItem="h7L-Il-9en" secondAttribute="trailing" constant="8" id="gyK-1I-YgV"/>
                             <constraint firstItem="fDC-DR-0tG" firstAttribute="top" secondItem="Lch-3F-SGW" secondAttribute="top" constant="2" id="haJ-Qc-C8D"/>
                             <constraint firstItem="h7L-Il-9en" firstAttribute="leading" secondItem="Lch-3F-SGW" secondAttribute="leading" constant="75" id="l9e-N3-9lO"/>
