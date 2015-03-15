@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - AFOAuth2Manager (2.0.0):
     - AFNetworking (~> 2.2)
+  - AutoScrollLabel (0.4.0)
   - Firebase (2.2.0)
   - JGProgressHUD (1.2.3)
   - MLPAutoCompleteTextField (1.5)
@@ -35,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - AFOAuth2Manager
+  - AutoScrollLabel
   - Firebase
   - JGProgressHUD
   - MLPAutoCompleteTextField (~> 1.5)
@@ -44,6 +46,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   AFOAuth2Manager: a7726957cbc14c229b5d5d648c934453b6bb55b0
+  AutoScrollLabel: f4ce01b28ca1ec5d2b39918f05359422de13e6a1
   Firebase: e7a2ea2ffeff99f9c37028b354194dcc9718d36b
   JGProgressHUD: 733523c80f69b6dfc41b88a0f33883a89a8b4c3b
   MLPAutoCompleteTextField: 5e440aa7b139258f779db3375dd486421959be15

@@ -15,7 +15,7 @@ class RPNavigationBar: UINavigationBar {
         }
     }
     
-    var secondaryLabel :UILabel!
+    var secondaryLabel :CBAutoScrollLabel!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -48,7 +48,7 @@ class RPNavigationBar: UINavigationBar {
     func createSecondaryLabel() {
         let labelHight = CGFloat(15)
         if (self.secondaryLabel == nil) {
-            self.secondaryLabel = UILabel()
+            self.secondaryLabel = CBAutoScrollLabel()
         }
         self.secondaryLabel.textAlignment = NSTextAlignment.Center
         self.secondaryLabel.font = UIFont(name: self.secondaryLabel.font.familyName, size: 10)

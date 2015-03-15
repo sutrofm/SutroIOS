@@ -9,6 +9,7 @@ pod 'SlackTextViewController'
 pod "SDWebImage"
 pod 'MLPAutoCompleteTextField', '~> 1.5'
 pod 'JGProgressHUD'
+pod 'AutoScrollLabel'
 
 target 'RdioParty' do
 
