@@ -47,7 +47,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.allowsSelection = false
         
         self.tableView.estimatedRowHeight = 100.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = max(UITableViewAutomaticDimension, 100) // HACK: Shouldn't have to have the 100pt fallback.
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
@@ -193,6 +193,13 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.playerHeaderCell.addedByLabel.text = "Added by unknown"
                     playerBackingUserImage.image = nil
                 }
+            }
+            // Hide the player if we're in a weird case where we have a queue
+            // but nothing is playing.  This would be a bug on the server.
+            if currentSong == nil {
+                playerHeaderCell.hidden = true
+            } else {
+                playerHeaderCell.hidden = false
             }
             return self.playerHeaderCell
         }
