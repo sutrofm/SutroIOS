@@ -47,7 +47,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.allowsSelection = false
         
         self.tableView.estimatedRowHeight = 100.0
-        self.tableView.rowHeight = max(UITableViewAutomaticDimension, 100) // HACK: Shouldn't have to have the 100pt fallback.
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
@@ -162,6 +161,15 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         return self.queue.count() + 1 // At least one cell: Player controls
+    }
+
+    // No reason to use autosized cells for this table.  There are only two static heights.
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 150
+        } else {
+            return 100
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
