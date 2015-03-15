@@ -92,7 +92,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         self.firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if (snapshot.value.valueForKey("id") != nil) {
+            if (snapshot.value is NSObject && snapshot.value.objectForKey("id") != nil ) {
                 var person = Person(fromSnapshot: snapshot)
                 if (person.isOnline && !self.room.hasUser(person.rdioId)) {
                     self.room.allPeople.append(person)

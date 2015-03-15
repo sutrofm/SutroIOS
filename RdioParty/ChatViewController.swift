@@ -50,11 +50,9 @@ class ChatViewController: SLKTextViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateThemeColor", name: "themeColorChanged", object: nil)
 
         load()
-        setOnline()
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,15 +60,15 @@ class ChatViewController: SLKTextViewController {
     }
     
     func load() {
-        
-        self.firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+
+        firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
                 var type = snapshot.value.valueForKey("type") as! String
                 var message = Message(fromSnapshot: snapshot)
                 self.updateData(message) 
             }
         })
-        
+     
     }
     
     func updateData(message: Message) {
@@ -153,16 +151,6 @@ class ChatViewController: SLKTextViewController {
     func updateThemeColor() {
         self.tabBarController?.tabBar.tintColor = UIApplication.rdioPartyApp.session.themeColor
         self.navigationController?.navigationBar.tintColor = UIApplication.rdioPartyApp.session.themeColor
-    }
-    
-    func setOnline() {
-        let firebaseOnline = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/people")
-        let postRef = firebaseOnline.childByAppendingPath("/people/" + UIApplication.rdioPartyApp.session.user.rdioId + "/isOnline")
-        // Auth is required to add to the queue
-        self.firebaseRef.authWithCustomToken(UIApplication.rdioPartyApp.session.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
-            let isOnline = true
-            postRef.setValue(isOnline)
-        })
     }
 
 
