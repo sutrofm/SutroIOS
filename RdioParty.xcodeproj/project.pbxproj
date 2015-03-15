@@ -54,6 +54,7 @@
 		A01835A51AACEBFC00E596B4 /* thumbs-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835A31AACEBFC00E596B4 /* thumbs-down.png */; };
 		A01835A61AACEBFC00E596B4 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835A41AACEBFC00E596B4 /* thumbs-up.png */; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
+		A03540331AB546F500456ACB /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A03540321AB546F500456ACB /* favorite.png */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */; };
 		A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D31AABB8A900CA8D65 /* Utils.swift */; };
@@ -149,6 +150,7 @@
 		A01835A31AACEBFC00E596B4 /* thumbs-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-down.png"; sourceTree = "<group>"; };
 		A01835A41AACEBFC00E596B4 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
+		A03540321AB546F500456ACB /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPParallaxImageView.swift; sourceTree = "<group>"; };
 		A05249D31AABB8A900CA8D65 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 		A002338E1AA03A5D0028CED2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A03540321AB546F500456ACB /* favorite.png */,
 				A0D649F01AAD368200AFC951 /* vol_loud@3x.png */,
 				A0D649F11AAD368200AFC951 /* vol_medium@3x.png */,
 				A0D649F21AAD368200AFC951 /* vol_mute@3x.png */,
@@ -495,6 +498,7 @@
 				A01835A61AACEBFC00E596B4 /* thumbs-up.png in Resources */,
 				A01835861AABF28100E596B4 /* chats@3x.png in Resources */,
 				A0D649EF1AAD365200AFC951 /* vol_quiet@2x.png in Resources */,
+				A03540331AB546F500456ACB /* favorite.png in Resources */,
 				A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */,
 				A0D649F41AAD368200AFC951 /* vol_loud@3x.png in Resources */,
 				A018358D1AABF28100E596B4 /* users_two@3x.png in Resources */,

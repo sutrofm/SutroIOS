@@ -188,7 +188,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 updateTrackProgress(0)
                 
                 self.playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
-                self.playerHeaderCell.upVoteButton.addTarget(self, action: "upVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
+                self.playerHeaderCell.favoriteButton.addTarget(self, action: "upVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
                 self.playerHeaderCell.playPauseButton.addTarget(self, action: "playPausePressed", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 // Person who added the song
@@ -256,7 +256,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.playerBackingView.alpha = alpha
             if (self.playerHeaderCell != nil) {
                 self.playerHeaderCell.playPauseButton.alpha = alpha
-                self.playerHeaderCell.upVoteButton.alpha = alpha
+                self.playerHeaderCell.favoriteButton.alpha = alpha
                 self.playerHeaderCell.downVoteButton.alpha = alpha
             }
             }, completion: nil)
