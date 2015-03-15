@@ -3,7 +3,6 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 2/22/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
@@ -43,6 +42,9 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     func updateData(data :NSObject) {
         let newRoom = data as! Room
         self.rooms.append(newRoom)
+        
+        // Re-sort and display
+        sortRooms()
         self.roomsTableView.reloadData()
         hideWaiting()
     }
@@ -109,5 +111,16 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         if (hud != nil) {
             hud.dismiss()
         }
+    }
+    
+    // Sort by user count and activity
+    func sortRooms() {
+        self.rooms = self.rooms.sorted({
+            if $0.active == $1.active {
+                return $0.previewPeopleCount > $1.previewPeopleCount
+            } else {
+                return $0.active
+            }
+        })
     }
 }
