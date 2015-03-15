@@ -38,9 +38,13 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
         
+        // Set the images as template rendering so we can
+        // change their color via tintColor.
         let downVoteImage = UIImage(named:"thumbs-down.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         self.downVoteButton.setImage(downVoteImage, forState: UIControlState.Normal)
-                
+        let favoriteImage = UIImage(named:"favorite.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal)
+
         updateControlColors()
         
         gradient.colors = [ UIColor.clearColor().CGColor, UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor]

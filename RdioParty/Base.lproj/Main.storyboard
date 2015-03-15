@@ -655,11 +655,11 @@
                                             <outlet property="artistNameLabel" destination="kBB-0X-yeG" id="2pq-nl-BJH"/>
                                             <outlet property="downVoteButton" destination="PyV-R8-ggE" id="zyA-Pc-kOI"/>
                                             <outlet property="durationLabel" destination="ncf-La-kzz" id="ZXj-of-3CJ"/>
+                                            <outlet property="favoriteButton" destination="sqd-pJ-GBY" id="wph-ma-FlK"/>
                                             <outlet property="playPauseButton" destination="5ma-bT-Cuc" id="QGG-hF-64n"/>
                                             <outlet property="progressLabel" destination="sTV-1x-1HZ" id="gsO-3B-0qE"/>
                                             <outlet property="progressMeter" destination="rXd-MR-a2S" id="Yvr-F3-oAM"/>
                                             <outlet property="trackNameLabel" destination="w5W-hv-sm8" id="hKC-Ne-9AT"/>
-                                            <outlet property="upVoteButton" destination="sqd-pJ-GBY" id="5Jm-pr-FNn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

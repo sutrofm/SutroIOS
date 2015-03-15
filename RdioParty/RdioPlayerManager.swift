@@ -21,6 +21,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     
     func updateForRoom(room :Room) {
         self.fireBaseRef =  Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/player")
+        self.rdio.authorizeUsingAccessToken(UIApplication.rdioPartyApp.session.accessToken)
 
         // Track position
 //        self.fireBaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
