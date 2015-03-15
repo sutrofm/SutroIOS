@@ -188,7 +188,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 updateTrackProgress(0)
                 
                 self.playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
-                self.playerHeaderCell.favoriteButton.addTarget(self, action: "upVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
+                self.playerHeaderCell.favoriteButton.addTarget(self, action: "favoriteButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
                 self.playerHeaderCell.playPauseButton.addTarget(self, action: "playPausePressed", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 // Person who added the song
@@ -288,9 +288,28 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         partyPlayerManager.voteDownSong(song)
     }
     
-    func upVotePressed(sender: UIButton!) {
+    func favoriteButtonPressed(sender: UIButton!) {
         let song = queue.songAtIndex(sender.tag)
-        partyPlayerManager.voteUpSong(song)
+        
+        if !song.favorite {
+            partyPlayerManager.favoriteSong(song) { (success) -> () in
+                if (success) {
+                    var favoriteConfirmation :String!
+                    if (success) {
+                        favoriteConfirmation = "Favorited."
+                        song.favorite = true
+                        self.playerHeaderCell.favoriteButton.tintColor = UIColor.redColor()
+                    } else {
+                        favoriteConfirmation = "There was a problem favoriting this song."
+                    }
+                    
+                    let hud = RPHud(style: JGProgressHUDStyle.Dark)
+                    hud.textLabel.text = favoriteConfirmation
+                    hud.showInView(self.view, animated: false)
+                    hud.dismissAfterDelay(3, animated: true)
+                }
+            }
+        }
     }
 
 }

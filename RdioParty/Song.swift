@@ -23,7 +23,7 @@ class Song: NSObject {
     var timestampAdded :NSDate!
     var duration :Int!
     var queued = true
-    
+    var favorite = false
     
     override init () {
         super.init()

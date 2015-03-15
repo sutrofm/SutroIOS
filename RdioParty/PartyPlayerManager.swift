@@ -10,7 +10,7 @@ import UIKit
 class PartyPlayerManager: NSObject {
    
     var firebase :Firebase!
-    var rdio :Rdio!
+    var rdio :Rdio = UIApplication.rdioPartyApp.playerManager.rdio
     let userid = UIApplication.rdioPartyApp.session.user.rdioId
     
     convenience init(firebaseRef ref :Firebase) {
@@ -41,11 +41,18 @@ class PartyPlayerManager: NSObject {
 
     }
     
-    // Add to user's Rdio favorites
-    func favoriteSong(song :Song) {
-        
+    // Add to user's Rdio favorites.
+    // TODO: This crashes.  I don't know why.  I think it's in the SDK.
+    // Will have to look into it.
+    func favoriteSong(song :Song, completionClosure: (success :Bool) ->()) {
+//        var parameters:Dictionary<NSObject, AnyObject!> = ["keys": song.trackKey]
+//
+//        self.rdio.callAPIMethod("addToFavorites",
+//            withParameters: parameters,
+//            success: { (result) -> Void in
+//                completionClosure(success: true)
+//            }) { (error) -> Void in
+//                completionClosure(success: false)
+//        }
     }
-    
-    
-    
 }
