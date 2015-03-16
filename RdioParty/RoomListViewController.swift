@@ -98,7 +98,9 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Alternate colors between rows
         var color :UIColor!
-        if (indexPath.row % 2 == 0) {
+        if !room.active {
+            color = UIColor.darkGrayColor()
+        } else if (indexPath.row % 2 == 0) {
             color = UIColor.blueColor()
             cell.userCountLabel.textColor = UIColor.whiteColor()
         } else {
