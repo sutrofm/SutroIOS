@@ -54,7 +54,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                             UIApplication.rdioPartyApp.session.backgroundUrl = song!.backgroundImage
                         } else {
                             // Couldn't find the track.  Let's rebuild it.
-                            self.getSongWithDetails(trackKey, completionClosure: { (newSong) in
+                            self.getSongWithDetails(trackKey, completionClosure: { (newSong, cached) in
                                 UIApplication.rdioPartyApp.session.currentSong = newSong
                                 UIApplication.rdioPartyApp.session.themeColor = newSong.color!
                                 UIApplication.rdioPartyApp.session.backgroundUrl = newSong.backgroundImage
@@ -80,10 +80,10 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     }
     
     // MARK: - Track Details
-    func getSongWithDetails(rdioid: String, completionClosure: (song :Song) ->()) {
+    func getSongWithDetails(rdioid: String, completionClosure: (song :Song, cached :Bool) ->()) {
         
         if let song: Song = songCache.objectForKey(rdioid) as! Song? {
-            completionClosure(song: song)
+            completionClosure(song: song, cached: true)
             return
         }
         
@@ -97,7 +97,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                 song.updateWithApiData(apiData as! NSDictionary!)
                 self.songCache.setObject(song, forKey: rdioid)
                 
-                completionClosure(song: song)
+                completionClosure(song: song, cached: false)
             }) { (error) -> Void in
                 // Error
         }

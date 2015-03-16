@@ -98,7 +98,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil && snapshot.value.valueForKey("trackKey") != nil) {
                 var song = Song(fromSnapshot: snapshot)
-                UIApplication.rdioPartyApp.playerManager.getSongWithDetails(song.trackKey, completionClosure: { (newSong) in
+                UIApplication.rdioPartyApp.playerManager.getSongWithDetails(song.trackKey, completionClosure: { (newSong, cached) in
                     self.queue.add(newSong)
                     self.tableView.reloadData()
                 });

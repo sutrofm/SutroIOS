@@ -149,11 +149,16 @@ class ChatViewController: SLKTextViewController {
     }
     
     func populateTrackPlayingCellWithTrack(cell :ChatTrackChangedTableViewCell, message: Message) {
+
         // Get song details currently just to get the color
-        rdio.getSongWithDetails(message.trackKey, completionClosure: { (updatedSong) -> () in
-            let newColor = updatedSong.color.colorWithAlphaComponent(0.5)
+        rdio.getSongWithDetails(message.trackKey, completionClosure: { (updatedSong, cached) -> () in
+            let newColor = updatedSong.color.colorWithAlphaComponent(0.3)
             if cell.backingView.backgroundColor != newColor {
-                cell.backingView.backgroundColor = newColor
+                let animationDuration = cached ? 0.0 : 0.5
+                UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                    cell.backingView.layer.backgroundColor = newColor.CGColor
+                })
+                
             }
         })
     }
