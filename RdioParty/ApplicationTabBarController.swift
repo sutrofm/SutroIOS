@@ -11,10 +11,10 @@ class ApplicationTabBarController: UITabBarController {
 
     var room :Room = UIApplication.rdioPartyApp.session.room
     var firebaseRef :Firebase!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/messages")
     }

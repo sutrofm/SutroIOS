@@ -24,7 +24,6 @@ class ChatViewController: SLKTextViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarItem.title = "Chat"
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
@@ -51,10 +50,19 @@ class ChatViewController: SLKTextViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateThemeColor", name: "themeColorChanged", object: nil)
 
         load()
-        
+        setTitle()
     }
     
-
+    override func viewWillAppear(animated: Bool) {
+        setTitle()
+    }
+    
+    func setTitle() {
+        if let navbar = UIApplication.rdioPartyApp.navigationBar {
+            navbar.setTitle("Chat")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

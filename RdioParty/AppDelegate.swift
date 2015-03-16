@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var navigationController :UINavigationController?
     var tabBarController :ApplicationTabBarController?
+    var navigationBar :RPNavigationBar!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let navigationController = self.window?.rootViewController as! UINavigationController        
+        let navigationController = self.window?.rootViewController as! UINavigationController
+        navigationBar = navigationController.navigationBar as! RPNavigationBar
         return true
     }
 

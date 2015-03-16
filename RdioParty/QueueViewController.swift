@@ -73,7 +73,19 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
         
         load()
+        setTitle()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        setTitle()
+    }
+    
+    func setTitle() {
+        if let navbar = UIApplication.rdioPartyApp.navigationBar {
+            navbar.setTitle("Queue")
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

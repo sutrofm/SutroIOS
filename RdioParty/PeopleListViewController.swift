@@ -19,7 +19,6 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarItem.title = "People"
         self.peopleTableview.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
         self.peopleTableview.registerNib(UINib(nibName: "PersonListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/people")
@@ -34,7 +33,19 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         currentSongChanged()
 
         load()
+        setTitle()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        setTitle()
+    }
+    
+    func setTitle() {
+        if let navbar = UIApplication.rdioPartyApp.navigationBar {
+            navbar.setTitle("People")
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

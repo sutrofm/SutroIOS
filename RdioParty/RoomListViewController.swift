@@ -24,6 +24,17 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         self.title = ""
         load()
         showWaiting()
+        setTitle()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        setTitle()
+    }
+    
+    func setTitle() {
+        if let navbar = UIApplication.rdioPartyApp.navigationBar {
+            navbar.setTitle("Parties")
+        }
     }
     
     func load() {
@@ -65,7 +76,6 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         
         let vc: ApplicationTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! ApplicationTabBarController
         UIApplication.rdioPartyApp.tabBarController = vc // Keep a reference handy in our app delegate so we can tweak it
-        vc.title = room.humanName
         self.navigationController!.pushViewController(vc, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
