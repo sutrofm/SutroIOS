@@ -23,6 +23,8 @@
 		25B8F0571A97C637003094C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0561A97C637003094C0 /* Security.framework */; };
 		25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */; };
 		25BD291E1AAFAAA100E6E36F /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD291D1AAFAAA100E6E36F /* Credentials.swift */; };
+		25D2E0111AB89AC900ACA4BE /* RPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E00F1AB89AC900ACA4BE /* RPNavigationBar.swift */; };
+		25D2E0121AB89AC900ACA4BE /* RPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E0101AB89AC900ACA4BE /* RPTabBar.swift */; };
 		25D437DD1AAE56E5001CFD6C /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */; };
 		25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */; };
 		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
@@ -43,8 +45,6 @@
 		A018358E1AABF28100E596B4 /* vol_loud.png in Resources */ = {isa = PBXBuildFile; fileRef = A018357F1AABF28100E596B4 /* vol_loud.png */; };
 		A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835801AABF28100E596B4 /* vol_loud@2x.png */; };
 		A01835901AABF28100E596B4 /* vol_loud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835811AABF28100E596B4 /* vol_loud@3x.png */; };
-		A01835941AABF41700E596B4 /* RPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01835931AABF41700E596B4 /* RPTabBar.swift */; };
-		A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */; };
 		A018359D1AACE8F200E596B4 /* controls_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835971AACE8F200E596B4 /* controls_pause.png */; };
 		A018359E1AACE8F200E596B4 /* controls_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835981AACE8F200E596B4 /* controls_pause@2x.png */; };
 		A018359F1AACE8F200E596B4 /* controls_pause@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835991AACE8F200E596B4 /* controls_pause@3x.png */; };
@@ -120,6 +120,8 @@
 		25B8F0561A97C637003094C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		25B8F0581A97C63C003094C0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		25BD291D1AAFAAA100E6E36F /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		25D2E00F1AB89AC900ACA4BE /* RPNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNavigationBar.swift; sourceTree = "<group>"; };
+		25D2E0101AB89AC900ACA4BE /* RPTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPTabBar.swift; sourceTree = "<group>"; };
 		25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
@@ -139,8 +141,6 @@
 		A018357F1AABF28100E596B4 /* vol_loud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vol_loud.png; sourceTree = "<group>"; };
 		A01835801AABF28100E596B4 /* vol_loud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vol_loud@2x.png"; sourceTree = "<group>"; };
 		A01835811AABF28100E596B4 /* vol_loud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vol_loud@3x.png"; sourceTree = "<group>"; };
-		A01835931AABF41700E596B4 /* RPTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPTabBar.swift; sourceTree = "<group>"; };
-		A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNavigationBar.swift; sourceTree = "<group>"; };
 		A01835971AACE8F200E596B4 /* controls_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controls_pause.png; sourceTree = "<group>"; };
 		A01835981AACE8F200E596B4 /* controls_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls_pause@2x.png"; sourceTree = "<group>"; };
 		A01835991AACE8F200E596B4 /* controls_pause@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls_pause@3x.png"; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 				A04431C01A9D758D003A5E69 /* Views */,
 				A06D672B1A9AB388005722D8 /* RdioParty-Bridging-Header.h */,
 				A0582E921A9A55A600C37188 /* ViewControllers */,
-				A0BE2ED41A997E1D0050FCE5 /* Classes */,
+				A0BE2ED41A997E1D0050FCE5 /* Objects */,
 				259124111A96C629003B30C5 /* AppDelegate.swift */,
 				259124171A96C629003B30C5 /* Main.storyboard */,
 				2591241A1A96C629003B30C5 /* Images.xcassets */,
@@ -360,12 +360,14 @@
 			children = (
 				25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A04431C01A9D758D003A5E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				25D2E00F1AB89AC900ACA4BE /* RPNavigationBar.swift */,
+				25D2E0101AB89AC900ACA4BE /* RPTabBar.swift */,
 				A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */,
 				A0EFB7CC1A9F02580098542F /* ChatMessageTableViewCell.swift */,
 				A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */,
@@ -382,7 +384,7 @@
 				259015741AB267C30027E95A /* PersonListTableViewCell.swift */,
 				259015751AB267C30027E95A /* PersonListTableViewCell.xib */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A0582E921A9A55A600C37188 /* ViewControllers */ = {
@@ -397,9 +399,10 @@
 				25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */,
 			);
 			name = ViewControllers;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		A0BE2ED41A997E1D0050FCE5 /* Classes */ = {
+		A0BE2ED41A997E1D0050FCE5 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				A0BE2ED51A997E620050FCE5 /* Room.swift */,
@@ -412,10 +415,8 @@
 				A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */,
 				A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */,
 				A05249D31AABB8A900CA8D65 /* Utils.swift */,
-				A01835931AABF41700E596B4 /* RPTabBar.swift */,
-				A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */,
 			);
-			name = Classes;
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,13 +572,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */,
-				A01835941AABF41700E596B4 /* RPTabBar.swift in Sources */,
 				A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */,
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
 				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */,
 				A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
+				25D2E0111AB89AC900ACA4BE /* RPNavigationBar.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
 				A0D649DF1AAD23F400AFC951 /* RPHud.swift in Sources */,
 				A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */,
@@ -592,8 +593,8 @@
 				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,
 				250971531AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift in Sources */,
 				25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */,
-				A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */,
 				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
+				25D2E0121AB89AC900ACA4BE /* RPTabBar.swift in Sources */,
 				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
 				25BD291E1AAFAAA100E6E36F /* Credentials.swift in Sources */,
 				A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */,
