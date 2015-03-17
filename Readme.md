@@ -16,7 +16,9 @@ powered by [Firebase](https://www.firebase.com/docs/ios/api/) and the
 
 -   Update to Xcode 6.3 Beta. Required to support [Swift
     1.2](https://developer.apple.com/swift/blog/?id=22)
--   Update to the most recent [Cocoapods 0.36](http://blog.cocoapods.org/CocoaPods-0.36/) that supports Swift.
+-   Update to the most recent [Cocoapods
+    0.36](http://blog.cocoapods.org/CocoaPods-0.36/) that supports
+    Swift.
 
         gem install cocoapods
         pod install
