@@ -3,7 +3,6 @@
 //  RdioParty
 //
 //  Created by Gabe Kangas on 2/22/15.
-//  Copyright (c) 2015 Rdio. All rights reserved.
 //
 
 import UIKit
@@ -22,9 +21,20 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Parties"
+        self.title = ""
         load()
         showWaiting()
+        setTitle()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        setTitle()
+    }
+    
+    func setTitle() {
+        if let navbar = UIApplication.rdioPartyApp.navigationBar {
+            navbar.setTitle("Parties")
+        }
     }
     
     func load() {
@@ -43,6 +53,9 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     func updateData(data :NSObject) {
         let newRoom = data as! Room
         self.rooms.append(newRoom)
+        
+        // Re-sort and display
+        sortRooms()
         self.roomsTableView.reloadData()
         hideWaiting()
     }
@@ -63,7 +76,6 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         
         let vc: ApplicationTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! ApplicationTabBarController
         UIApplication.rdioPartyApp.tabBarController = vc // Keep a reference handy in our app delegate so we can tweak it
-        vc.title = room.humanName
         self.navigationController!.pushViewController(vc, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -86,7 +98,9 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Alternate colors between rows
         var color :UIColor!
-        if (indexPath.row % 2 == 0) {
+        if !room.active {
+            color = UIColor.darkGrayColor()
+        } else if (indexPath.row % 2 == 0) {
             color = UIColor.blueColor()
             cell.userCountLabel.textColor = UIColor.whiteColor()
         } else {
@@ -109,5 +123,16 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         if (hud != nil) {
             hud.dismiss()
         }
+    }
+    
+    // Sort by user count and activity
+    func sortRooms() {
+        self.rooms = self.rooms.sorted({
+            if $0.active == $1.active {
+                return $0.previewPeopleCount > $1.previewPeopleCount
+            } else {
+                return $0.active
+            }
+        })
     }
 }

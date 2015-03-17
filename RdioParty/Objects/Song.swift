@@ -23,7 +23,7 @@ class Song: NSObject {
     var timestampAdded :NSDate!
     var duration :Int!
     var queued = true
-    
+    var favorite = false
     
     override init () {
         super.init()
@@ -34,6 +34,7 @@ class Song: NSObject {
         self.trackKey = snapshot.value.valueForKey("trackKey") as! String
         self.partyId = snapshot.key
         self.userKey = snapshot.value.valueForKey("userKey") as! String
+        
         let votes = snapshot.value.objectForKey("votes") as! NSDictionary
         for vote in votes {
             let type = vote.value as! String
@@ -56,6 +57,8 @@ class Song: NSObject {
         self.trackName = apiData["name"] as! String!
         self.backgroundImage = NSURL(string: apiData["playerBackgroundUrl"] as! String)
         self.duration = apiData["duration"] as! Int!
+        self.trackKey = apiData["key"] as! String!
+        
         let colorData = apiData["dominantColor"] as! Dictionary<String, CGFloat>
         let red = colorData["r"]! / 255.0
         let green = colorData["g"]! / 255.0

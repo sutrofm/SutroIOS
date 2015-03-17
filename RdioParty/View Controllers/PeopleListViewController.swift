@@ -19,7 +19,6 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarItem.title = "People"
         self.peopleTableview.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
         self.peopleTableview.registerNib(UINib(nibName: "PersonListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/people")
@@ -34,9 +33,19 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         currentSongChanged()
 
         load()
-        setOnline()
-        // Do any additional setup after loading the view.
+        setTitle()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        setTitle()
+    }
+    
+    func setTitle() {
+        if let navbar = UIApplication.rdioPartyApp.navigationBar {
+            navbar.setTitle("People")
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,7 +103,7 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         self.firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if (snapshot.value.valueForKey("id") != nil) {
+            if (snapshot.value is NSObject && snapshot.value.objectForKey("id") != nil ) {
                 var person = Person(fromSnapshot: snapshot)
                 if (person.isOnline && !self.room.hasUser(person.rdioId)) {
                     self.room.allPeople.append(person)
@@ -107,12 +116,6 @@ class PeopleListViewController: UIViewController, UITableViewDelegate, UITableVi
             self.room.removeUser(snapshot)
         })
         
-    }
-    
-    func setOnline() {
-        let postRef = self.firebaseRef.childByAppendingPath("/people/" + UIApplication.rdioPartyApp.session.user.rdioId + "/isOnline")
-        let isOnline = true
-        postRef.setValue(isOnline)
     }
 
 }

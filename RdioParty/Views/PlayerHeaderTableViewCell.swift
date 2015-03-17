@@ -24,7 +24,7 @@ class PlayerHeaderTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var playPauseButton: UIButton!
-    @IBOutlet weak var upVoteButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var downVoteButton: UIButton!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -38,12 +38,13 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
         
+        // Set the images as template rendering so we can
+        // change their color via tintColor.
         let downVoteImage = UIImage(named:"thumbs-down.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         self.downVoteButton.setImage(downVoteImage, forState: UIControlState.Normal)
-        
-        let upVoteImage = UIImage(named:"thumbs-up.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.upVoteButton.setImage(upVoteImage, forState: UIControlState.Normal)
-        
+        let favoriteImage = UIImage(named:"favorite.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal)
+
         updateControlColors()
         
         gradient.colors = [ UIColor.clearColor().CGColor, UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor]
@@ -81,7 +82,7 @@ class PlayerHeaderTableViewCell: UITableViewCell {
 
         // Using the song color looks stupid on these buttons.  Get back to this.
         let buttonColor = UIColor.whiteColor()
-        self.upVoteButton.tintColor = buttonColor
+        self.favoriteButton.tintColor = buttonColor
         self.downVoteButton.tintColor = buttonColor
         self.playPauseButton.tintColor = buttonColor
     }

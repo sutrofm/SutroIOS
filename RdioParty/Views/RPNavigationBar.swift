@@ -8,7 +8,8 @@
 import UIKit
 
 class RPNavigationBar: UINavigationBar {
-
+    let customTitleLabel = UILabel()
+    
     var secondaryLabelText :String! {
         didSet {
             updateSecondaryLabel()
@@ -19,11 +20,21 @@ class RPNavigationBar: UINavigationBar {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        customTitleLabel.textAlignment = NSTextAlignment.Center
+        self.addSubview(customTitleLabel)
     }
     
     override func layoutSubviews() {
         createSecondaryLabel()
         customizeNavbar()
+        customTitleLabel.frame = CGRectMake(20, 5, frame.size.width - 40, 20)
+    }
+    
+    func setTitle(customTitle :String) {
+        UIView.transitionWithView(customTitleLabel, duration: 0.3, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: { () -> Void in
+            self.customTitleLabel.text = customTitle
+        }, completion: nil)
+
     }
     
     func updateSecondaryLabel() {
@@ -37,11 +48,13 @@ class RPNavigationBar: UINavigationBar {
     func customizeNavbar() {
         var veriticalOffset = CGFloat(0)
         if self.secondaryLabelText != nil {
-            veriticalOffset = -6
+            veriticalOffset = -10
             self.secondaryLabel.hidden = false
         } else {
             self.secondaryLabel.hidden = true
         }
+
+
         self.setTitleVerticalPositionAdjustment(veriticalOffset, forBarMetrics: UIBarMetrics.Default)
     }
     

@@ -24,6 +24,8 @@ class ChatTrackChangedTableViewCell: UITableViewCell {
         
         self.clipsToBounds = true
         self.backingView.layer.cornerRadius = 10.0
+
+        self.userImage.clipsToBounds = true
         self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         self.userImage.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
         self.userImage.layer.borderWidth = CGFloat(0.5)

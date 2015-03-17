@@ -25,6 +25,8 @@
 		25BD1F8D1AB3B787003BEC91 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD1F8B1AB3B787003BEC91 /* PlaylistViewController.swift */; };
 		25BD1F8E1AB3B787003BEC91 /* PlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BD1F8C1AB3B787003BEC91 /* PlaylistViewController.xib */; };
 		25BD291E1AAFAAA100E6E36F /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD291D1AAFAAA100E6E36F /* Credentials.swift */; };
+		25D2E0111AB89AC900ACA4BE /* RPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E00F1AB89AC900ACA4BE /* RPNavigationBar.swift */; };
+		25D2E0121AB89AC900ACA4BE /* RPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E0101AB89AC900ACA4BE /* RPTabBar.swift */; };
 		25D437DD1AAE56E5001CFD6C /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */; };
 		25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */; };
 		25F785E31A98197500CC0B89 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F785E21A98197500CC0B89 /* Rdio.framework */; };
@@ -45,8 +47,6 @@
 		A018358E1AABF28100E596B4 /* vol_loud.png in Resources */ = {isa = PBXBuildFile; fileRef = A018357F1AABF28100E596B4 /* vol_loud.png */; };
 		A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835801AABF28100E596B4 /* vol_loud@2x.png */; };
 		A01835901AABF28100E596B4 /* vol_loud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835811AABF28100E596B4 /* vol_loud@3x.png */; };
-		A01835941AABF41700E596B4 /* RPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01835931AABF41700E596B4 /* RPTabBar.swift */; };
-		A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */; };
 		A018359D1AACE8F200E596B4 /* controls_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835971AACE8F200E596B4 /* controls_pause.png */; };
 		A018359E1AACE8F200E596B4 /* controls_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835981AACE8F200E596B4 /* controls_pause@2x.png */; };
 		A018359F1AACE8F200E596B4 /* controls_pause@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835991AACE8F200E596B4 /* controls_pause@3x.png */; };
@@ -56,6 +56,7 @@
 		A01835A51AACEBFC00E596B4 /* thumbs-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835A31AACEBFC00E596B4 /* thumbs-down.png */; };
 		A01835A61AACEBFC00E596B4 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835A41AACEBFC00E596B4 /* thumbs-up.png */; };
 		A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032A2181A9A993400EF5924 /* PeopleListViewController.swift */; };
+		A03540331AB546F500456ACB /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A03540321AB546F500456ACB /* favorite.png */; };
 		A03B31F71A9985A600C7424F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B31F61A9985A600C7424F /* Session.swift */; };
 		A05249D21AAB86B100CA8D65 /* RPParallaxImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */; };
 		A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05249D31AABB8A900CA8D65 /* Utils.swift */; };
@@ -123,6 +124,8 @@
 		25BD1F8B1AB3B787003BEC91 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		25BD1F8C1AB3B787003BEC91 /* PlaylistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistViewController.xib; sourceTree = "<group>"; };
 		25BD291D1AAFAAA100E6E36F /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		25D2E00F1AB89AC900ACA4BE /* RPNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNavigationBar.swift; sourceTree = "<group>"; };
+		25D2E0101AB89AC900ACA4BE /* RPTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPTabBar.swift; sourceTree = "<group>"; };
 		25D437DC1AAE56E5001CFD6C /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		25F785E21A98197500CC0B89 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
@@ -142,8 +145,6 @@
 		A018357F1AABF28100E596B4 /* vol_loud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vol_loud.png; sourceTree = "<group>"; };
 		A01835801AABF28100E596B4 /* vol_loud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vol_loud@2x.png"; sourceTree = "<group>"; };
 		A01835811AABF28100E596B4 /* vol_loud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vol_loud@3x.png"; sourceTree = "<group>"; };
-		A01835931AABF41700E596B4 /* RPTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPTabBar.swift; sourceTree = "<group>"; };
-		A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPNavigationBar.swift; sourceTree = "<group>"; };
 		A01835971AACE8F200E596B4 /* controls_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controls_pause.png; sourceTree = "<group>"; };
 		A01835981AACE8F200E596B4 /* controls_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls_pause@2x.png"; sourceTree = "<group>"; };
 		A01835991AACE8F200E596B4 /* controls_pause@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls_pause@3x.png"; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		A01835A31AACEBFC00E596B4 /* thumbs-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-down.png"; sourceTree = "<group>"; };
 		A01835A41AACEBFC00E596B4 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
 		A032A2181A9A993400EF5924 /* PeopleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
+		A03540321AB546F500456ACB /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
 		A03B31F61A9985A600C7424F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPParallaxImageView.swift; sourceTree = "<group>"; };
 		A05249D31AABB8A900CA8D65 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -250,7 +252,7 @@
 				A04431C01A9D758D003A5E69 /* Views */,
 				A06D672B1A9AB388005722D8 /* RdioParty-Bridging-Header.h */,
 				A0582E921A9A55A600C37188 /* ViewControllers */,
-				A0BE2ED41A997E1D0050FCE5 /* Classes */,
+				A0BE2ED41A997E1D0050FCE5 /* Objects */,
 				259124111A96C629003B30C5 /* AppDelegate.swift */,
 				259124171A96C629003B30C5 /* Main.storyboard */,
 				2591241A1A96C629003B30C5 /* Images.xcassets */,
@@ -316,6 +318,7 @@
 		A002338E1AA03A5D0028CED2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A03540321AB546F500456ACB /* favorite.png */,
 				A0D649F01AAD368200AFC951 /* vol_loud@3x.png */,
 				A0D649F11AAD368200AFC951 /* vol_medium@3x.png */,
 				A0D649F21AAD368200AFC951 /* vol_mute@3x.png */,
@@ -361,12 +364,14 @@
 			children = (
 				25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A04431C01A9D758D003A5E69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				25D2E00F1AB89AC900ACA4BE /* RPNavigationBar.swift */,
+				25D2E0101AB89AC900ACA4BE /* RPTabBar.swift */,
 				A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */,
 				A0EFB7CC1A9F02580098542F /* ChatMessageTableViewCell.swift */,
 				A0EFB7CD1A9F02580098542F /* ChatMessageTableViewCell.xib */,
@@ -383,7 +388,7 @@
 				259015741AB267C30027E95A /* PersonListTableViewCell.swift */,
 				259015751AB267C30027E95A /* PersonListTableViewCell.xib */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A0582E921A9A55A600C37188 /* ViewControllers */ = {
@@ -400,9 +405,10 @@
 				25BD1F8C1AB3B787003BEC91 /* PlaylistViewController.xib */,
 			);
 			name = ViewControllers;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		A0BE2ED41A997E1D0050FCE5 /* Classes */ = {
+		A0BE2ED41A997E1D0050FCE5 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				A0BE2ED51A997E620050FCE5 /* Room.swift */,
@@ -415,10 +421,8 @@
 				A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */,
 				A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */,
 				A05249D31AABB8A900CA8D65 /* Utils.swift */,
-				A01835931AABF41700E596B4 /* RPTabBar.swift */,
-				A01835951AABF5BB00E596B4 /* RPNavigationBar.swift */,
 			);
-			name = Classes;
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,6 +458,11 @@
 				TargetAttributes = {
 					2591240B1A96C629003B30C5 = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -496,6 +505,7 @@
 				A01835A61AACEBFC00E596B4 /* thumbs-up.png in Resources */,
 				A01835861AABF28100E596B4 /* chats@3x.png in Resources */,
 				A0D649EF1AAD365200AFC951 /* vol_quiet@2x.png in Resources */,
+				A03540331AB546F500456ACB /* favorite.png in Resources */,
 				A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */,
 				A0D649F41AAD368200AFC951 /* vol_loud@3x.png in Resources */,
 				A018358D1AABF28100E596B4 /* users_two@3x.png in Resources */,
@@ -569,13 +579,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */,
-				A01835941AABF41700E596B4 /* RPTabBar.swift in Sources */,
 				A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */,
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,
 				259124161A96C629003B30C5 /* QueueViewController.swift in Sources */,
 				A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */,
 				A05249D41AABB8A900CA8D65 /* Utils.swift in Sources */,
 				259124121A96C629003B30C5 /* AppDelegate.swift in Sources */,
+				25D2E0111AB89AC900ACA4BE /* RPNavigationBar.swift in Sources */,
 				A0582E951A9A565400C37188 /* RoomListViewController.swift in Sources */,
 				A0D649DF1AAD23F400AFC951 /* RPHud.swift in Sources */,
 				A0EDD91D1AA76F050000CE0C /* PartyPlayerManager.swift in Sources */,
@@ -590,8 +600,8 @@
 				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,
 				250971531AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift in Sources */,
 				25D437DF1AAE5A8D001CFD6C /* UIApplication+Extensions.swift in Sources */,
-				A01835961AABF5BB00E596B4 /* RPNavigationBar.swift in Sources */,
 				A062BF021AA27A6000945407 /* QueueItemCellTableViewCell.swift in Sources */,
+				25D2E0121AB89AC900ACA4BE /* RPTabBar.swift in Sources */,
 				A062BF001AA275BF00945407 /* Queue.swift in Sources */,
 				25BD291E1AAFAAA100E6E36F /* Credentials.swift in Sources */,
 				A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */,
