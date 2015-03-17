@@ -79,6 +79,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewWillAppear(animated: Bool) {
         setTitle()
+        addAutoQueueControls()
     }
 
     func setTitle() {
@@ -125,10 +126,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
     }
 
-    override func viewWillAppear(animated: Bool) {
-        addAutoQueueControls()
-    }
-
     override func viewDidDisappear(animated: Bool) {
         removeAutoQueueControls()
     }
@@ -144,7 +141,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             let randomIndex = Int(arc4random_uniform(UInt32(autoQueueTracks.count)))
             autoQueueTracks.removeAtIndex(randomIndex)
             let trackKey = autoQueueTracks[randomIndex]
-            addTrackToQueue(trackKey)
+            partyPlayerManager.addTrackToQueue(trackKey)
 
             var hud = RPHud(style: JGProgressHUDStyle.Dark)
             hud.textLabel.text = "AutoQueue has added a track to the party."
