@@ -66,7 +66,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                     if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
                         let position = snapshot.value.valueForKey("position") as! Double
                         if (abs(self.rdio.player.position - position) > 3) { // If we're more than 3 seconds out of sync from the party then resync.
-                            self.rdio.player.seekToPosition(position)
+                            self.rdio.player.seekToPosition(position + 1) // + 1 to compensate for the slight delay that a seek takes.
                         }
                     }
 
