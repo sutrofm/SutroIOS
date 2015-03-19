@@ -47,7 +47,7 @@ class Session : NSObject, RdioDelegate {
         }
     }
     
-    var firebaseAuthToken: String = "eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJkZWJ1ZyI6IHRydWUsICJpYXQiOiAxNDI2Mzk0ODY3LCAiZCI6IHsicmRpb191c2VyX2tleSI6ICJzNDA3NSJ9LCAidiI6IDB9.q78SUqT5a8n7RrTuRMpKvcw-z-N0wgtyTD2BBGMU_Rk"
+    var firebaseAuthToken: String!
     
     var themeColor :UIColor! {
         didSet {
