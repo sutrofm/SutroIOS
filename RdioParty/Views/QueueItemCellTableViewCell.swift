@@ -20,6 +20,8 @@ class QueueItemCellTableViewCell: UITableViewCell {
         
     override func awakeFromNib() {
         super.awakeFromNib()
+        prepareForReuse()
+        
         // Initialization code
     }
 
@@ -27,6 +29,10 @@ class QueueItemCellTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        userAddedLabel.text = ""
     }
 
 }
