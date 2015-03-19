@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kku-tf-b6W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="chats.png" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="users_two.png" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -366,18 +366,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                        <rect key="frame" x="8" y="47" width="304" height="23"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBB-0X-yeG">
                                                     <rect key="frame" x="8" y="118" width="304" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                        <rect key="frame" x="8" y="73" width="304" height="20"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" text="Added by X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxj-nP-FkK">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -409,6 +403,7 @@
                                                         <constraint firstAttribute="width" constant="65" id="HZe-Mf-cha"/>
                                                         <constraint firstAttribute="height" constant="45" id="Oag-Vk-7At"/>
                                                         <constraint firstAttribute="height" constant="51" id="UdD-bd-PUK"/>
+                                                        <constraint firstAttribute="width" constant="30" id="kWb-Ec-WYL"/>
                                                     </constraints>
                                                     <state key="normal" image="controls_play.png">
                                                         <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -418,10 +413,13 @@
                                                             <exclude reference="56z-Yb-dcJ"/>
                                                             <exclude reference="HZe-Mf-cha"/>
                                                             <exclude reference="UdD-bd-PUK"/>
+                                                            <exclude reference="kWb-Ec-WYL"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                        <rect key="frame" x="168" y="0.0" width="30" height="45"/>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="kWb-Ec-WYL"/>
+                                                        </mask>
                                                     </variation>
                                                     <variation key="heightClass=compact-widthClass=compact">
                                                         <mask key="constraints">
@@ -517,6 +515,7 @@
                                                 <constraint firstItem="rXd-MR-a2S" firstAttribute="trailing" secondItem="w5W-hv-sm8" secondAttribute="trailing" id="A7z-Kn-aDX">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="-45"/>
                                                 </constraint>
+                                                <constraint firstItem="kBB-0X-yeG" firstAttribute="top" secondItem="w5W-hv-sm8" secondAttribute="bottom" constant="3" id="FdE-d4-xCl"/>
                                                 <constraint firstItem="5ma-bT-Cuc" firstAttribute="top" secondItem="KMd-s5-kbI" secondAttribute="top" constant="16" id="GX9-lp-tRr">
                                                     <variation key="widthClass=compact" constant="0.0"/>
                                                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -529,10 +528,13 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
                                                 </constraint>
                                                 <constraint firstItem="5ma-bT-Cuc" firstAttribute="leading" secondItem="sqd-pJ-GBY" secondAttribute="trailing" constant="36" id="LpP-4h-mmL"/>
+                                                <constraint firstItem="w5W-hv-sm8" firstAttribute="top" secondItem="KMd-s5-kbI" secondAttribute="top" constant="47" id="MDL-CH-U05"/>
+                                                <constraint firstItem="w5W-hv-sm8" firstAttribute="top" secondItem="5ma-bT-Cuc" secondAttribute="bottom" constant="2" id="NVA-9h-Gvq"/>
                                                 <constraint firstAttribute="bottom" secondItem="ncf-La-kzz" secondAttribute="bottom" constant="6" id="NbY-r7-JWO"/>
                                                 <constraint firstItem="kBB-0X-yeG" firstAttribute="top" secondItem="w5W-hv-sm8" secondAttribute="bottom" constant="3" id="O4t-SW-zit">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                                 </constraint>
+                                                <constraint firstItem="5ma-bT-Cuc" firstAttribute="leading" secondItem="KMd-s5-kbI" secondAttribute="leading" constant="168" id="SKQ-nG-BGn"/>
                                                 <constraint firstItem="rXd-MR-a2S" firstAttribute="leading" secondItem="w5W-hv-sm8" secondAttribute="leading" id="Snh-zj-a1K">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="46"/>
                                                 </constraint>
@@ -581,9 +583,15 @@
                                                     <exclude reference="Snh-zj-a1K"/>
                                                     <exclude reference="zSL-6e-V3U"/>
                                                     <exclude reference="s1t-Dn-knE"/>
+                                                    <exclude reference="Jfz-5p-ghE"/>
+                                                    <exclude reference="vZj-gq-YVK"/>
+                                                    <exclude reference="reA-3d-o82"/>
                                                     <exclude reference="2Z3-2d-aHg"/>
                                                     <exclude reference="5um-sl-V4H"/>
+                                                    <exclude reference="MDL-CH-U05"/>
+                                                    <exclude reference="NVA-9h-Gvq"/>
                                                     <exclude reference="qgR-MN-uWn"/>
+                                                    <exclude reference="FdE-d4-xCl"/>
                                                     <exclude reference="JJs-mA-R5l"/>
                                                     <exclude reference="O4t-SW-zit"/>
                                                     <exclude reference="iK6-L9-4ky"/>
@@ -592,11 +600,9 @@
                                                     <exclude reference="4zn-3R-kvK"/>
                                                     <exclude reference="GX9-lp-tRr"/>
                                                     <exclude reference="LpP-4h-mmL"/>
+                                                    <exclude reference="SKQ-nG-BGn"/>
                                                     <exclude reference="UJT-vJ-dsA"/>
                                                     <exclude reference="bKc-Zx-CxD"/>
-                                                    <exclude reference="Jfz-5p-ghE"/>
-                                                    <exclude reference="vZj-gq-YVK"/>
-                                                    <exclude reference="reA-3d-o82"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -607,10 +613,14 @@
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="5um-sl-V4H"/>
+                                                    <include reference="MDL-CH-U05"/>
+                                                    <include reference="NVA-9h-Gvq"/>
                                                     <include reference="qgR-MN-uWn"/>
+                                                    <include reference="FdE-d4-xCl"/>
                                                     <include reference="JJs-mA-R5l"/>
                                                     <include reference="uLF-4r-cMf"/>
                                                     <include reference="GX9-lp-tRr"/>
+                                                    <include reference="SKQ-nG-BGn"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -636,6 +646,9 @@
                                                     <include reference="Snh-zj-a1K"/>
                                                     <include reference="zSL-6e-V3U"/>
                                                     <include reference="s1t-Dn-knE"/>
+                                                    <include reference="Jfz-5p-ghE"/>
+                                                    <include reference="vZj-gq-YVK"/>
+                                                    <include reference="reA-3d-o82"/>
                                                     <include reference="2Z3-2d-aHg"/>
                                                     <include reference="O4t-SW-zit"/>
                                                     <include reference="iK6-L9-4ky"/>
@@ -644,9 +657,6 @@
                                                     <include reference="LpP-4h-mmL"/>
                                                     <include reference="UJT-vJ-dsA"/>
                                                     <include reference="bKc-Zx-CxD"/>
-                                                    <include reference="Jfz-5p-ghE"/>
-                                                    <include reference="vZj-gq-YVK"/>
-                                                    <include reference="reA-3d-o82"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1105,11 +1115,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chats.png" width="32" height="32"/>
         <image name="controls_play.png" width="32" height="32"/>
         <image name="favorite.png" width="60" height="60"/>
         <image name="rdioPartyLogo.png" width="421" height="293"/>
         <image name="users_three.png" width="32" height="32"/>
+        <image name="users_two.png" width="32" height="32"/>
         <image name="vol_medium.png" width="32" height="32"/>
         <image name="vote-down.png" width="20" height="19"/>
         <image name="vote-up.png" width="20" height="19"/>
