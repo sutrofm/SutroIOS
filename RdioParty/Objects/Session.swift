@@ -35,7 +35,13 @@ class Session : NSObject, RdioDelegate {
 
     var room: Room! {
         didSet {
-            updatePlayer()
+            if room != nil {
+                updatePlayer()
+            } else {
+                themeColor = UIColor.blueColor() // Set a default somewhere else
+                backgroundUrl = nil
+                currentSong = nil
+            }
         }
     }
     

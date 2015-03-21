@@ -31,6 +31,10 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
         setTitle()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        UIApplication.rdioPartyApp.session.room = nil
+    }
+    
     func setTitle() {
         if let navbar = UIApplication.rdioPartyApp.navigationBar {
             navbar.setTitle("Parties")
