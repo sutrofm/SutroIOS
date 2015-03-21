@@ -278,6 +278,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     func autoCompleteTextField(textField: MLPAutoCompleteTextField!, didSelectAutoCompleteString selectedString: String!, withAutoCompleteObject selectedObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) {
         if let selectedObject = selectedObject as? AutoCompleteObject {
             partyPlayerManager.addTrackToQueue(selectedObject.trackKey)
+            textField.resignFirstResponder()
         }
 
         textField.text = ""
