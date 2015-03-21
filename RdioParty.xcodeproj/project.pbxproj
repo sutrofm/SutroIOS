@@ -95,6 +95,7 @@
 		A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346311AA26CEA000D9EEA /* vote-down.png */; };
 		A0F346341AA26CEA000D9EEA /* vote-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F346321AA26CEA000D9EEA /* vote-up.png */; };
 		A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6A3691AA271A700FEAE77 /* Song.swift */; };
+		A0F7CDEB1ABD10BF00FF8700 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F7CDEA1ABD10BF00FF8700 /* NSDate+Extensions.swift */; };
 		A0FCE8A31AA3808C00FB1310 /* CutOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,7 @@
 		A0F346311AA26CEA000D9EEA /* vote-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-down.png"; sourceTree = "<group>"; };
 		A0F346321AA26CEA000D9EEA /* vote-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-up.png"; sourceTree = "<group>"; };
 		A0F6A3691AA271A700FEAE77 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		A0F7CDEA1ABD10BF00FF8700 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		A0FCE8A21AA3808C00FB1310 /* CutOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutOutView.swift; sourceTree = "<group>"; };
 		E8D34639FC618A3ED3270E20 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E9894EF30424D4A5ACC7CE16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				25D437DE1AAE5A8D001CFD6C /* UIApplication+Extensions.swift */,
+				A0F7CDEA1ABD10BF00FF8700 /* NSDate+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F7CDEB1ABD10BF00FF8700 /* NSDate+Extensions.swift in Sources */,
 				A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */,
 				A0EFB7CE1A9F02580098542F /* ChatMessageTableViewCell.swift in Sources */,
 				A03B31F71A9985A600C7424F /* Session.swift in Sources */,

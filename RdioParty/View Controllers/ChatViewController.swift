@@ -86,12 +86,8 @@ class ChatViewController: SLKTextViewController {
     }
         
     override func didPressRightButton(textInput: AnyObject!) {
-        let formatter = NSDateFormatter()
-        let date = NSDate()
         let text = textInputbar.textView.text
-        
-        let timestamp = formatter.stringFromDate(date)
-        let message = ["fullName": UIApplication.rdioPartyApp.session.user.name, "message" : text, "type" : "User", "userKey" : UIApplication.rdioPartyApp.session.user.rdioId, "timestamp": timestamp]
+        let message = ["fullName": UIApplication.rdioPartyApp.session.user.name, "message" : text, "type" : "User", "userKey" : UIApplication.rdioPartyApp.session.user.rdioId, "timestamp" : NSDate().formatted]
         let postRef = self.firebaseRef.childByAutoId()
         postRef.setValue(message)
         super.didPressRightButton(textInput)

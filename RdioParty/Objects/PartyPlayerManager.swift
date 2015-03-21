@@ -19,8 +19,15 @@ class PartyPlayerManager: NSObject {
     }
     
     func addTrackToQueue(trackKey:String) {
-        var track = ["trackKey": trackKey, "userKey" : userid, "votes" : [userid : "like"]]
         var postRef = firebase.childByAutoId()
+
+        var track = ["trackKey": trackKey,
+            "userKey" : userid,
+            "votes" : [userid : "like"],
+            "timestamp" : NSDate().formatted,
+            "id" : postRef.key
+        ]
+        
         postRef.setValue(track)
     }
 
