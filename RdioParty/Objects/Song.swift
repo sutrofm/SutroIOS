@@ -30,7 +30,9 @@ class Song: NSObject {
     }
     
     init(fromSnapshot snapshot :FDataSnapshot) {
-        self.timestampAdded = NSDate()
+        if let timestamp = NSDate.fromTimestamp(snapshot.value.valueForKey("timestamp") as! String) {
+            self.timestampAdded = timestamp
+        }
         self.trackKey = snapshot.value.valueForKey("trackKey") as! String
         self.partyId = snapshot.key
         self.userKey = snapshot.value.valueForKey("userKey") as! String
@@ -67,6 +69,8 @@ class Song: NSObject {
         
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         self.color = color
+        
+        self.timestampAdded = NSDate()
     }
     
     func upVotes() -> Int {

@@ -99,11 +99,14 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             if (snapshot.key != nil && snapshot.value.valueForKey("trackKey") != nil) {
                 var song = Song(fromSnapshot: snapshot)
                 UIApplication.rdioPartyApp.playerManager.getSongWithDetails(song.trackKey, completionClosure: { (newSong, cached) in
+                    newSong.upVoteKeys = song.upVoteKeys
+                    newSong.downVoteKeys = song.downVoteKeys
+                    newSong.timestampAdded = song.timestampAdded
+                    newSong.userKey = song.userKey
                     self.queue.add(newSong)
+                    self.queue.sort()
                     self.tableView.reloadData()
                 });
-                self.tableView.reloadData()
-                self.updateQueueCount()
             }
         })
         
@@ -112,6 +115,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let trackKey = snapshot.value.valueForKey("trackKey") as? String {
                 self.queue.removeSongById(trackKey)
                 self.updateQueueCount()
+                self.queue.sort()
+                self.tableView.reloadData()
             }
         })
         

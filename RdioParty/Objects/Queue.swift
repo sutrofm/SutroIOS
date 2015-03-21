@@ -35,7 +35,16 @@ class Queue: NSObject {
     }
     
     func sort() {
-        self.allSongs.sort({ $0.upVoteKeys.count > $1.upVoteKeys.count })
+        self.allSongs = self.allSongs.sorted({
+            if $0.upVotes() != $1.upVotes() {
+                return $0.upVotes() > $1.upVotes()
+            } else if $0.downVotes() != $1.downVotes() {
+                return $0.downVotes() < $1.downVotes()
+            } else {
+                return $0.timestampAdded.compare($1.timestampAdded) == .OrderedDescending
+            }
+            
+        })
     }
     
     func count() -> Int {
