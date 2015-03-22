@@ -27,7 +27,7 @@ class ChatViewController: SLKTextViewController {
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
-        self.tableView.registerNib(UINib(nibName: "ChatMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "UserMessage")
+        self.tableView.registerClass(ChatMessageTableViewCell.self, forCellReuseIdentifier: "UserMessage")
         self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
         self.tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         
@@ -100,12 +100,16 @@ class ChatViewController: SLKTextViewController {
         if (message.type == MessageType.User) {
             let cell :ChatMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
             rdio.getPersonWithDetails(message.userKey, completionClosure: { (person) -> () in
-                cell.userName?.text = person.name
-                cell.userImage?.sd_setImageWithURL(NSURL(string: person.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
+                cell.userName.text = person.name
+                cell.userImage.sd_setImageWithURL(NSURL(string: person.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
             })
             
             cell.transform = self.tableView.transform
-            cell.messageText?.text = message.text
+            cell.messageText.text = message.text
+            
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+            
             return cell
         } else if message.type == MessageType.UserAction {
             let user :Person = self.room.getUser(message.userKey)!

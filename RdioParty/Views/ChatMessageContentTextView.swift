@@ -17,8 +17,10 @@ class ChatMessageContentTextView: UITextView {
     */
     
     override func drawRect(rect: CGRect) {
-        self.textContainer.lineFragmentPadding = 3
-        self.textContainerInset = UIEdgeInsetsZero
+        editable = false
+        textContainer.lineFragmentPadding = 3
+        textContainerInset = UIEdgeInsetsZero
+        scrollEnabled = false
     }
 
 }
