@@ -1,6 +1,8 @@
 Rdio Party for iOS
 ==================
 
+[![CircleCI](https://circleci.com/gh/gabek/RdioPartyIOS.svg?style=svg&circle-token=340c87efe41ee094cdc5276434bed780643b3b13)](https://circleci.com/gh/gabek/RdioPartyIOS)
+
 The iOS [Rdio Party](http://rdioparty.com/) client aims to be a
 functional front-end to the Rdio Party service. Written in Swift,
 powered by [Firebase](https://www.firebase.com/docs/ios/api/) and the
