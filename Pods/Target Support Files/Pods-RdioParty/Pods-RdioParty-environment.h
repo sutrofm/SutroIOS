@@ -1,0 +1,104 @@
+
+// To check if a library is compiled with CocoaPods you
+// can use the `COCOAPODS` macro definition which is
+// defined in the xcconfigs so it is available in
+// headers also when they are imported in the client
+// project.
+
+
+// AFNetworking
+#define COCOAPODS_POD_AVAILABLE_AFNetworking
+#define COCOAPODS_VERSION_MAJOR_AFNetworking 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking 1
+
+// AFNetworking/NSURLConnection
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLConnection
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_NSURLConnection 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking_NSURLConnection 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking_NSURLConnection 1
+
+// AFNetworking/NSURLSession
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLSession
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_NSURLSession 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking_NSURLSession 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking_NSURLSession 1
+
+// AFNetworking/Reachability
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_Reachability
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_Reachability 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking_Reachability 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking_Reachability 1
+
+// AFNetworking/Security
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_Security
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_Security 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking_Security 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking_Security 1
+
+// AFNetworking/Serialization
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_Serialization
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_Serialization 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking_Serialization 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking_Serialization 1
+
+// AFNetworking/UIKit
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_UIKit
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_UIKit 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
+
+// AFOAuth2Manager
+#define COCOAPODS_POD_AVAILABLE_AFOAuth2Manager
+#define COCOAPODS_VERSION_MAJOR_AFOAuth2Manager 2
+#define COCOAPODS_VERSION_MINOR_AFOAuth2Manager 2
+#define COCOAPODS_VERSION_PATCH_AFOAuth2Manager 0
+
+// Firebase
+#define COCOAPODS_POD_AVAILABLE_Firebase
+#define COCOAPODS_VERSION_MAJOR_Firebase 2
+#define COCOAPODS_VERSION_MINOR_Firebase 2
+#define COCOAPODS_VERSION_PATCH_Firebase 0
+
+// JGProgressHUD
+#define COCOAPODS_POD_AVAILABLE_JGProgressHUD
+#define COCOAPODS_VERSION_MAJOR_JGProgressHUD 1
+#define COCOAPODS_VERSION_MINOR_JGProgressHUD 2
+#define COCOAPODS_VERSION_PATCH_JGProgressHUD 3
+
+// MLPAutoCompleteTextField
+#define COCOAPODS_POD_AVAILABLE_MLPAutoCompleteTextField
+#define COCOAPODS_VERSION_MAJOR_MLPAutoCompleteTextField 1
+#define COCOAPODS_VERSION_MINOR_MLPAutoCompleteTextField 5
+#define COCOAPODS_VERSION_PATCH_MLPAutoCompleteTextField 0
+
+// PureLayout
+#define COCOAPODS_POD_AVAILABLE_PureLayout
+#define COCOAPODS_VERSION_MAJOR_PureLayout 2
+#define COCOAPODS_VERSION_MINOR_PureLayout 0
+#define COCOAPODS_VERSION_PATCH_PureLayout 5
+
+// SDWebImage
+#define COCOAPODS_POD_AVAILABLE_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage 2
+
+// SDWebImage/Core
+#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
+#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
+
+// SlackTextViewController
+#define COCOAPODS_POD_AVAILABLE_SlackTextViewController
+#define COCOAPODS_VERSION_MAJOR_SlackTextViewController 1
+#define COCOAPODS_VERSION_MINOR_SlackTextViewController 5
+#define COCOAPODS_VERSION_PATCH_SlackTextViewController 0
+
+// SlackTextViewController/Additions
+#define COCOAPODS_POD_AVAILABLE_SlackTextViewController_Additions
+#define COCOAPODS_VERSION_MAJOR_SlackTextViewController_Additions 1
+#define COCOAPODS_VERSION_MINOR_SlackTextViewController_Additions 5
+#define COCOAPODS_VERSION_PATCH_SlackTextViewController_Additions 0
+
