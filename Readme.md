@@ -22,5 +22,4 @@ powered by [Firebase](https://www.firebase.com/docs/ios/api/) and the
 
         pod install
         open RdioParty.xcworkspace
--   
 ### [Dependencies](https://github.com/sutrofm/SutroIOS/wiki/Dependancies)
