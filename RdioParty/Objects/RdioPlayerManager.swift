@@ -14,7 +14,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     var userCache = NSCache()
     
     override init() {
-        self.rdio = Rdio(consumerKey: Credentials.RdioClientId, andSecret: Credentials.RdioClientSecret, delegate: nil)
+        self.rdio = Rdio(consumerKey: Credentials.RdioConsumerKey, andSecret: Credentials.RdioConsumerSecret, delegate: nil)
         
         super.init()
         self.rdio.delegate = self

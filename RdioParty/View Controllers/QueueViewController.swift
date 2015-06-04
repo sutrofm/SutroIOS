@@ -153,8 +153,10 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func updateTrackProgress(seconds :Float64) {
-        self.playerHeaderCell.setDuration(UIApplication.rdioPartyApp.session.currentSong.duration)
-        self.playerHeaderCell.setProgress(Float(seconds))
+        if (UIApplication.rdioPartyApp.session.currentSong != nil) {
+            self.playerHeaderCell.setDuration(UIApplication.rdioPartyApp.session.currentSong.duration)
+            self.playerHeaderCell.setProgress(Float(seconds))
+        }
     }
     
     func updateQueueCount() {
