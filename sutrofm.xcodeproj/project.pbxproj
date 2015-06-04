@@ -112,8 +112,6 @@
 		259124181A96C629003B30C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2591241A1A96C629003B30C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2591241D1A96C629003B30C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		259124281A96C629003B30C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		259124291A96C629003B30C5 /* RdioPartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdioPartyTests.swift; sourceTree = "<group>"; };
 		25B0779A1B20C1E000D918E6 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		25B8F04E1A97C627003094C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		25B8F0501A97C62B003094C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -225,8 +223,7 @@
 		259124031A96C629003B30C5 = {
 			isa = PBXGroup;
 			children = (
-				2591240E1A96C629003B30C5 /* RdioParty */,
-				259124261A96C629003B30C5 /* RdioPartyTests */,
+				2591240E1A96C629003B30C5 /* sutrofm */,
 				2591240D1A96C629003B30C5 /* Products */,
 				9D1EA5E8FF59415DA9029AE6 /* Pods */,
 				73171983C05ECBF97D50C041 /* Frameworks */,
@@ -241,7 +238,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2591240E1A96C629003B30C5 /* RdioParty */ = {
+		2591240E1A96C629003B30C5 /* sutrofm */ = {
 			isa = PBXGroup;
 			children = (
 				25BD291D1AAFAAA100E6E36F /* Credentials.swift */,
@@ -257,6 +254,7 @@
 				2591241C1A96C629003B30C5 /* LaunchScreen.xib */,
 				2591240F1A96C629003B30C5 /* Supporting Files */,
 			);
+			name = sutrofm;
 			path = RdioParty;
 			sourceTree = "<group>";
 		};
@@ -264,23 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				259124101A96C629003B30C5 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		259124261A96C629003B30C5 /* RdioPartyTests */ = {
-			isa = PBXGroup;
-			children = (
-				259124291A96C629003B30C5 /* RdioPartyTests.swift */,
-				259124271A96C629003B30C5 /* Supporting Files */,
-			);
-			path = RdioPartyTests;
-			sourceTree = "<group>";
-		};
-		259124271A96C629003B30C5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				259124281A96C629003B30C5 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
