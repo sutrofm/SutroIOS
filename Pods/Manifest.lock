@@ -1,0 +1,53 @@
+PODS:
+  - AFNetworking (2.5.1):
+    - AFNetworking/NSURLConnection (= 2.5.1)
+    - AFNetworking/NSURLSession (= 2.5.1)
+    - AFNetworking/Reachability (= 2.5.1)
+    - AFNetworking/Security (= 2.5.1)
+    - AFNetworking/Serialization (= 2.5.1)
+    - AFNetworking/UIKit (= 2.5.1)
+  - AFNetworking/NSURLConnection (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.1)
+  - AFNetworking/Security (2.5.1)
+  - AFNetworking/Serialization (2.5.1)
+  - AFNetworking/UIKit (2.5.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFOAuth2Manager (2.2.0):
+    - AFNetworking/NSURLConnection (~> 2.2)
+  - Firebase (2.2.0)
+  - JGProgressHUD (1.2.3)
+  - MLPAutoCompleteTextField (1.5)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+  - SlackTextViewController (1.5):
+    - SlackTextViewController/Additions (= 1.5)
+  - SlackTextViewController/Additions (1.5)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AFOAuth2Manager
+  - Firebase
+  - JGProgressHUD
+  - MLPAutoCompleteTextField (~> 1.5)
+  - SDWebImage
+  - SlackTextViewController
+
+SPEC CHECKSUMS:
+  AFNetworking: 10e85a00bb0f475124e4ff2677bf15693b2c1523
+  AFOAuth2Manager: 952eb62e8fd8022971e64c6e8fe28b9e999224af
+  Firebase: e5f9cf72c72a9fdaf7e136012b6c52a263a23ca7
+  JGProgressHUD: 02eb5fc5f1069dc3a6aaf74a0da06f05c2546f32
+  MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SlackTextViewController: 4a1797ac2f3616dbd37435fc62da655e61399cdd
+
+COCOAPODS: 0.36.4
