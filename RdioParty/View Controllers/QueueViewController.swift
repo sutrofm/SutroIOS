@@ -11,6 +11,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     var room :Room = UIApplication.rdioPartyApp.session.room
     var queue = UIApplication.rdioPartyApp.session.room.queue
+    
     var playerBackingView = UIImageView()
     var playerBackingUserImage = UIImageView()
     var backgroundImage = RPParallaxImageView(image: nil)
@@ -20,6 +21,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     var playerHeaderCell :PlayerHeaderTableViewCell!
     let player = UIApplication.rdioPartyApp.playerManager.rdio.player
     let rdio = UIApplication.rdioPartyApp.playerManager
+    var tableInset :CGFloat = 0
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MLPAutoCompleteTextField!
@@ -27,31 +29,31 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.registerClass(QueueItemCellTableViewCell.self, forCellReuseIdentifier: "QueueItemCellTableViewCell")
-
-        self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
-        self.partyPlayerManager = PartyPlayerManager(firebaseRef: self.firebaseRef)
+        tableView.registerClass(QueueItemCellTableViewCell.self, forCellReuseIdentifier: "QueueItemCellTableViewCell")
+        tableView.registerClass(PlayerHeaderTableViewCell.self, forCellReuseIdentifier: "PlayerHeaderTableViewCell")
         
-        self.searchBar.autoCompleteDataSource = self.searchDelegate
-        self.searchBar.autoCompleteDelegate = self
-        self.backgroundImage.frame = self.view.frame
-        self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
+        firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
+        partyPlayerManager = PartyPlayerManager(firebaseRef: self.firebaseRef)
+        
+        searchBar.autoCompleteDataSource = self.searchDelegate
+        searchBar.autoCompleteDelegate = self
+        backgroundImage.frame = self.view.frame
+        view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
-        self.playerBackingView.frame = CGRectMake(0, 100, self.view.frame.size.width, 250)
-        self.playerBackingView.contentMode = UIViewContentMode.ScaleAspectFill
-        self.view.insertSubview(self.playerBackingView, belowSubview: self.tableView)
+        playerBackingView.frame = CGRectMake(0, 100, self.view.frame.size.width, 250)
+        playerBackingView.contentMode = UIViewContentMode.ScaleAspectFill
+        view.insertSubview(self.playerBackingView, belowSubview: self.tableView)
         
         playerBackingUserImage.frame = CGRectMake(10, 20, 40, 40)
         playerBackingUserImage.clipsToBounds = true
         playerBackingUserImage.layer.cornerRadius = playerBackingUserImage.frame.size.width / 2
         playerBackingView.addSubview(playerBackingUserImage)
         
-        self.tableView.contentInset = UIEdgeInsetsMake(self.playerBackingView.frame.size.height, 0, 50, 0) //TODO: Don't hard code the table inset
-        self.tableView.backgroundColor = UIColor.clearColor()
-        self.tableView.separatorColor = UIColor.clearColor()
-        self.tableView.allowsSelection = false
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.separatorColor = UIColor.clearColor()
+        tableView.allowsSelection = false
         
-        self.tableView.estimatedRowHeight = 100.0
+        tableView.estimatedRowHeight = 100.0
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         
@@ -74,7 +76,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             println(authData)
             println(error)
         })
-        
+
+        // Align cell 2 (first queue item after the player UI) to the bottom of the background/currently playing image
+        tableInset = playerBackingView.frame.maxY - tableView(tableView, heightForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) + searchBar.frame.size.height
+        tableView.contentInset = UIEdgeInsetsMake(tableInset, 0, 45, 0) //TODO: Don't hard code the table inset
+
         load()
         setTitle()
     }
@@ -229,7 +235,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             } else {
                 playerHeaderCell.hidden = false
             }
-            return self.playerHeaderCell
+            
+            playerHeaderCell.setNeedsUpdateConstraints()
+            playerHeaderCell.setNeedsLayout()
+            
+            return playerHeaderCell
         }
         
         // Queue item
@@ -269,12 +279,20 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        var offset = abs(scrollView.contentOffset.y)
         var alpha :CGFloat = 1.0
-        var target = self.playerBackingView.frame.size.height
-        if (offset < target) {
-            var pct = offset / target
-            alpha = max(0.0, CGFloat(pct - 0.5)) // Speed up the fade out
+        var target :CGFloat = 150
+
+        let offset = tableInset - abs(scrollView.contentOffset.y)
+
+        if offset < target && scrollView.contentOffset.y < 0 {
+            let remainder = target - offset
+            alpha = remainder * 0.01
+            // Snap the opacity near the end
+//            if (alpha > 0.02) {
+//                alpha = 1.0
+//            }
+        } else {
+            alpha = 0
         }
         
         // Slightly animate it
@@ -284,6 +302,12 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.playerHeaderCell.playPauseButton.alpha = alpha
                 self.playerHeaderCell.favoriteButton.alpha = alpha
                 self.playerHeaderCell.downVoteButton.alpha = alpha
+                self.playerHeaderCell.progressLabel.alpha = alpha
+                self.playerHeaderCell.durationLabel.alpha = alpha
+                self.playerHeaderCell.progressMeter.alpha = alpha
+                self.playerHeaderCell.trackNameLabel.alpha = max(alpha, 0.5);
+                self.playerHeaderCell.artistNameLabel.alpha = self.playerHeaderCell.trackNameLabel.alpha
+                self.playerHeaderCell.addedByLabel.alpha = self.playerHeaderCell.trackNameLabel.alpha
             }
             }, completion: nil)
     }
