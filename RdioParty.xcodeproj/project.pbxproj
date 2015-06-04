@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		250971531AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */; };
-		251B786A1B067D7800AA0061 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251B78691B067D7800AA0061 /* Rdio.framework */; };
 		259015761AB267C30027E95A /* PersonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259015741AB267C30027E95A /* PersonListTableViewCell.swift */; };
 		259015771AB267C30027E95A /* PersonListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259015751AB267C30027E95A /* PersonListTableViewCell.xib */; };
 		259124121A96C629003B30C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259124111A96C629003B30C5 /* AppDelegate.swift */; };
@@ -17,6 +16,7 @@
 		259124191A96C629003B30C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259124171A96C629003B30C5 /* Main.storyboard */; };
 		2591241B1A96C629003B30C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2591241A1A96C629003B30C5 /* Images.xcassets */; };
 		2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2591241C1A96C629003B30C5 /* LaunchScreen.xib */; };
+		25B0779B1B20C1E000D918E6 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B0779A1B20C1E000D918E6 /* Rdio.framework */; };
 		25B8F04F1A97C627003094C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F04E1A97C627003094C0 /* AudioToolbox.framework */; };
 		25B8F0511A97C62B003094C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0501A97C62B003094C0 /* CFNetwork.framework */; };
 		25B8F0531A97C62F003094C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0521A97C62F003094C0 /* CoreGraphics.framework */; };
@@ -102,7 +102,6 @@
 /* Begin PBXFileReference section */
 		1E03EAD0ECC1EE54FDE1DF69 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		251B78691B067D7800AA0061 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rdio.framework; sourceTree = "<group>"; };
 		259015741AB267C30027E95A /* PersonListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewCell.swift; sourceTree = "<group>"; };
 		259015751AB267C30027E95A /* PersonListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonListTableViewCell.xib; sourceTree = "<group>"; };
 		2591240C1A96C629003B30C5 /* RdioParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RdioParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +114,7 @@
 		2591241D1A96C629003B30C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		259124281A96C629003B30C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259124291A96C629003B30C5 /* RdioPartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdioPartyTests.swift; sourceTree = "<group>"; };
+		25B0779A1B20C1E000D918E6 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		25B8F04E1A97C627003094C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		25B8F0501A97C62B003094C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		25B8F0521A97C62F003094C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -212,7 +212,7 @@
 				25B8F0571A97C637003094C0 /* Security.framework in Frameworks */,
 				25B8F0551A97C633003094C0 /* CoreMedia.framework in Frameworks */,
 				25B8F0531A97C62F003094C0 /* CoreGraphics.framework in Frameworks */,
-				251B786A1B067D7800AA0061 /* Rdio.framework in Frameworks */,
+				25B0779B1B20C1E000D918E6 /* Rdio.framework in Frameworks */,
 				25B8F0511A97C62B003094C0 /* CFNetwork.framework in Frameworks */,
 				25B8F04F1A97C627003094C0 /* AudioToolbox.framework in Frameworks */,
 				597877C7C6D35F77B6B50A69 /* libPods.a in Frameworks */,
@@ -288,7 +288,7 @@
 		73171983C05ECBF97D50C041 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				251B78691B067D7800AA0061 /* Rdio.framework */,
+				25B0779A1B20C1E000D918E6 /* Rdio.framework */,
 				A06D67241A9AB27D005722D8 /* QuartzCore.framework */,
 				A06D67221A9AB276005722D8 /* MediaPlayer.framework */,
 				A06931341A9A8AE900188118 /* libc++.dylib */,
