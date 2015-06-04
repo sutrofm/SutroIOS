@@ -108,8 +108,7 @@ class ChatViewController: SLKTextViewController {
             cell.messageText.text = message.text
             
             cell.setNeedsUpdateConstraints()
-            cell.updateConstraintsIfNeeded()
-            
+            cell.setNeedsLayout()
             return cell
         } else if message.type == MessageType.UserAction {
             let user :Person = self.room.getUser(message.userKey)!
@@ -132,6 +131,7 @@ class ChatViewController: SLKTextViewController {
         }
         return UITableViewCell()
     }
+    
     
     func populateTrackPlayingCellWithUser(cell :ChatTrackChangedTableViewCell, message: Message) {
         // Person who added the song from queue history
