@@ -26,6 +26,9 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.registerClass(QueueItemCellTableViewCell.self, forCellReuseIdentifier: "QueueItemCellTableViewCell")
+
         self.firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
         self.partyPlayerManager = PartyPlayerManager(firebaseRef: self.firebaseRef)
         
@@ -232,7 +235,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Queue item
         let song = self.queue.songAtIndex(indexPath.row-1)
 
-        var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCell") as! QueueItemCellTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCellTableViewCell") as! QueueItemCellTableViewCell
         
         cell.voteUpButton.titleLabel!.text = String(song.upVotes())
         cell.voteUpButton.tag = indexPath.row - 1
@@ -258,6 +261,10 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.trackImage.sd_setImageWithURL(NSURL(string: song.icon))
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = song.color.colorWithAlphaComponent(0.3)
+        
+        cell.setNeedsUpdateConstraints()
+        cell.setNeedsLayout()
+
         return cell
     }
     
