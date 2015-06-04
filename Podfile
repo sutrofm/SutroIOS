@@ -1,6 +1,6 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
-link_with 'RdioParty', 'RdioPartyTests'
+link_with 'sutrofm'
 
 pod 'AFNetworking'
 pod 'AFOAuth2Manager'
@@ -10,7 +10,6 @@ pod "SDWebImage"
 pod 'MLPAutoCompleteTextField', '~> 1.5'
 pod 'JGProgressHUD'
 
-target 'RdioParty' do
+target 'sutrofm' do
 
 end
-

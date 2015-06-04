@@ -25,7 +25,6 @@ PODS:
   - Firebase (2.2.0)
   - JGProgressHUD (1.2.3)
   - MLPAutoCompleteTextField (1.5)
-  - PureLayout (2.0.5)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
@@ -39,18 +38,16 @@ DEPENDENCIES:
   - Firebase
   - JGProgressHUD
   - MLPAutoCompleteTextField (~> 1.5)
-  - PureLayout
   - SDWebImage
   - SlackTextViewController
 
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  AFOAuth2Manager: 5e05a890dbe51d3e84091a01560f0534eb1dd7d2
-  Firebase: e7a2ea2ffeff99f9c37028b354194dcc9718d36b
-  JGProgressHUD: 733523c80f69b6dfc41b88a0f33883a89a8b4c3b
-  MLPAutoCompleteTextField: 5e440aa7b139258f779db3375dd486421959be15
-  PureLayout: 63a3257320223e8edddcd3afb407445f85a6bf74
+  AFNetworking: 10e85a00bb0f475124e4ff2677bf15693b2c1523
+  AFOAuth2Manager: 952eb62e8fd8022971e64c6e8fe28b9e999224af
+  Firebase: e5f9cf72c72a9fdaf7e136012b6c52a263a23ca7
+  JGProgressHUD: 02eb5fc5f1069dc3a6aaf74a0da06f05c2546f32
+  MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  SlackTextViewController: 3109f4edbd90e5294d653bc805957d0d87ea4326
+  SlackTextViewController: 4a1797ac2f3616dbd37435fc62da655e61399cdd
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.4
