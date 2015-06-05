@@ -13,7 +13,8 @@ class Session : NSObject, RdioDelegate {
     // own for audio playback.  I don't like this but the player manager needs
     // all the delegate callbacks.  Could probably abstract this instance elsewhere.
     var rdio = Rdio(consumerKey: "mqbnqec7reb8x6zv5sbs5bq4", andSecret: "NTu8GRBzr5", delegate: nil)
-
+    let nowPlayingInfoCenter = NowPlayingInfoCenterManager()
+    
     // Singleton
     
     override init() {
