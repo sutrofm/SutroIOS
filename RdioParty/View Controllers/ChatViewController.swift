@@ -27,24 +27,24 @@ class ChatViewController: SLKTextViewController {
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
-        self.tableView.registerClass(ChatMessageTableViewCell.self, forCellReuseIdentifier: "UserMessage")
-        self.tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
-        self.tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
+        tableView.registerClass(ChatMessageTableViewCell.self, forCellReuseIdentifier: "UserMessage")
+        tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
+        tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         
-        self.tableView.estimatedRowHeight = 60.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.tableView.backgroundColor = UIColor.clearColor()
-        self.tableView.allowsSelection = false
-        self.tableView.separatorColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.allowsSelection = false
+        tableView.separatorColor = UIColor.clearColor()
         
-        self.textInputbar.textView.autocorrectionType = UITextAutocorrectionType.Yes
-        self.textInputbar.textView.autocapitalizationType = UITextAutocapitalizationType.Sentences
-        self.textInputbar.textView.spellCheckingType = UITextSpellCheckingType.Yes
+        textInputbar.textView.autocorrectionType = UITextAutocorrectionType.Yes
+        textInputbar.textView.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        textInputbar.textView.spellCheckingType = UITextSpellCheckingType.Yes
 
-        self.backgroundImage.frame = self.view.frame
-        self.backgroundImage.backgroundColor = UIColor.darkGrayColor() // Fallback color when an image isn't loaded for some reason
-        self.view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
+        backgroundImage.frame = self.view.frame
+        backgroundImage.backgroundColor = UIColor.darkGrayColor() // Fallback color when an image isn't loaded for some reason
+        view.insertSubview(self.backgroundImage, belowSubview: self.tableView)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateBackground", name: "themeBackgroundChanged", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateThemeColor", name: "themeColorChanged", object: nil)

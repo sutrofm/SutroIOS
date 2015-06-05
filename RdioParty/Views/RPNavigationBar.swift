@@ -21,7 +21,7 @@ class RPNavigationBar: UINavigationBar {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customTitleLabel.textAlignment = NSTextAlignment.Center
-        self.addSubview(customTitleLabel)
+        addSubview(customTitleLabel)
     }
     
     override func layoutSubviews() {
@@ -39,7 +39,7 @@ class RPNavigationBar: UINavigationBar {
     
     func updateSecondaryLabel() {
         if let text = self.secondaryLabelText {
-            self.secondaryLabel.text = self.secondaryLabelText
+            secondaryLabel.text = self.secondaryLabelText
         }
         customizeNavbar()
     }
@@ -47,26 +47,28 @@ class RPNavigationBar: UINavigationBar {
     
     func customizeNavbar() {
         var veriticalOffset = CGFloat(0)
-        if self.secondaryLabelText != nil {
+        if secondaryLabelText != nil {
             veriticalOffset = -10
-            self.secondaryLabel.hidden = false
+            secondaryLabel.hidden = false
         } else {
-            self.secondaryLabel.hidden = true
+            secondaryLabel.hidden = true
         }
 
 
-        self.setTitleVerticalPositionAdjustment(veriticalOffset, forBarMetrics: UIBarMetrics.Default)
+        setTitleVerticalPositionAdjustment(veriticalOffset, forBarMetrics: UIBarMetrics.Default)
+//        backIndicatorImage = UIImage(named: "rooms")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal).imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, -3, 0))
+//        backIndicatorTransitionMaskImage = UIImage(named: "rooms")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal).imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, -3, 0))
     }
     
     func createSecondaryLabel() {
         let labelHight = CGFloat(15)
-        if (self.secondaryLabel == nil) {
-            self.secondaryLabel = UILabel()
+        if (secondaryLabel == nil) {
+            secondaryLabel = UILabel()
         }
-        self.secondaryLabel.textAlignment = NSTextAlignment.Center
-        self.secondaryLabel.font = UIFont(name: self.secondaryLabel.font.familyName, size: 10)
-        self.secondaryLabel.frame = CGRectMake(5, self.frame.size.height - labelHight - 2, self.frame.size.width - 10, labelHight)
-        self.addSubview(self.secondaryLabel)
+        secondaryLabel.textAlignment = NSTextAlignment.Center
+        secondaryLabel.font = UIFont(name: self.secondaryLabel.font.familyName, size: 10)
+        secondaryLabel.frame = CGRectMake(5, self.frame.size.height - labelHight - 2, self.frame.size.width - 10, labelHight)
+        addSubview(self.secondaryLabel)
     }
 
 }
