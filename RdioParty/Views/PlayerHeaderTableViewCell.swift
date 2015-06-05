@@ -51,7 +51,7 @@ class PlayerHeaderTableViewCell: UITableViewCell {
     
     func setupViews() {
         
-//        contentView.addSubview(playPauseButton)
+        contentView.addSubview(playPauseButton)
 //        contentView.addSubview(favoriteButton)
 //        contentView.addSubview(downVoteButton)
         contentView.addSubview(trackNameLabel)
@@ -80,6 +80,7 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         artistNameLabel.layer.shadowColor = trackNameLabel.layer.shadowColor
         artistNameLabel.layer.shadowOffset = trackNameLabel.layer.shadowOffset
         artistNameLabel.layer.shadowOpacity = trackNameLabel.layer.shadowOpacity
+        playPauseButton.layer.shadowColor = trackNameLabel.layer.shadowColor
         
         trackNameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         artistNameLabel.font = trackNameLabel.font
@@ -94,14 +95,14 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         // Set the images as template rendering so we can
         // change their color via tintColor.
         let downVoteImage = UIImage(named:"thumbs-down.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.downVoteButton.setImage(downVoteImage, forState: UIControlState.Normal)
+        downVoteButton.setImage(downVoteImage, forState: UIControlState.Normal)
         let favoriteImage = UIImage(named:"favorite.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal)
-        
+        favoriteButton.setImage(favoriteImage, forState: UIControlState.Normal)
+
         contentView.backgroundColor = UIColor.clearColor()
         backgroundColor = UIColor.clearColor()
         
-        gradient.colors = [ UIColor.clearColor().CGColor, UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor]
+        gradient.colors = [ UIColor.clearColor().CGColor, UIColor.blackColor().colorWithAlphaComponent(0.8).CGColor]
         layer.insertSublayer(self.gradient, atIndex: 0)
 
         updateControlColors()
@@ -143,6 +144,9 @@ class PlayerHeaderTableViewCell: UITableViewCell {
             progressMeter.autoPinEdge(.Leading, toEdge: .Trailing, ofView: progressLabel, withOffset: 10)
             progressMeter.autoPinEdge(.Trailing, toEdge: .Leading, ofView: durationLabel, withOffset: -5)
             
+            // Play/Pause button should be centered above the labels
+            playPauseButton.autoAlignAxisToSuperviewAxis(.Vertical)
+            
             didSetupConstraints = true
         }
         super.updateConstraints()
@@ -155,7 +159,7 @@ class PlayerHeaderTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        self.gradient.frame = self.bounds
+        gradient.frame = bounds
         super.layoutSubviews()
     }
     
@@ -163,23 +167,23 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         self.progressLabel.text = Utils.secondsToHoursMinutesSecondsString(Int(progress))
         if (progress > 0 && self.currentSongDuration > 0) {
             var progressValue = progress / self.currentSongDuration
-            self.progressMeter.progress = progressValue
+            progressMeter.progress = progressValue
         }
     }
     
     func setDuration(duration: Int) {
-        self.currentSongDuration = Float(duration)
-        self.durationLabel.text = Utils.secondsToHoursMinutesSecondsString(duration)
+        currentSongDuration = Float(duration)
+        durationLabel.text = Utils.secondsToHoursMinutesSecondsString(duration)
     }
     
     func updateControlColors() {
-        self.progressMeter.tintColor = self.currentSongColor
+        self.progressMeter.tintColor = currentSongColor
 
         // Using the song color looks stupid on these buttons.  Get back to this.
         let buttonColor = UIColor.whiteColor()
-        self.favoriteButton.tintColor = buttonColor
-        self.downVoteButton.tintColor = buttonColor
-        self.playPauseButton.tintColor = buttonColor
+        favoriteButton.tintColor = buttonColor
+        downVoteButton.tintColor = buttonColor
+        playPauseButton.tintColor = buttonColor
     }
     
     func updatePlayPauseButton() {
@@ -189,7 +193,8 @@ class PlayerHeaderTableViewCell: UITableViewCell {
         } else {
             playPauseImage = UIImage(named:"controls_play.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         }
-        self.playPauseButton.setImage(playPauseImage, forState: UIControlState.Normal)
+        playPauseButton.setImage(playPauseImage, forState: UIControlState.Normal)
+        
 
     }
 

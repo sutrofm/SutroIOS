@@ -210,16 +210,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.playerHeaderCell = tableView.dequeueReusableCellWithIdentifier("PlayerHeaderTableViewCell") as! PlayerHeaderTableViewCell
             
             if currentSong != nil {
-                self.playerHeaderCell.trackNameLabel.text = currentSong.trackName
-                self.playerHeaderCell.artistNameLabel.text = currentSong.artistName
-                self.playerHeaderCell.currentSongColor = currentSong.color
-                self.playerHeaderCell.progressMeter.progress = 0
-                self.playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
+                playerHeaderCell.trackNameLabel.text = currentSong.trackName
+                playerHeaderCell.artistNameLabel.text = currentSong.artistName
+                playerHeaderCell.currentSongColor = currentSong.color
+                playerHeaderCell.progressMeter.progress = 0
+                playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
                 updateTrackProgress(0)
                 
-                self.playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
-                self.playerHeaderCell.favoriteButton.addTarget(self, action: "favoriteButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-                self.playerHeaderCell.playPauseButton.addTarget(self, action: "playPausePressed", forControlEvents: UIControlEvents.TouchUpInside)
+                playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
+                playerHeaderCell.favoriteButton.addTarget(self, action: "favoriteButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+                playerHeaderCell.playPauseButton.addTarget(self, action: "playPausePressed", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 // Person who added the song
                 rdio.getPersonWithDetails(currentSong.userKey, completionClosure: { (userAdded) -> () in
