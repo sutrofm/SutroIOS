@@ -190,7 +190,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             return 0
         }
         
-        return self.queue.count() + 1 // At least one cell: Player controls
+        return queue.count() + 1 // At least one cell: Player controls
     }
 
     // No reason to use autosized cells for this table.  There are only two static heights.
@@ -282,15 +282,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         var alpha :CGFloat = 1.0
         var target :CGFloat = 150
 
+        // Make the user scroll less if there is less to scroll
+        if (queue.count() < 4) {
+            target = 90
+        }
+        
         let offset = tableInset - abs(scrollView.contentOffset.y)
 
         if offset < target && scrollView.contentOffset.y < 0 {
             let remainder = target - offset
             alpha = remainder * 0.01
-            // Snap the opacity near the end
-//            if (alpha > 0.02) {
-//                alpha = 1.0
-//            }
         } else {
             alpha = 0
         }
