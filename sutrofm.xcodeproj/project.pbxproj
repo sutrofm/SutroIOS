@@ -18,6 +18,7 @@
 		2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2591241C1A96C629003B30C5 /* LaunchScreen.xib */; };
 		25B0779B1B20C1E000D918E6 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B0779A1B20C1E000D918E6 /* Rdio.framework */; };
 		25B077A51B211F4800D918E6 /* sutro-twitter-icon-white.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25B077A41B211F4800D918E6 /* sutro-twitter-icon-white.jpg */; };
+		25B077BE1B22292600D918E6 /* rooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B077BD1B22292600D918E6 /* rooms.png */; };
 		25B8F04F1A97C627003094C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F04E1A97C627003094C0 /* AudioToolbox.framework */; };
 		25B8F0511A97C62B003094C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0501A97C62B003094C0 /* CFNetwork.framework */; };
 		25B8F0531A97C62F003094C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0521A97C62F003094C0 /* CoreGraphics.framework */; };
@@ -111,6 +112,7 @@
 		2591241D1A96C629003B30C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		25B0779A1B20C1E000D918E6 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		25B077A41B211F4800D918E6 /* sutro-twitter-icon-white.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sutro-twitter-icon-white.jpg"; sourceTree = "<group>"; };
+		25B077BD1B22292600D918E6 /* rooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rooms.png; sourceTree = "<group>"; };
 		25B8F04E1A97C627003094C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		25B8F0501A97C62B003094C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		25B8F0521A97C62F003094C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -291,6 +293,7 @@
 		A002338E1AA03A5D0028CED2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				25B077BD1B22292600D918E6 /* rooms.png */,
 				25B077A41B211F4800D918E6 /* sutro-twitter-icon-white.jpg */,
 				A03540321AB546F500456ACB /* favorite.png */,
 				A0D649F01AAD368200AFC951 /* vol_loud@3x.png */,
@@ -483,6 +486,7 @@
 				A0D649F51AAD368200AFC951 /* vol_medium@3x.png in Resources */,
 				A0D649E61AAD363200AFC951 /* vol_mute.png in Resources */,
 				A01835A51AACEBFC00E596B4 /* thumbs-down.png in Resources */,
+				25B077BE1B22292600D918E6 /* rooms.png in Resources */,
 				A0D649ED1AAD365200AFC951 /* vol_medium@2x.png in Resources */,
 				A08FD7521AA4054100863929 /* ChatTrackChangedTableViewCell.xib in Resources */,
 				A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */,

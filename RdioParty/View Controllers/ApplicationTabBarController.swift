@@ -17,6 +17,17 @@ class ApplicationTabBarController: UITabBarController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "currentSongChanged", name: "currentSongChanged", object: nil)
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(room.name)/messages")
+        
+        let customBackButton = UIButton()
+        customBackButton.setImage(UIImage(named:"rooms"), forState: UIControlState.Normal)
+        customBackButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        customBackButton.addTarget(self, action: "backButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        let customBarButton = UIBarButtonItem(customView: customBackButton)
+        navigationItem.leftBarButtonItem = customBarButton
+    }
+    
+    func backButtonTapped() {
+        navigationController?.popViewControllerAnimated(true)
     }
 
     override func viewDidAppear(animated: Bool) {
