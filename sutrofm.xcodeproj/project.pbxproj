@@ -19,6 +19,8 @@
 		25B0779B1B20C1E000D918E6 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B0779A1B20C1E000D918E6 /* Rdio.framework */; };
 		25B077A51B211F4800D918E6 /* sutro-twitter-icon-white.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25B077A41B211F4800D918E6 /* sutro-twitter-icon-white.jpg */; };
 		25B077BE1B22292600D918E6 /* rooms.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B077BD1B22292600D918E6 /* rooms.png */; };
+		25B077C01B224F5500D918E6 /* NowPlayingInfoCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B077BF1B224F5500D918E6 /* NowPlayingInfoCenterManager.swift */; };
+		25B077C21B224FEC00D918E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B077C11B224FEC00D918E6 /* AVFoundation.framework */; };
 		25B8F04F1A97C627003094C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F04E1A97C627003094C0 /* AudioToolbox.framework */; };
 		25B8F0511A97C62B003094C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0501A97C62B003094C0 /* CFNetwork.framework */; };
 		25B8F0531A97C62F003094C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8F0521A97C62F003094C0 /* CoreGraphics.framework */; };
@@ -113,6 +115,8 @@
 		25B0779A1B20C1E000D918E6 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = Frameworks/Rdio.framework; sourceTree = "<group>"; };
 		25B077A41B211F4800D918E6 /* sutro-twitter-icon-white.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sutro-twitter-icon-white.jpg"; sourceTree = "<group>"; };
 		25B077BD1B22292600D918E6 /* rooms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rooms.png; sourceTree = "<group>"; };
+		25B077BF1B224F5500D918E6 /* NowPlayingInfoCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingInfoCenterManager.swift; sourceTree = "<group>"; };
+		25B077C11B224FEC00D918E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		25B8F04E1A97C627003094C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		25B8F0501A97C62B003094C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		25B8F0521A97C62F003094C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,8 +202,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A06D67251A9AB27D005722D8 /* QuartzCore.framework in Frameworks */,
 				A06D67231A9AB276005722D8 /* MediaPlayer.framework in Frameworks */,
+				25B077C21B224FEC00D918E6 /* AVFoundation.framework in Frameworks */,
+				A06D67251A9AB27D005722D8 /* QuartzCore.framework in Frameworks */,
 				A06931351A9A8AE900188118 /* libc++.dylib in Frameworks */,
 				A06931331A9A8AE200188118 /* libicucore.dylib in Frameworks */,
 				25B8F0591A97C63C003094C0 /* SystemConfiguration.framework in Frameworks */,
@@ -265,6 +270,7 @@
 		73171983C05ECBF97D50C041 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25B077C11B224FEC00D918E6 /* AVFoundation.framework */,
 				25B0779A1B20C1E000D918E6 /* Rdio.framework */,
 				A06D67241A9AB27D005722D8 /* QuartzCore.framework */,
 				A06D67221A9AB276005722D8 /* MediaPlayer.framework */,
@@ -393,6 +399,7 @@
 				A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */,
 				A0EDD91C1AA76F050000CE0C /* PartyPlayerManager.swift */,
 				A05249D31AABB8A900CA8D65 /* Utils.swift */,
+				25B077BF1B224F5500D918E6 /* NowPlayingInfoCenterManager.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -565,6 +572,7 @@
 				259015761AB267C30027E95A /* PersonListTableViewCell.swift in Sources */,
 				A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */,
 				A00A292A1AA3E12400F18495 /* ChatUserSongActionCell.swift in Sources */,
+				25B077C01B224F5500D918E6 /* NowPlayingInfoCenterManager.swift in Sources */,
 				A032A2191A9A993400EF5924 /* PeopleListViewController.swift in Sources */,
 				A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */,
 				A0F6A36A1AA271A700FEAE77 /* Song.swift in Sources */,
