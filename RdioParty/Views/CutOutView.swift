@@ -11,14 +11,14 @@ import UIKit
 class CutOutView: UIView {
     
     override func awakeFromNib() {
-        self.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
+        backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
     }
     
     override func layoutSubviews() {
         let maskLayer = CAShapeLayer()
         maskLayer.path = UIBezierPath(roundedRect: frame, byRoundingCorners: .TopLeft, cornerRadii: CGSize(width: 25.0, height: 20.0)).CGPath
         
-        self.layer.mask = maskLayer;
+        layer.mask = maskLayer;
     }
 
 }

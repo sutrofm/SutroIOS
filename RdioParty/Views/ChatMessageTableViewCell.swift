@@ -40,7 +40,7 @@ class ChatMessageTableViewCell: UITableViewCell {
         
         backgroundColor = UIColor.clearColor()
         contentView.backgroundColor = UIColor.clearColor()
-        backingView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+        backingView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.7)
         messageText.backgroundColor = UIColor.clearColor()
 
         contentView.addSubview(backingView)
@@ -102,9 +102,5 @@ class ChatMessageTableViewCell: UITableViewCell {
         }
         super.updateConstraints()
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        userName.preferredMaxLayoutWidth = userName.bounds.width
-//    }
+
 }
