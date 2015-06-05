@@ -534,7 +534,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="nHa-Ll-CPh"/>
                         <segue destination="hOm-XZ-scx" kind="relationship" relationship="viewControllers" id="bSA-Ej-Pa1"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="0RH-3k-JZU"/>
                     </connections>

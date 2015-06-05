@@ -16,14 +16,10 @@ class ChatViewController: SLKTextViewController {
     var firebaseRef :Firebase!
     let rdio = UIApplication.rdioPartyApp.playerManager
 
-     required init(coder aDecoder: NSCoder) {
-        super.init(tableViewStyle: UITableViewStyle.Plain)
-        self.inverted = true
-    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.inverted = true
         
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
