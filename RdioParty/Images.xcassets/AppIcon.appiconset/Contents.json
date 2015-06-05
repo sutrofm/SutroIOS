@@ -3,73 +3,73 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "sutro-icon-29@2x.png",
+      "filename" : "sutro-ios-29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "sutro-icon-29@3x.png",
+      "filename" : "sutro-ios-29@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "sutro-icon-40@2x.png",
+      "filename" : "sutro-ios-40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "sutro-icon-40@3x.png",
+      "filename" : "sutro-ios-40@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "sutro-icon-60@2x.png",
+      "filename" : "sutro-ios-60@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "sutro-icon-60@3x.png",
+      "filename" : "sutro-ios-60@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "sutro-icon-29.png",
+      "filename" : "sutro-ios-29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "sutro-icon-29@2x.png",
+      "filename" : "sutro-ios-29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "sutro-icon-40.png",
+      "filename" : "sutro-ios-40.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "sutro-icon-40@2x.png",
+      "filename" : "sutro-ios-40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "sutro-icon-76.png",
+      "filename" : "sutro-ios-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "sutro-icon-76@2x.png",
+      "filename" : "sutro-ios-76@2x.png",
       "scale" : "2x"
     }
   ],
