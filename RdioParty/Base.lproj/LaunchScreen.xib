@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,18 +10,16 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rdioPartyLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="GrQ-ea-i7a">
-                    <rect key="frame" x="101" y="87" width="278" height="306"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="278" id="YLp-g8-ghV"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sutro-twitter-icon-white.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lz5-7C-4u2">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GrQ-ea-i7a" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6T8-G4-uNF"/>
-                <constraint firstItem="GrQ-ea-i7a" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Kbr-Du-TMt"/>
-                <constraint firstItem="GrQ-ea-i7a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="87" id="u8s-d7-THT"/>
+                <constraint firstItem="lz5-7C-4u2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KQr-OE-Lsq"/>
+                <constraint firstAttribute="trailing" secondItem="lz5-7C-4u2" secondAttribute="trailing" id="gcA-pk-7wQ"/>
+                <constraint firstItem="lz5-7C-4u2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hj9-fx-IjS"/>
+                <constraint firstAttribute="bottom" secondItem="lz5-7C-4u2" secondAttribute="bottom" id="n7H-XL-g6Q"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -29,6 +27,6 @@
         </view>
     </objects>
     <resources>
-        <image name="rdioPartyLogo.png" width="421" height="293"/>
+        <image name="sutro-twitter-icon-white.jpg" width="400" height="400"/>
     </resources>
 </document>
