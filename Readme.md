@@ -14,7 +14,7 @@ powered by [Firebase](https://www.firebase.com/docs/ios/api/) and the
 
 ### Build
 
--   Requires Xcode 6.3.
+-   Requires Xcode 7.0 Beta with Swift 2.0 and iOS 9.
 -   Check with the sutro.fm team to get the current keys in use for the application or use your own.
 -   Requires a recent [Cocoapods
     0.36](http://blog.cocoapods.org/CocoaPods-0.36/) that supports
