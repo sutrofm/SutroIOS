@@ -44,7 +44,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     func load() {
         firebaseref.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
-                var room = Room(fromSnapshot: snapshot)
+                let room = Room(fromSnapshot: snapshot)
                 
                 if (room.previewPeopleCount > 0) {
                     self.updateData(room)
@@ -75,7 +75,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Table delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var room = self.rooms[indexPath.row]
+        let room = self.rooms[indexPath.row]
         UIApplication.rdioPartyApp.session.room = room
         
         let vc: ApplicationTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabAppController") as! ApplicationTabBarController
@@ -93,8 +93,8 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! RoomListTableViewCell
-        var room = self.rooms[indexPath.row]
-        var name = room.humanName
+        let room = self.rooms[indexPath.row]
+        let name = room.humanName
         cell.previewImage.sd_setImageWithURL(room.previewImage)
         cell.nameLabel.text = name
         cell.themeLabel.text = room.theme
@@ -131,7 +131,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     
     // Sort by user count and activity
     func sortRooms() {
-        self.rooms = self.rooms.sorted({
+        self.rooms = self.rooms.sort({
             if $0.active == $1.active {
                 return $0.previewPeopleCount > $1.previewPeopleCount
             } else {

@@ -28,10 +28,10 @@ class Message: NSObject {
     init(fromSnapshot snapshot :FDataSnapshot) {
         super.init()
 
-        var typeString = snapshot.value.valueForKey("type") as! String
+        let typeString = snapshot.value.valueForKey("type") as! String
         
         // Type
-        var trackTypeMessageStrings = ["favorited this track", "voted to skip", "unfavorited this track"]
+        let trackTypeMessageStrings = ["favorited this track", "voted to skip", "unfavorited this track"]
         if (typeString == "User") {
             self.type = .User
         } else if (typeString == "NewTrack") {
@@ -43,7 +43,7 @@ class Message: NSObject {
             self.text = text
         }
         
-        if (self.type == MessageType.User && contains(trackTypeMessageStrings, self.text.lowercaseString)) {
+        if (self.type == MessageType.User && trackTypeMessageStrings.contains(self.text.lowercaseString)) {
             self.type = .UserAction
         }
         

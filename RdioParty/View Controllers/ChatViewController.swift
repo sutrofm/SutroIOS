@@ -68,8 +68,8 @@ class ChatViewController: SLKTextViewController {
 
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil) {
-                var type = snapshot.value.valueForKey("type") as! String
-                var message = Message(fromSnapshot: snapshot)
+                _ = snapshot.value.valueForKey("type") as! String
+                let message = Message(fromSnapshot: snapshot)
                 self.updateData(message) 
             }
         })
@@ -91,7 +91,7 @@ class ChatViewController: SLKTextViewController {
     
     // TODO: Split this out somewhere else.  It makes our VC look ugly with so many cell types.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var message = self.messages[self.messages.count - 1 - indexPath.row]
+        let message = self.messages[self.messages.count - 1 - indexPath.row]
         
         if (message.type == MessageType.User) {
             let cell :ChatMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell

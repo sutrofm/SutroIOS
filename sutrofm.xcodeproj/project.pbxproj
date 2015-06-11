@@ -44,8 +44,6 @@
 		A018358B1AABF28100E596B4 /* users_two.png in Resources */ = {isa = PBXBuildFile; fileRef = A018357C1AABF28100E596B4 /* users_two.png */; };
 		A018358C1AABF28100E596B4 /* users_two@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A018357D1AABF28100E596B4 /* users_two@2x.png */; };
 		A018358D1AABF28100E596B4 /* users_two@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A018357E1AABF28100E596B4 /* users_two@3x.png */; };
-		A018358E1AABF28100E596B4 /* vol_loud.png in Resources */ = {isa = PBXBuildFile; fileRef = A018357F1AABF28100E596B4 /* vol_loud.png */; };
-		A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835801AABF28100E596B4 /* vol_loud@2x.png */; };
 		A01835901AABF28100E596B4 /* vol_loud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835811AABF28100E596B4 /* vol_loud@3x.png */; };
 		A018359D1AACE8F200E596B4 /* controls_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835971AACE8F200E596B4 /* controls_pause.png */; };
 		A018359E1AACE8F200E596B4 /* controls_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A01835981AACE8F200E596B4 /* controls_pause@2x.png */; };
@@ -82,7 +80,6 @@
 		A0D649ED1AAD365200AFC951 /* vol_medium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649E91AAD365200AFC951 /* vol_medium@2x.png */; };
 		A0D649EE1AAD365200AFC951 /* vol_mute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649EA1AAD365200AFC951 /* vol_mute@2x.png */; };
 		A0D649EF1AAD365200AFC951 /* vol_quiet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649EB1AAD365200AFC951 /* vol_quiet@2x.png */; };
-		A0D649F41AAD368200AFC951 /* vol_loud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649F01AAD368200AFC951 /* vol_loud@3x.png */; };
 		A0D649F51AAD368200AFC951 /* vol_medium@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649F11AAD368200AFC951 /* vol_medium@3x.png */; };
 		A0D649F61AAD368200AFC951 /* vol_mute@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649F21AAD368200AFC951 /* vol_mute@3x.png */; };
 		A0D649F71AAD368200AFC951 /* vol_quiet@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D649F31AAD368200AFC951 /* vol_quiet@3x.png */; };
@@ -432,7 +429,8 @@
 		259124041A96C629003B30C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Rdio;
 				TargetAttributes = {
 					2591240B1A96C629003B30C5 = {
@@ -477,7 +475,6 @@
 				A00A292B1AA3E12400F18495 /* ChatUserSongActionCell.xib in Resources */,
 				A018358B1AABF28100E596B4 /* users_two.png in Resources */,
 				A0D649EE1AAD365200AFC951 /* vol_mute@2x.png in Resources */,
-				A018358E1AABF28100E596B4 /* vol_loud.png in Resources */,
 				A01835851AABF28100E596B4 /* chats@2x.png in Resources */,
 				A01835901AABF28100E596B4 /* vol_loud@3x.png in Resources */,
 				A01835A61AACEBFC00E596B4 /* thumbs-up.png in Resources */,
@@ -486,7 +483,6 @@
 				A0D649EF1AAD365200AFC951 /* vol_quiet@2x.png in Resources */,
 				A03540331AB546F500456ACB /* favorite.png in Resources */,
 				A0F346331AA26CEA000D9EEA /* vote-down.png in Resources */,
-				A0D649F41AAD368200AFC951 /* vol_loud@3x.png in Resources */,
 				A018358D1AABF28100E596B4 /* users_two@3x.png in Resources */,
 				A0D649EC1AAD365200AFC951 /* vol_loud@2x.png in Resources */,
 				A01835A11AACE8F200E596B4 /* controls_play@2x.png in Resources */,
@@ -496,7 +492,6 @@
 				25B077BE1B22292600D918E6 /* rooms.png in Resources */,
 				A0D649ED1AAD365200AFC951 /* vol_medium@2x.png in Resources */,
 				A08FD7521AA4054100863929 /* ChatTrackChangedTableViewCell.xib in Resources */,
-				A018358F1AABF28100E596B4 /* vol_loud@2x.png in Resources */,
 				A018359F1AACE8F200E596B4 /* controls_pause@3x.png in Resources */,
 				259015771AB267C30027E95A /* PersonListTableViewCell.xib in Resources */,
 				2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */,
@@ -634,6 +629,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -711,6 +707,7 @@
 				);
 				INFOPLIST_FILE = RdioParty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gabekangas.rdioparty.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = sutrofm;
 				SWIFT_OBJC_BRIDGING_HEADER = "RdioParty/RdioParty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -732,6 +729,7 @@
 				);
 				INFOPLIST_FILE = RdioParty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gabekangas.rdioparty.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = sutrofm;
 				SWIFT_OBJC_BRIDGING_HEADER = "RdioParty/RdioParty-Bridging-Header.h";
 			};

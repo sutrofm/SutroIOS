@@ -50,7 +50,7 @@ class Room: NSObject {
                     }
                 
                     // Even add offline people since old messages get displayed
-                    var personObject = Person(fromDictionary: person!)
+                    let personObject = Person(fromDictionary: person!)
                     self.allPeople.append(personObject)
                 }
             }
@@ -74,7 +74,7 @@ class Room: NSObject {
                 for key in messageKeys {
                     let message: NSDictionary? = messagesObject.objectForKey(key) as? NSDictionary
                     if (message?.valueForKey("type") as! String == "NewTrack") {
-                        var url = message?.valueForKey("iconUrl") as! String
+                        let url = message?.valueForKey("iconUrl") as! String
                         self.previewImage = NSURL(string: url)!
                         break
                     }
@@ -105,9 +105,9 @@ class Room: NSObject {
     }
     
     func removeUser(snapshot :FDataSnapshot) {
-        var rdioId = snapshot.value.valueForKey("id") as! String
+        let rdioId = snapshot.value.valueForKey("id") as! String
         
-        var person = getUser(rdioId)
+        let person = getUser(rdioId)
         if (person != nil) {
             person!.isOnline = false
         }

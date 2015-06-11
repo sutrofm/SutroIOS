@@ -19,7 +19,7 @@ class NowPlayingInfoCenterManager: NSObject {
     
     func currentSongChanged() {
         if let song = UIApplication.rdioPartyApp.session.currentSong {
-            var nowPlayingInfo :NSMutableDictionary = [
+            let nowPlayingInfo :NSMutableDictionary = [
                 MPMediaItemPropertyArtist: song.artistName,
                 MPMediaItemPropertyTitle: song.trackName
             ]
@@ -28,7 +28,7 @@ class NowPlayingInfoCenterManager: NSObject {
                     let artwork = MPMediaItemArtwork(image: image)
                     nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
                 }
-                self.nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo as [NSObject : AnyObject]
+                self.nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo as? [String : AnyObject]
             })
         }
     }

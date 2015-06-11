@@ -40,13 +40,13 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
         self.fireBaseRef.observeEventType(.Value, withBlock: { snapshot in
             if snapshot.value.valueForKey("playingTrack") != nil {
                 
-                if let track = snapshot.value as? NSDictionary {
+                if let _ = snapshot.value as? NSDictionary {
                     let trackKey = snapshot.value.valueForKeyPath("playingTrack.trackKey") as! String
                     if (trackKey != self.rdio.player.currentTrack) {
                         self.rdio.player.play(trackKey)
                         
                         // So we don't have to make an additional API call let's see if we can find this track in the queue
-                        var song = UIApplication.rdioPartyApp.session.room.queue.getSongById(trackKey)
+                        let song = UIApplication.rdioPartyApp.session.room.queue.getSongById(trackKey)
                         if (song != nil) {
                             song!.userKey = snapshot.value.valueForKeyPath("playingTrack.userKey") as! String!
                             UIApplication.rdioPartyApp.session.currentSong = song!
@@ -63,7 +63,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
                         }
                     }
                     
-                    if (self.rdio.player.state.value == RDPlayerStatePlaying.value) {
+                    if (self.rdio.player.state.rawValue == RDPlayerStatePlaying.rawValue) {
                         let position = snapshot.value.valueForKey("position") as! Double
                         if (abs(self.rdio.player.position - position) > 3) { // If we're more than 3 seconds out of sync from the party then resync.
                             self.rdio.player.seekToPosition(position + 1) // + 1 to compensate for the slight delay that a seek takes.
@@ -87,7 +87,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
             return
         }
         
-        var parameters:Dictionary<NSObject, AnyObject!> = ["keys": rdioid, "extras": "-*,name,artist,dominantColor,duration,bigIcon,icon,playerBackgroundUrl,key"]
+        let parameters:Dictionary<NSObject, AnyObject!> = ["keys": rdioid, "extras": "-*,name,artist,dominantColor,duration,bigIcon,icon,playerBackgroundUrl,key"]
         
         self.rdio.callAPIMethod("get",
             withParameters: parameters,
@@ -111,11 +111,11 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
             return
         }
         
-        var parameters:Dictionary<NSObject, AnyObject!> = ["keys": rdioid, "extras": "-*,firstName,lastName,icon,key,icon250"]
+        let parameters:Dictionary<NSObject, AnyObject!> = ["keys": rdioid, "extras": "-*,firstName,lastName,icon,key,icon250"]
         self.rdio.callAPIMethod("get",
             withParameters: parameters,
             success: { (result) -> Void in
-                var updatedPerson = Person(fromRdioUser: result[rdioid] as! NSDictionary)
+                let updatedPerson = Person(fromRdioUser: result[rdioid] as! NSDictionary)
                 self.userCache.setObject(updatedPerson, forKey: rdioid)
                 
                 completionClosure(person: updatedPerson)
@@ -125,11 +125,11 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     }
     
     func rdioRequest(request: RDAPIRequest!, didLoadData data: AnyObject!) {
-        println(data)
+        print(data)
     }
     
     func rdioRequest(request: RDAPIRequest!, didFailWithError error: NSError!) {
-        println(error)
+        print(error)
     }
     
     // MARK: - RdioDelegate
@@ -140,11 +140,11 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     }
     
     func rdioAuthorizationFailed(error: NSError!) {
-        println("Rdio authorization failed with error: \(error.localizedDescription)")
+        print("Rdio authorization failed with error: \(error.localizedDescription)")
     }
     
     func rdioAuthorizationCancelled() {
-        println("rdioAuthorizationCancelled")
+        print("rdioAuthorizationCancelled")
     }
     
     func rdioDidLogout() {
@@ -162,7 +162,7 @@ class RdioPlayerManager :NSObject, RdioDelegate, RDPlayerDelegate {
     
     
     func rdioPlayerFailedDuringTrack(trackKey: String!, withError error: NSError!) -> Bool {
-        println("Rdio failed to play track %@\n%@ \(trackKey, error)")
+        print("Rdio failed to play track %@\n%@ \(trackKey, error)")
         return false
     }
     

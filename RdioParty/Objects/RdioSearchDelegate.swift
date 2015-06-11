@@ -11,19 +11,19 @@ class RdioSearchDelegate: NSObject, MLPAutoCompleteTextFieldDataSource, RdioDele
     
     func autoCompleteTextField(textField: MLPAutoCompleteTextField!, possibleCompletionsForString string: String!, completionHandler handler: (([AnyObject]!) -> Void)!) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            var parameters:Dictionary<String, AnyObject!> = ["query": string, "types": "Track", "countryCode": "US"]
+            let parameters:Dictionary<String, AnyObject!> = ["query": string, "types": "Track", "countryCode": "US"]
             
             UIApplication.rdioPartyApp.session.rdio.callAPIMethod("search",
                 withParameters: parameters,
                 success: { (result) -> Void in
-                    println(result)
+                    print(result)
                     var autoCompleteResults = Array<AutoCompleteObject>()
                     
                     if let tracks = result["results"] as? Array<Dictionary<NSObject, AnyObject>> {
                         for track in tracks {
-                            var autocomplete = AutoCompleteObject()
-                            var trackName = track["name"] as! String
-                            var artistName = track["artist"] as! String
+                            let autocomplete = AutoCompleteObject()
+                            let trackName = track["name"] as! String
+                            let artistName = track["artist"] as! String
                             autocomplete.string = String(stringInterpolation: artistName, " - ", trackName)
                             autocomplete.trackKey = track["key"] as! String
                             autocomplete.image = track["icon"] as! String
@@ -35,7 +35,7 @@ class RdioSearchDelegate: NSObject, MLPAutoCompleteTextFieldDataSource, RdioDele
                     
                 }) { (error) -> Void in
                     // Error
-                    println(error)
+                    print(error)
             }
 
         })

@@ -166,7 +166,7 @@ class PlayerHeaderTableViewCell: UITableViewCell {
     func setProgress(progress: Float) {
         self.progressLabel.text = Utils.secondsToHoursMinutesSecondsString(Int(progress))
         if (progress > 0 && self.currentSongDuration > 0) {
-            var progressValue = progress / self.currentSongDuration
+            let progressValue = progress / self.currentSongDuration
             progressMeter.progress = progressValue
         }
     }

@@ -25,7 +25,7 @@ class Queue: NSObject {
     }
     
     func getIndexForSong(song: Song) -> Int? {
-        return find(self.songs, song)
+        return self.songs.indexOf(song)
     }
     
     func removeSongById(id: String) {
@@ -35,7 +35,7 @@ class Queue: NSObject {
     }
     
     func sort() {
-        self.allSongs = self.allSongs.sorted({
+        self.allSongs = self.allSongs.sort({
             if $0.upVotes() != $1.upVotes() {
                 return $0.upVotes() > $1.upVotes()
             } else if $0.downVotes() != $1.downVotes() {

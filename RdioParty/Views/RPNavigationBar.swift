@@ -38,7 +38,7 @@ class RPNavigationBar: UINavigationBar {
     }
     
     func updateSecondaryLabel() {
-        if let text = self.secondaryLabelText {
+        if let _ = self.secondaryLabelText {
             secondaryLabel.text = self.secondaryLabelText
         }
         customizeNavbar()

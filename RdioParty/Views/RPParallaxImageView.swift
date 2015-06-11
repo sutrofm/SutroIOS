@@ -20,20 +20,20 @@ class RPParallaxImageView: UIImageView {
         addParallax()
     }
     
-    override init(image: UIImage!) {
+    override init(image: UIImage?) {
         super.init(image: image)
         addParallax()
     }
     
     override func layoutSubviews() {
-        var originalFrame = self.frame
-        var updatedFrame = CGRectMake((movementAmount * -1), originalFrame.origin.y, originalFrame.size.width + (movementAmount * 4.0), originalFrame.size.height)
+        let originalFrame = self.frame
+        let updatedFrame = CGRectMake((movementAmount * -1), originalFrame.origin.y, originalFrame.size.width + (movementAmount * 4.0), originalFrame.size.height)
         self.frame = updatedFrame
     }
 
     func addParallax() {
         self.clipsToBounds = true
-        var parallaxEffect : UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",type: .TiltAlongHorizontalAxis)
+        let parallaxEffect : UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",type: .TiltAlongHorizontalAxis)
         parallaxEffect.minimumRelativeValue = -movementAmount / 2.0
         parallaxEffect.maximumRelativeValue = movementAmount / 2.0
         self.addMotionEffect(parallaxEffect)

@@ -63,7 +63,6 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         partyPlayerManager.firebase = self.firebaseRef
         UIApplication.rdioPartyApp.playerManager.rdio.player.addPeriodicTimeObserverForInterval(CMTimeMake(1, 100), queue: dispatch_get_main_queue(),
             usingBlock: { (time: CMTime) -> Void in
-                let seconds:Float64 = CMTimeGetSeconds(time)
                 self.updateTrackProgress(self.player.position)
        })
         
@@ -73,8 +72,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // Auth is required to add to the queue
         self.firebaseRef.authWithCustomToken(UIApplication.rdioPartyApp.session.firebaseAuthToken, withCompletionBlock: { (error, authData) -> Void in
-            println(authData)
-            println(error)
+            print(authData)
+            print(error)
         })
 
         // Align cell 2 (first queue item after the player UI) to the bottom of the background/currently playing image
@@ -106,7 +105,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Track added
         firebaseRef.observeEventType(.ChildAdded, withBlock: { snapshot in
             if (snapshot.key != nil && snapshot.value.valueForKey("trackKey") != nil) {
-                var song = Song(fromSnapshot: snapshot)
+                let song = Song(fromSnapshot: snapshot)
                 UIApplication.rdioPartyApp.playerManager.getSongWithDetails(song.trackKey, completionClosure: { (newSong, cached) in
                     newSong.upVoteKeys = song.upVoteKeys
                     newSong.downVoteKeys = song.downVoteKeys
@@ -173,7 +172,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func playPauseButtonPressed(sender :UIButton!) {
-        let isPlaying = UIApplication.rdioPartyApp.playerManager.rdio.player.state.value == RDPlayerStatePlaying.value
+        let isPlaying = UIApplication.rdioPartyApp.playerManager.rdio.player.state.rawValue == RDPlayerStatePlaying.rawValue
         if (isPlaying) {
             player.stop()
         } else {
@@ -203,7 +202,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var currentSong = UIApplication.rdioPartyApp.session.currentSong
+        let currentSong = UIApplication.rdioPartyApp.session.currentSong
         
         // Player controls
         if indexPath.row == 0 {
@@ -214,7 +213,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 playerHeaderCell.artistNameLabel.text = currentSong.artistName
                 playerHeaderCell.currentSongColor = currentSong.color
                 playerHeaderCell.progressMeter.progress = 0
-                playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
+                playerHeaderCell.playing = player.state.rawValue == RDPlayerStatePlaying.rawValue
                 updateTrackProgress(0)
                 
                 playerHeaderCell.downVoteButton.addTarget(self, action: "downVotePressed", forControlEvents: UIControlEvents.TouchUpInside)
@@ -245,7 +244,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Queue item
         let song = self.queue.songAtIndex(indexPath.row-1)
 
-        var cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCellTableViewCell") as! QueueItemCellTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("QueueItemCellTableViewCell") as! QueueItemCellTableViewCell
         
         cell.voteUpButton.titleLabel!.text = String(song.upVotes())
         cell.voteUpButton.tag = indexPath.row - 1
@@ -324,7 +323,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func autoCompleteTextField(textField: MLPAutoCompleteTextField!, shouldConfigureCell cell: UITableViewCell!, withAutoCompleteString autocompleteString: String!, withAttributedString boldedString: NSAttributedString!, forAutoCompleteObject autocompleteObject: MLPAutoCompletionObject!, forRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        var rpAutoCompleteObject = autocompleteObject as! AutoCompleteObject
+        let rpAutoCompleteObject = autocompleteObject as! AutoCompleteObject
         cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         cell.imageView?.sd_setImageWithURL(NSURL(string: rpAutoCompleteObject.image), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
         return true
@@ -332,7 +331,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func playPausePressed() {
         player.togglePause()
-        playerHeaderCell.playing = player.state.value == RDPlayerStatePlaying.value
+        playerHeaderCell.playing = player.state.rawValue == RDPlayerStatePlaying.rawValue
     }
     
     func downVotePressed(sender: UIButton!) {

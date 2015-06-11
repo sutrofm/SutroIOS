@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, RdioDelegate {
         defaults.setObject(accessToken, forKey: "rdioAccessToken")
         defaults.synchronize()
         
-        var roomList = self.storyboard!.instantiateViewControllerWithIdentifier("RoomListViewController") as! RoomListViewController
+        let roomList = self.storyboard!.instantiateViewControllerWithIdentifier("RoomListViewController") as! RoomListViewController
         self.navigationController?.pushViewController(roomList, animated: false)
         getFirebaseAuthToken(userKey!)
         hideWaitingIndicator()
@@ -73,7 +73,7 @@ class LoginViewController: UIViewController, RdioDelegate {
     
     func rdioAuthorizationFailed(error: NSError!) {
         hideWaitingIndicator()
-        println("Rdio authorization failed with error: \(error.localizedDescription)")
+        print("Rdio authorization failed with error: \(error.localizedDescription)")
         hud = RPHud(style: JGProgressHUDStyle.Dark)
         hud.textLabel.text = "Login has failed. " + error.localizedDescription
         hud.showInView(self.view, animated: false)
@@ -82,7 +82,7 @@ class LoginViewController: UIViewController, RdioDelegate {
     
     func rdioAuthorizationCancelled() {
         hideWaitingIndicator()
-        println("rdioAuthorizationCancelled")
+        print("rdioAuthorizationCancelled")
     }
     
     func getFirebaseAuthToken(rdioUserKey :String) {
