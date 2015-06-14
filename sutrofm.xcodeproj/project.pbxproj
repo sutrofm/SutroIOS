@@ -67,7 +67,6 @@
 		A06D67251A9AB27D005722D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06D67241A9AB27D005722D8 /* QuartzCore.framework */; };
 		A0828F7B1A9EE38700BFF409 /* RoomListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */; };
 		A08FD7511AA4054100863929 /* ChatTrackChangedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08FD74F1AA4054100863929 /* ChatTrackChangedTableViewCell.swift */; };
-		A08FD7521AA4054100863929 /* ChatTrackChangedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */; };
 		A0BE2ED61A997E620050FCE5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE2ED51A997E620050FCE5 /* Room.swift */; };
 		A0BE2ED91A997E750050FCE5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE2ED81A997E750050FCE5 /* Person.swift */; };
 		A0C409751AA3DA400021964B /* RdioSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */; };
@@ -162,7 +161,6 @@
 		A06D672B1A9AB388005722D8 /* RdioParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RdioParty-Bridging-Header.h"; sourceTree = "<group>"; };
 		A0828F791A9EE36800BFF409 /* RoomListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomListTableViewCell.swift; sourceTree = "<group>"; };
 		A08FD74F1AA4054100863929 /* ChatTrackChangedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTrackChangedTableViewCell.swift; sourceTree = "<group>"; };
-		A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTrackChangedTableViewCell.xib; sourceTree = "<group>"; };
 		A0BE2ED51A997E620050FCE5 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		A0BE2ED81A997E750050FCE5 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A0C409741AA3DA400021964B /* RdioSearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioSearchDelegate.swift; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				A00A29281AA3E12400F18495 /* ChatUserSongActionCell.swift */,
 				A00A29291AA3E12400F18495 /* ChatUserSongActionCell.xib */,
 				A08FD74F1AA4054100863929 /* ChatTrackChangedTableViewCell.swift */,
-				A08FD7501AA4054100863929 /* ChatTrackChangedTableViewCell.xib */,
 				250971521AAA87B300AE35A7 /* PlayerHeaderTableViewCell.swift */,
 				A05249D11AAB86B100CA8D65 /* RPParallaxImageView.swift */,
 				A0D649DE1AAD23F400AFC951 /* RPHud.swift */,
@@ -491,7 +488,6 @@
 				A01835A51AACEBFC00E596B4 /* thumbs-down.png in Resources */,
 				25B077BE1B22292600D918E6 /* rooms.png in Resources */,
 				A0D649ED1AAD365200AFC951 /* vol_medium@2x.png in Resources */,
-				A08FD7521AA4054100863929 /* ChatTrackChangedTableViewCell.xib in Resources */,
 				A018359F1AACE8F200E596B4 /* controls_pause@3x.png in Resources */,
 				259015771AB267C30027E95A /* PersonListTableViewCell.xib in Resources */,
 				2591241E1A96C629003B30C5 /* LaunchScreen.xib in Resources */,

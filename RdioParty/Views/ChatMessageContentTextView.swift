@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatMessageContentTextView: UITextView {
+class ChatMessageContentTextView: UITextView, NSLayoutManagerDelegate {
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -16,11 +16,26 @@ class ChatMessageContentTextView: UITextView {
 
     */
     
-    override func drawRect(rect: CGRect) {
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+    }
+    
+    required override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        setupView()
+    }
+    
+    func setupView() {
         editable = false
-        textContainer.lineFragmentPadding = 4
-        textContainerInset = UIEdgeInsetsZero
+        textContainer.lineFragmentPadding = 0
+        textContainerInset = UIEdgeInsetsMake(0, 5, 0, 5)
         scrollEnabled = false
+        
+        layoutManager.delegate = self
     }
 
+    func layoutManager(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+        return CGFloat(4)
+    }
 }

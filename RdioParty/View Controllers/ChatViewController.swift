@@ -24,11 +24,11 @@ class ChatViewController: SLKTextViewController {
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/messages")
 
         tableView.registerClass(ChatMessageTableViewCell.self, forCellReuseIdentifier: "UserMessage")
+        tableView.registerClass(ChatTrackChangedTableViewCell.self, forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         tableView.registerNib(UINib(nibName: "ChatUserSongActionCell", bundle: nil), forCellReuseIdentifier: "ChatUserSongActionCell")
-        tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
+//        tableView.registerNib(UINib(nibName: "ChatTrackChangedTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTrackChangedTableViewCell")
         
         tableView.estimatedRowHeight = 60.0
-        tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.backgroundColor = UIColor.clearColor()
         tableView.allowsSelection = false
@@ -95,6 +95,9 @@ class ChatViewController: SLKTextViewController {
         
         if (message.type == MessageType.User) {
             let cell :ChatMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier("UserMessage", forIndexPath: indexPath) as! ChatMessageTableViewCell
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+
             rdio.getPersonWithDetails(message.userKey, completionClosure: { (person) -> () in
                 cell.userName.text = person.name
                 cell.userImage.sd_setImageWithURL(NSURL(string: person.icon), placeholderImage: UIImage(named: "rdioPartyLogo.png"))
@@ -103,8 +106,6 @@ class ChatViewController: SLKTextViewController {
             cell.transform = self.tableView.transform
             cell.messageText.text = message.text
             
-            cell.setNeedsUpdateConstraints()
-            cell.setNeedsLayout()
             return cell
         } else if message.type == MessageType.UserAction {
             let user :Person = self.room.getUser(message.userKey)!
@@ -123,11 +124,23 @@ class ChatViewController: SLKTextViewController {
             populateTrackPlayingCellWithUser(cell, message: message)
             
             cell.transform = self.tableView.transform
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+
             return cell
         }
         return UITableViewCell()
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let message = self.messages[self.messages.count - 1 - indexPath.row]
+        
+        if message.type == .NewTrack {
+            return 50
+        }
+        
+        return UITableViewAutomaticDimension
+    }
     
     func populateTrackPlayingCellWithUser(cell :ChatTrackChangedTableViewCell, message: Message) {
         // Person who added the song from queue history

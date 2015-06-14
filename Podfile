@@ -12,6 +12,7 @@ pod "SDWebImage"
 pod 'MLPAutoCompleteTextField', '~> 1.5'
 pod 'JGProgressHUD'
 pod 'PureLayout'
+pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 
 target 'sutrofm' do
 

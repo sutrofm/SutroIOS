@@ -26,6 +26,7 @@ PODS:
   - JGProgressHUD (1.2.3)
   - MLPAutoCompleteTextField (1.5)
   - PureLayout (2.0.6)
+  - Reveal-iOS-SDK (1.5.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - MLPAutoCompleteTextField (~> 1.5)
   - PureLayout
+  - Reveal-iOS-SDK
   - SDWebImage
   - SlackTextViewController
 
@@ -50,7 +52,8 @@ SPEC CHECKSUMS:
   JGProgressHUD: 02eb5fc5f1069dc3a6aaf74a0da06f05c2546f32
   MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
+  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SlackTextViewController: 4a1797ac2f3616dbd37435fc62da655e61399cdd
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.36.0

@@ -37,6 +37,7 @@ class ChatMessageTableViewCell: UITableViewCell {
     }
     
     func setupViews() {
+        clipsToBounds = true
         
         backgroundColor = UIColor.clearColor()
         contentView.backgroundColor = UIColor.clearColor()
@@ -53,11 +54,13 @@ class ChatMessageTableViewCell: UITableViewCell {
         // This is the area that the user icon takes up on top of the cell, so we make
         // the text "wrap" around it.
         // TODO: Find a way to do this nicely without magic numbers.
-        let exclusionFrame = CGRectMake(0, 0, 50, 10)
+        let exclusionFrame = CGRectMake(0, 0, 47, 10)
         let exclusionPath = UIBezierPath(rect: exclusionFrame)
         messageText.textContainer.exclusionPaths = [exclusionPath]
         
         userImage.layer.cornerRadius = CGFloat(imageSize / 2)
+        
+        userName.preferredMaxLayoutWidth = userName.frame.size.width
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -84,20 +87,22 @@ class ChatMessageTableViewCell: UITableViewCell {
             messageText.autoPinEdge(.Top, toEdge: .Bottom, ofView: userName, withOffset: 5)
             messageText.autoPinEdgeToSuperviewEdge(.Leading, withInset: marginSize)
             messageText.autoPinEdgeToSuperviewEdge(.Trailing, withInset: marginSize)
-            messageText.autoSetDimension(.Height, toSize: 15, relation: NSLayoutRelation.GreaterThanOrEqual)
+            messageText.autoSetDimension(.Height, toSize: 13, relation: NSLayoutRelation.GreaterThanOrEqual)
 
             // Backing view runs the top to the bottom
-            backingView.autoPinEdgeToSuperviewEdge(.Top, withInset: marginSize)
-            backingView.autoPinEdgeToSuperviewEdge(.Leading, withInset: cellPadding)
-            backingView.autoPinEdgeToSuperviewEdge(.Trailing, withInset: marginSize)
+            backingView.autoPinEdgeToSuperviewEdge(.Top, withInset: cellPadding)
+            backingView.autoPinEdgeToSuperviewEdge(.Leading, withInset: marginSize)
+            backingView.autoPinEdgeToSuperviewEdge(.Trailing, withInset: marginSize * 2)
             backingView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: messageText, withOffset: cellPadding)
+            backingView.autoSetDimension(.Height, toSize: 55, relation: NSLayoutRelation.GreaterThanOrEqual)
 
             // Content View
             contentView.autoPinEdgeToSuperviewEdge(.Leading, withInset: 0)
             contentView.autoPinEdgeToSuperviewEdge(.Trailing, withInset: 0)
             contentView.autoPinEdgeToSuperviewEdge(.Top, withInset: 0)
             contentView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: backingView, withOffset: cellPadding)
-            
+            contentView.autoSetDimension(.Height, toSize: 65, relation: NSLayoutRelation.GreaterThanOrEqual)
+
             didSetupConstraints = true
         }
         super.updateConstraints()
