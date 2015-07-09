@@ -18,7 +18,7 @@ class RPNavigationBar: UINavigationBar {
     
     var secondaryLabel :UILabel!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customTitleLabel.textAlignment = NSTextAlignment.Center
         addSubview(customTitleLabel)

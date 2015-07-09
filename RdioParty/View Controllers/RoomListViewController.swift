@@ -14,7 +14,7 @@ class RoomListViewController: UIViewController, UITableViewDelegate, UITableView
     var rooms = Array<Room>()
     let firebaseref = Firebase(url:"https://rdioparty.firebaseio.com/")
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.navigationItem.hidesBackButton = true
     }
