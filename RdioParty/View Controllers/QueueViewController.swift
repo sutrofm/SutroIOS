@@ -31,7 +31,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         tableView.registerClass(QueueItemCellTableViewCell.self, forCellReuseIdentifier: "QueueItemCellTableViewCell")
         tableView.registerClass(PlayerHeaderTableViewCell.self, forCellReuseIdentifier: "PlayerHeaderTableViewCell")
-        
+
         firebaseRef = Firebase(url:"https://rdioparty.firebaseio.com/\(self.room.name)/queue")
         partyPlayerManager = PartyPlayerManager(firebaseRef: self.firebaseRef)
         
@@ -77,8 +77,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
 
         // Align cell 2 (first queue item after the player UI) to the bottom of the background/currently playing image
-        //tableInset = playerBackingView.frame.maxY - tableView(tableView, heightForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) + searchBar.frame.size.height
-        tableInset = (UIApplication.rdioPartyApp.window?.frame.height)! / 2.4
+        tableInset = playerBackingView.frame.maxY - 150 + (navigationController?.navigationBar.frame.height)!
         tableView.contentInset = UIEdgeInsetsMake(tableInset, 0, 45, 0) //TODO: Don't hard code the table inset
 
         load()
